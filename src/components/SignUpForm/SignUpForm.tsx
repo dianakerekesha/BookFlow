@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import { FirebaseAuthError } from '@/types/SignUpErrors';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -13,14 +16,10 @@ import {
   FieldLabel,
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
-import { COLORS } from '@/constants/colors';
-import { useAuth } from '@/context/authContext';
+import { useAuth } from '@/context/AuthContext.tsx';
 import { doCreateUserWithEmailAndPassword } from '@/firebase/auth';
+import { COLORS } from '@/constants/colors';
 import { cn } from '@/lib/utils';
-import { FirebaseAuthError } from '@/types/SignUpErrors';
-
-import { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
 
 const ERROR_MESSAGES: Record<string, string> = {
   [FirebaseAuthError.EmailAlreadyInUse]: 'This email is already taken.',
@@ -94,7 +93,7 @@ export const SignUpForm = () => {
                   id="name"
                   type="text"
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(event) => setName(event.target.value)}
                   placeholder="John Doe"
                   required
                 />

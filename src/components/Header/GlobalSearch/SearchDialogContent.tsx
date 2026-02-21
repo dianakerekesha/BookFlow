@@ -1,10 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { cn } from '@/lib/utils';
-import { SearchInput } from '@/components/ui/input/SearchInput';
-import { TextHighlighter } from './TextHighlighter';
-import { useSearchBooks } from './useSearchBooks';
-import { COMMON_STYLES, TEXTS, UI } from './search.types';
 import { Building2, User2, BookOpen, ArrowRight } from 'lucide-react';
 import type { Book } from '@/types/Book';
 import {
@@ -15,9 +10,14 @@ import {
   CommandList,
 } from '@/components/ui/Command';
 import { AddButton, HeartButton } from '@/components/ui/Buttons';
-import { useCartFavorites } from '@/context/CartFavoritesContext';
+import { SearchInput } from '@/components/ui/input/SearchInput';
 import { Icon } from '@/components/ui/icons';
+import { useCartFavorites } from '@/context/CartFavoritesContext';
+import { cn } from '@/lib/utils';
 import { showSuccess } from '@/lib/toast';
+import { TextHighlighter } from './TextHighlighter';
+import { useSearchBooks } from './useSearchBooks';
+import { COMMON_STYLES, TEXTS, UI } from './search.types';
 
 interface Props {
   onClose: () => void;

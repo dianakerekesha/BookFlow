@@ -4,13 +4,13 @@ import {
   useStripe,
   useElements,
 } from '@stripe/react-stripe-js';
-import { Button } from '@/components/ui/button';
+import { Loader2 } from 'lucide-react';
 import { TYPOGRAPHY } from '@/constants/typography';
-import { Loader } from '@/components/ui/Loader';
+import { Button } from '@/components/ui/button';
 
 interface StripePaymentFormProps {
   onSuccess: () => void;
-  onError: (msg: string) => void;
+  onError: (message: string) => void;
 }
 
 export const StripePaymentForm = ({
@@ -21,8 +21,8 @@ export const StripePaymentForm = ({
   const elements = useElements();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
     if (!stripe || !elements) return;
 
     setIsLoading(true);
@@ -65,7 +65,7 @@ export const StripePaymentForm = ({
         className={`h-14 ${TYPOGRAPHY.uppercase}`}
       >
         {isLoading ?
-          <Loader />
+          <Loader2 className="w-5 h-5 animate-spin" />
         : 'Pay now'}
       </Button>
     </form>

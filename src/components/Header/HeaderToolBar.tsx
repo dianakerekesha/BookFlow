@@ -1,10 +1,10 @@
-import { useAuth } from '@/context/authContext';
-import { Icon } from '../ui/icons';
-import { HeaderIconLink } from './HeaderIconLink';
-import { doSingOut } from '@/firebase/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { BookmarkToggle } from './Bookmark';
+import { useAuth } from '@/context/AuthContext.tsx';
 import { useBooks } from '@/context/BooksContext';
+import { doSingOut } from '@/firebase/auth';
+import { BookmarkToggle } from './Bookmark';
+import { HeaderIconLink } from './HeaderIconLink';
+import { Icon } from '../ui/icons';
 
 type Props = {
   onMenuClick: () => void;
@@ -19,7 +19,6 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
 
   return (
     <>
-      {/* Desktop + Tablet */}
       <div className="hidden sm:flex items-center h-full">
         <button
           onClick={onSearchIconClick}
@@ -107,7 +106,6 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
         </div>
       </div>
 
-      {/* Mobile burger */}
       <button
         onClick={onMenuClick}
         className="sm:hidden w-[48px] h-[48px] flex items-center justify-center border-l border-border"

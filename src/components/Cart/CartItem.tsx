@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Minus, Plus, X } from 'lucide-react';
+import type { CartItem as CartItemType } from '@/types/Book';
 import { Button } from '@/components/ui/button';
 import { useCartFavorites } from '@/context/CartFavoritesContext.tsx';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
-import type { CartItem as CartItemType } from '@/types/Book';
 
 type Props = {
   book: CartItemType;

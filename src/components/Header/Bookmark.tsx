@@ -1,5 +1,5 @@
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
 import { Sun, Moon, Settings } from 'lucide-react';
 
 export const BookmarkToggle = () => {
@@ -10,8 +10,8 @@ export const BookmarkToggle = () => {
     return document.documentElement.classList.contains('dark');
   });
 
-  const toggleTheme = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
+  const toggleTheme = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
     const newTheme = !isDark;
     setIsDark(newTheme);
 
@@ -29,9 +29,9 @@ export const BookmarkToggle = () => {
     uk: 'UA',
   };
 
-  const languageToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const languageToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
     i18n.changeLanguage(i18n.language === 'en' ? 'uk' : 'en');
-    e.stopPropagation();
+    event.stopPropagation();
   };
 
   return (
@@ -58,7 +58,7 @@ export const BookmarkToggle = () => {
             : <Sun />}
           </button>
           <button
-            onClick={(e) => languageToggle(e)}
+            onClick={(event) => languageToggle(event)}
             className="text-md font-bold hover:scale-110 transition cursor-pointer"
             title="language"
           >
@@ -88,8 +88,8 @@ export const BookmarkToggle = () => {
           </button>
         </div>
         <button
-          onClick={(e) => {
-            e.stopPropagation();
+          onClick={(event) => {
+            event.stopPropagation();
             setIsOpen(!isOpen);
           }}
           className="mb-12 text-sm transition-transform duration-1700 ease-in-out cursor-pointer hover:rotate-360"

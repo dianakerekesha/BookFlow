@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { cn } from '@/lib/utils';
-import { HeaderSearch } from './HeaderSearch';
-import { HeaderNav } from './HeaderNav';
-import { BurgerMenu } from './BurgerMenu';
-import { HeaderToolBar } from './HeaderToolBar';
 import { Link } from 'react-router-dom';
+import { cn } from '@/lib/utils';
+import { BurgerMenu } from './BurgerMenu';
 import { GlobalSearch } from './GlobalSearch/GlobalSearch';
+import { HeaderNav } from './HeaderNav';
+import { HeaderSearch } from './HeaderSearch';
+import { HeaderToolBar } from './HeaderToolBar';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -1,10 +1,9 @@
 import { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, EffectFade } from 'swiper/modules';
+import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/swiper-bundle.css';
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/effect-fade';
 
 import bannerSm from './banner-mob.png';
 

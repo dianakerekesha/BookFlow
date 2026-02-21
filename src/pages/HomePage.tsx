@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { useBooks } from '../context/BooksContext';
-// import type { Book } from '@/types/Book';
 import { BooksSection } from '@/components/BooksSection';
 import { MainSlider } from '@/components/MainSlider';
 import { CategoriesSection } from '@/components/CategoriesSection/CategoriesSection.tsx';

@@ -1,11 +1,11 @@
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '@/context/AuthContext.tsx';
+import { doSingOut } from '@/firebase/auth';
+import { cn } from '@/lib/utils';
+import { HeaderIconLink } from './HeaderIconLink';
+import { HeaderNav } from './HeaderNav';
 import { HeaderSearch } from './HeaderSearch';
 import { Icon } from '../ui/icons';
-import { HeaderNav } from './HeaderNav';
-import { cn } from '@/lib/utils';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { HeaderIconLink } from './HeaderIconLink';
-import { useAuth } from '@/context/authContext';
-import { doSingOut } from '@/firebase/auth';
 
 type Props = {
   onClose: () => void;
@@ -20,7 +20,6 @@ export const BurgerMenu = ({ onClose, onSearchClick }: Props) => {
   return (
     <div className="fixed inset-0 z-50 bg-white">
       <div className="flex flex-col justify-between h-full w-full">
-        {/* Header: Logo + Close */}
         <div
           className={cn(
             'mx-auto flex items-center justify-between pl-4 w-full max-w-[1280px]',
@@ -47,16 +46,13 @@ export const BurgerMenu = ({ onClose, onSearchClick }: Props) => {
           </button>
         </div>
 
-        {/* Content: Nav + Search + Dropdown */}
         <div className="flex-1 overflow-y-auto flex flex-col py-8 gap-6">
           <HeaderNav
             isMobile
             onLinkClick={onClose}
           />
 
-          {/* Search Input */}
           <div className="flex flex-col gap-4 px-4">
-            {/* Dropdown (categories) */}
             <HeaderSearch
               isMobile
               onCategorySelect={onClose}
@@ -65,7 +61,6 @@ export const BurgerMenu = ({ onClose, onSearchClick }: Props) => {
           </div>
         </div>
 
-        {/* Footer: Icons */}
         <div className="flex border-t h-[56px]">
           <HeaderIconLink
             to="/favourites"

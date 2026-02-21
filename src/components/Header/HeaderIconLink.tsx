@@ -1,5 +1,6 @@
-import { cn } from '@/lib/utils';
+import React from 'react';
 import { Link, useLocation, type Location } from 'react-router-dom';
+import { cn } from '@/lib/utils';
 
 interface NavigationState {
   background?: Location;

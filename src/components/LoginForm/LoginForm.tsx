@@ -1,4 +1,6 @@
-import { cn } from '@/lib/utils';
+import React, { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import { FirebaseLoginError } from '@/types/SignInErrors';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -14,15 +16,13 @@ import {
   FieldLabel,
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
-import { useState } from 'react';
-import { useAuth } from '@/context/authContext';
+import { useAuth } from '@/context/AuthContext.tsx';
 import {
   doSingInWithEmailAndPassword,
   doSingInWithGoogle,
 } from '@/firebase/auth';
-import { Link, Navigate } from 'react-router-dom';
 import { COLORS } from '@/constants/colors';
-import { FirebaseLoginError } from '@/types/SignInErrors';
+import { cn } from '@/lib/utils';
 
 const LOGIN_ERROR_MESSAGES: Record<string, string> = {
   [FirebaseLoginError.InvalidCredential]: 'Incorrect email or password.',

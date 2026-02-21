@@ -1,7 +1,7 @@
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
-import React from 'react';
 
 type Props = {
   total: number;

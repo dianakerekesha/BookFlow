@@ -1,14 +1,14 @@
-import { ProductCard } from '@/components/ProductCard';
 import type { Book } from '@/types/Book';
-import { cn } from '@/lib/utils';
 import { TYPOGRAPHY } from '@/constants/typography';
-import { ScrollButton } from '@/components/BooksSection/ScrollButtons';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   useCarousel,
 } from '@/components/ui/carousel';
+import { ProductCard } from '@/components/ProductCard';
+import { ScrollButton } from '@/components/BooksSection/ScrollButtons';
+import { cn } from '@/lib/utils';
 
 interface Props {
   title: string;
@@ -72,9 +72,9 @@ export const BooksSection = ({ title, books = [] }: Props) => {
           </div>
 
           <CarouselContent className="flex mt-[24px]">
-            {books.map((book, index) => (
+            {books.map((book, i) => (
               <CarouselItem
-                key={`${book.id}-${index}`}
+                key={`${book.id}-${i}`}
                 className="pl-[16px] basis-auto"
               >
                 <div className="h-[400px] md:h-[506px] lg:h-[571px]">

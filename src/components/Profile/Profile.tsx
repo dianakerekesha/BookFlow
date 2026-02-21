@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
-import { firestore } from '@/firebase/firebase';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -10,10 +9,11 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Dialog, DialogContent } from '@/components/ui/Dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Dialog, DialogContent } from '@/components/ui/Dialog';
-import { useAuth } from '@/context/authContext';
+import { useAuth } from '@/context/AuthContext.tsx';
+import { firestore } from '@/firebase/firebase';
 
 interface ProfileFormData {
   name: string;
@@ -101,8 +101,8 @@ export const Profile = ({ open, onClose }: ProfileProps) => {
                 id="name"
                 placeholder="Enter your name"
                 value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
+                onChange={(event) =>
+                  setFormData({ ...formData, name: event.target.value })
                 }
               />
             </div>

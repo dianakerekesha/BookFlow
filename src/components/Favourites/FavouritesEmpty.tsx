@@ -1,10 +1,9 @@
-import { Heart, MousePointerClick, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { cn } from '@/lib/utils';
-import { TYPOGRAPHY } from '@/constants/typography';
-import { CustomButton } from '../ui/CustomButton';
-
+import { Heart, MousePointerClick, ArrowRight } from 'lucide-react';
 import type { FavouritesEmptyProps } from './types/FavouritesEmpty';
+import { TYPOGRAPHY } from '@/constants/typography';
+import { cn } from '@/lib/utils';
+import { CustomButton } from '../ui/CustomButton';
 
 const DEFAULT_CONTENT = {
   TITLE: 'Your heart is still looking for a match',
