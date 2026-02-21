@@ -19,6 +19,12 @@ import {
   UserPlus,
   CircleUserRound,
   Check,
+  Bookmark,
+  Sun,
+  Moon,
+  Settings,
+  DollarSign,
+  Euro,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -41,7 +47,13 @@ export type IconName =
   | 'signUp'
   | 'signOut'
   | 'profileIcon'
-  | 'check';
+  | 'check'
+  | 'bookmark'
+  | 'sun'
+  | 'moon'
+  | 'settings'
+  | 'dollarSign'
+  | 'euro';
 
 export type IconSize = 'sm' | 'md';
 
@@ -69,6 +81,12 @@ const icons = {
   signOut: LogOut,
   profileIcon: CircleUserRound,
   check: Check,
+  bookmark: Bookmark,
+  sun: Sun,
+  moon: Moon,
+  settings: Settings,
+  dollarSign: DollarSign,
+  euro: Euro,
 };
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {

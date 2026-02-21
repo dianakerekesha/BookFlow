@@ -5,12 +5,15 @@ import App from './App.tsx';
 import { BrowserRouter } from 'react-router-dom';
 import { CartFavoritesProvider } from '@/context/CartFavoritesContext';
 import { AuthProvider } from './context/authContext.tsx';
+import { BooksProvider } from './context/BooksContext';
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter basename="/books-catalog-frontend/">
     <AuthProvider>
       <CartFavoritesProvider>
-        <App />
+        <BooksProvider>
+          <App />
+        </BooksProvider>
       </CartFavoritesProvider>
     </AuthProvider>
   </BrowserRouter>,

@@ -5,7 +5,6 @@ import { HeaderNav } from './HeaderNav';
 import { BurgerMenu } from './BurgerMenu';
 import { HeaderToolBar } from './HeaderToolBar';
 import { Link } from 'react-router-dom';
-import { Bookmark } from './Bookmark';
 import { GlobalSearch } from './GlobalSearch/GlobalSearch';
 
 export const Header = () => {
@@ -25,7 +24,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full bg-white border-b border-elements min-w-[320px]">
+      <header className="sticky top-0 z-50 w-full bg-secondary border-b border-border min-w-[320px]">
         <div
           className={cn(
             'mx-auto flex items-center justify-between pl-4 transition-all',
@@ -47,15 +46,12 @@ export const Header = () => {
 
           <div className="flex items-center h-full">
             <HeaderSearch onClick={() => setIsSearchOpen(true)} />
-            <div className="relative h-full flex items-center">
-              <HeaderToolBar
-                onMenuClick={() => setIsMenuOpen(true)}
-                onSearchIconClick={() => {
-                  setIsSearchOpen(true);
-                }}
-              />
-              <Bookmark />
-            </div>
+            <HeaderToolBar
+              onMenuClick={() => setIsMenuOpen(true)}
+              onSearchIconClick={() => {
+                setIsSearchOpen(true);
+              }}
+            />
           </div>
         </div>
       </header>

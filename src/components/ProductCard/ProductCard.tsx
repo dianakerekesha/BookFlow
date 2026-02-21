@@ -81,7 +81,7 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
               alt="iPad"
             />
             <img
-              className="absolute top-[8.7%] left-[10.5%] w-[79.5%] h-[82%] object-cover"
+              className="pointer-events-none absolute top-[8.7%] left-[10.5%] w-[79.5%] h-[82%] object-cover"
               src={`${book.images[0]}`}
               alt={book.name}
             />
