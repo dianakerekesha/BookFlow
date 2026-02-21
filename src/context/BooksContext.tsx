@@ -1,4 +1,11 @@
-import { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useMemo,
+  useRef,
+} from 'react';
 import type { ReactNode } from 'react';
 import type { Book } from './../types/Book';
 import { getPaperBooks } from '@/services/booksAPI';
@@ -8,6 +15,8 @@ interface BooksContextType {
   newBooks: Book[];
   suggestedBooks: Book[];
   isLoading: boolean;
+  cartIconRef: React.RefObject<HTMLDivElement | null>;
+  favIconRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const BooksContext = createContext<BooksContextType | undefined>(undefined);
@@ -15,6 +24,9 @@ const BooksContext = createContext<BooksContextType | undefined>(undefined);
 export const BooksProvider = ({ children }: { children: ReactNode }) => {
   const [books, setBooks] = useState<Book[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const cartIconRef = useRef<HTMLDivElement>(null);
+  const favIconRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     getPaperBooks()
@@ -39,7 +51,14 @@ export const BooksProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <BooksContext.Provider
-      value={{ books, newBooks, suggestedBooks, isLoading }}
+      value={{
+        books,
+        newBooks,
+        suggestedBooks,
+        isLoading,
+        cartIconRef,
+        favIconRef,
+      }}
     >
       {children}
     </BooksContext.Provider>

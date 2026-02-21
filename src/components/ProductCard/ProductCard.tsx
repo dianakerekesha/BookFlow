@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Truck } from 'lucide-react';
 import { AddButton } from '@/components/ui/Buttons/AddButton';
@@ -10,6 +10,8 @@ import { cn } from '@/lib/utils';
 import type { Book } from '@/types/Book';
 import { useTranslation } from 'react-i18next';
 import { showInfo, showSuccess } from '@/lib/toast';
+import { animateToTarget } from '@/components/ProductCard/animateToTarget';
+import { useBooks } from '@/context/BooksContext';
 
 type Props = {
   book: Book;
@@ -20,22 +22,43 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
   const { addToCart, removeFromCart, toggleFavorite, isFavorite, isInCart } =
     useCartFavorites();
 
+  const { cartIconRef, favIconRef } = useBooks();
+  const cardRef = useRef<HTMLDivElement>(null);
+
   const isBookInCart = isInCart(book.id);
   const isBookInFavorites = isFavorite(book.id);
   const price = book.priceDiscount ?? book.priceRegular;
 
-  const toggleAddToCart = () => {
+  const handleAddToCart = () => {
     if (isBookInCart) {
       removeFromCart(book.id);
       showInfo('Book removed from cart!');
     } else {
       addToCart(book);
       showSuccess('Book added to cart!');
+
+      if (cardRef.current && cartIconRef?.current) {
+        animateToTarget(cardRef.current, cartIconRef.current);
+      }
+    }
+  };
+
+  const handleToggleFavorite = () => {
+    toggleFavorite(book);
+
+    if (isBookInFavorites) {
+      showInfo('Book removed from favorites!');
+    } else {
+      showSuccess('Book added to favorites!');
+
+      if (cardRef.current && favIconRef?.current) {
+        animateToTarget(cardRef.current, favIconRef.current);
+      }
     }
   };
 
   return (
-    <div className="relative flex flex-col gap-4 flex-shrink-0 w-full h-[400px] p-5 lg:w-[272px] sm:h-[506px] sm:p-8 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
+    <div className="select-none relative flex flex-col gap-4 flex-shrink-0 w-full h-[400px] p-5 lg:w-[272px] sm:h-[506px] sm:p-8 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
       {book.type === 'audiobook' && (
         <div className="absolute top-8 right-6 w-10 h-10 flex items-center justify-center bg-primary rounded-full z-10">
           <Icon
@@ -104,21 +127,17 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
         </div>
       </Link>
 
-      <div className="mt-auto flex gap-2 w-full">
+      <div
+        ref={cardRef}
+        className="mt-auto flex gap-2 w-full"
+      >
         <AddButton
-          onClick={toggleAddToCart}
+          onClick={handleAddToCart}
           isSelected={isBookInCart}
           className="flex-1"
         />
         <HeartButton
-          onClick={() => {
-            toggleFavorite(book);
-            if (isBookInFavorites) {
-              showInfo('Book removed from favorites!');
-            } else {
-              showSuccess('Book added to favorites!');
-            }
-          }}
+          onClick={handleToggleFavorite}
           isSelected={isBookInFavorites}
         />
       </div>
