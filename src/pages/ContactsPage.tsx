@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
 const ContactFormField = {
   Name: 'name',
@@ -24,8 +24,8 @@ export const ContactsPage = () => {
   const [isMapOpen, setIsMapOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
     const newErrors = {
       [ContactFormField.Name]: !formData[ContactFormField.Name].trim(),
       [ContactFormField.Email]:
@@ -109,7 +109,7 @@ export const ContactsPage = () => {
               >
                 <div
                   className="relative w-3/4 h-3/4 bg-white rounded-xl overflow-hidden shadow-2xl"
-                  onClick={(e) => e.stopPropagation()}
+                  onClick={(event) => event.stopPropagation()}
                 >
                   <button
                     onClick={() => setIsMapOpen(false)}
@@ -152,10 +152,10 @@ export const ContactsPage = () => {
                   : 'border-gray-300 focus:border-black'
                 }`}
                 value={formData[ContactFormField.Name]}
-                onChange={(e) =>
+                onChange={(event) =>
                   setFormData({
                     ...formData,
-                    [ContactFormField.Name]: e.target.value,
+                    [ContactFormField.Name]: event.target.value,
                   })
                 }
               />
@@ -176,10 +176,10 @@ export const ContactsPage = () => {
                   : 'border-gray-300 focus:border-black'
                 }`}
                 value={formData[ContactFormField.Email]}
-                onChange={(e) =>
+                onChange={(event) =>
                   setFormData({
                     ...formData,
-                    [ContactFormField.Email]: e.target.value,
+                    [ContactFormField.Email]: event.target.value,
                   })
                 }
               />
@@ -200,10 +200,10 @@ export const ContactsPage = () => {
                   : 'border-gray-300 focus:border-black'
                 }`}
                 value={formData[ContactFormField.Message]}
-                onChange={(e) =>
+                onChange={(event) =>
                   setFormData({
                     ...formData,
-                    [ContactFormField.Message]: e.target.value,
+                    [ContactFormField.Message]: event.target.value,
                   })
                 }
               />
@@ -221,8 +221,8 @@ export const ContactsPage = () => {
               <input
                 type="file"
                 ref={fileInputRef}
-                onChange={(e) =>
-                  setFile(e.target.files ? e.target.files[0] : null)
+                onChange={(event) =>
+                  setFile(event.target.files ? event.target.files[0] : null)
                 }
                 className="text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-100 file:text-black hover:file:bg-gray-200"
               />

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 export const RightsPage = () => {
   const linkStyle =
     'font-bold hover:text-yellow-600 transition-colors underline decoration-yellow-500 underline-offset-4';

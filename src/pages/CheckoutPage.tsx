@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import type { CheckoutFormValues } from '@/components/Checkout/helpers/checkoutSchema.ts';
+import type { PaymentMethod, Order } from '@/types/Order';
 import { CheckoutForm } from '@/components/Checkout/CheckoutForm';
+import { LiqPayButton } from '@/components/Checkout/LiqPayButton';
 import { OrderSummary } from '@/components/Checkout/OrderSummary';
 import { PaymentMethodSelector } from '@/components/Checkout/PaymentMethodSelector';
 import { StripeWrapper } from '@/components/Checkout/StripeWrapper';
 import { useCartAndFavorites } from '@/hooks/useCartAndFavourites';
-import { createOrder, createStripeIntent } from '@/services/paymentAPI';
-import { LiqPayButton } from '@/components/Checkout/LiqPayButton';
-import type { CheckoutFormValues } from '@/utils/checkoutSchema';
-import type { PaymentMethod, Order } from '@/types/Order';
 import { auth } from '@/firebase/firebase';
+import { createOrder, createStripeIntent } from '@/services/paymentAPI';
 import { TYPOGRAPHY } from '@/constants/typography';
 
 type Step = 'delivery' | 'payment';
@@ -42,6 +42,11 @@ const CheckoutPage = () => {
   }
 
   const handleDeliverySubmit = async (data: CheckoutFormValues) => {
+    if (!auth.currentUser) {
+      setError('Please log in to continue');
+      return;
+    }
+
     setIsLoading(true);
     setError(null);
     try {
@@ -49,7 +54,7 @@ const CheckoutPage = () => {
         customer: data,
         items: cartItems,
         paymentMethod,
-        userId: auth.currentUser?.uid,
+        userId: auth.currentUser.uid,
       });
       setCurrentOrder(order);
 
@@ -62,11 +67,11 @@ const CheckoutPage = () => {
       }
 
       setStep('payment');
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error(error);
       const message =
-        err instanceof Error && err.message ?
-          err.message
+        error instanceof Error && error.message ?
+          error.message
         : 'Something went wrong. Please try again.';
       setError(message);
     } finally {
@@ -78,8 +83,8 @@ const CheckoutPage = () => {
     navigate(`/order-success/${currentOrder?.id}`);
   };
 
-  const handlePaymentError = (msg: string) => {
-    setError(msg);
+  const handlePaymentError = (message: string) => {
+    setError(message);
   };
 
   const stepLabels = ['1. Delivery', '2. Payment', '3. Confirmation'];

@@ -1,3 +1,4 @@
+import type { SetURLSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
   Select,
@@ -7,7 +8,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import type { SetURLSearchParams } from 'react-router-dom';
 
 type Props = {
   sort: string;
@@ -24,6 +24,7 @@ export const CatalogControls = ({
   onChangeItemsPerPage,
 }: Props) => {
   const { t } = useTranslation();
+
   return (
     <>
       <div className="col-span-2 md:col-span-4 lg:col-span-4 text-left mb-[24px]">
@@ -35,12 +36,14 @@ export const CatalogControls = ({
           onValueChange={(value) => {
             setSearchParams((prev) => {
               const params = new URLSearchParams(prev);
+
               if (value) {
                 params.set('sort', value);
                 params.set('page', '1');
               } else {
                 params.delete('sort');
               }
+
               return params;
             });
           }}

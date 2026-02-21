@@ -1,5 +1,5 @@
-import { client } from '@/services/fetchClient';
-import type { Book } from '@/types/Book';
+import type { Book } from '@/types/Book.ts';
+import { client } from '@/services/fetchClient.ts';
 
 export const getBookAndVariants = async (
   type: 'paperback' | 'kindle' | 'audiobook',

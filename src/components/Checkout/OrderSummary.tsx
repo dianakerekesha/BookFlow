@@ -26,7 +26,7 @@ export const OrderSummary = ({ items }: OrderSummaryProps) => {
             key={item.id}
             className="flex items-center gap-3"
           >
-            <div className="relative flex-shrink-0">
+            <div className="relative shrink-0">
               <img
                 src={item.images[0]}
                 alt={item.name}

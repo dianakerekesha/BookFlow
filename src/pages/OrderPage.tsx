@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { getUserOrders } from '@/services/paymentAPI';
+import { ChevronLeft, Loader2 } from 'lucide-react';
 import type { Order } from '@/types/Order';
+import { getUserOrders } from '@/services/paymentAPI';
 import { TYPOGRAPHY } from '@/constants/typography';
-import { ChevronLeft } from 'lucide-react';
-import { Loader } from '@/components/ui/Loader';
 import { cn } from '@/lib/utils.ts';
 
 const StatusBadge = ({ status }: { status: Order['status'] }) => {
@@ -37,29 +36,19 @@ const OrdersPage = () => {
       .finally(() => setIsLoading(false));
   }, []);
 
-  if (isLoading) {
+  if (isLoading)
     return (
       <div className="flex items-center justify-center py-32">
-        <Loader />
+        <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
       </div>
     );
-  }
 
   return (
     <div className="py-10 pb-24">
       <div className="max-w-3xl mx-auto px-6">
         <div className="mb-10">
           <button
-            onClick={() => {
-              if (
-                document.referrer &&
-                new URL(document.referrer).origin === window.location.origin
-              ) {
-                navigate(-1);
-              } else {
-                navigate('/');
-              }
-            }}
+            onClick={() => navigate(-1)}
             className={cn(
               TYPOGRAPHY.small,
               'mb-2 inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors',
@@ -185,17 +174,21 @@ const OrdersPage = () => {
                       <p
                         className={`${TYPOGRAPHY.body} font-medium text-gray-900 truncate`}
                       >
-                        {order.items.map((i) => i.name).join(', ')}
+                        {order.items.map((item) => item.name).join(', ')}
                       </p>
                       <p
                         className={`${TYPOGRAPHY.small} text-gray-400 mt-0.5 capitalize`}
                       >
                         {order.paymentMethod} ·{' '}
-                        {order.items.reduce((s, i) => s + i.quantity, 0)} items
+                        {order.items.reduce(
+                          (sum, item) => sum + item.quantity,
+                          0,
+                        )}{' '}
+                        items
                       </p>
                     </div>
 
-                    <div className="flex items-center gap-3 flex-shrink-0">
+                    <div className="flex items-center gap-3 shrink-0">
                       <span
                         className={`${TYPOGRAPHY.h5} font-extrabold text-gray-900`}
                       >

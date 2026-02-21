@@ -4,9 +4,8 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth';
-import { firestore } from './firebase';
 import { doc, setDoc } from 'firebase/firestore';
-import { auth } from './firebase';
+import { auth, firestore } from './firebase';
 
 export const doCreateUserWithEmailAndPassword = async (
   email: string,
@@ -31,9 +30,9 @@ export const doCreateUserWithEmailAndPassword = async (
 
 export const doSingInWithEmailAndPassword = (
   email: string,
-  passowrd: string,
+  password: string,
 ) => {
-  return signInWithEmailAndPassword(auth, email, passowrd);
+  return signInWithEmailAndPassword(auth, email, password);
 };
 
 export const doSingInWithGoogle = async () => {

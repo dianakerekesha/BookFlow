@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
-import { useTranslation } from 'react-i18next';
 import { CategoriesSectionSkeleton } from './CategoriesSectionSkeleton';
 
 const BASE = import.meta.env.BASE_URL;
@@ -31,6 +31,7 @@ export const CategoriesSection = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsLoading(false), 500);
+
     return () => clearTimeout(timeout);
   }, []);
 
@@ -43,21 +44,21 @@ export const CategoriesSection = () => {
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-        {CATEGORIES.map((cat) => (
+        {CATEGORIES.map((category) => (
           <Link
-            key={cat.path}
-            to={cat.path}
+            key={category.path}
+            to={category.path}
             className="group"
           >
             <div className="overflow-hidden rounded-2xl">
               <img
-                src={cat.image}
-                alt={t(cat.label)}
+                src={category.image}
+                alt={t(category.label)}
                 className="w-full aspect-[4/3] object-cover transition duration-500 group-hover:scale-105"
               />
             </div>
             <h3 className={cn(TYPOGRAPHY.h4, 'mt-4 text-foreground')}>
-              {t(cat.label)}
+              {t(category.label)}
             </h3>
           </Link>
         ))}

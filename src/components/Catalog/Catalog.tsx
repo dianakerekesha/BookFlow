@@ -1,13 +1,13 @@
-import { GridContainer } from '../GridContainer/GridContainer';
 import { useCallback, useEffect } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import type { Book } from '@/types/Book';
+import { GridContainer } from '../GridContainer/GridContainer';
+import { BooksList } from './BooksList';
 import { CatalogControls } from './CatalogControls';
 import { PaginationBlock } from './PaginationBlock';
-import { BooksList } from './BooksList';
-import { useTranslation } from 'react-i18next';
 
-function filtredProduct(incomingProduct: Book[], sortBy: string) {
+function filteredProduct(incomingProduct: Book[], sortBy: string) {
   let changedProduct = [...incomingProduct];
 
   changedProduct = changedProduct.filter((product) => {
@@ -54,18 +54,18 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
 
   const MAX_VISIBLE = 5;
 
-  const filtresProducts = filtredProduct(products, sort);
+  const filtersProducts = filteredProduct(products, sort);
 
   const totalPages =
     itemsPerPage === 'all' ? 1 : (
-      Math.ceil(filtresProducts.length / itemsPerPage)
+      Math.ceil(filtersProducts.length / itemsPerPage)
     );
 
   const safePage = Math.min(pageFromUrl, totalPages || 1);
 
   const currentProducts: Book[] =
-    itemsPerPage === 'all' ? filtresProducts : (
-      filtresProducts.slice(
+    itemsPerPage === 'all' ? filtersProducts : (
+      filtersProducts.slice(
         (safePage - 1) * Number(itemsPerPage),
         safePage * Number(itemsPerPage),
       )
@@ -80,6 +80,7 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
   }
 
   const visiblePages = [];
+
   for (let i = startPage; i <= endPage; i++) {
     visiblePages.push(i);
   }
@@ -87,11 +88,14 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
   const handleChangeNumber = useCallback(
     (targetPage: number) => {
       const newSearchParams = new URLSearchParams(searchParams.toString());
+
       newSearchParams.set('page', targetPage.toString());
+
       navigate({
         pathname: location.pathname,
         search: `?${newSearchParams.toString()}`,
       });
+
       window.scrollTo({ top: 0, behavior: 'smooth' });
     },
     [searchParams, navigate, location.pathname],
@@ -100,11 +104,14 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
   const handleChangeArrow = (order: 'prev' | 'next') => {
     const newSearchParams = new URLSearchParams(searchParams.toString());
     const targetPage = order === 'prev' ? safePage - 1 : safePage + 1;
+
     newSearchParams.set('page', targetPage.toString());
+
     navigate({
       pathname: location.pathname,
       search: `?${newSearchParams.toString()}`,
     });
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -113,6 +120,7 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
       const params = new URLSearchParams(prev);
       params.set('items', value.toString());
       params.set('page', '1');
+
       return params;
     });
   };
@@ -122,6 +130,7 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
 
     if (pageFromUrl < 1) {
       handleChangeNumber(1);
+
       return;
     }
 
@@ -137,8 +146,8 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
           {title}
         </h1>
         <p className="text-[#89939A] text-[14px] font-manrope font-medium">
-          {`${filtresProducts.length} ${t('books.books')}`}
-          {isLoading ? '...' : `${filtresProducts.length} books`}
+          {`${filtersProducts.length} ${t('books.books')}`}
+          {isLoading ? '...' : `${filtersProducts.length} books`}
         </p>
       </div>
 

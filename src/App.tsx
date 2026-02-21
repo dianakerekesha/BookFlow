@@ -1,27 +1,24 @@
-import './App.css';
-
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { AudiobookPage } from '@/pages/AudiobookPage';
 import { CartPage } from '@/pages/CartPage';
 import { CatalogPage } from '@/pages/CatalogPage';
+import { CategoryPage } from './pages/CategoryPage';
 import CheckoutPage from '@/pages/CheckoutPage';
 import { ContactsPage } from '@/pages/ContactsPage';
 import { FavouritesPage } from '@/pages/FavouritesPage';
 import { HomePage } from '@/pages/HomePage';
 import { ItemCardPage } from '@/pages/ItemCardPage';
 import { KindlePage } from '@/pages/KindlePage';
-import { NotFoundPage } from '@/pages/NotFoundPage.tsx';
-import { PaperPage } from '@/pages/PaperPage';
-import { RightsPage } from '@/pages/RightsPage';
-import { CategoryPage } from './pages/CategoryPage';
-import OrderSuccessPage from '@/pages/OrderSuccessPage';
-import OrdersPage from '@/pages/OrderPage.tsx';
 import { LoginPage } from './pages/LoginPage';
-import { SignUpPage } from './pages/SignUpPage';
+import { NotFoundPage } from '@/pages/NotFoundPage.tsx';
+import OrdersPage from '@/pages/OrderPage.tsx';
+import OrderSuccessPage from '@/pages/OrderSuccessPage';
+import { PaperPage } from '@/pages/PaperPage';
 import { ProfilePage } from './pages/ProfilePage';
-import { BookWordsBackground } from '@/components/BookWordsBackground';
+import { RightsPage } from '@/pages/RightsPage';
+import { SignUpPage } from './pages/SignUpPage';
 
 function App() {
   const location = useLocation();
@@ -34,7 +31,6 @@ function App() {
   return (
     <>
       <div className="flex min-h-screen flex-col relative">
-        <BookWordsBackground />
         {!hideLayout && <Header />}
         <main className="flex-1 relative z-10">
           <Routes location={background || location}>

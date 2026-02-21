@@ -1,15 +1,15 @@
 import { useMemo, useState, useEffect } from 'react';
-import { ChevronLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { ChevronLeft } from 'lucide-react';
 import { useCartFavorites } from '@/context/CartFavoritesContext.tsx';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
 import { CartItem } from './CartItem';
 import { CartItemSkeleton } from './CartItemSkeleton';
-import { CartSummarySkeleton } from './CartSummarySkeleton';
 import { CartSummary } from './CartSummary';
+import { CartSummarySkeleton } from './CartSummarySkeleton';
 import { EmptyCart } from './EmptyCart';
-import { useTranslation } from 'react-i18next';
 
 export const Cart = () => {
   const { cart } = useCartFavorites();
@@ -18,6 +18,7 @@ export const Cart = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsLoading(false), 500);
+
     return () => clearTimeout(timeout);
   }, []);
 

@@ -4,7 +4,7 @@ import { getOrder } from '@/services/paymentAPI';
 import type { Order } from '@/types/Order';
 import { DownloadInvoiceButton } from '@/components/Invoices';
 import { TYPOGRAPHY } from '@/constants/typography';
-import { Loader } from '@/components/ui/Loader';
+import { Loader2 } from 'lucide-react';
 
 const StatusBadge = ({ status }: { status: Order['status'] }) => {
   const config = {
@@ -43,13 +43,12 @@ const OrderSuccessPage = () => {
       .finally(() => setIsLoading(false));
   }, [orderId]);
 
-  if (isLoading) {
+  if (isLoading)
     return (
       <div className="flex items-center justify-center py-32">
-        <Loader />
+        <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
       </div>
     );
-  }
 
   if (!order) {
     return (
@@ -125,8 +124,8 @@ const OrderSuccessPage = () => {
                   src={`${window.location.origin}/${item.images[0]}`}
                   alt={item.name}
                   className="w-12 h-16 object-cover rounded-sm flex-shrink-0"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
+                  onError={(event) => {
+                    (event.target as HTMLImageElement).style.display = 'none';
                   }}
                 />
                 <div className="flex-1 min-w-0">

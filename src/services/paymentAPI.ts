@@ -8,8 +8,8 @@ import {
   where,
   orderBy,
 } from 'firebase/firestore';
-import { auth, firestore, functions } from '@/firebase/firebase';
 import type { Order, CreateOrderPayload } from '../types/Order';
+import { auth, firestore, functions } from '@/firebase/firebase';
 
 type CallableFunctionError = {
   message?: string;

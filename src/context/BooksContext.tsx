@@ -5,8 +5,8 @@ import {
   useEffect,
   useMemo,
   useRef,
+  type ReactNode,
 } from 'react';
-import type { ReactNode } from 'react';
 import type { Book } from './../types/Book';
 import { getPaperBooks } from '@/services/booksAPI';
 
