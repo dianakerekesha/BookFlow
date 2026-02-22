@@ -3,7 +3,7 @@ import { Icon } from '../ui/icons';
 import { HeaderIconLink } from './HeaderIconLink';
 import { doSingOut } from '@/firebase/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { BookmarkToggle } from './Bookmark';
+import { BookmarkToggle } from './BookmarkToggle';
 
 type Props = {
   onMenuClick: () => void;
@@ -104,7 +104,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
       {/* Mobile burger */}
       <button
         onClick={onMenuClick}
-        className="sm:hidden w-[48px] h-[48px] flex items-center justify-center border-l border-border"
+        className="sm:hidden w-[48px] h-[48px] flex items-center justify-center border-l border-border relative bg-secondary isolate"
         aria-label="Menu"
       >
         <Icon
@@ -112,6 +112,9 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
           className="w-4 h-4"
         />
       </button>
+      <div className="sm:hidden flex items-center h-full">
+        <BookmarkToggle isMobile />
+      </div>
     </>
   );
 };
