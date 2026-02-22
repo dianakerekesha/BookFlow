@@ -3,9 +3,10 @@ import {
   getAudioBooks,
   getKindleBooks,
   getPaperBooks,
+  booksQueryKeys,
 } from '@/services/booksAPI';
 import type { Book } from '@/types/Book';
-import { useEffect, useState } from 'react';
+import { useQueries } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 
 function filterBooks(incomingBooks: Book[], category: string | undefined) {
@@ -23,23 +24,26 @@ function filterBooks(incomingBooks: Book[], category: string | undefined) {
 }
 
 export const CategoryPage = () => {
-  const [books, setBooks] = useState<Book[]>([]);
   const { categoryName } = useParams<{ categoryName: string }>();
 
   const title =
     categoryName ?
-      categoryName?.charAt(0).toUpperCase() + categoryName?.slice(1)
+      categoryName.charAt(0).toUpperCase() + categoryName.slice(1)
     : '';
 
-  useEffect(() => {
-    Promise.all([getPaperBooks(), getKindleBooks(), getAudioBooks()])
-      .then(([paper, kindle, audio]) => {
-        setBooks([...paper, ...kindle, ...audio]);
-      })
-      .catch(console.error);
-  }, []);
+  const results = useQueries({
+    queries: [
+      { queryKey: booksQueryKeys.paper, queryFn: getPaperBooks },
+      { queryKey: booksQueryKeys.kindle, queryFn: getKindleBooks },
+      { queryKey: booksQueryKeys.audio, queryFn: getAudioBooks },
+    ],
+  });
 
+  const books = results.flatMap((r) => r.data ?? []);
+  const isLoading = results.some((r) => r.isLoading);
   const visibleBooks = filterBooks(books, categoryName);
+
+  if (isLoading) return <p>Завантаження...</p>;
 
   return (
     <Catalog

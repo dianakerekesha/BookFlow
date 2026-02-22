@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import type { Book } from '@/types/Book';
 import { BooksSection } from '@/components/BooksSection';
 import { Loader } from '@/components/ui/Loader.tsx';
@@ -20,24 +21,21 @@ interface Props {
 
 export const ItemCard: React.FC<Props> = ({ type }) => {
   const { suggestedBooks } = useBooks();
-  const [book, setBook] = useState<Book | null>(null);
-  const [bookVariants, setBookVariants] = useState<Book[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
   const { bookSlug } = useParams<{ bookSlug: string }>();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!bookSlug) return;
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['book', type, bookSlug],
+    queryFn: () => getBookAndVariants(type, bookSlug!),
+    enabled: !!bookSlug,
+  });
 
-    getBookAndVariants(type, bookSlug)
-      .then(({ current, variants }) => {
-        setBook(current);
-        setBookVariants(variants);
-      })
-      .catch(() => navigate('*', { replace: true }))
-      .finally(() => setIsLoading(false));
-  }, [type, bookSlug, navigate]);
+  useEffect(() => {
+    if (isError) navigate('*', { replace: true });
+  }, [isError, navigate]);
+
+  const book = data?.current ?? null;
+  const bookVariants = data?.variants ?? [];
 
   const handleBookChange = (newBook: Book) => {
     navigate(`/item/${newBook.type}/${newBook.slug}`);
