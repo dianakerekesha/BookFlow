@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useState } from 'react';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { Button } from '@/components/ui/button';
 import {
@@ -19,74 +20,52 @@ import { Link } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import emptyOrdersAnimation from '@/assets/NO RESULTS.json';
 
-interface ProfileFormData {
-  name: string;
-  email: string;
-  avatar?: string;
-}
-
 interface ProfileProps {
   open: boolean;
   onClose: () => void;
 }
 
 export const Profile = ({ open, onClose }: ProfileProps) => {
-  const [formData, setFormData] = useState<ProfileFormData>({
-    name: '',
-    email: '',
-  });
-  const [initialData, setInitialData] = useState<ProfileFormData>({
-    name: '',
-    email: '',
-  });
-  const [hasOrders, setHasOrders] = useState<boolean | null>(null);
-
   const { currentUser } = useAuth();
-  const isChanged = formData.name !== initialData.name;
+  const queryClient = useQueryClient();
+  const [name, setName] = useState('');
 
-  useEffect(() => {
-    const loadUser = async () => {
-      if (!currentUser) return;
-
-      const docRef = doc(firestore, 'users', currentUser.uid);
+  const { data: initialData } = useQuery({
+    queryKey: ['user', currentUser?.uid],
+    queryFn: async () => {
+      const docRef = doc(firestore, 'users', currentUser!.uid);
       const snap = await getDoc(docRef);
+      if (!snap.exists()) return { name: '', email: currentUser?.email || '' };
+      return {
+        name: snap.data().name || '',
+        email: currentUser?.email || '',
+      };
+    },
+    enabled: !!currentUser && open,
+  });
 
-      if (snap.exists()) {
-        const data = snap.data();
+  const { data: orders } = useQuery({
+    queryKey: ['orders', 'user'],
+    queryFn: getUserOrders,
+    enabled: !!currentUser && open,
+  });
 
-        const userData = {
-          name: data.name || '',
-          email: currentUser.email || '',
-        };
+  const hasOrders = orders !== undefined ? orders.length > 0 : null;
 
-        setFormData(userData);
-        setInitialData(userData);
-      }
+  const displayName = initialData && !name ? initialData.name : name;
+  const isChanged = displayName !== (initialData?.name ?? '');
 
-      const orders = await getUserOrders();
-      setHasOrders(orders.length > 0);
-    };
+  const { mutate: handleSave } = useMutation({
+    mutationFn: async () => {
+      const docRef = doc(firestore, 'users', currentUser!.uid);
+      await updateDoc(docRef, { name: displayName });
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['user', currentUser?.uid] });
+    },
+  });
 
-    loadUser();
-  }, [currentUser]);
-
-  const handleSave = async () => {
-    if (!currentUser) {
-      return;
-    }
-
-    const docRef = doc(firestore, 'users', currentUser.uid);
-
-    await updateDoc(docRef, {
-      name: formData.name,
-    });
-
-    setInitialData(formData);
-  };
-
-  const handleCancel = () => {
-    setFormData(initialData);
-  };
+  const handleCancel = () => setName('');
 
   if (!open) return null;
 
@@ -108,17 +87,15 @@ export const Profile = ({ open, onClose }: ProfileProps) => {
               <Input
                 id="name"
                 placeholder="Enter your name"
-                value={formData.name}
-                onChange={(event) =>
-                  setFormData({ ...formData, name: event.target.value })
-                }
+                value={displayName}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
 
             <div className="space-y-2">
               <Label>Email</Label>
               <div className="h-10 flex items-center px-3 bg-muted text-sm rounded-md">
-                {formData.email}
+                {initialData?.email}
               </div>
             </div>
           </CardContent>
@@ -185,9 +162,8 @@ export const Profile = ({ open, onClose }: ProfileProps) => {
             >
               Cancel
             </Button>
-
             <Button
-              onClick={handleSave}
+              onClick={() => handleSave()}
               disabled={!isChanged}
             >
               Save Changes
