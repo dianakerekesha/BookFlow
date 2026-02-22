@@ -10,13 +10,17 @@ import {
 import type { Order } from '@/types/Order';
 import { COLORS } from '@/constants/colors';
 
+// Fix: використовуємо абсолютний URL щоб @react-pdf/renderer міг знайти шрифти
+// import.meta.env.BASE_URL = '/books-catalog-frontend/'
+const BASE = `${window.location.origin}${import.meta.env.BASE_URL}`;
+
 Font.register({
   family: 'Manrope',
   fonts: [
-    { src: '/fonts/Manrope-Regular.ttf', fontWeight: 400 },
-    { src: '/fonts/Manrope-SemiBold.ttf', fontWeight: 600 },
-    { src: '/fonts/Manrope-Bold.ttf', fontWeight: 700 },
-    { src: '/fonts/Manrope-ExtraBold.ttf', fontWeight: 800 },
+    { src: `${BASE}fonts/Manrope-Regular.ttf`, fontWeight: 400 },
+    { src: `${BASE}fonts/Manrope-SemiBold.ttf`, fontWeight: 600 },
+    { src: `${BASE}fonts/Manrope-Bold.ttf`, fontWeight: 700 },
+    { src: `${BASE}fonts/Manrope-ExtraBold.ttf`, fontWeight: 800 },
   ],
 });
 
