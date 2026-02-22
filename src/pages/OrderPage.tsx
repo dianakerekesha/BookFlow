@@ -46,17 +46,18 @@ const OrdersPage = () => {
   return (
     <div className="py-10 pb-24">
       <div className="max-w-3xl mx-auto px-6">
+        <button
+          onClick={() => navigate(-1)}
+          className={cn(
+            TYPOGRAPHY.small,
+            'mb-7 inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors',
+          )}
+        >
+          <ChevronLeft className="size-4" />
+          Back
+        </button>
+
         <div className="mb-10">
-          <button
-            onClick={() => navigate(-1)}
-            className={cn(
-              TYPOGRAPHY.small,
-              'mb-2 inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors',
-            )}
-          >
-            <ChevronLeft className="size-4" />
-            Back
-          </button>
           <h1 className={`${TYPOGRAPHY.h1} text-gray-900 mb-1`}>My Orders</h1>
           <p className={`${TYPOGRAPHY.body} text-gray-400`}>
             {orders.length === 0 ?
