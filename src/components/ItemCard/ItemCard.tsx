@@ -34,6 +34,10 @@ export const ItemCard: React.FC<Props> = ({ type }) => {
     if (isError) navigate('*', { replace: true });
   }, [isError, navigate]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [bookSlug]);
+
   const book = data?.current ?? null;
   const bookVariants = data?.variants ?? [];
 
