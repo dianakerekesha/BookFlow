@@ -16,6 +16,16 @@ declare global {
 
 window.Buffer = Buffer;
 
+const params = new URLSearchParams(window.location.search);
+const redirectPath = params.get('p');
+if (redirectPath) {
+  window.history.replaceState(
+    null,
+    '',
+    '/books-catalog-frontend' + redirectPath,
+  );
+}
+
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter basename="/books-catalog-frontend/">
     <AuthProvider>
