@@ -13,7 +13,9 @@ function filterBooks(incomingBooks: Book[], category: string | undefined) {
 
   if (category) {
     result = result.filter((book) =>
-      book.category?.some((category) => category.toLowerCase() === category),
+      book.category?.some(
+        (bookCategory) => bookCategory.toLowerCase() === category,
+      ),
     );
   }
 
