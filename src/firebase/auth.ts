@@ -4,25 +4,51 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth';
-import { auth } from './firebase';
+import { doc, setDoc } from 'firebase/firestore';
+import { auth, firestore } from './firebase';
 
 export const doCreateUserWithEmailAndPassword = async (
   email: string,
   password: string,
+  name: string,
 ) => {
-  return createUserWithEmailAndPassword(auth, email, password);
+  const userCredential = await createUserWithEmailAndPassword(
+    auth,
+    email,
+    password,
+  );
+
+  const user = userCredential.user;
+
+  await setDoc(doc(firestore, 'users', user.uid), {
+    name: name,
+    email: email,
+  });
+
+  return userCredential;
 };
 
 export const doSingInWithEmailAndPassword = (
   email: string,
-  passowrd: string,
+  password: string,
 ) => {
-  return signInWithEmailAndPassword(auth, email, passowrd);
+  return signInWithEmailAndPassword(auth, email, password);
 };
 
 export const doSingInWithGoogle = async () => {
   const provider = new GoogleAuthProvider();
   const result = await signInWithPopup(auth, provider);
+
+  const user = result.user;
+
+  await setDoc(
+    doc(firestore, 'users', user.uid),
+    {
+      name: user.displayName || '',
+      email: user.email || '',
+    },
+    { merge: true },
+  );
 
   return result;
 };

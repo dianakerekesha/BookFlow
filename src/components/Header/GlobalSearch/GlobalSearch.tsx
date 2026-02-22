@@ -1,25 +1,19 @@
-import { useState } from 'react';
 import { VisuallyHidden } from 'radix-ui';
-import { SearchInput } from '../../ui/input/SearchInput';
 import { SearchDialogContent } from './SearchDialogContent';
 import { Dialog, DialogContent, DialogTitle } from '../../ui/Dialog.tsx';
 
-export const GlobalSearch = ({ onSelect }: { onSelect?: () => void }) => {
-  const [open, setOpen] = useState(false);
+interface GlobalSearchProps {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+}
 
+export const GlobalSearch = ({
+  open,
+  setOpen,
+  onSelect,
+}: GlobalSearchProps & { onSelect?: () => void }) => {
   return (
     <div className="w-full">
-      <div
-        className="w-full cursor-text"
-        onClick={() => setOpen(true)}
-      >
-        <SearchInput
-          value=""
-          placeholder="Find a book or author"
-          readOnly
-        />
-      </div>
-
       <Dialog
         open={open}
         onOpenChange={setOpen}

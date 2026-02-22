@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import { InvoicePDF } from './InvoicePDF';
-import { imageToBase64 } from '@/utils/imageToBase64';
+import { Loader2 } from 'lucide-react';
 import type { Order } from '@/types/Order';
+import { imageToBase64 } from '@/components/Invoices/helpers/imageToBase64.ts';
 import { TYPOGRAPHY } from '@/constants/typography';
+import { InvoicePDF } from './InvoicePDF';
 
 interface DownloadInvoiceButtonProps {
   order: Order;
@@ -69,7 +70,7 @@ export const DownloadInvoiceButton = ({
       >
         {isConverting ?
           <>
-            <span className="w-4 h-4 border-2 border-gray-300 border-t-gray-900 rounded-full animate-spin" />
+            <Loader2 className="w-4 h-4 animate-spin" />
             Preparing...
           </>
         : <>
@@ -94,7 +95,7 @@ export const DownloadInvoiceButton = ({
         >
           {loading ?
             <>
-              <span className="w-4 h-4 border-2 border-gray-300 border-t-gray-900 rounded-full animate-spin" />
+              <Loader2 className="w-4 h-4 animate-spin" />
               Generating...
             </>
           : <>

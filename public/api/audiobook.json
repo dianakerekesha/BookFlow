@@ -8,7 +8,9 @@
     "category": ["Psychology", "Self-care"],
     "priceRegular": 25.0,
     "priceDiscount": 21.88,
-    "images": ["img/audiobook/self-comes-to-mind/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/self-comes-to-mind/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Antonio Damasio",
@@ -32,7 +34,9 @@
     "slug": "self-comes-to-mind-uk-audiobook",
     "priceRegular": 7.99,
     "priceDiscount": null,
-    "images": ["img/audiobook/self-comes-to-mind/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/self-comes-to-mind/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Антоніо Дамасіо",
@@ -61,7 +65,9 @@
     "category": ["Psychology"],
     "priceRegular": 18.0,
     "priceDiscount": 15.75,
-    "images": ["img/audiobook/it-didnt-start-with-you/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/it-didnt-start-with-you/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Mark Wolynn",
@@ -85,7 +91,9 @@
     "category": ["Psychology"],
     "priceRegular": 6.49,
     "priceDiscount": null,
-    "images": ["img/audiobook/it-didnt-start-with-you/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/it-didnt-start-with-you/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Марк Волінн",
@@ -107,7 +115,9 @@
     "category": ["Psychology"],
     "priceRegular": 21.05,
     "priceDiscount": 18.42,
-    "images": ["img/audiobook/codependent-no-more/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/codependent-no-more/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Melody Beattie",
@@ -132,7 +142,9 @@
     "category": ["Psychology"],
     "priceRegular": 6.49,
     "priceDiscount": null,
-    "images": ["img/audiobook/codependent-no-more/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/codependent-no-more/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Мелоді Бітті",
@@ -154,7 +166,9 @@
     "category": ["Psychology"],
     "priceRegular": 20.24,
     "priceDiscount": 17.71,
-    "images": ["img/audiobook/what-happened-to-you/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/what-happened-to-you/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Oprah Winfrey & Bruce D. Perry",
@@ -177,7 +191,9 @@
     "category": ["Psychology"],
     "priceRegular": 6.49,
     "priceDiscount": null,
-    "images": ["img/audiobook/what-happened-to-you/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/what-happened-to-you/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Опра Вінфрі, Брюс Д. Перрі",
@@ -200,7 +216,9 @@
     "category": ["Psychology"],
     "priceRegular": 25.19,
     "priceDiscount": 22.04,
-    "images": ["img/audiobook/trauma-and-recovery/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/trauma-and-recovery/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Judith L. Herman",
@@ -223,7 +241,9 @@
     "category": ["Psychology"],
     "priceRegular": 4.99,
     "priceDiscount": null,
-    "images": ["img/audiobook/trauma-and-recovery/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/trauma-and-recovery/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джудіт Л. Герман",
@@ -246,7 +266,7 @@
     "priceRegular": 9.95,
     "priceDiscount": 8.71,
     "images": [
-      "img/audiobook/group-psychology-and-the-analysis-of-the-ego/en/00.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/group-psychology-and-the-analysis-of-the-ego/en/00.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -270,7 +290,7 @@
     "priceRegular": 0.89,
     "priceDiscount": null,
     "images": [
-      "img/audiobook/group-psychology-and-the-analysis-of-the-ego/uk/00.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/group-psychology-and-the-analysis-of-the-ego/uk/00.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -293,7 +313,7 @@
     "priceRegular": 15.75,
     "priceDiscount": 13.78,
     "images": [
-      "img/audiobook/the-voice-in-our-head-why-it-matters-and-how-to-harness-it/en/00.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/the-voice-in-our-head-why-it-matters-and-how-to-harness-it/en/00.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -319,7 +339,7 @@
     "priceRegular": 5.49,
     "priceDiscount": null,
     "images": [
-      "img/audiobook/the-voice-in-our-head-why-it-matters-and-how-to-harness-it/uk/00.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/the-voice-in-our-head-why-it-matters-and-how-to-harness-it/uk/00.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -344,7 +364,9 @@
     "slug": "the-power-of-regret-uk-audiobook",
     "priceRegular": 5.99,
     "priceDiscount": null,
-    "images": ["img/audiobook/the-power-of-regret/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/the-power-of-regret/uk/00.webp"
+    ],
     "langAvailable": ["uk"],
     "lang": "uk",
     "author": "Інна Бодак",
@@ -367,7 +389,9 @@
     "category": ["Psychology"],
     "priceRegular": 21.83,
     "priceDiscount": 19.1,
-    "images": ["img/audiobook/emotional-inheritance/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/emotional-inheritance/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Galit Atlas",
@@ -389,7 +413,9 @@
     "category": ["Psychology"],
     "priceRegular": 5.39,
     "priceDiscount": null,
-    "images": ["img/audiobook/emotional-inheritance/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/emotional-inheritance/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Галіт Атлас",
@@ -412,7 +438,9 @@
     "category": ["Psychology"],
     "priceRegular": 24.19,
     "priceDiscount": 21.17,
-    "images": ["img/audiobook/the-unexpected-joy-of-being-single/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/the-unexpected-joy-of-being-single/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Catherine Gray",
@@ -436,7 +464,9 @@
     "category": ["Psychology"],
     "priceRegular": 3.49,
     "priceDiscount": null,
-    "images": ["img/audiobook/the-unexpected-joy-of-being-single/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/the-unexpected-joy-of-being-single/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Кетрін Ґрей",
@@ -459,7 +489,9 @@
     "category": ["Fantasy", "Children's literature", "Young adult"],
     "priceRegular": 15.2,
     "priceDiscount": null,
-    "images": ["img/audiobook/harry-potter-1/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-1/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Joanne K. Rowling",
@@ -481,7 +513,9 @@
     "category": ["Fantasy", "Children's literature", "Young adult"],
     "priceRegular": 19.99,
     "priceDiscount": 16.5,
-    "images": ["img/audiobook/harry-potter-1/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-1/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Joanne K. Rowling",
@@ -503,7 +537,9 @@
     "category": ["Fantasy", "Children's literature", "Young adult"],
     "priceRegular": 14.99,
     "priceDiscount": null,
-    "images": ["img/audiobook/harry-potter-2/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-2/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джоан Роулінґ",
@@ -531,7 +567,9 @@
     ],
     "priceRegular": 22.5,
     "priceDiscount": 18.99,
-    "images": ["img/audiobook/harry-potter-2/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-2/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "J.K. Rowling",
@@ -558,7 +596,9 @@
     ],
     "priceRegular": 18.9,
     "priceDiscount": null,
-    "images": ["img/audiobook/harry-potter-3/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-3/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джоан Роулінґ",
@@ -581,7 +621,9 @@
     "category": ["Fantasy", "Children's literature", "Young adult"],
     "priceRegular": 23.9,
     "priceDiscount": null,
-    "images": ["img/audiobook/harry-potter-3/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-3/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "J.K. Rowling",
@@ -603,7 +645,9 @@
     "category": ["Fantasy", "Children's literature", "Young adult"],
     "priceRegular": 26.5,
     "priceDiscount": 21.99,
-    "images": ["img/audiobook/harry-potter-4/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-4/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джоан Роулінґ",
@@ -626,7 +670,9 @@
     "category": ["Fantasy", "Children's literature", "Young adult"],
     "priceRegular": 28.99,
     "priceDiscount": 24.99,
-    "images": ["img/audiobook/harry-potter-4/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-4/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "J.K. Rowling",
@@ -649,7 +695,9 @@
     "category": ["Fantasy", "Children's literature", "Young adult"],
     "priceRegular": 29.5,
     "priceDiscount": 24.5,
-    "images": ["img/audiobook/harry-potter-5/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-5/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джоан Роулінґ",
@@ -672,7 +720,9 @@
     "category": ["Fantasy", "Children's literature", "Young adult"],
     "priceRegular": 29.99,
     "priceDiscount": 25.99,
-    "images": ["img/audiobook/harry-potter-5/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-5/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "J.K. Rowling",
@@ -695,7 +745,9 @@
     "category": ["Fantasy", "Children's literature", "Young adult"],
     "priceRegular": 31.99,
     "priceDiscount": 27.99,
-    "images": ["img/audiobook/harry-potter-6/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-6/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "J.K. Rowling",
@@ -718,7 +770,9 @@
     "category": ["Fantasy", "Children's literature", "Young adult"],
     "priceRegular": 15.99,
     "priceDiscount": null,
-    "images": ["img/audiobook/harry-potter-6/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-6/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джоан Роулінґ",
@@ -741,7 +795,9 @@
     "category": ["Fantasy", "Children's literature", "Young adult"],
     "priceRegular": 17.99,
     "priceDiscount": null,
-    "images": ["img/audiobook/harry-potter-7/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-7/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джоан Роулінґ",
@@ -764,7 +820,9 @@
     "category": ["Fantasy", "Children's literature", "Young adult"],
     "priceRegular": 29.99,
     "priceDiscount": null,
-    "images": ["img/audiobook/harry-potter-7/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-7/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "J.K. Rowling",
@@ -787,7 +845,9 @@
     "category": ["Fantasy", "Drama", "Young adult"],
     "priceRegular": 22.99,
     "priceDiscount": null,
-    "images": ["img/audiobook/harry-potter-8/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-8/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "J.K. Rowling, Jack Thorne, John Tiffany",
@@ -810,7 +870,9 @@
     "category": ["Fantasy", "Drama", "Young adult"],
     "priceRegular": 14.99,
     "priceDiscount": null,
-    "images": ["img/audiobook/harry-potter-8/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/audiobook/harry-potter-8/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джоан Роулінґ, Джек Торн, Джон Тіффані",

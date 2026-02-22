@@ -1,24 +1,28 @@
 import { useTranslation } from 'react-i18next';
+import { useBooks } from '../context/BooksContext';
 import { BooksSection } from '@/components/BooksSection';
-import { MainBanner } from '@/components/MainBanner';
+import { MainSlider } from '@/components/MainSlider';
 import { CategoriesSection } from '@/components/CategoriesSection/CategoriesSection.tsx';
+import { Loader } from '@/components/ui/Loader.tsx';
 
 export const HomePage = () => {
+  const { newBooks, suggestedBooks, isLoading } = useBooks();
   const { t } = useTranslation();
+
   return (
-    <main className="flex flex-col w-full gap-[56px] lg:gap-[80px]">
-      <MainBanner />
-      <BooksSection
-        title={t('categories.newBooks')}
-        //fetchBooks={getNewBooks}
-      />
-
-      <CategoriesSection />
-
-      <BooksSection
-        title={t('categories.youMayLike')}
-        //fetchBooks={getYouMightLikeBooks}
-      />
-    </main>
+    <Loader isLoading={isLoading}>
+      <main className="flex flex-col w-full gap-[56px] lg:gap-[80px]">
+        <MainSlider />
+        <BooksSection
+          title={t('categories.newBooks')}
+          books={newBooks}
+        />
+        <CategoriesSection />
+        <BooksSection
+          title={t('categories.youMayLike')}
+          books={suggestedBooks}
+        />
+      </main>
+    </Loader>
   );
 };

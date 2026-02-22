@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
-import { searchAllBooks } from '@/hooks/searchAllBooks';
 import type { Book } from '@/types/Book';
 import type { GroupedResults } from './search.types';
+import { searchAllBooks } from '@/components/Header/GlobalSearch/helpers/searchAllBooks.ts';
 
 export const useSearchBooks = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -14,7 +14,7 @@ export const useSearchBooks = () => {
     }
     searchAllBooks(searchTerm)
       .then((data) => setResults(data))
-      .catch((err) => console.error(err))
+      .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, [searchTerm]);
 

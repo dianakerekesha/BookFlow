@@ -1,5 +1,5 @@
-import type { PaymentMethod } from '@/types/Order';
 import type { JSX } from 'react';
+import type { PaymentMethod } from '@/types/Order';
 import { TYPOGRAPHY } from '@/constants/typography';
 
 interface PaymentMethodSelectorProps {
@@ -94,7 +94,7 @@ export const PaymentMethodSelector = ({
             >
               <span
                 className={[
-                  'w-4 h-4 rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-colors',
+                  'w-4 h-4 rounded-full border-2 shrink-0 flex items-center justify-center transition-colors',
                   isSelected ? 'border-gray-900' : 'border-gray-300',
                 ].join(' ')}
               >

@@ -1,4 +1,26 @@
 {
+  "ui": {
+    "back": "Back",
+    "addToCart": "Add to cart",
+    "added": "Added",
+    "sortBy": "Sort by",
+    "date": "Date",
+    "name": "Name",
+    "price": "Price",
+    "order": "Order",
+    "searchPlaceholder": "Find a book or author",
+    "itemsOnPage": "Items on page",
+    "all": "All",
+    "inStock": "In stock",
+    "selectLanguage": "Select language",
+    "sortDescending": "Sort descending",
+    "sortAscending": "Sort ascending",
+    "theme": "Theme",
+    "language": "Language",
+    "settings": "Settings",
+    "languageSelector": "UA",
+    "noResults": "Unfortunately, no matches..."
+  },
   "navigation": {
     "home": "Home",
     "cart": "Cart",
@@ -10,11 +32,8 @@
 
   "books": {
     "item": "item",
-    "items": "items",
-    "searchPlaceholder": "Find a book or author",
-    "noResults": "Unfortunately, no matches...",
-    "characteristics": "Characteristics",
-    "about": "About"
+    "items2-4": "items",
+    "items": "items"
   },
 
   "categories": {
@@ -32,32 +51,9 @@
   },
 
   "cart": {
-    "empty": "Your cart is still sleeping...<br />Add some books to gently wake it up",
     "backToShop": "Go back to shopping...",
     "totalFor": "Total for",
     "checkout": "Checkout"
-  },
-
-  "ui": {
-    "back": "Back",
-    "addToCart": "Add to cart",
-    "added": "Added",
-    "sortBy": "Sort by",
-    "date": "Date",
-    "name": "Name",
-    "price": "Price",
-    "order": "Order",
-    "itemsOnPage": "Items on page",
-    "all": "All",
-    "inStock": "In stock",
-    "items": "items",
-    "selectLanguage": "Select language",
-    "sortDescending": "Sort descending",
-    "sortAscending": "Sort ascending",
-    "theme": "Theme",
-    "language": "Language",
-    "settings": "Settings",
-    "languageSelector": "UA"
   },
 
   "bookDetails": {
@@ -71,32 +67,9 @@
     "format": "Format",
     "illustrations": "Illustrations",
     "illustrationsTrue": "With illustrations",
-    "illustrationsFalse": "No illustrations"
-  },
-
-  "legal": {
-    "termsOfUse": "Terms of Use — Together.",
-    "termsOfUseText": "Welcome to Together — a place where books live online! To ensure our service is convenient, safe, and understandable for all users, we’ve created these simple yet important rules.",
-    "contentOwnership": "Content Ownership",
-    "contentOwnershipText": "All materials on the site — including texts, cover images, book descriptions, illustrations, visual styles, and other content — are the intellectual property of the Together store or our publishing partners. Use of this content outside the site is only permitted with our written consent.",
-    "websiteUse": "Website Use",
-    "websiteUseText": "You’re welcome to browse, read, and share links to our pages — we encourage it! However, downloading, copying, or modifying materials for commercial purposes is not allowed without permission from our administration.",
-    "protection": "Protection Against Automated Collection",
-    "protectionText": "We value transparent interaction. Any unauthorized use of scripts, bots, or other automated tools to collect data from our site is a violation of these terms.",
-    "dataRights": "Data Handling",
-    "dataRightsText": "We respect your privacy. No personal information is collected without your consent. We may store only basic data related to your orders and saved items to improve your user experience.",
-    "termsUpdates": "Terms Updates",
-    "termsUpdatesText": "This website is constantly evolving, and we may occasionally update these terms. Any changes will be published on this page. By continuing to use the site, you automatically agree to the updated terms.",
-    "contactUs": "Contact Us",
-    "contactUsText": "Have questions or suggestions? Feel free to reach out via our Contacts page — we’re always happy to hear from you."
-  },
-
-  "team": {
-    "meetOurTeam": "Meet Our Team",
-    "yura": "Was the team lead and responsible for project architecture and initial setup. He built the folder structure, configured routing and global state. He handled advanced logic such as search, filtering, and pagination, and used localStorage to persist favorites and cart data. Also implemented GSAP-based animations to enhance the overall UX. Throughout the project, supported the team with problem-solving and general coordination.",
-    "nastya": "Our project manager and multitasker. She organized the team and kept the communication flowing. Beyond managing the workflow, she developed the Book Page with dynamic content loading and multilingual support. She also worked closely on backlog planning and sprint management. Her leadership and proactive spirit were key to keeping the project on track and productive.",
-    "nika": "Frontend developer with a great eye for design and detail. She built the dynamic banner slider on the homepage, complete with auto-play and smooth transitions. She also developed the animated Categories section with scroll-based effects and videos. Nika created the Contacts and Rights pages. Her components added visual energy and coherence to the entire project, making it not just functional, but delightful.",
-    "lidia": "Frontend developer who took ownership of the Cart and Favorites functionality. She implemented adding, removing, and quantity-changing logic. She also developed the responsive footer and header with navigation and multilingual support. Lidiia consistently delivered clean, user-friendly components that combined usability with elegant design. Her work brought structure and polish to the app’s core interactivity."
+    "illustrationsFalse": "No illustrations",
+    "characteristics": "Characteristics",
+    "about": "About"
   },
 
   "жанри": {

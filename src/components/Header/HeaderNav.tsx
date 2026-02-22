@@ -30,14 +30,13 @@ export const HeaderNav = ({ isMobile, onLinkClick }: Props) => {
               onClick={onLinkClick}
               className={cn(
                 'relative text-lg font-bold uppercase tracking-wider transition-colors duration-200',
-                isActive ?
-                  'text-[#313237]' // selected text color
-                : 'text-[#89939A] hover:text-[#313237]', // default + hover
+                isActive ? 'text-[#313237]' : (
+                  'text-[#89939A] hover:text-[#313237]'
+                ),
               )}
             >
               {t(item.label)}
 
-              {/* Підкреслення для вибраної лінки */}
               {isActive && (
                 <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#313237]" />
               )}
@@ -48,7 +47,6 @@ export const HeaderNav = ({ isMobile, onLinkClick }: Props) => {
     );
   }
 
-  // Десктопна версія (горизонтальна)
   return (
     <nav className="hidden sm:flex items-center gap-8 text-[14px] font-bold h-full mr-auto">
       {NAV_ITEMS.map((item) => {

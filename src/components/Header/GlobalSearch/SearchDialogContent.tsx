@@ -1,10 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import { SearchInput } from '@/components/ui/input/SearchInput';
-import { TextHighlighter } from './TextHighlighter';
-import { useSearchBooks } from './useSearchBooks';
-import { COMMON_STYLES, TEXTS, UI } from './search.types';
 import { Building2, User2, BookOpen, ArrowRight } from 'lucide-react';
 import type { Book } from '@/types/Book';
 import {
@@ -14,6 +9,15 @@ import {
   CommandItem,
   CommandList,
 } from '@/components/ui/Command';
+import { AddButton, HeartButton } from '@/components/ui/Buttons';
+import { SearchInput } from '@/components/ui/input/SearchInput';
+import { Icon } from '@/components/ui/icons';
+import { useCartFavorites } from '@/context/CartFavoritesContext';
+import { cn } from '@/lib/utils';
+import { showSuccess } from '@/lib/toast';
+import { TextHighlighter } from './TextHighlighter';
+import { useSearchBooks } from './useSearchBooks';
+import { COMMON_STYLES, TEXTS, UI } from './search.types';
 
 interface Props {
   onClose: () => void;
@@ -31,8 +35,38 @@ export const SearchDialogContent = ({ onClose, onSelect }: Props) => {
     onSelect?.();
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const { toggleFavorite, isFavorite, isInCart, addToCart } =
+    useCartFavorites();
+
+  const handleToggleFavorite = (book: Book, event?: React.MouseEvent) => {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    if (!isFavorite(book.id)) {
+      toggleFavorite(book);
+      showSuccess('Book added to favorites!');
+    }
+  };
+
+  const handleAddToCart = (book: Book, event?: React.MouseEvent) => {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    addToCart(book);
+    showSuccess('Book added to cart!');
+  };
+
+  const handleViewAll = () => {
+    onClose();
+    onSelect?.();
+    navigate('/');
   };
 
   return (
@@ -64,7 +98,10 @@ export const SearchDialogContent = ({ onClose, onSelect }: Props) => {
                   <span className={COMMON_STYLES.sectionTitle}>
                     {UI.sections.publishers}
                   </span>
-                  <button className={COMMON_STYLES.viewAllBtn}>
+                  <button
+                    className={COMMON_STYLES.viewAllBtn}
+                    onClick={() => handleViewAll()}
+                  >
                     {UI.all} ({groupedResults.publishers.length}){' '}
                     <ArrowRight
                       size={12}
@@ -104,7 +141,10 @@ export const SearchDialogContent = ({ onClose, onSelect }: Props) => {
                   <span className={COMMON_STYLES.sectionTitle}>
                     {UI.sections.authors}
                   </span>
-                  <button className={COMMON_STYLES.viewAllBtn}>
+                  <button
+                    className={COMMON_STYLES.viewAllBtn}
+                    onClick={() => handleViewAll()}
+                  >
                     {UI.all} ({groupedResults.authors.length}){' '}
                     <ArrowRight
                       size={12}
@@ -147,7 +187,10 @@ export const SearchDialogContent = ({ onClose, onSelect }: Props) => {
                   <span className={COMMON_STYLES.sectionTitle}>
                     {UI.sections.titles}
                   </span>
-                  <button className={COMMON_STYLES.viewAllBtn}>
+                  <button
+                    className={COMMON_STYLES.viewAllBtn}
+                    onClick={() => handleViewAll()}
+                  >
                     {UI.all} ({groupedResults.titles.length}){' '}
                     <ArrowRight
                       size={12}
@@ -170,7 +213,7 @@ export const SearchDialogContent = ({ onClose, onSelect }: Props) => {
                         <img
                           src={book.images[0]}
                           className="w-full h-full object-cover"
-                          alt=""
+                          alt="book-logotype"
                         />
                       : <BookOpen
                           size={20}
@@ -194,11 +237,32 @@ export const SearchDialogContent = ({ onClose, onSelect }: Props) => {
                         <span className="text-sm font-black text-gray-900">
                           {book.priceRegular || book.priceDiscount} грн
                         </span>
-                        <div className="text-[10px] font-bold text-gray-400 group-hover:text-black flex items-center gap-1 transition-colors">
-                          {UI.addToCart}{' '}
-                          <span className="flex items-center justify-center w-4 h-4 rounded-full border border-gray-200">
-                            +
-                          </span>
+                        <div
+                          onClick={(event) => event.stopPropagation()}
+                          className="text-[10px] font-bold text-gray-400 relative z-10 group-hover:text-black flex items-center gap-1 transition-colors"
+                        >
+                          <AddButton
+                            isSelected={isInCart(book.id)}
+                            className={cn(
+                              '!w-8 !h-8 !p-0 !bg-transparent !shadow-none',
+                              'flex items-center justify-center rounded-m',
+                              'border border-black-800',
+                              'hover:border-black',
+                            )}
+                            onClick={() => {
+                              handleAddToCart(book);
+                            }}
+                          >
+                            <Icon
+                              name={isInCart(book.id) ? 'check' : 'shoppingBag'}
+                              size="sm"
+                              className="w-5 h-5"
+                            />
+                          </AddButton>
+                          <HeartButton
+                            isSelected={isFavorite(book.id)}
+                            onClick={() => handleToggleFavorite(book)}
+                          />
                         </div>
                       </div>
                     </div>

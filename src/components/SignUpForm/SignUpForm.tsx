@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import { FirebaseAuthError } from '@/types/SignUpErrors';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -13,26 +16,55 @@ import {
   FieldLabel,
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
-import { COLORS } from '@/constants/colors';
-import { useAuth } from '@/context/authContext';
+import { useAuth } from '@/context/AuthContext.tsx';
 import { doCreateUserWithEmailAndPassword } from '@/firebase/auth';
+import { COLORS } from '@/constants/colors';
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+
+const ERROR_MESSAGES: Record<string, string> = {
+  [FirebaseAuthError.EmailAlreadyInUse]: 'This email is already taken.',
+  [FirebaseAuthError.WeakPassword]:
+    'The password is too weak (minimum 6 characters)',
+  [FirebaseAuthError.InternalError]: 'Internal server error.',
+  [FirebaseAuthError.InvalidEmail]: 'Invalid mail format.',
+};
 
 export const SignUpForm = () => {
   const { userLoggedIn } = useAuth();
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setErrorMessage('');
+
+    if (password !== confirmPassword) {
+      setErrorMessage('Passwords do not match');
+      return;
+    }
+
+    if (password.length < 8) {
+      setErrorMessage('Password must be at least 8 characters long');
+      return;
+    }
+
     if (!isRegistering) {
       setIsRegistering(true);
-      if (password === confirmPassword && password.length >= 8) {
-        await doCreateUserWithEmailAndPassword(email, password);
+
+      try {
+        await doCreateUserWithEmailAndPassword(email, password, name);
+      } catch (error) {
+        setIsRegistering(false);
+        const errorCode = (error as { code: string }).code;
+        if (errorCode in ERROR_MESSAGES) {
+          setErrorMessage(ERROR_MESSAGES[errorCode]);
+        } else {
+          setErrorMessage('An error occurred during registration.');
+        }
       }
     }
   };
@@ -55,6 +87,17 @@ export const SignUpForm = () => {
         <CardContent>
           <form onSubmit={handleSubmit}>
             <FieldGroup>
+              <Field>
+                <FieldLabel htmlFor="name">Full name</FieldLabel>
+                <Input
+                  id="name"
+                  type="text"
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
+                  placeholder="John Doe"
+                  required
+                />
+              </Field>
               <Field>
                 <FieldLabel htmlFor="email">Email</FieldLabel>
                 <Input
@@ -91,6 +134,11 @@ export const SignUpForm = () => {
                   required
                 />
               </Field>
+              {errorMessage && (
+                <div className="text-red-500 text-sm font-medium text-center bg-red-50 p-2 rounded-md border border-red-200">
+                  {errorMessage}
+                </div>
+              )}
               <FieldGroup>
                 <Field>
                   <Button

@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
-import { cn } from '@/lib/utils';
-import { HeaderSearch } from './HeaderSearch';
-import { HeaderNav } from './HeaderNav';
-import { BurgerMenu } from './BurgerMenu';
-import { HeaderToolBar } from './HeaderToolBar';
 import { Link } from 'react-router-dom';
-import { Bookmark } from './Bookmark';
+import { cn } from '@/lib/utils';
+import { BurgerMenu } from './BurgerMenu';
+import { GlobalSearch } from './GlobalSearch/GlobalSearch';
+import { HeaderNav } from './HeaderNav';
+import { HeaderSearch } from './HeaderSearch';
+import { HeaderToolBar } from './HeaderToolBar';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,7 +24,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full bg-white border-b border-elements min-w-[320px]">
+      <header className="sticky top-0 z-50 w-full bg-secondary border-b border-border min-w-[320px]">
         <div
           className={cn(
             'mx-auto flex items-center justify-between pl-4 transition-all',
@@ -44,19 +45,32 @@ export const Header = () => {
           <HeaderNav />
 
           <div className="flex items-center h-full">
-            <HeaderSearch />
-            <div className="relative h-full flex items-center">
-              <HeaderToolBar
-                onMenuClick={() => setIsMenuOpen(true)}
-                onSearchIconClick={() => {}}
-              />
-              <Bookmark />
-            </div>
+            <HeaderSearch onClick={() => setIsSearchOpen(true)} />
+            <HeaderToolBar
+              onMenuClick={() => setIsMenuOpen(true)}
+              onSearchIconClick={() => {
+                setIsSearchOpen(true);
+              }}
+            />
           </div>
         </div>
       </header>
 
-      {isMenuOpen && <BurgerMenu onClose={() => setIsMenuOpen(false)} />}
+      {isMenuOpen && (
+        <BurgerMenu
+          onClose={() => setIsMenuOpen(false)}
+          onSearchClick={() => {
+            setIsSearchOpen(true);
+            setIsMenuOpen(false);
+          }}
+        />
+      )}
+
+      <GlobalSearch
+        open={isSearchOpen}
+        setOpen={setIsSearchOpen}
+        onSelect={() => setIsSearchOpen(false)}
+      />
     </>
   );
 };

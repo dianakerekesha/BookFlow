@@ -1,10 +1,9 @@
 export const FirebaseAuthError = {
-  InvalidCredential: 'auth/invalid-credential',
-  WrongPassword: 'auth/invalid-credential',
   EmailAlreadyInUse: 'auth/email-already-in-use',
+  WeakPassword: 'auth/weak-password',
+  InternalError: 'auth/internal-error',
   InvalidEmail: 'auth/invalid-email',
-  PopupClosedByUser: 'auth/popup-closed-by-user',
 } as const;
 
-export type FirebaseAuthErrorType =
+export type FirebaseAuthError =
   (typeof FirebaseAuthError)[keyof typeof FirebaseAuthError];

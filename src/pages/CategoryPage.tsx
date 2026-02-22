@@ -8,16 +8,18 @@ import type { Book } from '@/types/Book';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-function filtredBooks(incomingBooks: Book[], category: string | undefined) {
-  let filtredBooks = [...incomingBooks];
+function filterBooks(incomingBooks: Book[], category: string | undefined) {
+  let result = [...incomingBooks];
 
   if (category) {
-    filtredBooks = filtredBooks.filter((book) => {
-      return book.category?.some((cat) => cat.toLowerCase() === category);
-    });
+    result = result.filter((book) =>
+      book.category?.some(
+        (bookCategory) => bookCategory.toLowerCase() === category,
+      ),
+    );
   }
 
-  return filtredBooks;
+  return result;
 }
 
 export const CategoryPage = () => {
@@ -37,7 +39,7 @@ export const CategoryPage = () => {
       .catch(console.error);
   }, []);
 
-  const visibleBooks = filtredBooks(books, categoryName);
+  const visibleBooks = filterBooks(books, categoryName);
 
   return (
     <Catalog

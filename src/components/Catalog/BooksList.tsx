@@ -49,7 +49,7 @@ export const BooksList = ({
             md:col-span-6
             lg:col-span-6
             w-full
-            max-w-[288px]
+            lg:max-w-[288px]
             mb-[24px]
             justify-self-center
             flex justify-center

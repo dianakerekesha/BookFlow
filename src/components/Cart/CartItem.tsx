@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Minus, Plus, X } from 'lucide-react';
+import type { CartItem as CartItemType } from '@/types/Book';
 import { Button } from '@/components/ui/button';
 import { useCartFavorites } from '@/context/CartFavoritesContext.tsx';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
-import type { CartItem as CartItemType } from '@/types/Book';
 
 type Props = {
   book: CartItemType;
@@ -40,7 +40,7 @@ export const CartItem: React.FC<Props> = ({ book }) => {
           className="flex items-center gap-4 h-20 sm:gap-6"
         >
           <img
-            src={`${import.meta.env.BASE_URL}${book.images[0]}`}
+            src={book.images[0]}
             alt={book.name}
             className="h-full object-contain"
           />

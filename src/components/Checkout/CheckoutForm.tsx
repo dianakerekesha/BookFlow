@@ -1,10 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { checkoutSchema } from '@/utils/checkoutSchema.ts';
-import type { CheckoutFormValues } from '@/utils/checkoutSchema.ts';
+import { Loader2 } from 'lucide-react';
+import type { CheckoutFormValues } from '@/components/Checkout/helpers/checkoutSchema.ts';
+import { checkoutSchema } from '@/components/Checkout/helpers/checkoutSchema.ts';
+import { Button } from '@/components/ui/button.tsx';
 import { Input } from '@/components/ui/input.tsx';
 import { Label } from '@/components/ui/label.tsx';
-import { Button } from '@/components/ui/button.tsx';
 import {
   Select,
   SelectContent,
@@ -158,12 +159,12 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
               <SelectValue placeholder="Select country" />
             </SelectTrigger>
             <SelectContent>
-              {COUNTRIES.map((c) => (
+              {COUNTRIES.map((country) => (
                 <SelectItem
-                  key={c}
-                  value={c}
+                  key={country}
+                  value={country}
                 >
-                  {c}
+                  {country}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -178,7 +179,7 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
         className={`h-14 ${TYPOGRAPHY.uppercase}`}
       >
         {isLoading ?
-          <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+          <Loader2 className="w-5 h-5 animate-spin" />
         : 'Proceed to Payment'}
       </Button>
     </form>

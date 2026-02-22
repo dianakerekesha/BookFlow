@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { LiqPayForm } from './LiqPayForm';
+import { Loader2 } from 'lucide-react';
 import { getLiqPayPayload } from '@/services/paymentAPI';
 import { TYPOGRAPHY } from '@/constants/typography';
+import { LiqPayForm } from './LiqPayForm';
 
 interface LiqPayButtonProps {
   orderId: string;
   amount: number;
-  onError: (msg: string) => void;
+  onError: (message: string) => void;
 }
 
 export const LiqPayButton = ({
@@ -25,17 +26,6 @@ export const LiqPayButton = ({
     try {
       const result = await getLiqPayPayload(orderId, amount);
       setPayload(result);
-
-      if (
-        result.data.startsWith('mock') ||
-        result.signature.startsWith('mock')
-      ) {
-        alert(
-          '🔧 Mock mode\n\n' +
-            'З реальним бекендом тут відбудеться автоматичний редирект на сторінку LiqPay.\n\n' +
-            `Order ID: ${orderId}\nAmount: $${amount.toFixed(2)}`,
-        );
-      }
     } catch (error) {
       const message =
         error instanceof Error && error.message ?
@@ -93,7 +83,7 @@ export const LiqPayButton = ({
           className={`h-14 bg-[#00AAFF] hover:bg-[#0095e0] disabled:opacity-60 disabled:cursor-not-allowed text-white ${TYPOGRAPHY.uppercase} rounded transition-colors flex items-center justify-center`}
         >
           {isLoading ?
-            <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+            <Loader2 className="w-5 h-5 animate-spin" />
           : 'Pay with LiqPay'}
         </button>
 

@@ -9,6 +9,7 @@ interface AddButtonProps {
   isSelected?: boolean;
   size?: ButtonSize;
   className?: string;
+  children?: React.ReactNode;
 }
 
 export const AddButton: React.FC<AddButtonProps> = ({
@@ -16,6 +17,7 @@ export const AddButton: React.FC<AddButtonProps> = ({
   isSelected = false,
   size = 'itemCard',
   className,
+  children,
 }) => {
   const { t } = useTranslation();
   return (
@@ -25,7 +27,11 @@ export const AddButton: React.FC<AddButtonProps> = ({
       size={size}
       className={cn(className)}
     >
-      {isSelected ? t('ui.added') : t('ui.addToCart')}
+      {children ?
+        children
+      : isSelected ?
+        t('ui.added')
+      : t('ui.addToCart')}
     </CustomButton>
   );
 };

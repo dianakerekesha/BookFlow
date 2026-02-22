@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Truck } from 'lucide-react';
+import type { Book } from '@/types/Book';
 import { AddButton } from '@/components/ui/Buttons/AddButton';
 import { HeartButton } from '@/components/ui/Buttons/HeartButton';
 import { Icon } from '@/components/ui/icons';
 import { useCartFavorites } from '@/context/CartFavoritesContext';
+import { useBooks } from '@/context/BooksContext';
+import { animateToTarget } from '@/components/ProductCard/animateToTarget';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
-import type { Book } from '@/types/Book';
-import { useTranslation } from 'react-i18next';
 import { showInfo, showSuccess } from '@/lib/toast';
 
 type Props = {
@@ -20,22 +22,43 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
   const { addToCart, removeFromCart, toggleFavorite, isFavorite, isInCart } =
     useCartFavorites();
 
+  const { cartIconRef, favIconRef } = useBooks();
+  const cardRef = useRef<HTMLDivElement>(null);
+
   const isBookInCart = isInCart(book.id);
   const isBookInFavorites = isFavorite(book.id);
   const price = book.priceDiscount ?? book.priceRegular;
 
-  const toggleAddToCart = () => {
+  const handleAddToCart = () => {
     if (isBookInCart) {
       removeFromCart(book.id);
       showInfo('Book removed from cart!');
     } else {
       addToCart(book);
       showSuccess('Book added to cart!');
+
+      if (cardRef.current && cartIconRef?.current) {
+        animateToTarget(cardRef.current, cartIconRef.current);
+      }
+    }
+  };
+
+  const handleToggleFavorite = () => {
+    toggleFavorite(book);
+
+    if (isBookInFavorites) {
+      showInfo('Book removed from favorites!');
+    } else {
+      showSuccess('Book added to favorites!');
+
+      if (cardRef.current && favIconRef?.current) {
+        animateToTarget(cardRef.current, favIconRef.current);
+      }
     }
   };
 
   return (
-    <div className="relative flex flex-col gap-4 flex-shrink-0 w-[214px] h-[400px] p-5 sm:w-[272px] sm:h-[506px] sm:p-8 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
+    <div className="select-none relative flex flex-col gap-4 flex-shrink-0 w-full h-[400px] p-5 lg:w-[272px] sm:h-[506px] sm:p-8 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
       {book.type === 'audiobook' && (
         <div className="absolute top-8 right-6 w-10 h-10 flex items-center justify-center bg-primary rounded-full z-10">
           <Icon
@@ -48,23 +71,23 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
 
       <Link
         to={`/item/${book.type}/${book.slug}`}
-        className="relative flex-shrink-0 flex items-center justify-center w-[174px] h-[185px] sm:w-[208px] sm:h-[263px]"
+        className="relative flex-shrink-0 flex items-center justify-center w-full h-[185px] lg:w-[208px] sm:h-[263px]"
       >
         {book.type === 'kindle' ?
           <>
             <img
               className="w-full h-full object-contain"
-              src={`${import.meta.env.BASE_URL}img/audiobook/2.webp`}
+              src={`https://ik.imagekit.io/ox4rssyih/img/audiobook/2.webp?updatedAt=1771496288464`}
               alt="iPad"
             />
             <img
-              className="absolute top-[8.7%] left-[10.5%] w-[79.5%] h-[82%] object-cover"
-              src={`${import.meta.env.BASE_URL}${book.images[0]}`}
+              className="pointer-events-none absolute top-[8.7%] left-[10.5%] w-[79.5%] h-[82%] object-cover"
+              src={`${book.images[0]}`}
               alt={book.name}
             />
           </>
         : <img
-            src={`${import.meta.env.BASE_URL}${book.images[0]}`}
+            src={`${book.images[0]}`}
             alt={book.name}
             className="w-full h-full object-contain rounded-md"
           />
@@ -104,21 +127,17 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
         </div>
       </Link>
 
-      <div className="mt-auto flex gap-2 w-full">
+      <div
+        ref={cardRef}
+        className="mt-auto flex gap-2 w-full"
+      >
         <AddButton
-          onClick={toggleAddToCart}
+          onClick={handleAddToCart}
           isSelected={isBookInCart}
           className="flex-1"
         />
         <HeartButton
-          onClick={() => {
-            toggleFavorite(book); // додає або видаляє з фаворитів
-            if (isBookInFavorites) {
-              showInfo('Book removed from favorites!');
-            } else {
-              showSuccess('Book added to favorites!');
-            }
-          }}
+          onClick={handleToggleFavorite}
           isSelected={isBookInFavorites}
         />
       </div>

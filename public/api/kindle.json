@@ -7,7 +7,7 @@
     "slug": "1984-en-kindle",
     "priceRegular": 13.99,
     "priceDiscount": null,
-    "images": ["img/kindle/1984/en/00.webp"],
+    "images": ["https://ik.imagekit.io/ox4rssyih/img/kindle/1984/en/00.webp"],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "George Orwell",
@@ -33,9 +33,9 @@
     "priceRegular": 2.7,
     "priceDiscount": null,
     "images": [
-      "img/kindle/1984/uk/00.webp",
-      "img/kindle/1984/uk/01.webp",
-      "img/kindle/1984/uk/02.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/1984/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/1984/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/1984/uk/02.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -62,7 +62,9 @@
     "slug": "the-little-prince-en-kindle",
     "priceRegular": 11.99,
     "priceDiscount": null,
-    "images": ["img/kindle/the-little-prince/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/the-little-prince/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Antoine de Saint-Exupéry",
@@ -88,11 +90,11 @@
     "priceRegular": 0.99,
     "priceDiscount": null,
     "images": [
-      "img/kindle/the-little-prince/uk/00.webp",
-      "img/kindle/the-little-prince/uk/01.webp",
-      "img/kindle/the-little-prince/uk/02.webp",
-      "img/kindle/the-little-prince/uk/03.webp",
-      "img/kindle/the-little-prince/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/the-little-prince/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/the-little-prince/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/the-little-prince/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/the-little-prince/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/the-little-prince/uk/04.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -116,7 +118,9 @@
     "slug": "a-song-of-ice-and-fire-en-kindle",
     "priceRegular": 9.99,
     "priceDiscount": 8.99,
-    "images": ["img/kindle/a-song-of-ice-and-fire/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/a-song-of-ice-and-fire/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "George R. R. Martin",
@@ -140,7 +144,9 @@
     "slug": "a-song-of-ice-and-fire-uk-kindle",
     "priceRegular": 11.99,
     "priceDiscount": null,
-    "images": ["img/kindle/a-song-of-ice-and-fire/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/a-song-of-ice-and-fire/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джордж Р. Р. Мартін",
@@ -164,7 +170,9 @@
     "slug": "the-picture-of-dorian-gray-en-kindle",
     "priceRegular": 6.24,
     "priceDiscount": 4.99,
-    "images": ["img/kindle/the-picture-of-dorian-gray/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/the-picture-of-dorian-gray/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Oscar Wilde",
@@ -189,11 +197,11 @@
     "priceRegular": 3.49,
     "priceDiscount": null,
     "images": [
-      "img/kindle/the-picture-of-dorian-gray/uk/00.webp",
-      "img/kindle/the-picture-of-dorian-gray/uk/01.webp",
-      "img/kindle/the-picture-of-dorian-gray/uk/02.webp",
-      "img/kindle/the-picture-of-dorian-gray/uk/03.webp",
-      "img/kindle/the-picture-of-dorian-gray/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/the-picture-of-dorian-gray/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/the-picture-of-dorian-gray/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/the-picture-of-dorian-gray/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/the-picture-of-dorian-gray/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/the-picture-of-dorian-gray/uk/04.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -217,7 +225,9 @@
     "slug": "city-of-girls-en-kindle",
     "priceRegular": 20.0,
     "priceDiscount": 9.99,
-    "images": ["img/kindle/city-of-girls/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/https://ik.imagekit.io/ox4rssyih/img/kindle/city-of-girls/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Elizabeth Gilbert",
@@ -244,11 +254,11 @@
     "priceRegular": 5.89,
     "priceDiscount": null,
     "images": [
-      "img/kindle/city-of-girls/uk/00.webp",
-      "img/kindle/city-of-girls/uk/01.webp",
-      "img/kindle/city-of-girls/uk/02.webp",
-      "img/kindle/city-of-girls/uk/03.webp",
-      "img/kindle/city-of-girls/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/city-of-girls/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/city-of-girls/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/city-of-girls/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/city-of-girls/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/city-of-girls/uk/04.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -273,7 +283,9 @@
     "slug": "anxious-people-en-kindle",
     "priceRegular": 18.0,
     "priceDiscount": 14.99,
-    "images": ["img/kindle/anxious-people/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/anxious-people/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Fredrik Backman",
@@ -299,10 +311,10 @@
     "priceRegular": 11.25,
     "priceDiscount": null,
     "images": [
-      "img/kindle/anxious-people/uk/00.webp",
-      "img/kindle/anxious-people/uk/01.webp",
-      "img/kindle/anxious-people/uk/02.webp",
-      "img/kindle/anxious-people/uk/03.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/anxious-people/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/anxious-people/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/anxious-people/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/anxious-people/uk/03.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -329,7 +341,9 @@
     "slug": "a-little-life-en-kindle",
     "priceRegular": 18.0,
     "priceDiscount": 11.99,
-    "images": ["img/kindle/a-little-life/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/a-little-life/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Hanya Yanagihara",
@@ -353,10 +367,10 @@
     "priceRegular": 8.99,
     "priceDiscount": null,
     "images": [
-      "img/kindle/a-little-life/uk/00.webp",
-      "img/kindle/a-little-life/uk/01.webp",
-      "img/kindle/a-little-life/uk/02.webp",
-      "img/kindle/a-little-life/uk/03.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/a-little-life/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/a-little-life/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/a-little-life/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/a-little-life/uk/03.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -380,7 +394,9 @@
     "slug": "a-good-girls-guide-to-murder-en-kindle",
     "priceRegular": 10.99,
     "priceDiscount": 9.99,
-    "images": ["img/kindle/a-good-girls-guide-to-murder/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/a-good-girls-guide-to-murder/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Holly Jackson",
@@ -407,11 +423,11 @@
     "priceRegular": 9.45,
     "priceDiscount": null,
     "images": [
-      "img/kindle/a-good-girls-guide-to-murder/uk/00.webp",
-      "img/kindle/a-good-girls-guide-to-murder/uk/01.webp",
-      "img/kindle/a-good-girls-guide-to-murder/uk/02.webp",
-      "img/kindle/a-good-girls-guide-to-murder/uk/03.webp",
-      "img/kindle/a-good-girls-guide-to-murder/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/a-good-girls-guide-to-murder/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/a-good-girls-guide-to-murder/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/a-good-girls-guide-to-murder/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/a-good-girls-guide-to-murder/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/a-good-girls-guide-to-murder/uk/04.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -437,7 +453,9 @@
     "slug": "fahrenheit-451-en-kindle",
     "priceRegular": 17.0,
     "priceDiscount": 12.99,
-    "images": ["img/kindle/fahrenheit-451/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/fahrenheit-451/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Ray Bradbury",
@@ -462,11 +480,11 @@
     "priceRegular": 4.52,
     "priceDiscount": null,
     "images": [
-      "img/kindle/fahrenheit-451/uk/00.webp",
-      "img/kindle/fahrenheit-451/uk/01.webp",
-      "img/kindle/fahrenheit-451/uk/02.webp",
-      "img/kindle/fahrenheit-451/uk/03.webp",
-      "img/kindle/fahrenheit-451/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/fahrenheit-451/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/fahrenheit-451/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/fahrenheit-451/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/fahrenheit-451/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/fahrenheit-451/uk/04.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -490,7 +508,9 @@
     "slug": "killers-of-the-flower-moon-en-kindle",
     "priceRegular": 17.0,
     "priceDiscount": 13.99,
-    "images": ["img/kindle/killers-of-the-flower-moon/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/killers-of-the-flower-moon/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "David Grann",
@@ -516,10 +536,10 @@
     "priceRegular": 7.99,
     "priceDiscount": null,
     "images": [
-      "img/kindle/killers-of-the-flower-moon/uk/00.webp",
-      "img/kindle/killers-of-the-flower-moon/uk/01.webp",
-      "img/kindle/killers-of-the-flower-moon/uk/02.webp",
-      "img/kindle/killers-of-the-flower-moon/uk/03.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/killers-of-the-flower-moon/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/killers-of-the-flower-moon/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/killers-of-the-flower-moon/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/killers-of-the-flower-moon/uk/03.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -547,7 +567,9 @@
     "slug": "heaven-blessing-vol2-uk-kindle",
     "priceRegular": 14.99,
     "priceDiscount": 12.49,
-    "images": ["img/kindle/heaven-blessing-2/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/heaven-blessing-2/uk/00.webp"
+    ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
     "author": "Mo Xiang Tong Xiu",
@@ -578,7 +600,9 @@
     "slug": "heaven-blessing-vol2-en-kindle",
     "priceRegular": 14.99,
     "priceDiscount": 12.49,
-    "images": ["img/kindle/heaven-blessing-2/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/heaven-blessing-2/en/00.webp"
+    ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
     "author": "Mo Xiang Tong Xiu",
@@ -609,7 +633,9 @@
     "slug": "heaven-blessing-vol1-uk-kindle",
     "priceRegular": 13.99,
     "priceDiscount": 8.99,
-    "images": ["img/kindle/heaven-blessing/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/heaven-blessing/uk/00.webp"
+    ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
     "author": "Mo Xiang Tong Xiu",
@@ -639,7 +665,9 @@
     "slug": "heaven-blessing-vol1-en-kindle",
     "priceRegular": 13.99,
     "priceDiscount": 9.99,
-    "images": ["img/kindle/heaven-blessing/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/heaven-blessing/en/00.webp"
+    ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
     "author": "Mo Xiang Tong Xiu",
@@ -669,7 +697,9 @@
     "slug": "twilight-en-kindle",
     "priceRegular": 10.99,
     "priceDiscount": 6.99,
-    "images": ["img/kindle/twilight/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/twilight/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Stephenie Meyer",
@@ -701,7 +731,9 @@
     "slug": "twilight-uk-kindle",
     "priceRegular": 7.99,
     "priceDiscount": 5.99,
-    "images": ["img/kindle/twilight/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/twilight/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Stephenie Meyer",
@@ -733,7 +765,9 @@
     "slug": "die-verwandlung-en-kindle",
     "priceRegular": 7.5,
     "priceDiscount": 6.2,
-    "images": ["img/kindle/die-verwandlung/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/die-verwandlung/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Franz Kafka",
@@ -768,7 +802,9 @@
     "slug": "die-verwandlung-uk-kindle",
     "priceRegular": 6.9,
     "priceDiscount": 5.5,
-    "images": ["img/kindle/die-verwandlung/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/die-verwandlung/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Franz Kafka",
@@ -801,7 +837,9 @@
     "slug": "manacled-en-kindle",
     "priceRegular": 18,
     "priceDiscount": 14.5,
-    "images": ["img/kindle/manacled/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/manacled/en/00.webp"
+    ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
     "author": "SenLinYu",
@@ -832,7 +870,9 @@
     "slug": "manacled-uk-kindle",
     "priceRegular": 15,
     "priceDiscount": 12.2,
-    "images": ["img/kindle/manacled/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/manacled/uk/00.webp"
+    ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
     "author": "SenLinYu",
@@ -863,7 +903,7 @@
     "slug": "web-api-development-dotnet7-en-kindle",
     "priceRegular": 3.99,
     "priceDiscount": 1.49,
-    "images": ["img/kindle/webapi/en/00.webp"],
+    "images": ["https://ik.imagekit.io/ox4rssyih/img/kindle/webapi/en/00.webp"],
     "langAvailable": ["en"],
     "lang": "en",
     "author": "Irina Dominte",
@@ -895,7 +935,9 @@
     "slug": "looking-for-alaska-en-kindle",
     "priceRegular": 9.99,
     "priceDiscount": 4.99,
-    "images": ["img/kindle/looking-for-alaska/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/looking-for-alaska/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "John Green",
@@ -927,7 +969,9 @@
     "slug": "looking-for-alaska-uk-kindle",
     "priceRegular": 9.99,
     "priceDiscount": 4.99,
-    "images": ["img/kindle/looking-for-alaska/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/looking-for-alaska/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "John Green",
@@ -960,8 +1004,8 @@
     "priceRegular": 8.99,
     "priceDiscount": 4.99,
     "images": [
-      "img/kindle/harry-potter-1/en/00.webp",
-      "img/kindle/harry-potter-1/en/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-1/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-1/en/01.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -991,7 +1035,9 @@
     "slug": "harry-potter-1-uk-kindle",
     "priceRegular": 8.99,
     "priceDiscount": 4.99,
-    "images": ["img/kindle/harry-potter-1/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-1/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джоан Роулінґ",
@@ -1020,7 +1066,9 @@
     "slug": "harry-potter-2-en-kindle",
     "priceRegular": 8.99,
     "priceDiscount": 4.99,
-    "images": ["img/kindle/harry-potter-2/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-2/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "J.K. Rowling",
@@ -1044,7 +1092,9 @@
     "slug": "harry-potter-2-uk-kindle",
     "priceRegular": 8.99,
     "priceDiscount": 4.99,
-    "images": ["img/kindle/harry-potter-2/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-2/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джоан Роулінґ",
@@ -1073,7 +1123,9 @@
     "slug": "harry-potter-3-en-kindle",
     "priceRegular": 8.99,
     "priceDiscount": 4.99,
-    "images": ["img/kindle/harry-potter-3/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-3/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "J.K. Rowling",
@@ -1097,7 +1149,9 @@
     "slug": "harry-potter-3-uk-kindle",
     "priceRegular": 8.99,
     "priceDiscount": 4.99,
-    "images": ["img/kindle/harry-potter-3/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-3/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джоан Роулінґ",
@@ -1127,7 +1181,9 @@
     "slug": "harry-potter-4-en-kindle",
     "priceRegular": 9.99,
     "priceDiscount": 5.49,
-    "images": ["img/kindle/harry-potter-4/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-4/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "J.K. Rowling",
@@ -1151,7 +1207,9 @@
     "slug": "harry-potter-4-uk-kindle",
     "priceRegular": 9.99,
     "priceDiscount": 5.49,
-    "images": ["img/kindle/harry-potter-4/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-4/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джоан Роулінґ",
@@ -1175,7 +1233,9 @@
     "slug": "harry-potter-5-en-kindle",
     "priceRegular": 9.99,
     "priceDiscount": 5.99,
-    "images": ["img/kindle/harry-potter-5/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-5/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "J.K. Rowling",
@@ -1199,7 +1259,9 @@
     "slug": "harry-potter-5-uk-kindle",
     "priceRegular": 9.99,
     "priceDiscount": 5.99,
-    "images": ["img/kindle/harry-potter-5/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-5/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джоан Роулінґ",
@@ -1223,7 +1285,9 @@
     "slug": "harry-potter-6-en-kindle",
     "priceRegular": 8.99,
     "priceDiscount": 4.99,
-    "images": ["img/kindle/harry-potter-6/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-6/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "J.K. Rowling",
@@ -1247,7 +1311,9 @@
     "slug": "harry-potter-6-uk-kindle",
     "priceRegular": 8.99,
     "priceDiscount": 4.99,
-    "images": ["img/kindle/harry-potter-6/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-6/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джоан Роулінґ",
@@ -1271,7 +1337,9 @@
     "slug": "harry-potter-7-en-kindle",
     "priceRegular": 9.99,
     "priceDiscount": 5.49,
-    "images": ["img/kindle/harry-potter-7/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-7/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "J.K. Rowling",
@@ -1295,7 +1363,9 @@
     "slug": "harry-potter-7-uk-kindle",
     "priceRegular": 9.99,
     "priceDiscount": 5.49,
-    "images": ["img/kindle/harry-potter-7/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-7/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джоан Роулінґ",
@@ -1319,7 +1389,9 @@
     "slug": "harry-potter-8-en-kindle",
     "priceRegular": 3.99,
     "priceDiscount": 1.99,
-    "images": ["img/kindle/harry-potter-8/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-8/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "J.K. Rowling, Jack Thorne, John Tiffany",
@@ -1343,7 +1415,9 @@
     "slug": "harry-potter-8-uk-kindle",
     "priceRegular": 3.99,
     "priceDiscount": 1.99,
-    "images": ["img/kindle/harry-potter-8/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/harry-potter-8/uk/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
     "author": "Джоан Роулінґ, Джек Торн, Джон Тіффані",
@@ -1367,7 +1441,9 @@
     "slug": "remain-nameless-en-kindle",
     "priceRegular": 9.99,
     "priceDiscount": 6.49,
-    "images": ["img/kindle/remain-nameless/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/kindle/remain-nameless/en/00.webp"
+    ],
     "langAvailable": ["en"],
     "lang": "en",
     "author": "HeyJude",

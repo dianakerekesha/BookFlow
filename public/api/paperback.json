@@ -8,8 +8,8 @@
     "priceRegular": 28.79,
     "priceDiscount": null,
     "images": [
-      "img/paperback/dont-make-me-think/en/00.webp",
-      "img/paperback/dont-make-me-think/en/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/dont-make-me-think/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/dont-make-me-think/en/01.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -42,12 +42,12 @@
     "priceRegular": 11.51,
     "priceDiscount": null,
     "images": [
-      "img/paperback/dont-make-me-think/uk/00.webp",
-      "img/paperback/dont-make-me-think/uk/01.webp",
-      "img/paperback/dont-make-me-think/uk/02.webp",
-      "img/paperback/dont-make-me-think/uk/03.webp",
-      "img/paperback/dont-make-me-think/uk/04.webp",
-      "img/paperback/dont-make-me-think/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/dont-make-me-think/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/dont-make-me-think/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/dont-make-me-think/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/dont-make-me-think/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/dont-make-me-think/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/dont-make-me-think/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -78,7 +78,9 @@
     "slug": "grokking-lgorithms-en-paperback",
     "priceRegular": 79.19,
     "priceDiscount": null,
-    "images": ["img/paperback/grokking-algorithms/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/grokking-algorithms/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Aditya Bhargava",
@@ -104,12 +106,12 @@
     "priceRegular": 13.64,
     "priceDiscount": null,
     "images": [
-      "img/paperback/grokking-algorithms/uk/00.webp",
-      "img/paperback/grokking-algorithms/uk/01.webp",
-      "img/paperback/grokking-algorithms/uk/02.webp",
-      "img/paperback/grokking-algorithms/uk/03.webp",
-      "img/paperback/grokking-algorithms/uk/04.webp",
-      "img/paperback/grokking-algorithms/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/grokking-algorithms/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/grokking-algorithms/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/grokking-algorithms/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/grokking-algorithms/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/grokking-algorithms/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/grokking-algorithms/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -135,9 +137,9 @@
     "priceRegular": 42.18,
     "priceDiscount": 33,
     "images": [
-      "img/paperback/graphic-design-the-new-basics/en/00.webp",
-      "img/paperback/graphic-design-the-new-basics/en/01.webp",
-      "img/paperback/graphic-design-the-new-basics/en/02.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/graphic-design-the-new-basics/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/graphic-design-the-new-basics/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/graphic-design-the-new-basics/en/02.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -168,13 +170,13 @@
     "priceRegular": 12.94,
     "priceDiscount": 11.63,
     "images": [
-      "img/paperback/graphic-design-the-new-basics/uk/00.webp",
-      "img/paperback/graphic-design-the-new-basics/uk/01.webp",
-      "img/paperback/graphic-design-the-new-basics/uk/03.webp",
-      "img/paperback/graphic-design-the-new-basics/uk/04.webp",
-      "img/paperback/graphic-design-the-new-basics/uk/05.webp",
-      "img/paperback/graphic-design-the-new-basics/uk/06.webp",
-      "img/paperback/graphic-design-the-new-basics/uk/07.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/graphic-design-the-new-basics/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/graphic-design-the-new-basics/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/graphic-design-the-new-basics/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/graphic-design-the-new-basics/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/graphic-design-the-new-basics/uk/05.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/graphic-design-the-new-basics/uk/06.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/graphic-design-the-new-basics/uk/07.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -206,7 +208,9 @@
     "slug": "clean-architecture-en-paperback",
     "priceRegular": 22.99,
     "priceDiscount": null,
-    "images": ["img/paperback/clean-architecture/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/clean-architecture/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Robert Martin",
@@ -237,10 +241,10 @@
     "priceRegular": 20.38,
     "priceDiscount": 19.34,
     "images": [
-      "img/paperback/clean-architecture/uk/00.webp",
-      "img/paperback/clean-architecture/uk/01.webp",
-      "img/paperback/clean-architecture/uk/02.webp",
-      "img/paperback/clean-architecture/uk/03.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/clean-architecture/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/clean-architecture/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/clean-architecture/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/clean-architecture/uk/03.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -268,7 +272,9 @@
     "slug": "clean-code-en-paperback",
     "priceRegular": 79,
     "priceDiscount": null,
-    "images": ["img/paperback/clean-code/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/clean-code/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Rober K. Martin",
@@ -297,12 +303,12 @@
     "priceRegular": 21,
     "priceDiscount": 19,
     "images": [
-      "img/paperback/clean-code/uk/00.webp",
-      "img/paperback/clean-code/uk/01.webp",
-      "img/paperback/clean-code/uk/02.webp",
-      "img/paperback/clean-code/uk/03.webp",
-      "img/paperback/clean-code/uk/04.webp",
-      "img/paperback/clean-code/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/clean-code/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/clean-code/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/clean-code/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/clean-code/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/clean-code/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/clean-code/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -326,7 +332,9 @@
     "slug": "lean-ux-en-hardcover",
     "priceRegular": 19.75,
     "priceDiscount": null,
-    "images": ["img/paperback/lean-ux/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/lean-ux/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Jeff Gothelf, Josh Seiden",
@@ -356,12 +364,12 @@
     "priceRegular": 13.66,
     "priceDiscount": 12.97,
     "images": [
-      "img/paperback/lean-ux/uk/00.webp",
-      "img/paperback/lean-ux/uk/01.webp",
-      "img/paperback/lean-ux/uk/02.webp",
-      "img/paperback/lean-ux/uk/03.webp",
-      "img/paperback/lean-ux/uk/04.webp",
-      "img/paperback/lean-ux/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/lean-ux/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/lean-ux/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/lean-ux/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/lean-ux/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/lean-ux/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/lean-ux/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -392,7 +400,9 @@
     "slug": "herding-cats-en-paperback",
     "priceRegular": 24.95,
     "priceDiscount": null,
-    "images": ["img/paperback/herding-cats/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/herding-cats/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "J. Hank Rainwater",
@@ -422,12 +432,12 @@
     "priceRegular": 17.98,
     "priceDiscount": 17.04,
     "images": [
-      "img/paperback/herding-cats/uk/00.webp",
-      "img/paperback/herding-cats/uk/01.webp",
-      "img/paperback/herding-cats/uk/02.webp",
-      "img/paperback/herding-cats/uk/03.webp",
-      "img/paperback/herding-cats/uk/04.webp",
-      "img/paperback/herding-cats/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/herding-cats/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/herding-cats/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/herding-cats/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/herding-cats/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/herding-cats/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/herding-cats/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -456,7 +466,9 @@
     "slug": "introduction-to-game-systems-design-en-paperback",
     "priceRegular": 19.99,
     "priceDiscount": null,
-    "images": ["img/paperback/introduction-to-game-systems-design/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/introduction-to-game-systems-design/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Dax Gazaway",
@@ -482,11 +494,11 @@
     "priceRegular": 16.54,
     "priceDiscount": null,
     "images": [
-      "img/paperback/introduction-to-game-systems-design/uk/00.webp",
-      "img/paperback/introduction-to-game-systems-design/uk/01.webp",
-      "img/paperback/introduction-to-game-systems-design/uk/02.webp",
-      "img/paperback/introduction-to-game-systems-design/uk/03.webp",
-      "img/paperback/introduction-to-game-systems-design/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/introduction-to-game-systems-design/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/introduction-to-game-systems-design/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/introduction-to-game-systems-design/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/introduction-to-game-systems-design/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/introduction-to-game-systems-design/uk/04.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -512,8 +524,8 @@
     "priceRegular": 22.94,
     "priceDiscount": null,
     "images": [
-      "img/paperback/head-first-python/en/00.webp",
-      "img/paperback/head-first-python/en/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/head-first-python/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/head-first-python/en/01.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -543,11 +555,11 @@
     "priceRegular": 25.65,
     "priceDiscount": null,
     "images": [
-      "img/paperback/head-first-python/uk/00.webp",
-      "img/paperback/head-first-python/uk/01.webp",
-      "img/paperback/head-first-python/uk/02.webp",
-      "img/paperback/head-first-python/uk/03.webp",
-      "img/paperback/head-first-python/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/head-first-python/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/head-first-python/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/head-first-python/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/head-first-python/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/head-first-python/uk/04.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -575,7 +587,9 @@
     "slug": "rework-en-hardcover",
     "priceRegular": 22.34,
     "priceDiscount": null,
-    "images": ["img/paperback/rework/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/rework/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Jason Fried ",
@@ -615,12 +629,12 @@
     "priceRegular": 7.67,
     "priceDiscount": null,
     "images": [
-      "img/paperback/rework/uk/00.webp",
-      "img/paperback/rework/uk/01.webp",
-      "img/paperback/rework/uk/02.webp",
-      "img/paperback/rework/uk/03.webp",
-      "img/paperback/rework/uk/04.webp",
-      "img/paperback/rework/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/rework/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/rework/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/rework/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/rework/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/rework/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/rework/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -657,7 +671,9 @@
     "slug": "no-rules-rules-en-hardcover",
     "priceRegular": 16.99,
     "priceDiscount": null,
-    "images": ["img/paperback/no-rules-rules/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/no-rules-rules/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Reed Hastings",
@@ -692,11 +708,11 @@
     "priceRegular": 7.99,
     "priceDiscount": null,
     "images": [
-      "img/paperback/no-rules-rules/uk/00.webp",
-      "img/paperback/no-rules-rules/uk/01.webp",
-      "img/paperback/no-rules-rules/uk/02.webp",
-      "img/paperback/no-rules-rules/uk/03.webp",
-      "img/paperback/no-rules-rules/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/no-rules-rules/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/no-rules-rules/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/no-rules-rules/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/no-rules-rules/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/no-rules-rules/uk/04.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -730,7 +746,9 @@
     "slug": "warren-buffetts-rround-rules-en-paperback",
     "priceRegular": 11.5,
     "priceDiscount": null,
-    "images": ["img/paperback/warren-buffetts-ground-rules/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/warren-buffetts-ground-rules/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Jeremy Miller",
@@ -761,10 +779,10 @@
     "priceRegular": 10.79,
     "priceDiscount": null,
     "images": [
-      "img/paperback/warren-buffetts-ground-rules/uk/00.webp",
-      "img/paperback/warren-buffetts-ground-rules/uk/01.webp",
-      "img/paperback/warren-buffetts-ground-rules/uk/02.webp",
-      "img/paperback/warren-buffetts-ground-rules/uk/03.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/warren-buffetts-ground-rules/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/warren-buffetts-ground-rules/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/warren-buffetts-ground-rules/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/warren-buffetts-ground-rules/uk/03.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -795,7 +813,9 @@
     "slug": "emotional-intelligence-en-paperback",
     "priceRegular": 11.96,
     "priceDiscount": null,
-    "images": ["img/paperback/emotional-intelligence/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/emotional-intelligence/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Daniel Goleman",
@@ -829,13 +849,13 @@
     "priceRegular": 10.76,
     "priceDiscount": null,
     "images": [
-      "img/paperback/emotional-intelligence/uk/00.webp",
-      "img/paperback/emotional-intelligence/uk/01.webp",
-      "img/paperback/emotional-intelligence/uk/02.webp",
-      "img/paperback/emotional-intelligence/uk/03.webp",
-      "img/paperback/emotional-intelligence/uk/04.webp",
-      "img/paperback/emotional-intelligence/uk/05.webp",
-      "img/paperback/emotional-intelligence/uk/06.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/emotional-intelligence/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/emotional-intelligence/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/emotional-intelligence/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/emotional-intelligence/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/emotional-intelligence/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/emotional-intelligence/uk/05.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/emotional-intelligence/uk/06.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -868,7 +888,9 @@
     "slug": "the-double-x-economy-en-paperback",
     "priceRegular": 18.7,
     "priceDiscount": null,
-    "images": ["img/paperback/the-double-x-economy/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-double-x-economy/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Linda Scott",
@@ -900,12 +922,12 @@
     "priceRegular": 6.23,
     "priceDiscount": 5.61,
     "images": [
-      "img/paperback/the-double-x-economy/uk/00.webp",
-      "img/paperback/the-double-x-economy/uk/01.webp",
-      "img/paperback/the-double-x-economy/uk/02.webp",
-      "img/paperback/the-double-x-economy/uk/03.webp",
-      "img/paperback/the-double-x-economy/uk/04.webp",
-      "img/paperback/the-double-x-economy/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-double-x-economy/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-double-x-economy/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-double-x-economy/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-double-x-economy/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-double-x-economy/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-double-x-economy/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -935,7 +957,9 @@
     "slug": "the-leader-who-had-no-title-en-ebook",
     "priceRegular": 14.99,
     "priceDiscount": null,
-    "images": ["img/paperback/the-leader-who-had-no-title/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-leader-who-had-no-title/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Robin Sharma",
@@ -960,11 +984,11 @@
     "priceRegular": 4.79,
     "priceDiscount": null,
     "images": [
-      "img/paperback/the-leader-who-had-no-title/uk/00.webp",
-      "img/paperback/the-leader-who-had-no-title/uk/01.webp",
-      "img/paperback/the-leader-who-had-no-title/uk/02.webp",
-      "img/paperback/the-leader-who-had-no-title/uk/03.webp",
-      "img/paperback/the-leader-who-had-no-title/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-leader-who-had-no-title/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-leader-who-had-no-title/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-leader-who-had-no-title/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-leader-who-had-no-title/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-leader-who-had-no-title/uk/04.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -990,7 +1014,7 @@
     "priceRegular": 19.37,
     "priceDiscount": null,
     "images": [
-      "img/paperback/scrum-the-art-of-doing-twice-the-work-in-half-the-time/en/00.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/scrum-the-art-of-doing-twice-the-work-in-half-the-time/en/00.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -1022,12 +1046,12 @@
     "priceRegular": 8.39,
     "priceDiscount": null,
     "images": [
-      "img/paperback/scrum-the-art-of-doing-twice-the-work-in-half-the-time/uk/00.webp",
-      "img/paperback/scrum-the-art-of-doing-twice-the-work-in-half-the-time/uk/01.webp",
-      "img/paperback/scrum-the-art-of-doing-twice-the-work-in-half-the-time/uk/02.webp",
-      "img/paperback/scrum-the-art-of-doing-twice-the-work-in-half-the-time/uk/03.webp",
-      "img/paperback/scrum-the-art-of-doing-twice-the-work-in-half-the-time/uk/04.webp",
-      "img/paperback/scrum-the-art-of-doing-twice-the-work-in-half-the-time/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/scrum-the-art-of-doing-twice-the-work-in-half-the-time/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/scrum-the-art-of-doing-twice-the-work-in-half-the-time/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/scrum-the-art-of-doing-twice-the-work-in-half-the-time/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/scrum-the-art-of-doing-twice-the-work-in-half-the-time/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/scrum-the-art-of-doing-twice-the-work-in-half-the-time/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/scrum-the-art-of-doing-twice-the-work-in-half-the-time/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -1059,7 +1083,9 @@
     "slug": "the-intelligent-investor-en-ebook",
     "priceRegular": 18.99,
     "priceDiscount": null,
-    "images": ["img/paperback/the-intelligent-investor/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-intelligent-investor/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Benjamin Graham ",
@@ -1091,12 +1117,12 @@
     "priceRegular": 8.39,
     "priceDiscount": null,
     "images": [
-      "img/paperback/the-intelligent-investor/uk/00.webp",
-      "img/paperback/the-intelligent-investor/uk/01.webp",
-      "img/paperback/the-intelligent-investor/uk/02.webp",
-      "img/paperback/the-intelligent-investor/uk/03.webp",
-      "img/paperback/the-intelligent-investor/uk/04.webp",
-      "img/paperback/the-intelligent-investor/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-intelligent-investor/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-intelligent-investor/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-intelligent-investor/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-intelligent-investor/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-intelligent-investor/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-intelligent-investor/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -1128,7 +1154,9 @@
     "slug": "chip-war-en-paperback",
     "priceRegular": 16.47,
     "priceDiscount": 14.81,
-    "images": ["img/paperback/chip-war/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/chip-war/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Chriss Miller",
@@ -1159,12 +1187,12 @@
     "priceRegular": 13.42,
     "priceDiscount": null,
     "images": [
-      "img/paperback/chip-war/uk/00.webp",
-      "img/paperback/chip-war/uk/01.webp",
-      "img/paperback/chip-war/uk/02.webp",
-      "img/paperback/chip-war/uk/03.webp",
-      "img/paperback/chip-war/uk/04.webp",
-      "img/paperback/chip-war/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/chip-war/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/chip-war/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/chip-war/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/chip-war/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/chip-war/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/chip-war/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -1197,7 +1225,7 @@
     "priceRegular": 3.02,
     "priceDiscount": null,
     "images": [
-      "img/paperback/misbehaving-the-making-of-behavioral-economics/en/00.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/misbehaving-the-making-of-behavioral-economics/en/00.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -1231,12 +1259,12 @@
     "priceRegular": 10.79,
     "priceDiscount": null,
     "images": [
-      "img/paperback/misbehaving-the-making-of-behavioral-economics/uk/00.webp",
-      "img/paperback/misbehaving-the-making-of-behavioral-economics/uk/01.webp",
-      "img/paperback/misbehaving-the-making-of-behavioral-economics/uk/02.webp",
-      "img/paperback/misbehaving-the-making-of-behavioral-economics/uk/03.webp",
-      "img/paperback/misbehaving-the-making-of-behavioral-economics/uk/04.webp",
-      "img/paperback/misbehaving-the-making-of-behavioral-economics/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/misbehaving-the-making-of-behavioral-economics/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/misbehaving-the-making-of-behavioral-economics/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/misbehaving-the-making-of-behavioral-economics/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/misbehaving-the-making-of-behavioral-economics/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/misbehaving-the-making-of-behavioral-economics/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/misbehaving-the-making-of-behavioral-economics/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -1266,7 +1294,9 @@
     "slug": "the-fifth-discipline-en-hardcover",
     "priceRegular": 50,
     "priceDiscount": null,
-    "images": ["img/paperback/the-fifth-discipline/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-fifth-discipline/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Peter M. Senge",
@@ -1297,12 +1327,12 @@
     "priceRegular": 15.56,
     "priceDiscount": null,
     "images": [
-      "img/paperback/the-fifth-discipline/uk/00.webp",
-      "img/paperback/the-fifth-discipline/uk/01.webp",
-      "img/paperback/the-fifth-discipline/uk/02.webp",
-      "img/paperback/the-fifth-discipline/uk/03.webp",
-      "img/paperback/the-fifth-discipline/uk/04.webp",
-      "img/paperback/the-fifth-discipline/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-fifth-discipline/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-fifth-discipline/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-fifth-discipline/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-fifth-discipline/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-fifth-discipline/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-fifth-discipline/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -1335,11 +1365,11 @@
     "priceRegular": 22,
     "priceDiscount": 17.5,
     "images": [
-      "img/paperback/1984/uk/00.webp",
-      "img/paperback/1984/uk/01.webp",
-      "img/paperback/1984/uk/02.webp",
-      "img/paperback/1984/uk/03.webp",
-      "img/paperback/1984/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/1984/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/1984/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/1984/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/1984/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/1984/uk/04.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -1374,10 +1404,10 @@
     "priceRegular": 22,
     "priceDiscount": null,
     "images": [
-      "img/paperback/manacled/uk/00.webp",
-      "img/paperback/manacled/uk/01.webp",
-      "img/paperback/manacled/uk/02.webp",
-      "img/paperback/manacled/uk/03.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/manacled/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/manacled/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/manacled/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/manacled/uk/03.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -1412,8 +1442,8 @@
     "priceRegular": 30,
     "priceDiscount": null,
     "images": [
-      "img/paperback/manacled/en/00.webp",
-      "img/paperback/manacled/en/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/manacled/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/manacled/en/01.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
@@ -1448,11 +1478,11 @@
     "priceRegular": 24.2,
     "priceDiscount": null,
     "images": [
-      "img/paperback/1984/en/00.webp",
-      "img/paperback/1984/en/01.webp",
-      "img/paperback/1984/en/02.webp",
-      "img/paperback/1984/en/03.webp",
-      "img/paperback/1984/en/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/1984/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/1984/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/1984/en/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/1984/en/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/1984/en/04.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
@@ -1485,12 +1515,12 @@
     "priceRegular": 20.9,
     "priceDiscount": null,
     "images": [
-      "img/paperback/red-dragon/uk/00.webp",
-      "img/paperback/red-dragon/uk/01.webp",
-      "img/paperback/red-dragon/uk/02.webp",
-      "img/paperback/red-dragon/uk/03.webp",
-      "img/paperback/red-dragon/uk/04.webp",
-      "img/paperback/red-dragon/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/red-dragon/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/red-dragon/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/red-dragon/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/red-dragon/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/red-dragon/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/red-dragon/uk/05.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -1523,9 +1553,9 @@
     "priceRegular": 25.4,
     "priceDiscount": 20,
     "images": [
-      "img/paperback/red-dragon/en/00.webp",
-      "img/paperback/red-dragon/en/01.webp",
-      "img/paperback/red-dragon/en/02.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/red-dragon/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/red-dragon/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/red-dragon/en/02.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
@@ -1594,9 +1624,9 @@
     "priceRegular": 15.5,
     "priceDiscount": null,
     "images": [
-      "img/paperback/the-surgeon/en/00.webp",
-      "img/paperback/the-surgeon/en/01.webp",
-      "img/paperback/the-surgeon/en/02.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-surgeon/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-surgeon/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-surgeon/en/02.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
@@ -1630,8 +1660,8 @@
     "priceRegular": 16.5,
     "priceDiscount": null,
     "images": [
-      "img/paperback/the-apprentice/uk/00.webp",
-      "img/paperback/the-apprentice/uk/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-apprentice/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-apprentice/uk/01.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -1664,8 +1694,8 @@
     "priceRegular": 13.9,
     "priceDiscount": 10,
     "images": [
-      "img/paperback/the-apprentice/en/00.webp",
-      "img/paperback/the-apprentice/en/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-apprentice/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-apprentice/en/01.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
@@ -1692,12 +1722,12 @@
     "priceRegular": 24.5,
     "priceDiscount": 19.5,
     "images": [
-      "img/paperback/iron-flame/uk/00.webp",
-      "img/paperback/iron-flame/uk/01.webp",
-      "img/paperback/iron-flame/uk/02.webp",
-      "img/paperback/iron-flame/uk/03.webp",
-      "img/paperback/iron-flame/uk/04.webp",
-      "img/paperback/iron-flame/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/iron-flame/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/iron-flame/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/iron-flame/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/iron-flame/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/iron-flame/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/iron-flame/uk/05.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -1732,9 +1762,9 @@
     "priceRegular": 22.9,
     "priceDiscount": 20,
     "images": [
-      "img/paperback/iron-flame/en/00.webp",
-      "img/paperback/iron-flame/en/01.webp",
-      "img/paperback/iron-flame/en/02.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/iron-flame/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/iron-flame/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/iron-flame/en/02.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
@@ -1769,12 +1799,12 @@
     "priceRegular": 23.9,
     "priceDiscount": null,
     "images": [
-      "img/paperback/fourth-wing/uk/00.webp",
-      "img/paperback/fourth-wing/uk/01.webp",
-      "img/paperback/fourth-wing/uk/02.webp",
-      "img/paperback/fourth-wing/uk/03.webp",
-      "img/paperback/fourth-wing/uk/04.webp",
-      "img/paperback/fourth-wing/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/fourth-wing/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/fourth-wing/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/fourth-wing/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/fourth-wing/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/fourth-wing/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/fourth-wing/uk/05.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -1808,8 +1838,8 @@
     "priceRegular": 21.5,
     "priceDiscount": null,
     "images": [
-      "img/paperback/fourth-wing/en/00.webp",
-      "img/paperback/fourth-wing/en/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/fourth-wing/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/fourth-wing/en/01.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
@@ -1843,10 +1873,10 @@
     "priceRegular": 25.9,
     "priceDiscount": 21.2,
     "images": [
-      "img/paperback/onyx-storm/uk/00.webp",
-      "img/paperback/onyx-storm/uk/01.webp",
-      "img/paperback/onyx-storm/uk/02.webp",
-      "img/paperback/onyx-storm/uk/03.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/onyx-storm/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/onyx-storm/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/onyx-storm/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/onyx-storm/uk/03.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -1879,8 +1909,8 @@
     "priceRegular": 23.9,
     "priceDiscount": 18.3,
     "images": [
-      "img/paperback/onyx-storm/en/00.webp",
-      "img/paperback/onyx-storm/en/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/onyx-storm/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/onyx-storm/en/01.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
@@ -1914,11 +1944,11 @@
     "priceRegular": 18.9,
     "priceDiscount": 18,
     "images": [
-      "img/paperback/the-silence-of-the-lambs/uk/00.webp",
-      "img/paperback/the-silence-of-the-lambs/uk/01.webp",
-      "img/paperback/the-silence-of-the-lambs/uk/02.webp",
-      "img/paperback/the-silence-of-the-lambs/uk/03.webp",
-      "img/paperback/the-silence-of-the-lambs/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-silence-of-the-lambs/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-silence-of-the-lambs/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-silence-of-the-lambs/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-silence-of-the-lambs/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-silence-of-the-lambs/uk/04.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -1951,8 +1981,8 @@
     "priceRegular": 15.5,
     "priceDiscount": 15,
     "images": [
-      "img/paperback/the-silence-of-the-lambs/en/00.webp",
-      "img/paperback/the-silence-of-the-lambs/en/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-silence-of-the-lambs/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-silence-of-the-lambs/en/01.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
@@ -1985,10 +2015,10 @@
     "priceRegular": 19.5,
     "priceDiscount": 19,
     "images": [
-      "img/paperback/hannibal/uk/00.webp",
-      "img/paperback/hannibal/uk/01.webp",
-      "img/paperback/hannibal/uk/02.webp",
-      "img/paperback/hannibal/uk/03.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hannibal/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hannibal/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hannibal/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hannibal/uk/03.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -2022,9 +2052,9 @@
     "priceRegular": 17.9,
     "priceDiscount": null,
     "images": [
-      "img/paperback/hannibal/en/00.webp",
-      "img/paperback/hannibal/en/01.webp",
-      "img/paperback/hannibal/en/02.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hannibal/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hannibal/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hannibal/en/02.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
@@ -2057,10 +2087,10 @@
     "priceRegular": 17.4,
     "priceDiscount": 16.3,
     "images": [
-      "img/paperback/anne-of-green-gables/uk/00.webp",
-      "img/paperback/anne-of-green-gables/uk/01.webp",
-      "img/paperback/anne-of-green-gables/uk/02.webp",
-      "img/paperback/anne-of-green-gables/uk/03.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/anne-of-green-gables/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/anne-of-green-gables/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/anne-of-green-gables/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/anne-of-green-gables/uk/03.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -2097,12 +2127,12 @@
     "priceRegular": 18.9,
     "priceDiscount": 14.2,
     "images": [
-      "img/paperback/anne-of-green-gables/en/00.webp",
-      "img/paperback/anne-of-green-gables/en/01.webp",
-      "img/paperback/anne-of-green-gables/en/02.webp",
-      "img/paperback/anne-of-green-gables/en/03.webp",
-      "img/paperback/anne-of-green-gables/en/04.webp",
-      "img/paperback/anne-of-green-gables/en/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/anne-of-green-gables/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/anne-of-green-gables/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/anne-of-green-gables/en/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/anne-of-green-gables/en/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/anne-of-green-gables/en/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/anne-of-green-gables/en/05.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
@@ -2137,12 +2167,12 @@
     "priceRegular": 22.5,
     "priceDiscount": 19.4,
     "images": [
-      "img/paperback/the-book-thief/uk/00.webp",
-      "img/paperback/the-book-thief/uk/01.webp",
-      "img/paperback/the-book-thief/uk/02.webp",
-      "img/paperback/the-book-thief/uk/03.webp",
-      "img/paperback/the-book-thief/uk/04.webp",
-      "img/paperback/the-book-thief/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-book-thief/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-book-thief/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-book-thief/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-book-thief/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-book-thief/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-book-thief/uk/05.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -2177,9 +2207,9 @@
     "priceRegular": 19.8,
     "priceDiscount": 19,
     "images": [
-      "img/paperback/the-book-thief/en/00.webp",
-      "img/paperback/the-book-thief/en/01.webp",
-      "img/paperback/the-book-thief/en/02.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-book-thief/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-book-thief/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-book-thief/en/02.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
@@ -2214,9 +2244,9 @@
     "priceRegular": 16.9,
     "priceDiscount": 16,
     "images": [
-      "img/paperback/the-catcher-in-the-rye/uk/00.webp",
-      "img/paperback/the-catcher-in-the-rye/uk/01.webp",
-      "img/paperback/the-catcher-in-the-rye/uk/02.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-catcher-in-the-rye/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-catcher-in-the-rye/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-catcher-in-the-rye/uk/02.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -2249,9 +2279,9 @@
     "priceRegular": 14.3,
     "priceDiscount": 14,
     "images": [
-      "img/paperback/the-catcher-in-the-rye/en/00.webp",
-      "img/paperback/the-catcher-in-the-rye/en/01.webp",
-      "img/paperback/the-catcher-in-the-rye/en/02.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-catcher-in-the-rye/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-catcher-in-the-rye/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/the-catcher-in-the-rye/en/02.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
@@ -2285,11 +2315,11 @@
     "priceRegular": 9.5,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-1/uk/00.webp",
-      "img/paperback/harry-potter-1/uk/01.webp",
-      "img/paperback/harry-potter-1/uk/02.webp",
-      "img/paperback/harry-potter-1/uk/03.webp",
-      "img/paperback/harry-potter-1/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-1/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-1/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-1/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-1/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-1/uk/04.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -2315,12 +2345,12 @@
     "priceRegular": 52.99,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-1/en/00.webp",
-      "img/paperback/harry-potter-1/en/01.webp",
-      "img/paperback/harry-potter-1/en/02.webp",
-      "img/paperback/harry-potter-1/en/03.webp",
-      "img/paperback/harry-potter-1/en/04.webp",
-      "img/paperback/harry-potter-1/en/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-1/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-1/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-1/en/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-1/en/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-1/en/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-1/en/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -2346,12 +2376,12 @@
     "priceRegular": 12.2,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-2/uk/00.webp",
-      "img/paperback/harry-potter-2/uk/01.webp",
-      "img/paperback/harry-potter-2/uk/02.webp",
-      "img/paperback/harry-potter-2/uk/03.webp",
-      "img/paperback/harry-potter-2/uk/04.webp",
-      "img/paperback/harry-potter-2/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-2/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-2/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-2/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-2/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-2/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-2/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -2378,12 +2408,12 @@
     "priceRegular": 54.99,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-2/en/00.webp",
-      "img/paperback/harry-potter-2/en/01.webp",
-      "img/paperback/harry-potter-2/en/02.webp",
-      "img/paperback/harry-potter-2/en/03.webp",
-      "img/paperback/harry-potter-2/en/04.webp",
-      "img/paperback/harry-potter-2/en/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-2/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-2/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-2/en/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-2/en/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-2/en/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-2/en/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -2414,12 +2444,12 @@
     "priceRegular": 35.56,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-3/uk/00.webp",
-      "img/paperback/harry-potter-3/uk/01.webp",
-      "img/paperback/harry-potter-3/uk/02.webp",
-      "img/paperback/harry-potter-3/uk/03.webp",
-      "img/paperback/harry-potter-3/uk/04.webp",
-      "img/paperback/harry-potter-3/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-3/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-3/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-3/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-3/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-3/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-3/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -2451,8 +2481,8 @@
     "priceRegular": 62.5,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-3/en/00.webp",
-      "img/paperback/harry-potter-3/en/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-3/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-3/en/01.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -2478,13 +2508,13 @@
     "priceRegular": 16.67,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-4/uk/00.webp",
-      "img/paperback/harry-potter-4/uk/01.webp",
-      "img/paperback/harry-potter-4/uk/02.webp",
-      "img/paperback/harry-potter-4/uk/03.webp",
-      "img/paperback/harry-potter-4/uk/04.webp",
-      "img/paperback/harry-potter-4/uk/05.webp",
-      "img/paperback/harry-potter-4/uk/06.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-4/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-4/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-4/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-4/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-4/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-4/uk/05.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-4/uk/06.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -2511,8 +2541,8 @@
     "priceRegular": 49.99,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-4/en/00.webp",
-      "img/paperback/harry-potter-4/en/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-4/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-4/en/01.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -2539,13 +2569,13 @@
     "priceRegular": 12.5,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-5/uk/00.webp",
-      "img/paperback/harry-potter-5/uk/01.webp",
-      "img/paperback/harry-potter-5/uk/02.webp",
-      "img/paperback/harry-potter-5/uk/03.webp",
-      "img/paperback/harry-potter-5/uk/04.webp",
-      "img/paperback/harry-potter-5/uk/05.webp",
-      "img/paperback/harry-potter-5/uk/06.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-5/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-5/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-5/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-5/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-5/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-5/uk/05.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-5/uk/06.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -2572,11 +2602,11 @@
     "priceRegular": 51.2,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-5/en/00.webp",
-      "img/paperback/harry-potter-5/en/01.webp",
-      "img/paperback/harry-potter-5/en/02.webp",
-      "img/paperback/harry-potter-5/en/03.webp",
-      "img/paperback/harry-potter-5/en/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-5/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-5/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-5/en/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-5/en/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-5/en/04.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -2603,8 +2633,8 @@
     "priceRegular": 62.0,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-6/en/00.webp",
-      "img/paperback/harry-potter-6/en/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-6/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-6/en/01.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -2631,13 +2661,13 @@
     "priceRegular": 11.67,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-6/uk/00.webp",
-      "img/paperback/harry-potter-6/uk/01.webp",
-      "img/paperback/harry-potter-6/uk/02.webp",
-      "img/paperback/harry-potter-6/uk/03.webp",
-      "img/paperback/harry-potter-6/uk/04.webp",
-      "img/paperback/harry-potter-6/uk/05.webp",
-      "img/paperback/harry-potter-6/uk/06.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-6/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-6/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-6/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-6/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-6/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-6/uk/05.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-6/uk/06.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -2664,12 +2694,12 @@
     "priceRegular": 63.49,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-7/en/00.webp",
-      "img/paperback/harry-potter-7/en/01.webp",
-      "img/paperback/harry-potter-7/en/02.webp",
-      "img/paperback/harry-potter-7/en/03.webp",
-      "img/paperback/harry-potter-7/en/04.webp",
-      "img/paperback/harry-potter-7/en/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-7/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-7/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-7/en/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-7/en/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-7/en/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-7/en/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -2696,12 +2726,12 @@
     "priceRegular": 12.5,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-7/uk/00.webp",
-      "img/paperback/harry-potter-7/uk/01.webp",
-      "img/paperback/harry-potter-7/uk/02.webp",
-      "img/paperback/harry-potter-7/uk/03.webp",
-      "img/paperback/harry-potter-7/uk/04.webp",
-      "img/paperback/harry-potter-7/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-7/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-7/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-7/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-7/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-7/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-7/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -2728,8 +2758,8 @@
     "priceRegular": 62.99,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-8/en/00.webp",
-      "img/paperback/harry-potter-8/en/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-8/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-8/en/01.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -2756,11 +2786,11 @@
     "priceRegular": 12.99,
     "priceDiscount": null,
     "images": [
-      "img/paperback/harry-potter-8/uk/00.webp",
-      "img/paperback/harry-potter-8/uk/01.webp",
-      "img/paperback/harry-potter-8/uk/02.webp",
-      "img/paperback/harry-potter-8/uk/03.webp",
-      "img/paperback/harry-potter-8/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-8/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-8/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-8/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-8/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/harry-potter-8/uk/04.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -2786,7 +2816,9 @@
     "slug": "pokyn-yesli-kohayesh-uk-paperback",
     "priceRegular": 9.99,
     "priceDiscount": null,
-    "images": ["img/paperback/pokyn-yesli-kohayesh/uk/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/pokyn-yesli-kohayesh/uk/00.webp"
+    ],
     "langAvailable": ["uk"],
     "lang": "uk",
     "author": "Oksana Kovalenko",
@@ -2814,11 +2846,11 @@
     "priceRegular": 18.2,
     "priceDiscount": 18,
     "images": [
-      "img/paperback/hollow-city/uk/00.webp",
-      "img/paperback/hollow-city/uk/01.webp",
-      "img/paperback/hollow-city/uk/02.webp",
-      "img/paperback/hollow-city/uk/03.webp",
-      "img/paperback/hollow-city/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hollow-city/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hollow-city/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hollow-city/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hollow-city/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hollow-city/uk/04.webp"
     ],
     "langAvailable": ["uk"],
     "lang": "uk",
@@ -2853,10 +2885,10 @@
     "priceRegular": 18.2,
     "priceDiscount": 18,
     "images": [
-      "img/paperback/hollow-city/en/00.webp",
-      "img/paperback/hollow-city/en/01.webp",
-      "img/paperback/hollow-city/en/02.webp",
-      "img/paperback/hollow-city/en/03.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hollow-city/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hollow-city/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hollow-city/en/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/hollow-city/en/03.webp"
     ],
     "langAvailable": ["en"],
     "lang": "en",
@@ -2884,9 +2916,9 @@
     "priceRegular": 34,
     "priceDiscount": 22.9,
     "images": [
-      "img/paperback/remain-nameless/en/00.webp",
-      "img/paperback/remain-nameless/en/01.webp",
-      "img/paperback/remain-nameless/en/02.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/remain-nameless/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/remain-nameless/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/remain-nameless/en/02.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -2919,9 +2951,9 @@
     "priceRegular": 20,
     "priceDiscount": 13,
     "images": [
-      "img/paperback/remain-nameless/uk/00.webp",
-      "img/paperback/remain-nameless/uk/01.webp",
-      "img/paperback/remain-nameless/uk/02.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/remain-nameless/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/remain-nameless/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/remain-nameless/uk/02.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -2955,7 +2987,9 @@
     "slug": "die-verwandlung-en-paperback",
     "priceRegular": 13.2,
     "priceDiscount": 11.2,
-    "images": ["img/paperback/die-verwandlung/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/die-verwandlung/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Franz Kafka",
@@ -2991,8 +3025,8 @@
     "priceRegular": 16,
     "priceDiscount": 15,
     "images": [
-      "img/paperback/looking-for-alaska/en/00.webp",
-      "img/paperback/looking-for-alaska/en/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/looking-for-alaska/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/looking-for-alaska/en/01.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -3026,8 +3060,8 @@
     "priceRegular": 9.4,
     "priceDiscount": 8.6,
     "images": [
-      "img/paperback/die-verwandlung/uk/00.webp",
-      "img/paperback/die-verwandlung/uk/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/die-verwandlung/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/die-verwandlung/uk/01.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -3062,12 +3096,12 @@
     "priceRegular": 16,
     "priceDiscount": 13,
     "images": [
-      "img/paperback/looking-for-alaska/uk/00.webp",
-      "img/paperback/looking-for-alaska/uk/01.webp",
-      "img/paperback/looking-for-alaska/uk/02.webp",
-      "img/paperback/looking-for-alaska/uk/03.webp",
-      "img/paperback/looking-for-alaska/uk/04.webp",
-      "img/paperback/looking-for-alaska/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/looking-for-alaska/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/looking-for-alaska/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/looking-for-alaska/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/looking-for-alaska/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/looking-for-alaska/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/looking-for-alaska/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -3101,8 +3135,8 @@
     "priceRegular": 28,
     "priceDiscount": 23,
     "images": [
-      "img/paperback/chronicles-of-narnia/en/00.webp",
-      "img/paperback/chronicles-of-narnia/en/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/chronicles-of-narnia/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/chronicles-of-narnia/en/01.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -3136,12 +3170,12 @@
     "priceRegular": 28,
     "priceDiscount": 25,
     "images": [
-      "img/paperback/chronicles-of-narnia/uk/00.webp",
-      "img/paperback/chronicles-of-narnia/uk/01.webp",
-      "img/paperback/chronicles-of-narnia/uk/02.webp",
-      "img/paperback/chronicles-of-narnia/uk/03.webp",
-      "img/paperback/chronicles-of-narnia/uk/04.webp",
-      "img/paperback/chronicles-of-narnia/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/chronicles-of-narnia/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/chronicles-of-narnia/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/chronicles-of-narnia/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/chronicles-of-narnia/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/chronicles-of-narnia/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/chronicles-of-narnia/uk/05.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -3175,8 +3209,8 @@
     "priceRegular": 19,
     "priceDiscount": 10,
     "images": [
-      "img/paperback/twilight/en/00.webp",
-      "img/paperback/twilight/en/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/twilight/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/twilight/en/01.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
@@ -3210,11 +3244,11 @@
     "priceRegular": 19,
     "priceDiscount": 10,
     "images": [
-      "img/paperback/twilight/uk/00.webp",
-      "img/paperback/twilight/uk/01.webp",
-      "img/paperback/twilight/uk/02.webp",
-      "img/paperback/twilight/uk/03.webp",
-      "img/paperback/twilight/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/twilight/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/twilight/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/twilight/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/twilight/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/twilight/uk/04.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -3247,7 +3281,9 @@
     "slug": "web-api-development-dotnet7-en",
     "priceRegular": 5,
     "priceDiscount": 0.99,
-    "images": ["img/paperback/webapi/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/webapi/en/00.webp"
+    ],
     "langAvailable": ["en", "uk"],
     "lang": "en",
     "author": "Irina Dominte",
@@ -3280,8 +3316,8 @@
     "priceRegular": 24,
     "priceDiscount": 12.99,
     "images": [
-      "img/paperback/webapi/uk/00.webp",
-      "img/paperback/webapi/uk/01.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/webapi/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/webapi/uk/01.webp"
     ],
     "langAvailable": ["en", "uk"],
     "lang": "uk",
@@ -3315,11 +3351,11 @@
     "priceRegular": 35,
     "priceDiscount": 32.99,
     "images": [
-      "img/paperback/heaven-blessing/en/00.webp",
-      "img/paperback/heaven-blessing/en/01.webp",
-      "img/paperback/heaven-blessing/en/02.webp",
-      "img/paperback/heaven-blessing/en/03.webp",
-      "img/paperback/heaven-blessing/en/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing/en/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing/en/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing/en/04.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
@@ -3351,12 +3387,12 @@
     "priceRegular": 32,
     "priceDiscount": 30,
     "images": [
-      "img/paperback/heaven-blessing/uk/00.webp",
-      "img/paperback/heaven-blessing/uk/01.webp",
-      "img/paperback/heaven-blessing/uk/02.webp",
-      "img/paperback/heaven-blessing/uk/03.webp",
-      "img/paperback/heaven-blessing/uk/04.webp",
-      "img/paperback/heaven-blessing/uk/05.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing/uk/05.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -3388,11 +3424,11 @@
     "priceRegular": 34,
     "priceDiscount": 32.99,
     "images": [
-      "img/paperback/heaven-blessing-2/uk/00.webp",
-      "img/paperback/heaven-blessing-2/uk/01.webp",
-      "img/paperback/heaven-blessing-2/uk/02.webp",
-      "img/paperback/heaven-blessing-2/uk/03.webp",
-      "img/paperback/heaven-blessing-2/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing-2/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing-2/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing-2/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing-2/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing-2/uk/04.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -3425,9 +3461,9 @@
     "priceRegular": 35,
     "priceDiscount": 31.99,
     "images": [
-      "img/paperback/heaven-blessing-2/en/00.webp",
-      "img/paperback/heaven-blessing-2/en/01.webp",
-      "img/paperback/heaven-blessing-2/en/02.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing-2/en/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing-2/en/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/heaven-blessing-2/en/02.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
@@ -3460,13 +3496,13 @@
     "priceRegular": 13.99,
     "priceDiscount": 11.99,
     "images": [
-      "img/paperback/toreadors-vasyukivka/uk/00.webp",
-      "img/paperback/toreadors-vasyukivka/uk/01.webp",
-      "img/paperback/toreadors-vasyukivka/uk/02.webp",
-      "img/paperback/toreadors-vasyukivka/uk/03.webp",
-      "img/paperback/toreadors-vasyukivka/uk/04.webp",
-      "img/paperback/toreadors-vasyukivka/uk/05.webp",
-      "img/paperback/toreadors-vasyukivka/uk/06.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/toreadors-vasyukivka/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/toreadors-vasyukivka/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/toreadors-vasyukivka/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/toreadors-vasyukivka/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/toreadors-vasyukivka/uk/04.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/toreadors-vasyukivka/uk/05.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/toreadors-vasyukivka/uk/06.webp"
     ],
     "langAvailable": ["uk"],
     "lang": "uk",
@@ -3499,11 +3535,11 @@
     "priceRegular": 22,
     "priceDiscount": 19.99,
     "images": [
-      "img/paperback/sherlock-holmes-vol1/uk/00.webp",
-      "img/paperback/sherlock-holmes-vol1/uk/01.webp",
-      "img/paperback/sherlock-holmes-vol1/uk/02.webp",
-      "img/paperback/sherlock-holmes-vol1/uk/03.webp",
-      "img/paperback/sherlock-holmes-vol1/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/sherlock-holmes-vol1/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/sherlock-holmes-vol1/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/sherlock-holmes-vol1/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/sherlock-holmes-vol1/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/sherlock-holmes-vol1/uk/04.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -3536,11 +3572,11 @@
     "priceRegular": 22,
     "priceDiscount": 19.99,
     "images": [
-      "img/paperback/sherlock-holmes-vol2/uk/00.webp",
-      "img/paperback/sherlock-holmes-vol2/uk/01.webp",
-      "img/paperback/sherlock-holmes-vol2/uk/02.webp",
-      "img/paperback/sherlock-holmes-vol2/uk/03.webp",
-      "img/paperback/sherlock-holmes-vol2/uk/04.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/sherlock-holmes-vol2/uk/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/sherlock-holmes-vol2/uk/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/sherlock-holmes-vol2/uk/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/sherlock-holmes-vol2/uk/03.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/sherlock-holmes-vol2/uk/04.webp"
     ],
     "langAvailable": ["uk", "en"],
     "lang": "uk",
@@ -3572,7 +3608,9 @@
     "slug": "sherlock-holmes-vol1-en",
     "priceRegular": 22,
     "priceDiscount": 19.99,
-    "images": ["img/paperback/sherlock-holmes-vol1/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/sherlock-holmes-vol1/en/00.webp"
+    ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
     "author": "Arthur Conan Doyle",
@@ -3603,7 +3641,9 @@
     "slug": "sherlock-holmes-vol2-en",
     "priceRegular": 22,
     "priceDiscount": 19.99,
-    "images": ["img/paperback/sherlock-holmes-vol2/en/00.webp"],
+    "images": [
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/sherlock-holmes-vol2/en/00.webp"
+    ],
     "langAvailable": ["uk", "en"],
     "lang": "en",
     "author": "Arthur Conan Doyle",
@@ -3635,10 +3675,10 @@
     "priceRegular": 3.49,
     "priceDiscount": 1.99,
     "images": [
-      "img/paperback/tsikave-navchannya-ukr/00.webp",
-      "img/paperback/tsikave-navchannya-ukr/01.webp",
-      "img/paperback/tsikave-navchannya-ukr/02.webp",
-      "img/paperback/tsikave-navchannya-ukr/03.webp"
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/tsikave-navchannya-ukr/00.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/tsikave-navchannya-ukr/01.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/tsikave-navchannya-ukr/02.webp",
+      "https://ik.imagekit.io/ox4rssyih/img/paperback/tsikave-navchannya-ukr/03.webp"
     ],
     "langAvailable": ["uk"],
     "lang": "uk",

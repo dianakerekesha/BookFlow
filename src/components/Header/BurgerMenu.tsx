@@ -1,24 +1,25 @@
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '@/context/AuthContext.tsx';
+import { doSingOut } from '@/firebase/auth';
+import { cn } from '@/lib/utils';
+import { HeaderIconLink } from './HeaderIconLink';
+import { HeaderNav } from './HeaderNav';
 import { HeaderSearch } from './HeaderSearch';
 import { Icon } from '../ui/icons';
-import { HeaderNav } from './HeaderNav';
-import { cn } from '@/lib/utils';
-import { Link, useNavigate } from 'react-router-dom';
-import { HeaderIconLink } from './HeaderIconLink';
-import { useAuth } from '@/context/authContext';
-import { doSingOut } from '@/firebase/auth';
 
 type Props = {
   onClose: () => void;
+  onSearchClick: () => void;
 };
 
-export const BurgerMenu = ({ onClose }: Props) => {
+export const BurgerMenu = ({ onClose, onSearchClick }: Props) => {
   const { userLoggedIn } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <div className="fixed inset-0 z-50 bg-white">
       <div className="flex flex-col justify-between h-full w-full">
-        {/* Header: Logo + Close */}
         <div
           className={cn(
             'mx-auto flex items-center justify-between pl-4 w-full max-w-[1280px]',
@@ -45,25 +46,21 @@ export const BurgerMenu = ({ onClose }: Props) => {
           </button>
         </div>
 
-        {/* Content: Nav + Search + Dropdown */}
         <div className="flex-1 overflow-y-auto flex flex-col py-8 gap-6">
           <HeaderNav
             isMobile
             onLinkClick={onClose}
           />
 
-          {/* Search Input */}
           <div className="flex flex-col gap-4 px-4">
-            {/* Dropdown (categories) */}
             <HeaderSearch
               isMobile
               onCategorySelect={onClose}
-              onSearchSelect={onClose}
+              onClick={onSearchClick}
             />
           </div>
         </div>
 
-        {/* Footer: Icons */}
         <div className="flex border-t h-[56px]">
           <HeaderIconLink
             to="/favourites"
@@ -87,19 +84,31 @@ export const BurgerMenu = ({ onClose }: Props) => {
             />
           </HeaderIconLink>
           {userLoggedIn ?
-            <HeaderIconLink
-              className="flex-1"
-              onClick={() => {
-                doSingOut().then(() => {
-                  navigate('/login', { replace: true });
-                });
-              }}
-            >
-              <Icon
-                name="signOut"
-                className="w-4 h-4"
-              />
-            </HeaderIconLink>
+            <>
+              <HeaderIconLink
+                to="/profile"
+                state={{ background: location }}
+                className="flex-1"
+              >
+                <Icon
+                  name="profileIcon"
+                  className="w-4 h-4"
+                />
+              </HeaderIconLink>
+              <HeaderIconLink
+                className="flex-1"
+                onClick={() => {
+                  doSingOut().then(() => {
+                    navigate('/login', { replace: true });
+                  });
+                }}
+              >
+                <Icon
+                  name="signOut"
+                  className="w-4 h-4"
+                />
+              </HeaderIconLink>
+            </>
           : <>
               <HeaderIconLink
                 to="/login"

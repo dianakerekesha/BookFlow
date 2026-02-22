@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { cn } from '@/lib/utils';
 import type { Book } from '@/types/Book';
 import { TYPOGRAPHY } from '@/constants/typography';
+import { cn } from '@/lib/utils';
 
 type Props = {
   book: Book;
@@ -21,7 +21,7 @@ export const LanguageSelector: React.FC<Props> = ({
 
     setSelected(langCode);
 
-    const match = bookVariants.find((b) => b.lang === langCode);
+    const match = bookVariants.find((book) => book.lang === langCode);
 
     if (match) {
       onBookChange(match);

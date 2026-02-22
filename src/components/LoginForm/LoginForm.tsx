@@ -1,4 +1,6 @@
-import { cn } from '@/lib/utils';
+import React, { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import { FirebaseLoginError } from '@/types/SignInErrors';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -14,34 +16,18 @@ import {
   FieldLabel,
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
-import { useState } from 'react';
-import { useAuth } from '@/context/authContext';
+import { useAuth } from '@/context/AuthContext.tsx';
 import {
   doSingInWithEmailAndPassword,
   doSingInWithGoogle,
 } from '@/firebase/auth';
-import { Link, Navigate } from 'react-router-dom';
 import { COLORS } from '@/constants/colors';
-import {
-  FirebaseAuthError,
-  type FirebaseAuthErrorType,
-} from '@/types/AuthErrors';
+import { cn } from '@/lib/utils';
 
-const getErrorMessage = (code: string) => {
-  switch (code as FirebaseAuthErrorType) {
-    case FirebaseAuthError.InvalidCredential:
-      return 'Недійсні облікові дані.';
-    case FirebaseAuthError.WrongPassword:
-      return 'Невірний пароль.';
-    case FirebaseAuthError.EmailAlreadyInUse:
-      return 'Ця електронна пошта вже використовується.';
-    case FirebaseAuthError.InvalidEmail:
-      return 'Невірний формат електронної пошти.';
-    case FirebaseAuthError.PopupClosedByUser:
-      return 'Вхід через Google був закритий користувачем.';
-    default:
-      return 'Сталася помилка. Спробуйте ще раз.';
-  }
+const LOGIN_ERROR_MESSAGES: Record<string, string> = {
+  [FirebaseLoginError.InvalidCredential]: 'Incorrect email or password.',
+  [FirebaseLoginError.UserNotFound]: 'No user with this email was found.',
+  [FirebaseLoginError.PopupClosedByUser]: 'Google sign-in has been canceled.',
 };
 
 export function LoginForm() {
@@ -50,19 +36,24 @@ export function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSigningIn, setIsSigningIn] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!isSigningIn) {
       setIsSigningIn(true);
-      setError(null);
+      setErrorMessage('');
       try {
         await doSingInWithEmailAndPassword(email, password);
         setEmail('');
         setPassword('');
-      } catch (err) {
-        setError(getErrorMessage((err as { code: string }).code));
+      } catch (error) {
+        const errorCode = (error as { code: string }).code;
+        if (errorCode in LOGIN_ERROR_MESSAGES) {
+          setErrorMessage(LOGIN_ERROR_MESSAGES[errorCode]);
+        } else {
+          setErrorMessage('There was an error signing in. Please try again.');
+        }
       } finally {
         setIsSigningIn(false);
       }
@@ -73,11 +64,14 @@ export function LoginForm() {
     event.preventDefault();
     if (!isSigningIn) {
       setIsSigningIn(true);
-      setError(null);
+      setErrorMessage('');
       try {
         await doSingInWithGoogle();
-      } catch (err) {
-        setError(getErrorMessage((err as { code: string }).code));
+      } catch (error) {
+        const errorCode = (error as { code: string }).code;
+        if (errorCode in LOGIN_ERROR_MESSAGES) {
+          setErrorMessage(LOGIN_ERROR_MESSAGES[errorCode]);
+        }
       } finally {
         setIsSigningIn(false);
       }
@@ -126,10 +120,10 @@ export function LoginForm() {
                     required
                   />
                 </Field>
-                {error && (
-                  <p className="text-sm font-medium text-red-600 text-center">
-                    {error}
-                  </p>
+                {errorMessage && (
+                  <div className="text-red-500 text-sm font-medium text-center bg-red-50 p-2 rounded-md border border-red-200">
+                    {errorMessage}
+                  </div>
                 )}
                 <Field>
                   <Button

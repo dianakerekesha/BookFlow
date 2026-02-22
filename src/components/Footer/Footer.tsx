@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { ChevronUp } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { TYPOGRAPHY } from '@/constants/typography';
 import { useTranslation } from 'react-i18next';
+import { ChevronUp } from 'lucide-react';
+import { TYPOGRAPHY } from '@/constants/typography';
+import { cn } from '@/lib/utils';
 
 const linkClass = cn(
   TYPOGRAPHY.uppercase,
@@ -16,7 +16,7 @@ const scrollToTop = () => {
 export const Footer = () => {
   const { t } = useTranslation();
   return (
-    <footer className="border-t border-border font-manrope">
+    <footer className="relative z-10 bg-background border-t border-border font-manrope">
       <div className="max-[639px]:hidden w-full">
         <div className="footer-container">
           <Link
