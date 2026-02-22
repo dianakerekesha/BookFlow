@@ -32,7 +32,7 @@ function App() {
     <>
       <div className="flex min-h-screen flex-col relative">
         {!hideLayout && <Header />}
-        <main className="flex-1 relative z-10">
+        <main className="flex-1 relative z-10 overflow-x-hidden">
           <Routes location={background || location}>
             <Route
               path="/"
