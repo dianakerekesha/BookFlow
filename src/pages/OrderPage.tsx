@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronLeft, Loader2 } from 'lucide-react';
 import type { Order } from '@/types/Order';
 import { getUserOrders } from '@/services/paymentAPI';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils.ts';
+import { useQuery } from '@tanstack/react-query';
 
 const StatusBadge = ({ status }: { status: Order['status'] }) => {
   const config = {
@@ -25,16 +25,12 @@ const StatusBadge = ({ status }: { status: Order['status'] }) => {
 };
 
 const OrdersPage = () => {
-  const [orders, setOrders] = useState<Order[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
   const navigate = useNavigate();
 
-  useEffect(() => {
-    getUserOrders()
-      .then(setOrders)
-      .finally(() => setIsLoading(false));
-  }, []);
+  const { data: orders = [], isLoading } = useQuery({
+    queryKey: ['orders', 'user'],
+    queryFn: getUserOrders,
+  });
 
   if (isLoading)
     return (

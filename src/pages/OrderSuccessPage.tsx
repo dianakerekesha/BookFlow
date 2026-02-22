@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getOrder } from '@/services/paymentAPI';
 import type { Order } from '@/types/Order';
 import { DownloadInvoiceButton } from '@/components/Invoices';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { Loader2 } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
 
 const TELEGRAM_BOT_USERNAME = 'NiceBoookBot';
 
@@ -61,16 +61,12 @@ const getPrice = (item: {
 
 const OrderSuccessPage = () => {
   const { orderId } = useParams<{ orderId: string }>();
-  const [order, setOrder] = useState<Order | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    if (!orderId) return;
-    getOrder(orderId)
-      .then(setOrder)
-      .catch(console.error)
-      .finally(() => setIsLoading(false));
-  }, [orderId]);
+  const { data: order, isLoading } = useQuery({
+    queryKey: ['order', orderId],
+    queryFn: () => getOrder(orderId!),
+    enabled: !!orderId,
+  });
 
   if (isLoading)
     return (
@@ -79,7 +75,7 @@ const OrderSuccessPage = () => {
       </div>
     );
 
-  if (!order) {
+  if (!order)
     return (
       <div className="flex flex-col items-center gap-4 py-24 text-gray-500">
         <p className={TYPOGRAPHY.body}>Order not found.</p>
@@ -91,7 +87,6 @@ const OrderSuccessPage = () => {
         </Link>
       </div>
     );
-  }
 
   return (
     <div className="py-12 pb-24">
