@@ -37,7 +37,7 @@ export const BooksSection = ({ title, books = [] }: Props) => {
     <>
       <section
         className="
-      relative
+        relative
         flex flex-col
         mt-[56px] pl-[16px] gap-[24px]
         md:mt-[56px] md:pl-[24px]
