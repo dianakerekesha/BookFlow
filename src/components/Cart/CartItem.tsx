@@ -40,7 +40,7 @@ export const CartItem: React.FC<Props> = ({ book }) => {
           className="flex items-center gap-4 h-20 sm:gap-6"
         >
           <img
-            src={`${import.meta.env.BASE_URL}${book.images[0]}`}
+            src={book.images[0]}
             alt={book.name}
             className="h-full object-contain"
           />
