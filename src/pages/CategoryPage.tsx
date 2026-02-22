@@ -1,4 +1,5 @@
 import { Catalog } from '@/components/Catalog/Catalog';
+import { Loader } from '@/components/ui/Loader';
 import {
   getAudioBooks,
   getKindleBooks,
@@ -39,16 +40,16 @@ export const CategoryPage = () => {
     ],
   });
 
-  const books = results.flatMap((r) => r.data ?? []);
-  const isLoading = results.some((r) => r.isLoading);
+  const books = results.flatMap((result) => result.data ?? []);
+  const isLoading = results.some((result) => result.isLoading);
   const visibleBooks = filterBooks(books, categoryName);
 
-  if (isLoading) return <p>Завантаження...</p>;
-
   return (
-    <Catalog
-      products={visibleBooks}
-      title={title}
-    />
+    <Loader isLoading={isLoading}>
+      <Catalog
+        products={visibleBooks}
+        title={title}
+      />
+    </Loader>
   );
 };

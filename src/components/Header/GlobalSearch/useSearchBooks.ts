@@ -38,8 +38,8 @@ export const useSearchBooks = () => {
     const titles = results.filter(
       (book) =>
         book.name.toLowerCase().includes(query) &&
-        !authors.some((a) => a.id === book.id) &&
-        !publishers.some((p) => p.id === book.id),
+        !authors.some((author) => author.id === book.id) &&
+        !publishers.some((publisher) => publisher.id === book.id),
     );
 
     return { authors, publishers, titles };
