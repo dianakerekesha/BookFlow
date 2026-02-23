@@ -16,7 +16,7 @@ import { NotFoundPage } from '@/pages/NotFoundPage.tsx';
 import OrdersPage from '@/pages/OrderPage.tsx';
 import OrderSuccessPage from '@/pages/OrderSuccessPage';
 import { PaperPage } from '@/pages/PaperPage';
-import { ProfilePage } from './pages/ProfilePage';
+import { ProfilePage } from './pages/ProfilePage/ProfilePage.tsx';
 import { RightsPage } from '@/pages/RightsPage';
 import { SignUpPage } from './pages/SignUpPage';
 
@@ -29,100 +29,90 @@ function App() {
     location.pathname === '/login' || location.pathname === '/signup';
 
   return (
-    <>
-      <div className="flex min-h-screen flex-col relative">
-        {!hideLayout && <Header />}
-        <main className="flex-1 relative z-10 overflow-x-hidden">
-          <Routes location={background || location}>
-            <Route
-              path="/"
-              element={<HomePage />}
-            />
-            <Route
-              path="/home"
-              element={<Navigate to="/" />}
-            />
-            <Route
-              path="/login"
-              element={<LoginPage />}
-            />
-            <Route
-              path="/signup"
-              element={<SignUpPage />}
-            />
-            <Route
-              path="/catalog"
-              element={<CatalogPage />}
-            />
-            <Route
-              path="/paper"
-              element={<PaperPage />}
-            />
-            <Route
-              path="/kindle"
-              element={<KindlePage />}
-            />
-            <Route
-              path="/audiobook"
-              element={<AudiobookPage />}
-            />
-            <Route
-              path="/category/:categoryName"
-              element={<CategoryPage />}
-            />
-            <Route
-              path="/favourites"
-              element={<FavouritesPage />}
-            />
-            <Route
-              path="/cart"
-              element={<CartPage />}
-            />
-            <Route
-              path="/checkout"
-              element={<CheckoutPage />}
-            />
-            <Route
-              path="/order-success/:orderId"
-              element={<OrderSuccessPage />}
-            />
-            <Route
-              path="/orders"
-              element={<OrdersPage />}
-            />
-            <Route
-              path="/contacts"
-              element={<ContactsPage />}
-            />
-            <Route
-              path="/rights"
-              element={<RightsPage />}
-            />
-            <Route
-              path="/item/:type/:bookSlug"
-              element={<ItemCardPage />}
-            />
-            <Route
-              path="/profile"
-              element={<ProfilePage />}
-            />
-            <Route
-              path="*"
-              element={<NotFoundPage />}
-            />
-          </Routes>
-        </main>
-        {!hideLayout && <Footer />}
-      </div>
-      {background && (
-        <Routes>
+    <div className="flex min-h-screen flex-col relative">
+      {!hideLayout && <Header />}
+      <main className="flex-1 relative z-10 overflow-x-hidden">
+        <Routes location={background || location}>
+          <Route
+            path="/"
+            element={<HomePage />}
+          />
+          <Route
+            path="/home"
+            element={<Navigate to="/" />}
+          />
+          <Route
+            path="/login"
+            element={<LoginPage />}
+          />
+          <Route
+            path="/signup"
+            element={<SignUpPage />}
+          />
+          <Route
+            path="/catalog"
+            element={<CatalogPage />}
+          />
+          <Route
+            path="/paper"
+            element={<PaperPage />}
+          />
+          <Route
+            path="/kindle"
+            element={<KindlePage />}
+          />
+          <Route
+            path="/audiobook"
+            element={<AudiobookPage />}
+          />
+          <Route
+            path="/category/:categoryName"
+            element={<CategoryPage />}
+          />
+          <Route
+            path="/favourites"
+            element={<FavouritesPage />}
+          />
+          <Route
+            path="/cart"
+            element={<CartPage />}
+          />
+          <Route
+            path="/checkout"
+            element={<CheckoutPage />}
+          />
+          <Route
+            path="/order-success/:orderId"
+            element={<OrderSuccessPage />}
+          />
+          <Route
+            path="/orders"
+            element={<OrdersPage />}
+          />
+          <Route
+            path="/contacts"
+            element={<ContactsPage />}
+          />
+          <Route
+            path="/rights"
+            element={<RightsPage />}
+          />
+          <Route
+            path="/item/:type/:bookSlug"
+            element={<ItemCardPage />}
+          />
           <Route
             path="/profile"
             element={<ProfilePage />}
           />
+          <Route
+            path="*"
+            element={<NotFoundPage />}
+          />
         </Routes>
-      )}
-    </>
+      </main>
+      {!hideLayout && <Footer />}
+    </div>
   );
 }
 

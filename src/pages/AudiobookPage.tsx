@@ -1,12 +1,15 @@
 import { useTranslation } from 'react-i18next';
 import { Catalog } from '@/components/Catalog/Catalog';
 import { Loader } from '@/components/ui/Loader';
-import { getAudioBooks } from '@/services/booksAPI';
+import { booksQueryKeys, getAudioBooks } from '@/services/booksAPI';
 import { useFetchBooks } from '@/hooks/useFetchBooks';
 
 export const AudiobookPage = () => {
   const { t } = useTranslation();
-  const { books, error, isLoading } = useFetchBooks(getAudioBooks);
+  const { books, error, isLoading } = useFetchBooks(
+    getAudioBooks,
+    booksQueryKeys.audio,
+  );
 
   if (error) return <div>{error}</div>;
 

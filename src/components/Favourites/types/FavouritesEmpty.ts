@@ -6,4 +6,6 @@ export interface FavouritesEmptyProps {
   buttonText?: string;
   variant?: EmptyStateVariant;
   showSuggestions?: boolean;
+  itemCount?: number;
+  isLoading?: boolean;
 }

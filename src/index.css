@@ -84,7 +84,7 @@ body #root {
   /* Cards — білі, чітко виступають на vanilla фоні */
   --card: #fee9ca;
   --card-foreground: #2c1a0e;
-  --popover: #ffffff;
+  --popover: #d97757;
   --popover-foreground: #2c1a0e;
 
   /* Dark chocolate CTA */
@@ -129,7 +129,7 @@ body #root {
   /* Cards: молочний шоколад — +0.12L від фону, чітко виступають */
   --card: #533020;
   --card-foreground: #f2e4ce;
-  --popover: #533020;
+  --popover: #d97757;
   --popover-foreground: #f2e4ce;
 
   /* Карамель як primary */
