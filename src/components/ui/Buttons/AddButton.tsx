@@ -5,7 +5,7 @@ import type { ButtonSize } from '@/types/ui/Buttons';
 import { useTranslation } from 'react-i18next';
 
 interface AddButtonProps {
-  onClick: () => void;
+  onClick?: () => void;
   isSelected?: boolean;
   size?: ButtonSize;
   className?: string;
