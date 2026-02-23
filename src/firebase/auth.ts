@@ -4,7 +4,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { auth, firestore } from './firebase';
 
 export const doCreateUserWithEmailAndPassword = async (
@@ -23,6 +23,7 @@ export const doCreateUserWithEmailAndPassword = async (
   await setDoc(doc(firestore, 'users', user.uid), {
     name: name,
     email: email,
+    discount: true,
   });
 
   return userCredential;
@@ -40,15 +41,17 @@ export const doSingInWithGoogle = async () => {
   const result = await signInWithPopup(auth, provider);
 
   const user = result.user;
+  const userRef = doc(firestore, 'users', user.uid);
 
-  await setDoc(
-    doc(firestore, 'users', user.uid),
-    {
+  const userSnap = await getDoc(userRef);
+
+  if (!userSnap.exists()) {
+    await setDoc(userRef, {
       name: user.displayName || '',
       email: user.email || '',
-    },
-    { merge: true },
-  );
+      discount: true,
+    });
+  }
 
   return result;
 };
