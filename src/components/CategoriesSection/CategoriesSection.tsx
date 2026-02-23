@@ -41,16 +41,16 @@ export const CategoriesSection = () => {
   const isDragging = useRef(false);
 
   useEffect(() => {
-    const handleMove = (e: MouseEvent) => {
+    const handleMove = (event: MouseEvent) => {
       if (!isDragging.current || activeGrab === null) return;
 
       if (lastX.current === null) {
-        lastX.current = e.clientX;
+        lastX.current = event.clientX;
         return;
       }
 
-      const deltaX = e.clientX - lastX.current;
-      lastX.current = e.clientX;
+      const deltaX = event.clientX - lastX.current;
+      lastX.current = event.clientX;
 
       const sensitivity = 3;
 
