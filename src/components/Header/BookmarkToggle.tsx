@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Sun, Moon, Settings } from 'lucide-react';
 
-export const BookmarkToggle = () => {
+export const BookmarkToggle = ({
+  isMobile = false,
+}: {
+  isMobile?: boolean;
+}) => {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -36,9 +40,9 @@ export const BookmarkToggle = () => {
 
   return (
     <div
-      className={`absolute left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out z-[-1] ${
-        isOpen ? 'top-full' : '-top-[70px]'
-      }`}
+      className={`absolute transition-all duration-500 ease-in-out z-[-1]
+        ${isMobile ? 'right-2' : 'left-1/2 -translate-x-1/2'}
+        ${isOpen ? 'top-full' : '-top-[70px]'}`}
       onClick={() => setIsOpen((prev) => !prev)}
     >
       <div
