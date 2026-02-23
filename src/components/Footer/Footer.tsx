@@ -16,17 +16,17 @@ const scrollToTop = () => {
 export const Footer = () => {
   const { t } = useTranslation();
   return (
-    <footer className="relative z-10 bg-background border-t border-border font-manrope">
+    <footer className="relative z-10 bg-secondary border-t border-border font-manrope">
       <div className="max-[639px]:hidden w-full">
         <div className="footer-container">
           <Link
             to="/"
-            className="shrink-0"
+            className="flex mr-4 transition-transform hover:scale-105"
           >
             <img
               src={`${import.meta.env.BASE_URL}img/icons/Logo.svg`}
-              alt="Nice Boook logo"
-              className="w-22.25 h-8 transition-transform hover:scale-105"
+              alt="Codex logo"
+              className="w-22.25 h-8"
             />
           </Link>
 

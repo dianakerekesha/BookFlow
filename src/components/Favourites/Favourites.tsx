@@ -1,47 +1,57 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
 import type { FavouritesProps } from './types/Favourites';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
 import { ProductCard } from '../ProductCard';
 import { FavouritesEmpty } from './FavouritesEmpty';
+import { useTranslation } from 'react-i18next';
 
 export const Favourites = ({
   books = [],
   title = 'Favourites',
 }: FavouritesProps) => {
+  const navigate = useNavigate();
   const booksCount: number = books.length;
   const isEmptyBooks: boolean = booksCount === 0;
+  const { t } = useTranslation();
 
   return (
     <div className="container mx-auto w-full max-w-[1280px] p-4 md:p-8">
-      <Link
-        to="/home"
+      <button
+        onClick={() => {
+          if (
+            document.referrer &&
+            new URL(document.referrer).origin === window.location.origin
+          ) {
+            navigate(-1);
+          } else {
+            navigate('/');
+          }
+        }}
         className={cn(
           TYPOGRAPHY.small,
           'mb-2 inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors',
         )}
       >
         <ChevronLeft className="size-4" />
-        Home / Favourites
-      </Link>
+        {t('ui.back')}
+      </button>
+
+      <h1 className={cn(TYPOGRAPHY.h1, 'mb-2 text-foreground')}>{title}</h1>
+      <p className="mb-8 text-gray-400">
+        {booksCount} {booksCount === 1 ? 'item' : 'items'}
+      </p>
 
       {isEmptyBooks ?
         <FavouritesEmpty />
-      : <div>
-          <h1 className={cn(TYPOGRAPHY.h1, 'mb-8 text-foreground')}>{title}</h1>
-
-          <p className="mb-4 text-gray-400">
-            {booksCount} {booksCount === 1 ? 'item' : 'items'}
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 [@media(min-width:1200px)]:grid-cols-4 gap-4 justify-items-center">
-            {books.map((item) => (
-              <ProductCard
-                key={item.id}
-                book={item}
-              />
-            ))}
-          </div>
+      : <div className="grid grid-cols-1 sm:grid-cols-2 [@media(min-width:1200px)]:grid-cols-4 gap-4 justify-items-center">
+          {books.map((item) => (
+            <ProductCard
+              key={item.id}
+              book={item}
+            />
+          ))}
         </div>
       }
     </div>

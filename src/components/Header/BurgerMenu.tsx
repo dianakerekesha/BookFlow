@@ -32,7 +32,8 @@ export const BurgerMenu = ({ onClose, onSearchClick }: Props) => {
           >
             <img
               src={`${import.meta.env.BASE_URL}img/icons/Logo.svg`}
-              alt="Nice Boook logo"
+              alt="Codex logo"
+              className="w-22.25 h-8"
             />
           </Link>
           <button
