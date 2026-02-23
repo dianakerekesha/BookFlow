@@ -79,12 +79,12 @@ body #root {
 
   /* ══ VANILLA LIGHT ══ */
   --background: #fff2df;
-  --foreground: #2c1a0e;
+  --foreground: #3d2400;
 
   /* Cards — білі, чітко виступають на vanilla фоні */
   --card: #fee9ca;
   --card-foreground: #2c1a0e;
-  --popover: #ffffff;
+  --popover: #e59312;
   --popover-foreground: #2c1a0e;
 
   /* Dark chocolate CTA */
@@ -95,7 +95,7 @@ body #root {
   --secondary-foreground: #3b2010;
   --muted: #f7edd8;
   --muted-foreground: #7a5c40;
-  --accent: #f0e0c0;
+  --accent: #f2e4ce;
   --accent-foreground: #3b2010;
 
   --destructive: #eb5757;
@@ -129,7 +129,7 @@ body #root {
   /* Cards: молочний шоколад — +0.12L від фону, чітко виступають */
   --card: #533020;
   --card-foreground: #f2e4ce;
-  --popover: #533020;
+  --popover: #e59312;
   --popover-foreground: #f2e4ce;
 
   /* Карамель як primary */
@@ -140,7 +140,7 @@ body #root {
   --secondary-foreground: #f2e4ce;
   --muted: #4a2c1a;
   --muted-foreground: #b08860;
-  --accent: #5e3824;
+  --accent: #f2e4ce;
   --accent-foreground: #f2e4ce;
 
   --destructive: oklch(0.704 0.191 22.216);

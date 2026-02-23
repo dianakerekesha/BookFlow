@@ -1,143 +1,39 @@
-import { useCallback, useEffect } from 'react';
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import type { Book } from '@/types/Book';
 import { GridContainer } from '../GridContainer/GridContainer';
 import { BooksList } from './BooksList';
 import { CatalogControls } from './CatalogControls';
 import { PaginationBlock } from './PaginationBlock';
-
-function filteredProduct(incomingProduct: Book[], sortBy: string) {
-  let changedProduct = [...incomingProduct];
-
-  changedProduct = changedProduct.filter((product) => {
-    return product.lang === 'uk';
-  });
-
-  changedProduct.sort((a, b) => {
-    const aPrice = a.priceDiscount ? a.priceDiscount : a.priceRegular;
-    const bPrice = b.priceDiscount ? b.priceDiscount : b.priceRegular;
-
-    switch (sortBy) {
-      case 'alphabetically':
-        return a.name.localeCompare(b.name);
-
-      case 'cheapest':
-        return aPrice - bPrice;
-
-      case 'newest':
-      default:
-        return b.publicationYear - a.publicationYear;
-    }
-  });
-
-  return changedProduct;
-}
+import { usePagination } from './hooks/usePagination';
+import { useCatalogFilters } from './hooks/useCatalogFilters';
 
 type Props = {
   products: Book[];
-  title: string;
+  title: string | null;
   isLoading?: boolean;
 };
 
 export const Catalog = ({ products, title, isLoading = false }: Props) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [searchParams, setSearchParams] = useSearchParams();
 
-  const pageFromUrl = Number(searchParams.get('page') || 1);
-  const sort = searchParams.get('sort') || 'newest';
-  const itemsParam = searchParams.get('items') || '16';
-  const itemsPerPage: number | 'all' =
-    itemsParam === 'all' ? 'all' : Number(itemsParam);
+  const { sort, itemsPerPage, changeItemsPerPage, changeSort } =
+    useCatalogFilters();
 
-  const MAX_VISIBLE = 5;
-
-  const filtersProducts = filteredProduct(products, sort);
-
-  const totalPages =
-    itemsPerPage === 'all' ? 1 : (
-      Math.ceil(filtersProducts.length / itemsPerPage)
-    );
-
-  const safePage = Math.min(pageFromUrl, totalPages || 1);
+  const {
+    safePage,
+    totalPages,
+    visiblePages,
+    handleChangeNumber,
+    handleChangeArrow,
+  } = usePagination({ totalItems: products.length, itemsPerPage });
 
   const currentProducts: Book[] =
-    itemsPerPage === 'all' ? filtersProducts : (
-      filtersProducts.slice(
+    itemsPerPage === 'all' ? products : (
+      products.slice(
         (safePage - 1) * Number(itemsPerPage),
         safePage * Number(itemsPerPage),
       )
     );
-
-  let startPage = Math.max(safePage - Math.floor(MAX_VISIBLE / 2), 1);
-  let endPage = startPage + MAX_VISIBLE - 1;
-
-  if (endPage > totalPages) {
-    endPage = totalPages;
-    startPage = Math.max(endPage - MAX_VISIBLE + 1, 1);
-  }
-
-  const visiblePages = [];
-
-  for (let i = startPage; i <= endPage; i++) {
-    visiblePages.push(i);
-  }
-
-  const handleChangeNumber = useCallback(
-    (targetPage: number) => {
-      const newSearchParams = new URLSearchParams(searchParams.toString());
-
-      newSearchParams.set('page', targetPage.toString());
-
-      navigate({
-        pathname: location.pathname,
-        search: `?${newSearchParams.toString()}`,
-      });
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    },
-    [searchParams, navigate, location.pathname],
-  );
-
-  const handleChangeArrow = (order: 'prev' | 'next') => {
-    const newSearchParams = new URLSearchParams(searchParams.toString());
-    const targetPage = order === 'prev' ? safePage - 1 : safePage + 1;
-
-    newSearchParams.set('page', targetPage.toString());
-
-    navigate({
-      pathname: location.pathname,
-      search: `?${newSearchParams.toString()}`,
-    });
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleChangeItemsPerPage = (value: number | 'all') => {
-    setSearchParams((prev) => {
-      const params = new URLSearchParams(prev);
-      params.set('items', value.toString());
-      params.set('page', '1');
-
-      return params;
-    });
-  };
-
-  useEffect(() => {
-    if (totalPages === 0) return;
-
-    if (pageFromUrl < 1) {
-      handleChangeNumber(1);
-
-      return;
-    }
-
-    if (pageFromUrl > totalPages) {
-      handleChangeNumber(totalPages);
-    }
-  }, [pageFromUrl, totalPages, handleChangeNumber]);
 
   return (
     <GridContainer className="overflow-hidden">
@@ -146,17 +42,16 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
           {title}
         </h1>
         <p className="text-[#89939A] text-[14px] font-manrope font-medium">
-          {`${filtersProducts.length} ${t('books.books')}`}
-          {isLoading ? '...' : `${filtersProducts.length} books`}
+          {`${products.length} ${t('books.books')}`}
+          {isLoading ? '...' : `${products.length} books`}
         </p>
       </div>
 
       <CatalogControls
         sort={sort}
         itemsPerPage={itemsPerPage}
-        setSearchParams={setSearchParams}
-        onChangeItemsPerPage={handleChangeItemsPerPage}
-        handleChangeNumber={handleChangeNumber}
+        onChangeItemsPerPage={changeItemsPerPage}
+        onChangeSort={changeSort}
       />
 
       <div className="col-span-full h-0" />

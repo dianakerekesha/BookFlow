@@ -16,7 +16,7 @@ import { NotFoundPage } from '@/pages/NotFoundPage.tsx';
 import OrdersPage from '@/pages/OrderPage.tsx';
 import OrderSuccessPage from '@/pages/OrderSuccessPage';
 import { PaperPage } from '@/pages/PaperPage';
-import { ProfilePage } from './pages/ProfilePage';
+import { ProfilePage } from './pages/ProfilePage/ProfilePage.tsx';
 import { RightsPage } from '@/pages/RightsPage';
 import { SignUpPage } from './pages/SignUpPage';
 import { RegisterPromo } from './components/RegisterPromo/RegisterPromo';

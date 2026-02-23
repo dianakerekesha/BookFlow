@@ -208,7 +208,7 @@ export const InvoicePDF = ({ order }: InvoicePDFProps) => {
         style={styles.page}
       >
         <View style={styles.header}>
-          <Text style={styles.logo}>NICE BOOOK</Text>
+          <Text style={styles.logo}>CODEX</Text>
           <View style={{ alignItems: 'flex-end' }}>
             <Text style={styles.invoiceLabel}>INVOICE</Text>
             <Text style={styles.invoiceId}>{order.id}</Text>
@@ -397,7 +397,7 @@ export const InvoicePDF = ({ order }: InvoicePDFProps) => {
         </View>
 
         <View style={styles.footer}>
-          <Text style={styles.footerText}>NICE BOOOK · niceboook.com</Text>
+          <Text style={styles.footerText}>CODEX · codex.com</Text>
           <Text style={styles.footerText}>
             Generated {new Date().toLocaleDateString('en-GB')}
           </Text>

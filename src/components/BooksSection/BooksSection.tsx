@@ -16,17 +16,25 @@ interface Props {
 }
 
 const BooksCarouselButtons = () => {
-  const { scrollPrev, scrollNext } = useCarousel();
+  const { api } = useCarousel();
+
+  const handlePrev = () => {
+    api?.scrollTo(api.selectedScrollSnap() - 1);
+  };
+
+  const handleNext = () => {
+    api?.scrollTo(api.selectedScrollSnap() + 1);
+  };
 
   return (
     <div className="flex gap-[16px]">
       <ScrollButton
         direction="left"
-        onScroll={scrollPrev}
+        onScroll={handlePrev}
       />
       <ScrollButton
         direction="right"
-        onScroll={scrollNext}
+        onScroll={handleNext}
       />
     </div>
   );
