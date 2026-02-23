@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Heart, MousePointerClick, ArrowRight } from 'lucide-react';
+import { Heart, ArrowRight } from 'lucide-react';
 import type { FavouritesEmptyProps } from './types/FavouritesEmpty';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { Trans } from 'react-i18next';
@@ -42,7 +42,6 @@ export const FavouritesEmpty = ({
             <p className="text-gray-500 text-lg">{description}</p>
 
             <div className="inline-flex items-center gap-3 bg-gray-50 px-6 py-4 rounded-2xl border border-dashed border-gray-300">
-              <MousePointerClick className="size-5 text-blue-500" />
               <p className="text-sm font-medium text-gray-700">
                 <Trans i18nKey="favorites.emptyHint">
                   Just click the{' '}

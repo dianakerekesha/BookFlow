@@ -1,54 +1,33 @@
 import { Catalog } from '@/components/Catalog/Catalog';
 import { Loader } from '@/components/ui/Loader';
-import {
-  getAudioBooks,
-  getKindleBooks,
-  getPaperBooks,
-  booksQueryKeys,
-} from '@/services/booksAPI';
-import type { Book } from '@/types/Book';
-import { useQueries } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
-
-function filterBooks(incomingBooks: Book[], category: string | undefined) {
-  let result = [...incomingBooks];
-
-  if (category) {
-    result = result.filter((book) =>
-      book.category?.some(
-        (bookCategory) => bookCategory.toLowerCase() === category,
-      ),
-    );
-  }
-
-  return result;
-}
+import { getBooks, type SortOption } from '@/services/bookService';
+import { useQuery } from '@tanstack/react-query';
+import { useParams, useSearchParams } from 'react-router-dom';
 
 export const CategoryPage = () => {
   const { categoryName } = useParams<{ categoryName: string }>();
+  const [searchParams] = useSearchParams();
 
-  const title =
+  const sort = (searchParams.get('sort') as SortOption) || 'newest';
+  const lang = 'uk';
+
+  const formattedCategory =
     categoryName ?
       categoryName.charAt(0).toUpperCase() + categoryName.slice(1)
-    : '';
+    : null;
 
-  const results = useQueries({
-    queries: [
-      { queryKey: booksQueryKeys.paper, queryFn: getPaperBooks },
-      { queryKey: booksQueryKeys.kindle, queryFn: getKindleBooks },
-      { queryKey: booksQueryKeys.audio, queryFn: getAudioBooks },
-    ],
+  const { data: books = [], isLoading } = useQuery({
+    queryKey: ['books', categoryName, lang, sort],
+    queryFn: () => {
+      return getBooks(lang, formattedCategory, null, sort);
+    },
   });
-
-  const books = results.flatMap((result) => result.data ?? []);
-  const isLoading = results.some((result) => result.isLoading);
-  const visibleBooks = filterBooks(books, categoryName);
 
   return (
     <Loader isLoading={isLoading}>
       <Catalog
-        products={visibleBooks}
-        title={title}
+        products={books}
+        title={formattedCategory}
       />
     </Loader>
   );

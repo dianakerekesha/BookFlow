@@ -7,11 +7,11 @@ import { AddButton } from '@/components/ui/Buttons/AddButton';
 import { HeartButton } from '@/components/ui/Buttons/HeartButton';
 import { Icon } from '@/components/ui/icons';
 import { useCartFavorites } from '@/context/CartFavoritesContext';
-import { useBooks } from '@/context/BooksContext';
 import { animateToTarget } from '@/components/ProductCard/animateToTarget';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
 import { showInfo, showSuccess } from '@/lib/toast';
+import { useBooks } from '@/context/BooksContext';
 
 type Props = {
   book: Book;
@@ -22,14 +22,14 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
   const { addToCart, removeFromCart, toggleFavorite, isFavorite, isInCart } =
     useCartFavorites();
 
-  const { cartIconRef, favIconRef } = useBooks();
   const cardRef = useRef<HTMLDivElement>(null);
 
   const isBookInCart = isInCart(book.id);
   const isBookInFavorites = isFavorite(book.id);
   const price = book.priceDiscount ?? book.priceRegular;
+  const { cartIconRef, favIconRef } = useBooks();
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (event?: React.MouseEvent<HTMLButtonElement>) => {
     if (isBookInCart) {
       removeFromCart(book.id);
       showInfo('Book removed from cart!');
@@ -37,13 +37,13 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
       addToCart(book);
       showSuccess('Book added to cart!');
 
-      if (cardRef.current && cartIconRef?.current) {
-        animateToTarget(cardRef.current, cartIconRef.current);
-      }
+      animateToTarget(event?.currentTarget, cartIconRef, 'book');
     }
   };
 
-  const handleToggleFavorite = () => {
+  const handleToggleFavorite = (
+    event?: React.MouseEvent<HTMLButtonElement>,
+  ) => {
     toggleFavorite(book);
 
     if (isBookInFavorites) {
@@ -51,9 +51,7 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
     } else {
       showSuccess('Book added to favorites!');
 
-      if (cardRef.current && favIconRef?.current) {
-        animateToTarget(cardRef.current, favIconRef.current);
-      }
+      animateToTarget(event?.currentTarget, favIconRef, 'heart');
     }
   };
 
