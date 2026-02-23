@@ -103,6 +103,10 @@ function App() {
               element={<ItemCardPage />}
             />
             <Route
+              path="/profile"
+              element={<ProfilePage />}
+            />
+            <Route
               path="*"
               element={<NotFoundPage />}
             />

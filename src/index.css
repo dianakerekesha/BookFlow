@@ -76,71 +76,93 @@ body #root {
 
 :root {
   --radius: 0.625rem;
+
+  /* ══ VANILLA LIGHT ══ */
   --background: #fff2df;
-  --foreground: #3e2522;
-  --card: oklch(0.9382 0.0518 77.55);
-  --card-foreground: #313237;
-  --popover: #e59312;
-  --popover-foreground: #3e25;
-  --primary: oklch(0.5059 0.0962 152.37);
+  --foreground: #2c1a0e;
+
+  /* Cards — білі, чітко виступають на vanilla фоні */
+  --card: #fee9ca;
+  --card-foreground: #2c1a0e;
+  --popover: #ffffff;
+  --popover-foreground: #2c1a0e;
+
+  /* Dark chocolate CTA */
+  --primary: #3b2010;
   --primary-foreground: #ffffff;
-  --secondary: oklch(0.8676 0.1184 77.55);
-  --secondary-foreground: #313237;
-  --muted: #fafbfc;
-  --muted-foreground: #89939a;
-  --accent: #fafbfc;
-  --accent-foreground: #313237;
+
+  --secondary: #3d2400;
+  --secondary-foreground: #3b2010;
+  --muted: #f7edd8;
+  --muted-foreground: #7a5c40;
+  --accent: #f0e0c0;
+  --accent-foreground: #3b2010;
+
   --destructive: #eb5757;
-  --border: #ffe0b2;
-  --input: #e2e6e9;
-  --ring: #b4bdc3;
+  --border: #dfc08a;
+  --input: #eedfc0;
+  --ring: #b8844a;
+
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* ── Header: гіркий шоколад — темніший за будь-який фон ── */
+  /* nav-тексту задано колір через sidebar-foreground */
+  --sidebar: #1e0f06;
+  --sidebar-foreground: #f5e8d4;
+  --sidebar-primary: #d4a96a;
+  --sidebar-primary-foreground: #1e0f06;
+  --sidebar-accent: #2e1a0d;
+  --sidebar-accent-foreground: #f5e8d4;
+  --sidebar-border: rgba(255 255 255 / 0.09);
+  --sidebar-ring: #d4a96a;
 }
 
 .dark {
-  --background: oklch(0.35 0.04 25);
-  --foreground: #ffe0b2;
-  --card: oklch(0.28 0.04 25);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.4176 0.0937 69.41);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.28 0.04 25);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  /* ══ DARK CHOCOLATE ══ */
+  --background: #5e3824;
+  --foreground: #f2e4ce;
+
+  /* Cards: молочний шоколад — +0.12L від фону, чітко виступають */
+  --card: #533020;
+  --card-foreground: #f2e4ce;
+  --popover: #533020;
+  --popover-foreground: #f2e4ce;
+
+  /* Карамель як primary */
+  --primary: #d4a96a;
+  --primary-foreground: #1e0f06;
+
+  --secondary: #2e1a00;
+  --secondary-foreground: #f2e4ce;
+  --muted: #4a2c1a;
+  --muted-foreground: #b08860;
+  --accent: #5e3824;
+  --accent-foreground: #f2e4ce;
+
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
+  --border: rgba(255 255 255 / 0.11);
+  --input: rgba(255 255 255 / 0.14);
+  --ring: #d4a96a;
+
+  --chart-1: #d4a96a;
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+
+  /* ── Header: еспресо — значно темніший за chocolate фон ── */
+  --sidebar: #120800;
+  --sidebar-foreground: #f2e4ce;
+  --sidebar-primary: #d4a96a;
+  --sidebar-primary-foreground: #1e0f06;
+  --sidebar-accent: #1e0f06;
+  --sidebar-accent-foreground: #f2e4ce;
+  --sidebar-border: rgba(255 255 255 / 0.08);
+  --sidebar-ring: #d4a96a;
 }
 
 @layer base {
