@@ -30,15 +30,13 @@ export const HeaderNav = ({ isMobile, onLinkClick }: Props) => {
               onClick={onLinkClick}
               className={cn(
                 'relative text-lg font-bold uppercase tracking-wider transition-colors duration-200',
-                isActive ? 'text-[#313237]' : (
-                  'text-[#89939A] hover:text-[#313237]'
-                ),
+                isActive ? 'text-#ffffff]' : 'text-accent hover:text-popover',
               )}
             >
               {t(item.label)}
 
               {isActive && (
-                <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#313237]" />
+                <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#ffffff]" />
               )}
             </Link>
           );
@@ -58,9 +56,7 @@ export const HeaderNav = ({ isMobile, onLinkClick }: Props) => {
             className={cn(
               'relative h-full flex items-center px-1 transition-colors duration-200',
               'font-sans font-bold text-[12px] tracking-wider uppercase group',
-              isActive ? 'text-[#313237]' : (
-                'text-[#89939A] hover:text-[#313237]'
-              ),
+              isActive ? '!text-[#ffffff]' : 'text-accent hover:text-popover',
             )}
           >
             {t(item.label)}
@@ -68,8 +64,8 @@ export const HeaderNav = ({ isMobile, onLinkClick }: Props) => {
               className={cn(
                 'absolute bottom-0 left-0 w-full h-[3px] translate-y-[1px] transition-all duration-300',
                 isActive ?
-                  'bg-[#313237] opacity-100'
-                : 'bg-transparent opacity-0 group-hover:opacity-100 group-hover:bg-[#313237]',
+                  'bg-[#ffffff] opacity-100'
+                : 'bg-transparent opacity-0 group-hover:opacity-100 group-hover:bg-popover',
               )}
             />
           </Link>
