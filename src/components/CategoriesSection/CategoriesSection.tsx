@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
 import { CategoriesSectionSkeleton } from './CategoriesSectionSkeleton';
-import bookImg from './book.png';
-import kindleImg from './kindel.png';
-import tabletImg from './tablet2.png';
+import bookImg from './book white.png';
+import kindleImg from './kindel (1).png';
+import tabletImg from './tablet3.png';
 
 //const BASE = import.meta.env.BASE_URL;
 
@@ -101,10 +101,10 @@ export const CategoriesSection = () => {
             to={cat.path}
             className={cn(
               'group relative transition-all duration-300',
-              index !== 0 && 'ml-[-310px]',
               activeGrab === index ? 'cursor-grabbing' : 'cursor-grab',
             )}
             style={{
+              marginLeft: index !== 0 ? '-110px' : undefined,
               zIndex: activeGrab === index ? 50 : CATEGORIES.length - index,
             }}
           >
@@ -133,7 +133,7 @@ export const CategoriesSection = () => {
                 src={cat.image}
                 alt={t(cat.label)}
                 draggable={false}
-                className="min-[640x]:w-[80px] min-[640xp]:h-[180px] aspect-[4/3] object-contain transition duration-500 group-hover:scale-105"
+                className="min-[640x]:w-[80px] min-[640xp]:h-[180px] object-cover transition duration-500 group-hover:scale-105"
               />
             </div>
 
