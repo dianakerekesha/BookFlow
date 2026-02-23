@@ -13,7 +13,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
   return (
     <div
       className={cn(
-        'flex items-center w-full h-[40px] px-4 py-[10px] gap-2.5 rounded-lg bg-white border border-gray-300 transition-colors duration-200',
+        'flex items-center w-full h-[40px] px-4 py-[10px] gap-2.5 rounded-lg bg-input border border-gray-300 transition-colors duration-200',
         'hover:border-[#B4BDC3]',
       )}
     >

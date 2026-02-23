@@ -14,8 +14,8 @@ export const OrderSummary = ({ items }: OrderSummaryProps) => {
   );
 
   return (
-    <div className="bg-gray-50 rounded p-8 sticky top-24">
-      <h2 className={`${TYPOGRAPHY.h4} text-gray-900`}>Order summary</h2>
+    <div className="bg-card rounded p-8 sticky top-24">
+      <h2 className={`${TYPOGRAPHY.h4} text-foreground`}>Order summary</h2>
       <p className={`${TYPOGRAPHY.small} text-gray-400 mt-1 mb-6`}>
         {items.length} {items.length === 1 ? 'item' : 'items'}
       </p>
@@ -37,15 +37,15 @@ export const OrderSummary = ({ items }: OrderSummaryProps) => {
               </span>
             </div>
             <div className="flex-1 min-w-0">
-              <p className={`${TYPOGRAPHY.buttons} text-gray-900 truncate`}>
+              <p className={`${TYPOGRAPHY.buttons} text-foreground truncate`}>
                 {item.name}
               </p>
-              <p className={`${TYPOGRAPHY.small} text-gray-400`}>
+              <p className={`${TYPOGRAPHY.small} text-muted-foreground`}>
                 {item.author}
               </p>
             </div>
             <span
-              className={`${TYPOGRAPHY.buttons} font-bold text-gray-900 whitespace-nowrap`}
+              className={`${TYPOGRAPHY.buttons} font-bold ttext-foreground whitespace-nowrap`}
             >
               ${(getPrice(item) * item.quantity).toFixed(2)}
             </span>
@@ -53,28 +53,28 @@ export const OrderSummary = ({ items }: OrderSummaryProps) => {
         ))}
       </ul>
 
-      <div className="h-px bg-gray-200 my-5" />
+      <div className="h-px bg-chart-5 my-5" />
 
       <div className="flex justify-between mb-2.5">
-        <span className={`${TYPOGRAPHY.body} text-gray-500`}>Subtotal</span>
-        <span className={`${TYPOGRAPHY.body} text-gray-500`}>
+        <span className={`${TYPOGRAPHY.body} text-foreground`}>Subtotal</span>
+        <span className={`${TYPOGRAPHY.body} text-foreground`}>
           ${total.toFixed(2)}
         </span>
       </div>
       <div className="flex justify-between">
-        <span className={`${TYPOGRAPHY.body} text-gray-500`}>Shipping</span>
-        <span className={`${TYPOGRAPHY.body} text-gray-500`}>
+        <span className={`${TYPOGRAPHY.body} text-foreground`}>Shipping</span>
+        <span className={`${TYPOGRAPHY.body} text-foreground`}>
           Calculated at next step
         </span>
       </div>
 
-      <div className="h-px bg-gray-200 my-5" />
+      <div className="h-px bg-chart-5 my-5" />
 
       <div className="flex justify-between items-baseline">
-        <span className={`${TYPOGRAPHY.buttons} font-bold text-gray-900`}>
+        <span className={`${TYPOGRAPHY.buttons} font-bold text-foreground`}>
           Total
         </span>
-        <span className={`${TYPOGRAPHY.h2} text-gray-900 tracking-tight`}>
+        <span className={`${TYPOGRAPHY.h2} text-foreground tracking-tight`}>
           ${total.toFixed(2)}
         </span>
       </div>

@@ -23,7 +23,7 @@ export const BurgerMenu = ({ onClose, onSearchClick }: Props) => {
         <div
           className={cn(
             'mx-auto flex items-center justify-between pl-4 w-full max-w-[1280px]',
-            'h-[48px] border-b',
+            'h-[48px] border-b bg-secondary',
           )}
         >
           <Link
@@ -42,12 +42,12 @@ export const BurgerMenu = ({ onClose, onSearchClick }: Props) => {
           >
             <Icon
               name="close"
-              className="w-4 h-4"
+              className="w-4 h-4 text-white"
             />
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto flex flex-col py-8 gap-6">
+        <div className="flex-1 overflow-y-auto flex flex-col py-8 gap-6 bg-secondary">
           <HeaderNav
             isMobile
             onLinkClick={onClose}

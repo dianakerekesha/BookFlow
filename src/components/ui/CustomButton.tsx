@@ -17,9 +17,9 @@ const buttonVariants = cva(
     variants: {
       state: {
         primary:
-          'bg-foreground text-background hover:bg-popover hover:shadow-md',
+          'bg-primary text-primary-foreground hover:bg-popover hover:shadow-md',
         selected:
-          'bg-foreground text-background border border-border hover:bg-popover hover:shadow-md',
+          'bg-primary text-primary-foreground border border-border hover:bg-popover hover:shadow-md',
       },
     },
     defaultVariants: {

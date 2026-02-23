@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 
 const linkClass = cn(
   TYPOGRAPHY.uppercase,
-  'no-underline text-muted-foreground hover:text-foreground transition-colors',
+  'no-underline text-accent hover:text-popover transition-colors',
 );
 
 const scrollToTop = () => {
@@ -66,12 +66,12 @@ export const Footer = () => {
             <span
               className={cn(
                 TYPOGRAPHY.small,
-                'leading-none whitespace-nowrap text-muted-foreground group-hover:text-foreground transition-colors',
+                'leading-none whitespace-nowrap text-accent group-hover:text-popover transition-colors',
               )}
             >
               {t('navigation.backToTop')}
             </span>
-            <ChevronUp className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+            <ChevronUp className="h-4 w-4 text-accent group-hover:text-popover transition-colors" />
           </button>
         </div>
       </div>
@@ -120,12 +120,12 @@ export const Footer = () => {
           <span
             className={cn(
               TYPOGRAPHY.small,
-              'leading-none whitespace-nowrap text-muted-foreground group-hover:text-foreground transition-colors',
+              'leading-none whitespace-nowrap text-accent group-hover:text-popover transition-colors',
             )}
           >
             Back to top
           </span>
-          <span className="grid h-8 w-8 place-items-center text-muted-foreground group-hover:text-foreground transition-colors">
+          <span className="grid h-8 w-8 place-items-center text-accent group-hover:text-popover transition-colors">
             <ChevronUp className="h-4 w-4" />
           </span>
         </button>

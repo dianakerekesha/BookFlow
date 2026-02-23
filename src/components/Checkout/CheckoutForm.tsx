@@ -38,7 +38,7 @@ const FieldError = ({ message }: { message?: string }) => {
     showError(message);
   }
   return message ?
-      <p className={`${TYPOGRAPHY.small} text-red-500 mt-1`}>{message}</p>
+      <p className={`${TYPOGRAPHY.small} text-destructive mt-1`}>{message}</p>
     : null;
 };
 
@@ -57,7 +57,7 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
       className="flex flex-col gap-10"
     >
       <div className="flex flex-col gap-5">
-        <p className={`${TYPOGRAPHY.uppercase} text-gray-400`}>
+        <p className={`${TYPOGRAPHY.uppercase} text-foreground`}>
           Contact information
         </p>
 
@@ -67,7 +67,7 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
             <Input
               id="firstName"
               placeholder="John"
-              className={errors.firstName ? 'border-red-500' : ''}
+              className={errors.firstName ? 'border-destructive' : ''}
               {...register('firstName')}
             />
             <FieldError message={errors.firstName?.message} />
@@ -77,7 +77,7 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
             <Input
               id="lastName"
               placeholder="Doe"
-              className={errors.lastName ? 'border-red-500' : ''}
+              className={errors.lastName ? 'border-destructive' : ''}
               {...register('lastName')}
             />
             <FieldError message={errors.lastName?.message} />
@@ -90,7 +90,7 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
             id="email"
             type="email"
             placeholder="john@example.com"
-            className={errors.email ? 'border-red-500' : ''}
+            className={errors.email ? 'border-destructive' : ''}
             {...register('email')}
           />
           <FieldError message={errors.email?.message} />
@@ -102,7 +102,7 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
             id="phone"
             type="tel"
             placeholder="+380 xx xxx xx xx"
-            className={errors.phone ? 'border-red-500' : ''}
+            className={errors.phone ? 'border-destructive' : ''}
             {...register('phone')}
           />
           <FieldError message={errors.phone?.message} />
@@ -110,7 +110,7 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
       </div>
 
       <div className="flex flex-col gap-5">
-        <p className={`${TYPOGRAPHY.uppercase} text-gray-400`}>
+        <p className={`${TYPOGRAPHY.uppercase} text-foreground`}>
           Delivery address
         </p>
 
@@ -119,7 +119,7 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
           <Input
             id="address"
             placeholder="123 Main Street, Apt 4B"
-            className={errors.address ? 'border-red-500' : ''}
+            className={errors.address ? 'border-destructive' : ''}
             {...register('address')}
           />
           <FieldError message={errors.address?.message} />
@@ -131,7 +131,7 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
             <Input
               id="city"
               placeholder="Kyiv"
-              className={errors.city ? 'border-red-500' : ''}
+              className={errors.city ? 'border-destructive' : ''}
               {...register('city')}
             />
             <FieldError message={errors.city?.message} />
@@ -141,7 +141,7 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
             <Input
               id="zip"
               placeholder="01001"
-              className={errors.zip ? 'border-red-500' : ''}
+              className={errors.zip ? 'border-destructive' : ''}
               {...register('zip')}
             />
             <FieldError message={errors.zip?.message} />
@@ -155,7 +155,9 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
               setValue('country', val, { shouldValidate: true })
             }
           >
-            <SelectTrigger className={errors.country ? 'border-red-500' : ''}>
+            <SelectTrigger
+              className={errors.country ? 'border-destructive' : ''}
+            >
               <SelectValue placeholder="Select country" />
             </SelectTrigger>
             <SelectContent>

@@ -7,6 +7,7 @@ import { useCartFavorites } from '@/context/CartFavoritesContext.tsx';
 import { formatListeningLength } from '@/components/ItemCard/helpers/formatListeningLength.ts';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { LanguageSelector } from './LanguageSelector';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   book: Book;
@@ -19,13 +20,14 @@ export const ItemCardDetails: React.FC<Props> = ({
   bookVariants,
   onBookChange,
 }) => {
+  const { t } = useTranslation();
   const bookDetailsData: [string, string | number | null][] = [
     ['Author', book.author],
     ['Cover', book.coverType ?? null],
     [
       'Listening length',
       book.listeningLength !== null && book.listeningLength !== undefined ?
-        formatListeningLength(book.listeningLength)
+        formatListeningLength(book.listeningLength, t)
       : null,
     ],
     ['Narrator', book.narrator ?? null],

@@ -23,17 +23,12 @@ export const CartSummary: React.FC<Props> = ({ totalPrice, totalQuantity }) => {
     >
       <p className={cn(TYPOGRAPHY.h2, 'text-foreground')}>${totalPrice}</p>
       <p className={cn(TYPOGRAPHY.body, 'text-muted-foreground')}>
-        {t('cart.totalFor')} {totalQuantity}{' '}
-        {totalQuantity === 1 ?
-          t('books.item')
-        : totalQuantity >= 2 && totalQuantity <= 4 ?
-          t('books.items2-4')
-        : t('books.items')}
+        {t('cart.totalFor')} {t('items.count', { count: totalQuantity })}
       </p>
       <div className="w-full border-t border-border" />
       <Button
         onClick={() => navigate('/checkout')}
-        className="w-full bg-foreground text-background hover:bg-foreground/90"
+        className="w-full bg-foreground text-background hover:bg-popover-foreground"
         size="lg"
       >
         {t('cart.checkout')}

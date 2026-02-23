@@ -94,13 +94,13 @@ export const CategoriesSection = () => {
         {t('categories.shopByCategory')}
       </h2>
 
-      <div className="flex flex-col sm:flex-row mt-[56px] items-center sm:items-baseline">
+      <div className="flex flex-row mt-[56px] items-center items-end mx-auto">
         {CATEGORIES.map((cat, index) => (
           <Link
             key={cat.path}
             to={cat.path}
             className={cn(
-              'group relative transition-all duration-300',
+              'group relative transition-all duration-300 text-center',
               activeGrab === index ? 'cursor-grabbing' : 'cursor-grab',
             )}
             style={{
@@ -109,7 +109,7 @@ export const CategoriesSection = () => {
             }}
           >
             <div
-              className="overflow-hidden rounded-2xl "
+              className="rounded-2xl "
               id={`img-box-${index}`}
               onMouseDown={(e) => {
                 e.preventDefault();
@@ -125,7 +125,6 @@ export const CategoriesSection = () => {
                   : 'rotate(0deg)',
                 transition:
                   activeGrab === null ? 'transform 0.5s ease-out' : 'none',
-                zIndex: activeGrab === index ? 50 : 10,
                 cursor: activeGrab === index ? 'grabbing' : 'grab',
               }}
             >
@@ -133,14 +132,21 @@ export const CategoriesSection = () => {
                 src={cat.image}
                 alt={t(cat.label)}
                 draggable={false}
-                className="min-[640x]:w-[80px] min-[640xp]:h-[180px] object-cover transition duration-500 group-hover:scale-105"
+                className="overflow-hidden sm:w-[290px]  object-cover transition duration-500 group-hover:scale-105"
               />
             </div>
-
-            <h3 className={cn(TYPOGRAPHY.h4, 'mt-4 text-foreground')}>
-              {t(cat.label)}
-            </h3>
           </Link>
+        ))}
+      </div>
+
+      <div className="flex flex-row gap-4 sm:gap-8 mx-auto">
+        {CATEGORIES.map((cat) => (
+          <h3
+            key={cat.path}
+            className={cn(TYPOGRAPHY.h4, 'text-foreground text-center')}
+          >
+            {t(cat.label)}
+          </h3>
         ))}
       </div>
     </section>

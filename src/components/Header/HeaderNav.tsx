@@ -30,7 +30,7 @@ export const HeaderNav = ({ isMobile, onLinkClick }: Props) => {
               onClick={onLinkClick}
               className={cn(
                 'relative text-lg font-bold uppercase tracking-wider transition-colors duration-200',
-                isActive ? 'text-#ffffff]' : 'text-accent hover:text-popover',
+                isActive ? 'text-[#ffffff]' : 'text-accent hover:text-popover',
               )}
             >
               {t(item.label)}
