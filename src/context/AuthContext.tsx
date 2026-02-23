@@ -5,11 +5,19 @@ import {
   useState,
   type ReactNode,
 } from 'react';
-import { auth } from '@/firebase/firebase';
+import { auth, firestore } from '@/firebase/firebase';
 import { onAuthStateChanged, type User } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
+
+type UserData = {
+  name?: string;
+  email?: string;
+  discount?: boolean;
+};
 
 type AuthContextType = {
   currentUser: User | null;
+  userData: UserData | null;
   userLoggedIn: boolean;
   loading: boolean;
 };
@@ -22,6 +30,7 @@ const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [userData, setUserData] = useState<UserData | null>(null);
   const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -29,8 +38,22 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     if (user) {
       setCurrentUser({ ...user });
       setUserLoggedIn(true);
+
+      try {
+        const docRef = doc(firestore, 'users', user.uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          setUserData(docSnap.data() as UserData);
+        } else {
+          setUserData(null);
+        }
+      } catch (error) {
+        console.error('Помилка завантаження даних користувача:', error);
+      }
     } else {
       setCurrentUser(null);
+      setUserData(null);
       setUserLoggedIn(false);
     }
     setLoading(false);
@@ -43,6 +66,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const value = {
     currentUser,
+    userData,
     userLoggedIn,
     loading,
   };
