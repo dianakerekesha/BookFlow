@@ -19,6 +19,7 @@ import { PaperPage } from '@/pages/PaperPage';
 import { ProfilePage } from './pages/ProfilePage';
 import { RightsPage } from '@/pages/RightsPage';
 import { SignUpPage } from './pages/SignUpPage';
+import { RegisterPromo } from './components/RegisterPromo/RegisterPromo';
 
 function App() {
   const location = useLocation();
@@ -33,6 +34,7 @@ function App() {
       <div className="flex min-h-screen flex-col relative">
         {!hideLayout && <Header />}
         <main className="flex-1 relative z-10 overflow-x-hidden">
+          <RegisterPromo />
           <Routes location={background || location}>
             <Route
               path="/"
