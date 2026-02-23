@@ -7,36 +7,9 @@ import { BooksList } from './BooksList';
 import { CatalogControls } from './CatalogControls';
 import { PaginationBlock } from './PaginationBlock';
 
-function filteredProduct(incomingProduct: Book[], sortBy: string) {
-  let changedProduct = [...incomingProduct];
-
-  changedProduct = changedProduct.filter((product) => {
-    return product.lang === 'uk';
-  });
-
-  changedProduct.sort((a, b) => {
-    const aPrice = a.priceDiscount ? a.priceDiscount : a.priceRegular;
-    const bPrice = b.priceDiscount ? b.priceDiscount : b.priceRegular;
-
-    switch (sortBy) {
-      case 'alphabetically':
-        return a.name.localeCompare(b.name);
-
-      case 'cheapest':
-        return aPrice - bPrice;
-
-      case 'newest':
-      default:
-        return b.publicationYear - a.publicationYear;
-    }
-  });
-
-  return changedProduct;
-}
-
 type Props = {
   products: Book[];
-  title: string;
+  title: string | null;
   isLoading?: boolean;
 };
 
@@ -54,18 +27,14 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
 
   const MAX_VISIBLE = 5;
 
-  const filtersProducts = filteredProduct(products, sort);
-
   const totalPages =
-    itemsPerPage === 'all' ? 1 : (
-      Math.ceil(filtersProducts.length / itemsPerPage)
-    );
+    itemsPerPage === 'all' ? 1 : Math.ceil(products.length / itemsPerPage);
 
   const safePage = Math.min(pageFromUrl, totalPages || 1);
 
   const currentProducts: Book[] =
-    itemsPerPage === 'all' ? filtersProducts : (
-      filtersProducts.slice(
+    itemsPerPage === 'all' ? products : (
+      products.slice(
         (safePage - 1) * Number(itemsPerPage),
         safePage * Number(itemsPerPage),
       )
@@ -146,8 +115,8 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
           {title}
         </h1>
         <p className="text-[#89939A] text-[14px] font-manrope font-medium">
-          {`${filtersProducts.length} ${t('books.books')}`}
-          {isLoading ? '...' : `${filtersProducts.length} books`}
+          {`${products.length} ${t('books.books')}`}
+          {isLoading ? '...' : `${products.length} books`}
         </p>
       </div>
 
