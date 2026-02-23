@@ -1,14 +1,14 @@
-import { ProductCard } from '@/components/ProductCard';
 import type { Book } from '@/types/Book';
-import { cn } from '@/lib/utils';
 import { TYPOGRAPHY } from '@/constants/typography';
-import { ScrollButton } from '@/components/BooksSection/ScrollButtons';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   useCarousel,
 } from '@/components/ui/carousel';
+import { ProductCard } from '@/components/ProductCard';
+import { ScrollButton } from '@/components/BooksSection/ScrollButtons';
+import { cn } from '@/lib/utils';
 
 interface Props {
   title: string;
@@ -37,7 +37,7 @@ export const BooksSection = ({ title, books = [] }: Props) => {
     <>
       <section
         className="
-      relative
+        relative
         flex flex-col
         mt-[56px] pl-[16px] gap-[24px]
         md:mt-[56px] md:pl-[24px]

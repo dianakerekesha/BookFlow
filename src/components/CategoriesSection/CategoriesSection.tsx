@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
-import { useTranslation } from 'react-i18next';
 import { CategoriesSectionSkeleton } from './CategoriesSectionSkeleton';
 import bookImg from './book.png';
 import kindleImg from './kindel.png';
@@ -34,14 +34,14 @@ const CATEGORIES = [
 export const CategoriesSection = () => {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
-  const [activeGrab, setActiveGrab] = useState(null);
+  const [activeGrab, setActiveGrab] = useState<number | null>(null);
   const [rotation, setRotation] = useState(0);
 
-  const lastX = useRef(null);
+  const lastX = useRef<number | null>(null);
   const isDragging = useRef(false);
 
   useEffect(() => {
-    const handleMove = (e) => {
+    const handleMove = (e: MouseEvent) => {
       if (!isDragging.current || activeGrab === null) return;
 
       if (lastX.current === null) {
@@ -82,6 +82,7 @@ export const CategoriesSection = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsLoading(false), 500);
+
     return () => clearTimeout(timeout);
   }, []);
 

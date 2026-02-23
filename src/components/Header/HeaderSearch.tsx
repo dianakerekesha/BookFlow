@@ -41,11 +41,8 @@ export const HeaderSearch = ({
   };
 
   if (isMobile) {
-    // Вертикальна версія для burger menu
     return (
       <div className="flex flex-col gap-2 w-full">
-        {/* Search input */}
-
         <div
           onClick={onClick}
           className="cursor-pointer"
@@ -57,7 +54,6 @@ export const HeaderSearch = ({
           />
         </div>
 
-        {/* Dropdown categories */}
         <Select
           value={currentCategory}
           onValueChange={handleCategoryChange}
@@ -84,7 +80,6 @@ export const HeaderSearch = ({
     );
   }
 
-  // Desktop версія (горизонтально)
   return (
     <div
       onClick={onClick}

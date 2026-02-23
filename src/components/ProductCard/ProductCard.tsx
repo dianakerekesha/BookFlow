@@ -1,17 +1,17 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Truck } from 'lucide-react';
+import type { Book } from '@/types/Book';
 import { AddButton } from '@/components/ui/Buttons/AddButton';
 import { HeartButton } from '@/components/ui/Buttons/HeartButton';
 import { Icon } from '@/components/ui/icons';
 import { useCartFavorites } from '@/context/CartFavoritesContext';
+import { useBooks } from '@/context/BooksContext';
+import { animateToTarget } from '@/components/ProductCard/animateToTarget';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
-import type { Book } from '@/types/Book';
-import { useTranslation } from 'react-i18next';
 import { showInfo, showSuccess } from '@/lib/toast';
-import { animateToTarget } from '@/components/ProductCard/animateToTarget';
-import { useBooks } from '@/context/BooksContext';
 
 type Props = {
   book: Book;

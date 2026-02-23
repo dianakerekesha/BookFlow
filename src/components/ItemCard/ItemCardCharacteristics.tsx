@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Book } from '@/types/Book';
-import { formatListeningLength } from '@/utils/formatListeningLength.ts';
+import { formatListeningLength } from '@/components/ItemCard/helpers/formatListeningLength.ts';
 import { TYPOGRAPHY } from '@/constants/typography';
 
 type Props = { book: Book };
@@ -25,7 +25,7 @@ export const ItemCardCharacteristics: React.FC<Props> = ({ book }) => {
     { label: 'Language', value: book.lang === 'uk' ? 'Ukrainian' : 'English' },
   ];
 
-  const filtered = specs.filter((s) => s.value != null);
+  const filtered = specs.filter((spec) => spec.value != null);
 
   return (
     <section className="w-full max-w-160 mx-auto lg:mx-0">

@@ -1,14 +1,13 @@
 import {
   createContext,
   useContext,
-  useState,
-  useEffect,
   useMemo,
   useRef,
+  type ReactNode,
 } from 'react';
-import type { ReactNode } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import type { Book } from './../types/Book';
-import { getPaperBooks } from '@/services/booksAPI';
+import { getPaperBooks, booksQueryKeys } from '@/services/booksAPI';
 
 interface BooksContextType {
   books: Book[];
@@ -22,24 +21,13 @@ interface BooksContextType {
 const BooksContext = createContext<BooksContextType | undefined>(undefined);
 
 export const BooksProvider = ({ children }: { children: ReactNode }) => {
-  const [books, setBooks] = useState<Book[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
   const cartIconRef = useRef<HTMLDivElement>(null);
   const favIconRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    getPaperBooks()
-      .then((data) => {
-        setBooks(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching books:', error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, []);
+  const { data: books = [], isLoading } = useQuery({
+    queryKey: booksQueryKeys.paper,
+    queryFn: getPaperBooks,
+  });
 
   const newBooks = useMemo(() => {
     return [...books].sort((a, b) => b.publicationYear - a.publicationYear);

@@ -9,7 +9,7 @@ const stripePromise = loadStripe(
 interface StripeWrapperProps {
   clientSecret: string;
   onSuccess: () => void;
-  onError: (msg: string) => void;
+  onError: (message: string) => void;
 }
 
 export const StripeWrapper = ({

@@ -16,6 +16,7 @@ export const ScrollButton = ({
   const handleScroll = () => {
     if (onScroll) {
       onScroll();
+
       return;
     }
 

@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
-import { cn } from '@/lib/utils';
-
+import type { FavouritesProps } from './types/Favourites';
 import { TYPOGRAPHY } from '@/constants/typography';
+import { cn } from '@/lib/utils';
 import { ProductCard } from '../ProductCard';
 import { FavouritesEmpty } from './FavouritesEmpty';
-
-import type { FavouritesProps } from './types/Favourites';
 
 export const Favourites = ({
   books = [],

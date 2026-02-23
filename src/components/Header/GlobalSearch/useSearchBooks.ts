@@ -1,22 +1,17 @@
-import { useState, useEffect, useMemo } from 'react';
-import { searchAllBooks } from '@/hooks/searchAllBooks';
-import type { Book } from '@/types/Book';
+import { useState, useMemo } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import type { GroupedResults } from './search.types';
+import { searchAllBooks } from '@/components/Header/GlobalSearch/helpers/searchAllBooks.ts';
+import { booksQueryKeys } from '@/services/booksAPI';
 
 export const useSearchBooks = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [results, setResults] = useState<Book[]>([]);
-  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (!searchTerm.trim()) {
-      return;
-    }
-    searchAllBooks(searchTerm)
-      .then((data) => setResults(data))
-      .catch((err) => console.error(err))
-      .finally(() => setLoading(false));
-  }, [searchTerm]);
+  const { data: results = [], isLoading: loading } = useQuery({
+    queryKey: booksQueryKeys.search(searchTerm),
+    queryFn: () => searchAllBooks(searchTerm),
+    enabled: !!searchTerm.trim(),
+  });
 
   const groupedResults = useMemo<GroupedResults>(() => {
     if (!searchTerm.trim()) return { authors: [], publishers: [], titles: [] };
@@ -43,8 +38,8 @@ export const useSearchBooks = () => {
     const titles = results.filter(
       (book) =>
         book.name.toLowerCase().includes(query) &&
-        !authors.some((a) => a.id === book.id) &&
-        !publishers.some((p) => p.id === book.id),
+        !authors.some((author) => author.id === book.id) &&
+        !publishers.some((publisher) => publisher.id === book.id),
     );
 
     return { authors, publishers, titles };
@@ -56,6 +51,5 @@ export const useSearchBooks = () => {
     results,
     groupedResults,
     loading,
-    setResults,
   };
 };

@@ -1,7 +1,7 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { Icon } from '@/components/ui/icons';
-import React from 'react';
 
 type Props = {
   type: string;

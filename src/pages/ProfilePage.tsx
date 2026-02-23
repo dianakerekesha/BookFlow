@@ -1,5 +1,5 @@
-import { Profile } from '@/components/Profile/Profile';
 import { useNavigate } from 'react-router-dom';
+import { Profile } from '@/components/Profile/Profile';
 
 export const ProfilePage = () => {
   const navigate = useNavigate();

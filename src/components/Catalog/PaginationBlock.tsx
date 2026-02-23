@@ -29,8 +29,9 @@ export const PaginationBlock = ({
           <PaginationItem>
             <PaginationPrevious
               href="#"
-              onClick={(e) => {
-                e.preventDefault();
+              onClick={(event) => {
+                event.preventDefault();
+
                 if (safePage > 1) {
                   handleChangeArrow('prev');
                 }
@@ -42,8 +43,8 @@ export const PaginationBlock = ({
               <PaginationLink
                 href="#"
                 isActive={safePage === page}
-                onClick={(e) => {
-                  e.preventDefault();
+                onClick={(event) => {
+                  event.preventDefault();
                   handleChangeNumber(page);
                 }}
               >
@@ -54,8 +55,9 @@ export const PaginationBlock = ({
           <PaginationItem>
             <PaginationNext
               href="#"
-              onClick={(e) => {
-                e.preventDefault();
+              onClick={(event) => {
+                event.preventDefault();
+
                 if (safePage < totalPages) {
                   handleChangeArrow('next');
                 }

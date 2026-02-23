@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { ChevronUp } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { TYPOGRAPHY } from '@/constants/typography';
 import { useTranslation } from 'react-i18next';
+import { ChevronUp } from 'lucide-react';
+import { TYPOGRAPHY } from '@/constants/typography';
+import { cn } from '@/lib/utils';
 
 const linkClass = cn(
   TYPOGRAPHY.uppercase,

@@ -1,28 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { booksQueryKeys } from '@/services/booksAPI';
 import type { Book } from '@/types/Book';
 
-export const useFetchBooks = (fetchFn: () => Promise<Book[]>) => {
-  const [books, setBooks] = useState<Book[]>([]);
-  const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+export const useFetchBooks = (
+  fetchFn: () => Promise<Book[]>,
+  queryKey: (typeof booksQueryKeys)[keyof typeof booksQueryKeys],
+) => {
+  const { data, error, isLoading } = useQuery<Book[]>({
+    queryKey: queryKey as readonly unknown[],
+    queryFn: fetchFn,
+  });
 
-  useEffect(() => {
-    const loadBooks = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const data = await fetchFn();
-        setBooks(data);
-      } catch (err) {
-        console.error('Помилка завантаження:', err);
-        setError('');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadBooks();
-  }, [fetchFn]);
-
-  return { books, error, isLoading };
+  return {
+    books: data ?? [],
+    error: error ? String(error) : null,
+    isLoading,
+  };
 };
