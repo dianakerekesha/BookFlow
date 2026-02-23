@@ -40,6 +40,5 @@ createRoot(document.getElementById('root')!).render(
         </CartFavoritesProvider>
       </AuthProvider>
     </BrowserRouter>
-    ,
   </QueryClientProvider>,
 );

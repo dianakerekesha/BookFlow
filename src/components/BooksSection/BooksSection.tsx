@@ -41,7 +41,7 @@ export const BooksSection = ({ title, books = [] }: Props) => {
         flex flex-col
         mt-[56px] pl-[16px] gap-[24px]
         md:mt-[56px] md:pl-[24px]
-        lg:mt-[80px] lg:w-[1136px] lg:mx-auto lg:pl-0
+        lg:mt-[80px] lg:w-[1126px] lg:mx-auto lg:pl-0
       "
       >
         <Carousel
@@ -51,6 +51,12 @@ export const BooksSection = ({ title, books = [] }: Props) => {
             containScroll: 'keepSnaps',
             dragFree: true,
             slidesToScroll: 1,
+            breakpoints: {
+              '(min-width: 1200px)': {
+                align: 'center',
+                containScroll: 'trimSnaps',
+              },
+            },
           }}
         >
           <div
@@ -72,10 +78,10 @@ export const BooksSection = ({ title, books = [] }: Props) => {
           </div>
 
           <CarouselContent className="flex mt-[24px]">
-            {books.map((book, i) => (
+            {books.map((book, index) => (
               <CarouselItem
-                key={`${book.id}-${i}`}
-                className="pl-[16px] basis-auto"
+                key={`${book.id}-${index}`}
+                className="pl-[16px] basis-auto lg:basis-[25%]"
               >
                 <div className="h-[400px] md:h-[506px] lg:h-[571px]">
                   <ProductCard book={book} />

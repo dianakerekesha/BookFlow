@@ -18,7 +18,6 @@ export const Cart = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsLoading(false), 500);
-
     return () => clearTimeout(timeout);
   }, []);
 
@@ -38,12 +37,14 @@ export const Cart = () => {
     () => cart.reduce((sum, book) => sum + book.quantity, 0),
     [cart],
   );
-  const { t } = useTranslation();
 
+  const { t } = useTranslation();
   const skeletonCount = cart.length;
 
+  const itemLabel = (count: number) => (count === 1 ? 'item' : 'items');
+
   return (
-    <div className="mx-auto max-w-312 px-4 pt-6 pb-16 sm:px-6 lg:px-8 lg:pb-20">
+    <div className="container mx-auto w-full max-w-[1280px] p-4 md:p-8">
       <button
         onClick={() => {
           if (
@@ -64,20 +65,12 @@ export const Cart = () => {
         {t('ui.back')}
       </button>
 
-      <div className="mb-8 sm:mb-10 pt-2">
-        <h1 className={cn(TYPOGRAPHY.h1, 'text-foreground')}>Cart</h1>
-        <p className={cn(TYPOGRAPHY.body, 'text-muted-foreground')}>
-          {totalQuantity}{' '}
-          {totalQuantity === 1 ?
-            t('books.item')
-          : totalQuantity >= 2 && totalQuantity <= 4 ?
-            t('books.items2-4')
-          : t('books.items')}
-          {isLoading ?
-            `${skeletonCount} ${skeletonCount === 1 ? 'item' : 'items'}`
-          : `${totalQuantity} ${totalQuantity === 1 ? 'item' : 'items'}`}
-        </p>
-      </div>
+      <h1 className={cn(TYPOGRAPHY.h1, 'mb-2 text-foreground')}>Cart</h1>
+      <p className="mb-8 text-gray-400">
+        {isLoading ?
+          `${skeletonCount} ${itemLabel(skeletonCount)}`
+        : `${totalQuantity} ${itemLabel(totalQuantity)}`}
+      </p>
 
       {!isLoading && cart.length === 0 && <EmptyCart />}
 

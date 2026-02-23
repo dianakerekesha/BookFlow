@@ -80,7 +80,7 @@ export const NotFoundPage = () => {
       <div className="bg-background max-w-lg w-full shadow-lg rounded-sm border border-border overflow-hidden">
         <div className="bg-destructive px-8 py-4 flex items-center justify-between">
           <span className={`text-white ${TYPOGRAPHY.uppercase}`}>
-            Nice Boook — Library Services
+            Codex — Library Services
           </span>
           <span className={`text-red-200 ${TYPOGRAPHY.small}`}>
             REF: NB-404-2019

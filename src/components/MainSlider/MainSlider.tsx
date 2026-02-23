@@ -58,6 +58,7 @@ export const MainSlider = () => {
                   alt={banner.alt}
                   className="object-cover w-full h-full min-[640px]:rounded-[24px]"
                 />
+                <div className="absolute inset-0 bg-black/50 min-[640px]:rounded-[24px]"></div>
               </SwiperSlide>
             ))}
           </Swiper>
