@@ -1,6 +1,7 @@
 import { VisuallyHidden } from 'radix-ui';
 import { SearchDialogContent } from './SearchDialogContent';
 import { Dialog, DialogContent, DialogTitle } from '../../ui/Dialog.tsx';
+import { useTranslation } from 'react-i18next';
 
 interface GlobalSearchProps {
   open: boolean;
@@ -12,6 +13,7 @@ export const GlobalSearch = ({
   setOpen,
   onSelect,
 }: GlobalSearchProps & { onSelect?: () => void }) => {
+  const { t } = useTranslation();
   return (
     <div className="w-full">
       <Dialog
@@ -19,12 +21,12 @@ export const GlobalSearch = ({
         onOpenChange={setOpen}
       >
         <DialogContent
-          className="p-0 border-none bg-white shadow-2xl sm:max-w-[650px] top-[10%] translate-y-0 rounded-2xl overflow-hidden"
+          className="p-0 border-none bg-input shadow-2xl sm:max-w-[650px] top-[10%] translate-y-0 rounded-2xl overflow-hidden"
           showCloseButton={false}
           onCloseAutoFocus={(e) => e.preventDefault()}
         >
           <VisuallyHidden.Root>
-            <DialogTitle>Search Books</DialogTitle>
+            <DialogTitle>{t('ui.searchBooks')}</DialogTitle>
           </VisuallyHidden.Root>
 
           {open && (

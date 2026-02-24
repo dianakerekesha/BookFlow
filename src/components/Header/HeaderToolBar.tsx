@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useBooks } from '@/context/BooksContext';
 import { doSingOut } from '@/firebase/auth';
 import { BookmarkToggle } from './BookmarkToggle';
@@ -14,7 +14,6 @@ type Props = {
 export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
   const { userLoggedIn } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
   const { cartIconRef, favIconRef } = useBooks();
 
   return (
@@ -27,7 +26,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
         >
           <Icon
             name="search"
-            className="w-4 h-4"
+            className="w-4 h-4 text-accent hover:text-popover"
           />
         </button>
 
@@ -38,7 +37,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
           <div ref={favIconRef}>
             <Icon
               name="heart"
-              className="w-4 h-4"
+              className="w-4 h-4 text-accent hover:text-popover"
             />
           </div>
         </HeaderIconLink>
@@ -50,7 +49,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
           <div ref={cartIconRef}>
             <Icon
               name="shoppingBag"
-              className="w-4 h-4"
+              className="w-4 h-4 text-accent hover:text-popover"
             />
           </div>
         </HeaderIconLink>
@@ -59,12 +58,11 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
             <>
               <HeaderIconLink
                 to="/profile"
-                state={{ background: location }}
                 className="w-[64px] h-full border-1"
               >
                 <Icon
                   name="profileIcon"
-                  className="w-4 h-4"
+                  className="w-4 h-4 text-accent hover:text-popover"
                 />
               </HeaderIconLink>
               <HeaderIconLink
@@ -77,7 +75,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
               >
                 <Icon
                   name="signOut"
-                  className="w-4 h-4"
+                  className="w-4 h-4 text-accent hover:text-popover"
                 />
               </HeaderIconLink>
             </>
@@ -88,7 +86,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
               >
                 <Icon
                   name="signIn"
-                  className="w-4 h-4"
+                  className="w-4 h-4 text-accent hover:text-popover"
                 />
               </HeaderIconLink>
               <HeaderIconLink
@@ -97,7 +95,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
               >
                 <Icon
                   name="signUp"
-                  className="w-4 h-4"
+                  className="w-4 h-4 text-accent hover:text-popover"
                 />
               </HeaderIconLink>
             </>
@@ -113,7 +111,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
       >
         <Icon
           name="menu"
-          className="w-4 h-4"
+          className="w-4 h-4 text-accent hover:text-popover"
         />
       </button>
       <div className="sm:hidden flex items-center h-full">

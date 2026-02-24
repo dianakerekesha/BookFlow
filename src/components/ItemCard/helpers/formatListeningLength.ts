@@ -1,20 +1,18 @@
-const pluralize = (count: number, singular: string) =>
-  count === 1 ? `1 ${singular}` : `${count} ${singular}s`;
+import type { TFunction } from 'i18next';
 
-export const formatListeningLength = (ms: number): string => {
+const pluralize = (count: number, singular: string, t: TFunction) =>
+  t(`time.${singular}`, { count });
+
+export const formatListeningLength = (ms: number, t: TFunction): string => {
+  alert('called ' + ms);
   const totalMinutes = Math.floor(ms / 1000 / 60);
   const hours = Math.floor(totalMinutes / 60);
   const minutes = totalMinutes % 60;
 
   const parts: string[] = [];
 
-  if (hours > 0) {
-    parts.push(pluralize(hours, 'hour'));
-  }
+  if (hours > 0) parts.push(pluralize(hours, 'hour', t));
+  if (minutes > 0) parts.push(pluralize(minutes, 'minute', t));
 
-  if (minutes > 0) {
-    parts.push(pluralize(minutes, 'minute'));
-  }
-
-  return parts.length > 0 ? parts.join(' ') : '0 minutes';
+  return parts.length > 0 ? parts.join(' ') : t('time.zero');
 };

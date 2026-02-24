@@ -1,5 +1,6 @@
 {
   "ui": {
+    "searchBooks": "Шукати книжки",
     "back": "Назад",
     "addToCart": "Додати у кошик",
     "added": "Додано",
@@ -16,10 +17,21 @@
     "sortDescending": "Сортувати за спаданням",
     "sortAscending": "Сортувати за зростанням",
     "theme": "Тема",
-    "language": "Мова",
     "settings": "Налаштування",
     "languageSelector": "УКР",
+    "ukrainian": "українська",
+    "english": "англійська",
     "noResults": "На жаль, збігів не знайдено..."
+  },
+
+  "search": {
+    "placeholder": "Знайти книгу або автора",
+    "searching": "Пошук...",
+    "noResults": "Книги не знайдено",
+    "all": "Усі",
+    "publishers": "Видавництва",
+    "authors": "Автори",
+    "titles": "Книжки"
   },
 
   "navigation": {
@@ -31,10 +43,22 @@
     "backToTop": "Наверх"
   },
 
-  "books": {
-    "item": "товар",
-    "items2-4": "товара",
-    "items": "товарів"
+  "items": {
+    "count_one": "{{count}} товар",
+    "count_few": "{{count}} товара",
+    "count_many": "{{count}} товарів"
+  },
+
+  "time": {
+    "hour_one": "{{count}} година",
+    "hour_few": "{{count}} години",
+    "hour_many": "{{count}} годин",
+    "hour_other": "{{count}} годин",
+    "minute_one": "{{count}} хвилина",
+    "minute_few": "{{count}} хвилини",
+    "minute_many": "{{count}} хвилин",
+    "minute_other": "{{count}} хвилин",
+    "zero": "0 хвилин"
   },
 
   "categories": {
@@ -52,17 +76,25 @@
   },
 
   "cart": {
+    "cart": "Кошик",
     "backToShop": "Повернутись до покупок",
     "totalFor": "Загалом за",
-    "checkout": "Оплатити"
+    "checkout": "Оплатити",
+    "emptyHint": "Натисніть <1>Додати до кошика</1> на будь-якій книзі щоб почати"
+  },
+
+  "favorites": {
+    "emptyHint": "Просто натисніть значок <1></1> на будь-якому продукті, щоб зберегти його тут"
   },
 
   "bookDetails": {
     "author": "Автор",
-    "cover": "Тип обкладинки",
+    "coverType": "Тип обкладинки",
     "listening": "Тривалість",
     "narrator": "Виконавець",
-    "pages": "Кількість сторінок",
+    "duration": "Тривалість",
+    "publicationYear": "Рік видання",
+    "numberOfPages": "Кількість сторінок",
     "year": "Рік видання",
     "publication": "Видавництво",
     "format": "Формат",
@@ -70,7 +102,8 @@
     "illustrationsTrue": "З ілюстраціями",
     "illustrationsFalse": "Немає ілюстрацій",
     "characteristics": "Характеристики",
-    "about": "Опис книги"
+    "about": "Опис книги",
+    "language": "Мова"
   },
 
   "жанри": {
@@ -86,5 +119,16 @@
     "itemNotFound": "Ой, щось пішло не так...<br />Спробуйте обрати інший товар",
     "whoops": "Упс, ще не готово",
     "hustling": "Дякуємо за терпіння — ми на повну працюємо над оформленням замовлення. Вже майже готово!"
+  },
+
+  "toast": {
+    "addedToCart": "'{{name}}' додано до кошика!",
+    "removedFromCart": "'{{name}}' видалено з кошика!",
+    "addedToFavorites": "'{{name}}' додано до обраного!",
+    "removedFromFavorites": "'{{name}}' видалено з обраного!",
+    "orderSuccess": "Замовлення успішно оформлено!",
+    "orderError": "Щось пішло не так. Спробуйте ще раз.",
+    "validationError": "Будь ласка, заповніть всі обов'язкові поля.",
+    "loginRequired": "Будь ласка, увійдіть щоб продовжити."
   }
 }

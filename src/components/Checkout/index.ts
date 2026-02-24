@@ -1,7 +1,8 @@
-export { CheckoutForm } from './CheckoutForm';
-export { OrderSummary } from './OrderSummary';
-export { PaymentMethodSelector } from './PaymentMethodSelector';
-export { StripeWrapper } from './StripeWrapper';
-export { StripePaymentForm } from './StripePaymentForm';
-export { LiqPayButton } from './LiqPayButton';
-export { LiqPayForm } from './LiqPayForm';
+export { CheckoutForm } from './components/CheckoutForm';
+export { OrderSummary } from './components/OrderSummary';
+export { PaymentMethodSelector } from './components/PaymentMethodSelector';
+export { StripeWrapper } from './components/StripeWrapper';
+export { StripePaymentForm } from './components/StripePaymentForm';
+export { LiqPayButton } from './components/LiqPayButton';
+export { LiqPayForm } from './components/LiqPayForm';
+export type { CheckoutFormValues } from './helpers/checkoutSchema';

@@ -1,11 +1,11 @@
 import React from 'react';
 import { CustomButton } from '../CustomButton';
 import { cn } from '@/lib/utils';
-import type { ButtonSize } from '@/types/ui/Buttons';
+import type { ButtonSize } from '../types/Buttons';
 import { useTranslation } from 'react-i18next';
 
 interface AddButtonProps {
-  onClick: () => void;
+  onClick?: () => void;
   isSelected?: boolean;
   size?: ButtonSize;
   className?: string;

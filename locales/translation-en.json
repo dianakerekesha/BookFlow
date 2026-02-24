@@ -1,5 +1,6 @@
 {
   "ui": {
+    "searchBooks": "Search Books",
     "back": "Back",
     "addToCart": "Add to cart",
     "added": "Added",
@@ -16,11 +17,23 @@
     "sortDescending": "Sort descending",
     "sortAscending": "Sort ascending",
     "theme": "Theme",
-    "language": "Language",
     "settings": "Settings",
     "languageSelector": "UA",
+    "ukrainian": "ukrainian",
+    "english": "english",
     "noResults": "Unfortunately, no matches..."
   },
+
+  "search": {
+    "placeholder": "Find a book or author",
+    "searching": "Searching...",
+    "noResults": "No books found",
+    "all": "All",
+    "publishers": "Publishers",
+    "authors": "Authors",
+    "titles": "Books"
+  },
+
   "navigation": {
     "home": "Home",
     "cart": "Cart",
@@ -30,10 +43,17 @@
     "backToTop": "Back to top"
   },
 
-  "books": {
-    "item": "item",
-    "items2-4": "items",
-    "items": "items"
+  "items": {
+    "count_one": "{{count}} item",
+    "count_other": "{{count}} items"
+  },
+
+  "time": {
+    "hour_one": "{{count}} hour",
+    "hour_other": "{{count}} hours",
+    "minute_one": "{{count}} minute",
+    "minute_other": "{{count}} minutes",
+    "zero": "0 minutes"
   },
 
   "categories": {
@@ -51,9 +71,15 @@
   },
 
   "cart": {
+    "cart": "Cart",
     "backToShop": "Go back to shopping...",
     "totalFor": "Total for",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "emptyHint": "Click <1>Add to cart</1> on any book to get started"
+  },
+
+  "favorites": {
+    "emptyHint": "Just click the <1></1> icon on any product to save it here"
   },
 
   "bookDetails": {
@@ -61,6 +87,8 @@
     "cover": "Cover type",
     "listening": "Listening Length",
     "narrator": "Narrator",
+    "duration": "duration",
+    "publicationYear": "Publication Year",
     "pages": "Number of pages",
     "year": "Year of publication",
     "publication": "Publication",
@@ -69,7 +97,8 @@
     "illustrationsTrue": "With illustrations",
     "illustrationsFalse": "No illustrations",
     "characteristics": "Characteristics",
-    "about": "About"
+    "about": "About",
+    "language": "Language"
   },
 
   "жанри": {
@@ -85,5 +114,16 @@
     "itemNotFound": "Oops something went wrong...<br />Try another item",
     "whoops": "Whoops, not quite ready yet",
     "hustling": "Thanks for your patience — we’re hustling hard to make checkout happen. Almost there!"
+  },
+
+  "toast": {
+    "addedToCart": "'{{name}}' added to cart!",
+    "removedFromCart": "'{{name}}' removed from cart!",
+    "addedToFavorites": "'{{name}}' added to favorites!",
+    "removedFromFavorites": "'{{name}}' removed from favorites!",
+    "orderSuccess": "Order placed successfully!",
+    "orderError": "Something went wrong. Please try again.",
+    "validationError": "Please fill in all required fields correctly.",
+    "loginRequired": "Please log in to continue."
   }
 }

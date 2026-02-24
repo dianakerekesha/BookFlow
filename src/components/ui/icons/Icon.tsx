@@ -130,7 +130,7 @@ export const Icon: React.FC<IconProps> = ({
       state === 'selected' ?
         'text-red-600'
       : 'text-foreground hover:text-red-500'
-    : isThickIcon ? 'text-black'
+    : isThickIcon ? variantsOfClasses[variant]
     : variantsOfClasses[variant];
 
   const fillValue = isHeart && state === 'selected' ? 'currentColor' : 'none';
