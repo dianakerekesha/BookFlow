@@ -18,7 +18,7 @@ export const OrderSummary = ({ items }: OrderSummaryProps) => {
   return (
     <div className="bg-card rounded p-8 sticky top-24">
       <h2 className={`${TYPOGRAPHY.h4} text-foreground`}>Order summary</h2>
-      <p className={`${TYPOGRAPHY.small} text-gray-400 mt-1 mb-6`}>
+      <p className={`${TYPOGRAPHY.small} text-muted-foreground mt-1 mb-6`}>
         {items.length} {itemCountLabel}
       </p>
 

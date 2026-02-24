@@ -2,7 +2,7 @@ import { loadStripe, type Stripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import {
   STRIPE_PUBLIC_KEY,
-  STRIPE_APPEARANCE,
+  getStripeAppearance,
 } from '../constants/stripeConfig';
 import { StripePaymentForm } from './StripePaymentForm';
 
@@ -28,10 +28,12 @@ export const StripeWrapper = ({
 }: StripeWrapperProps) => {
   if (!clientSecret) return null;
 
+  const appearance = getStripeAppearance();
+
   return (
     <Elements
       stripe={getStripe()}
-      options={{ clientSecret, appearance: STRIPE_APPEARANCE }}
+      options={{ clientSecret, appearance }}
     >
       <StripePaymentForm
         onSuccess={onSuccess}

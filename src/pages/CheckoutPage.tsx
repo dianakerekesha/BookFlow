@@ -33,11 +33,11 @@ const CheckoutPage = () => {
 
   if (!cartItems || cartItems.length === 0) {
     return (
-      <div className="flex flex-col items-center gap-4 py-20 text-gray-500">
+      <div className="flex flex-col items-center gap-4 py-20 text-muted-foreground">
         <p className={TYPOGRAPHY.body}>Your cart is empty.</p>
         <Link
           to="/cart"
-          className={`${TYPOGRAPHY.buttons} text-gray-900 hover:underline`}
+          className={`${TYPOGRAPHY.buttons} text-foreground hover:underline`}
         >
           ← Back to cart
         </Link>
@@ -105,7 +105,7 @@ const CheckoutPage = () => {
           onClick={() =>
             step === 'payment' ? setStep('delivery') : navigate('/cart')
           }
-          className={`inline-flex items-center gap-2 ${TYPOGRAPHY.buttons} text-gray-900 mb-7 hover:opacity-60 transition-opacity`}
+          className={`inline-flex items-center gap-2 ${TYPOGRAPHY.buttons} text-muted-foreground hover:text-foreground mb-7 transition-colors`}
         >
           <svg
             width="7"
@@ -115,7 +115,7 @@ const CheckoutPage = () => {
           >
             <path
               d="M6 1L1 5.5L6 10"
-              stroke="#111"
+              stroke="currentColor"
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -124,7 +124,7 @@ const CheckoutPage = () => {
           Back
         </button>
 
-        <h1 className={`${TYPOGRAPHY.h1} text-gray-900 mb-2`}>Checkout</h1>
+        <h1 className={`${TYPOGRAPHY.h1} text-foreground mb-2`}>Checkout</h1>
 
         <div className="flex items-center gap-2.5 mb-12">
           {stepLabels.map((label, i) => (
@@ -132,12 +132,12 @@ const CheckoutPage = () => {
               key={label}
               className="flex items-center gap-2.5"
             >
-              {i > 0 && <span className="w-6 h-px bg-gray-300" />}
+              {i > 0 && <span className="w-6 h-px bg-border" />}
               <span
                 className={
                   i === currentStepIndex ?
-                    `${TYPOGRAPHY.small} font-bold text-gray-900`
-                  : `${TYPOGRAPHY.small} text-gray-300`
+                    `${TYPOGRAPHY.small} font-bold text-foreground`
+                  : `${TYPOGRAPHY.small} text-muted-foreground/50`
                 }
               >
                 {label}
@@ -149,7 +149,7 @@ const CheckoutPage = () => {
         <div className="grid grid-cols-[1fr_380px] gap-12 items-start max-lg:grid-cols-1">
           <div className="flex flex-col gap-8">
             {error && (
-              <div className="bg-red-50 border border-red-200 rounded px-4 py-3 text-sm text-red-700 font-medium">
+              <div className="bg-destructive/10 border border-destructive/20 rounded px-4 py-3 text-sm text-destructive font-medium">
                 {error}
               </div>
             )}
@@ -168,8 +168,8 @@ const CheckoutPage = () => {
             )}
 
             {step === 'payment' && (
-              <div className="flex flex-col gap-6">
-                <p className={`${TYPOGRAPHY.uppercase} text-gray-400`}>
+              <div className="bg-card border border-border rounded-lg p-6 flex flex-col gap-6">
+                <p className={`${TYPOGRAPHY.uppercase} text-muted-foreground`}>
                   Payment details
                 </p>
 

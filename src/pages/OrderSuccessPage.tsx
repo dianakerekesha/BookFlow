@@ -5,16 +5,35 @@ import { DownloadInvoiceButton } from '@/components/Invoices';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { useQuery } from '@tanstack/react-query';
 import { Loader } from '@/components/ui/Loader';
+import { Button } from '@/components/ui/button';
 
 const TELEGRAM_BOT_USERNAME = 'NiceBoookBot';
 
 const StatusBadge = ({ status }: { status: Order['status'] }) => {
   const config = {
-    paid: { label: 'Paid', className: 'bg-green-100 text-green-700' },
-    pending: { label: 'Pending', className: 'bg-yellow-100 text-yellow-700' },
-    processing: { label: 'Processing', className: 'bg-blue-100 text-blue-700' },
-    failed: { label: 'Failed', className: 'bg-red-100 text-red-700' },
-    cancelled: { label: 'Cancelled', className: 'bg-gray-100 text-gray-500' },
+    paid: {
+      label: 'Paid',
+      className:
+        'bg-green-600/10 text-green-700 dark:bg-green-500/20 dark:text-green-400',
+    },
+    pending: {
+      label: 'Pending',
+      className:
+        'bg-yellow-600/10 text-yellow-700 dark:bg-yellow-500/20 dark:text-yellow-400',
+    },
+    processing: {
+      label: 'Processing',
+      className:
+        'bg-blue-600/10 text-blue-700 dark:bg-blue-500/20 dark:text-blue-400',
+    },
+    failed: {
+      label: 'Failed',
+      className: 'bg-destructive/10 text-destructive',
+    },
+    cancelled: {
+      label: 'Cancelled',
+      className: 'bg-muted text-muted-foreground',
+    },
   };
   const { label, className } = config[status] ?? config.pending;
 
@@ -31,26 +50,32 @@ const TelegramConnectButton = ({ orderId }: { orderId: string }) => {
   const deepLink = `https://t.me/${TELEGRAM_BOT_USERNAME}?start=${orderId}`;
 
   return (
-    <a
-      href={deepLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`h-14 border border-gray-200 hover:border-gray-400 text-gray-900 ${TYPOGRAPHY.buttons} rounded flex items-center justify-center gap-2.5 transition-colors`}
+    <Button
+      asChild
+      variant="outline"
+      className={`h-14 ${TYPOGRAPHY.buttons}`}
     >
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+      <a
+        href={deepLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="gap-2.5"
       >
-        <path
-          d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.93 6.779l-1.695 7.989c-.127.561-.46.698-.932.435l-2.57-1.893-1.24 1.194c-.137.137-.252.252-.517.252l.185-2.619 4.772-4.31c.208-.184-.045-.287-.32-.103L7.638 14.6l-2.523-.787c-.548-.172-.56-.548.115-.811l9.875-3.808c.457-.165.857.112.825.585z"
-          fill="#229ED9"
-        />
-      </svg>
-      Track order in Telegram
-    </a>
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.93 6.779l-1.695 7.989c-.127.561-.46.698-.932.435l-2.57-1.893-1.24 1.194c-.137.137-.252.252-.517.252l.185-2.619 4.772-4.31c.208-.184-.045-.287-.32-.103L7.638 14.6l-2.523-.787c-.548-.172-.56-.548.115-.811l9.875-3.808c.457-.165.857.112.825.585z"
+            fill="#229ED9"
+          />
+        </svg>
+        Track order in Telegram
+      </a>
+    </Button>
   );
 };
 
@@ -70,11 +95,11 @@ const OrderSuccessPage = () => {
 
   if (!order)
     return (
-      <div className="flex flex-col items-center gap-4 py-24 text-gray-500">
+      <div className="flex flex-col items-center gap-4 py-24 text-muted-foreground">
         <p className={TYPOGRAPHY.body}>Order not found.</p>
         <Link
           to="/"
-          className={`${TYPOGRAPHY.buttons} font-semibold text-gray-900 hover:underline`}
+          className={`${TYPOGRAPHY.buttons} font-semibold text-foreground hover:underline`}
         >
           Go to home
         </Link>
@@ -86,7 +111,7 @@ const OrderSuccessPage = () => {
       <div className="py-12 pb-24">
         <div className="max-w-2xl mx-auto px-6">
           <div className="flex flex-col items-center text-center mb-12">
-            <div className="w-16 h-16 rounded-full bg-gray-900 flex items-center justify-center mb-6">
+            <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-6">
               <svg
                 width="28"
                 height="28"
@@ -95,34 +120,39 @@ const OrderSuccessPage = () => {
               >
                 <path
                   d="M6 14L11.5 19.5L22 9"
-                  stroke="white"
+                  stroke="currentColor"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  className="text-primary-foreground"
                 />
               </svg>
             </div>
-            <h1 className={`${TYPOGRAPHY.h1} text-gray-900 mb-2`}>
+            <h1 className={`${TYPOGRAPHY.h1} text-foreground mb-2`}>
               Order placed!
             </h1>
-            <p className={`${TYPOGRAPHY.body} text-gray-500`}>
+            <p className={`${TYPOGRAPHY.body} text-muted-foreground`}>
               Thank you. We&#39;ve received your order.
             </p>
           </div>
 
-          <div className="border border-gray-200 rounded-lg overflow-hidden">
-            <div className="flex items-center justify-between px-6 py-4 bg-gray-50 border-b border-gray-200">
+          <div className="border border-border rounded-lg overflow-hidden">
+            <div className="flex items-center justify-between px-6 py-4 bg-card border-b border-border">
               <div>
-                <p className={`${TYPOGRAPHY.uppercase} text-gray-400 mb-0.5`}>
+                <p
+                  className={`${TYPOGRAPHY.uppercase} text-muted-foreground mb-0.5`}
+                >
                   Order ID
                 </p>
-                <p className={`${TYPOGRAPHY.buttons} text-gray-900 font-mono`}>
+                <p
+                  className={`${TYPOGRAPHY.buttons} text-foreground font-mono`}
+                >
                   {order.id}
                 </p>
               </div>
               <div className="flex flex-col items-end gap-1">
                 <StatusBadge status={order.status} />
-                <p className={`${TYPOGRAPHY.small} text-gray-400`}>
+                <p className={`${TYPOGRAPHY.small} text-muted-foreground`}>
                   {new Date(order.createdAt).toLocaleDateString('en-GB', {
                     day: 'numeric',
                     month: 'short',
@@ -132,7 +162,7 @@ const OrderSuccessPage = () => {
               </div>
             </div>
 
-            <ul className="divide-y divide-gray-100">
+            <ul className="divide-y divide-border">
               {order.items.map((item) => (
                 <li
                   key={item.id}
@@ -148,19 +178,21 @@ const OrderSuccessPage = () => {
                   />
                   <div className="flex-1 min-w-0">
                     <p
-                      className={`${TYPOGRAPHY.buttons} text-gray-900 truncate`}
+                      className={`${TYPOGRAPHY.buttons} text-foreground truncate`}
                     >
                       {item.name}
                     </p>
-                    <p className={`${TYPOGRAPHY.small} text-gray-400`}>
+                    <p className={`${TYPOGRAPHY.small} text-muted-foreground`}>
                       {item.author}
                     </p>
-                    <p className={`${TYPOGRAPHY.small} text-gray-400 mt-0.5`}>
+                    <p
+                      className={`${TYPOGRAPHY.small} text-muted-foreground mt-0.5`}
+                    >
                       Qty: {item.quantity}
                     </p>
                   </div>
                   <span
-                    className={`${TYPOGRAPHY.buttons} font-bold text-gray-900 whitespace-nowrap`}
+                    className={`${TYPOGRAPHY.buttons} font-bold text-foreground whitespace-nowrap`}
                   >
                     ${(getPrice(item) * item.quantity).toFixed(2)}
                   </span>
@@ -168,75 +200,80 @@ const OrderSuccessPage = () => {
               ))}
             </ul>
 
-            <div className="px-6 py-4 border-t border-gray-200 bg-gray-50 flex flex-col gap-2">
+            <div className="px-6 py-4 border-t border-border bg-card flex flex-col gap-2">
               <div className="flex justify-between">
-                <span className={`${TYPOGRAPHY.body} text-gray-500`}>
+                <span className={`${TYPOGRAPHY.body} text-muted-foreground`}>
                   Subtotal
                 </span>
-                <span className={`${TYPOGRAPHY.body} text-gray-500`}>
+                <span className={`${TYPOGRAPHY.body} text-muted-foreground`}>
                   ${order.subtotal.toFixed(2)}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className={`${TYPOGRAPHY.body} text-gray-500`}>
+                <span className={`${TYPOGRAPHY.body} text-muted-foreground`}>
                   Payment
                 </span>
-                <span className={`${TYPOGRAPHY.body} text-gray-500 capitalize`}>
+                <span
+                  className={`${TYPOGRAPHY.body} text-muted-foreground capitalize`}
+                >
                   {order.paymentMethod}
                 </span>
               </div>
-              <div className="flex justify-between pt-2 border-t border-gray-200">
+              <div className="flex justify-between pt-2 border-t border-border">
                 <span
-                  className={`${TYPOGRAPHY.buttons} font-bold text-gray-900`}
+                  className={`${TYPOGRAPHY.buttons} font-bold text-foreground`}
                 >
                   Total
                 </span>
                 <span
-                  className={`${TYPOGRAPHY.h2} text-gray-900 tracking-tight`}
+                  className={`${TYPOGRAPHY.h2} text-foreground tracking-tight`}
                 >
                   ${order.total.toFixed(2)}
                 </span>
               </div>
             </div>
 
-            <div className="px-6 py-4 border-t border-gray-200">
-              <p className={`${TYPOGRAPHY.uppercase} text-gray-400 mb-3`}>
+            <div className="px-6 py-4 border-t border-border">
+              <p
+                className={`${TYPOGRAPHY.uppercase} text-muted-foreground mb-3`}
+              >
                 Delivery to
               </p>
-              <p className={`${TYPOGRAPHY.buttons} text-gray-900`}>
+              <p className={`${TYPOGRAPHY.buttons} text-foreground`}>
                 {order.customer.firstName} {order.customer.lastName}
               </p>
-              <p className={`${TYPOGRAPHY.body} text-gray-500`}>
+              <p className={`${TYPOGRAPHY.body} text-muted-foreground`}>
                 {order.customer.address}
               </p>
-              <p className={`${TYPOGRAPHY.body} text-gray-500`}>
+              <p className={`${TYPOGRAPHY.body} text-muted-foreground`}>
                 {order.customer.city}, {order.customer.zip},{' '}
                 {order.customer.country}
               </p>
-              <p className={`${TYPOGRAPHY.body} text-gray-500 mt-1`}>
+              <p className={`${TYPOGRAPHY.body} text-muted-foreground mt-1`}>
                 {order.customer.email}
               </p>
             </div>
           </div>
 
           <div className="flex flex-col gap-3 mt-8">
-            <Link
-              to="/"
-              className={`h-14 bg-gray-900 hover:bg-gray-700 text-white ${TYPOGRAPHY.uppercase} rounded flex items-center justify-center transition-colors`}
+            <Button
+              asChild
+              className={`h-14 ${TYPOGRAPHY.uppercase}`}
             >
-              Continue shopping
-            </Link>
+              <Link to="/">Continue shopping</Link>
+            </Button>
 
             {orderId && <TelegramConnectButton orderId={orderId} />}
 
             <DownloadInvoiceButton order={order} />
 
-            <Link
-              to="/orders"
-              className={`h-14 border border-gray-200 hover:border-gray-400 text-gray-900 ${TYPOGRAPHY.buttons} rounded flex items-center justify-center transition-colors`}
+            <Button
+              asChild
+              variant="outline"
+              className={`h-14 ${TYPOGRAPHY.buttons}`}
             >
-              View all orders
-            </Link>
+              <Link to="/orders">View all orders</Link>
+            </Button>
           </div>
         </div>
       </div>
