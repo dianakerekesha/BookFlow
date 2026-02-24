@@ -5,6 +5,9 @@ import { BookmarkToggle } from './BookmarkToggle';
 import { HeaderIconLink } from './HeaderIconLink';
 import { Icon } from '../ui/icons';
 import { useAuth } from '@/context/AuthContext.tsx';
+import { CountIndicator } from '../ui/CountIndicator';
+import { calculateCartTotalQuantity } from '../Cart/helpers/calculateCartTotalQuantity';
+import { useCartFavorites } from '@/context/CartFavoritesContext';
 
 type Props = {
   onMenuClick: () => void;
@@ -15,6 +18,10 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
   const { userLoggedIn } = useAuth();
   const navigate = useNavigate();
   const { cartIconRef, favIconRef } = useBooks();
+  const { cart, favorites } = useCartFavorites();
+
+  const cartCount = calculateCartTotalQuantity(cart);
+  const favCount = favorites.length;
 
   return (
     <>
@@ -32,13 +39,17 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
 
         <HeaderIconLink
           to="/favourites"
-          className="w-[64px] h-full border-1"
+          className="w-[64px] h-full border-1 relative"
         >
-          <div ref={favIconRef}>
+          <div
+            ref={favIconRef}
+            className="relative"
+          >
             <Icon
               name="heart"
               className="w-4 h-4 text-accent hover:text-popover"
             />
+            <CountIndicator count={favCount} />
           </div>
         </HeaderIconLink>
 
@@ -46,11 +57,15 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
           to="/cart"
           className="w-[64px] h-full border-1"
         >
-          <div ref={cartIconRef}>
+          <div
+            ref={cartIconRef}
+            className="relative"
+          >
             <Icon
               name="shoppingBag"
               className="w-4 h-4 text-accent hover:text-popover"
             />
+            <CountIndicator count={cartCount} />
           </div>
         </HeaderIconLink>
         <div className="relative h-full w-fit flex items-center bg-secondary">

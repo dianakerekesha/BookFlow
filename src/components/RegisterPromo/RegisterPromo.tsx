@@ -18,11 +18,18 @@ export const RegisterPromo = ({ onRegister }: RegisterPromoProps) => {
   const { colors, maxWidth, timerDelay } = PROMO_CONFIG;
 
   useEffect(() => {
-    if (userLoggedIn) {
-      return;
+    if (userLoggedIn) return;
+
+    const hasSeenPromo = localStorage.getItem('has_seen_register_promo');
+
+    if (!hasSeenPromo) {
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+        localStorage.setItem('has_seen_register_promo', 'true');
+      }, timerDelay);
+
+      return () => clearTimeout(timer);
     }
-    const timer = setTimeout(() => setIsOpen(true), timerDelay);
-    return () => clearTimeout(timer);
   }, [userLoggedIn, timerDelay]);
 
   const handleRegisterClick = () => {
