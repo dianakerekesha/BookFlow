@@ -53,7 +53,8 @@ export type IconName =
   | 'moon'
   | 'settings'
   | 'dollarSign'
-  | 'euro';
+  | 'euro'
+  | 'x';
 
 export type IconSize = 'sm' | 'md';
 
@@ -87,6 +88,7 @@ const icons = {
   settings: Settings,
   dollarSign: DollarSign,
   euro: Euro,
+  x: X,
 };
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
