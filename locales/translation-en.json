@@ -84,12 +84,12 @@
 
   "bookDetails": {
     "author": "Author",
-    "cover": "Cover type",
+    "coverType": "Cover type",
     "listening": "Listening Length",
     "narrator": "Narrator",
     "duration": "duration",
     "publicationYear": "Publication Year",
-    "pages": "Number of pages",
+    "numberOfPages": "Number of pages",
     "year": "Year of publication",
     "publication": "Publication",
     "format": "Format",
@@ -107,6 +107,10 @@
     "fantasy": "Fantasy",
     "drama": "Drama",
     "detective": "Detective"
+  },
+
+  "team": {
+    "ourTeam": "Our Team"
   },
 
   "errors": {

@@ -33,7 +33,7 @@ export const ItemCardCharacteristics: React.FC<Props> = ({ book }) => {
 
   return (
     <section className="w-full max-w-160 mx-auto lg:mx-0">
-      <h2 className={`${TYPOGRAPHY.h2} text-foreground dark:text-white mb-4`}>
+      <h2 className={`${TYPOGRAPHY.h2} text-foreground mb-4`}>
         {t('bookDetails.characteristics')}
       </h2>
 
