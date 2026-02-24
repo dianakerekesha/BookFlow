@@ -1,21 +1,11 @@
-import { useTranslation } from 'react-i18next';
 import { Catalog } from '@/components/Catalog/Catalog';
 import { Loader } from '@/components/ui/Loader';
-import { useSearchParams } from 'react-router-dom';
-import { getBooks, type SortOption } from '@/services/bookService';
-import { useQuery } from '@tanstack/react-query';
-import type { LanguageOption } from '@/types/LanguageOption';
+import { useSortBooks } from '@/hooks/useSortBooks';
+import { useTranslation } from 'react-i18next';
 
 export const PaperPage = () => {
-  const { t, i18n } = useTranslation();
-  const [searchParams] = useSearchParams();
-  const sort = (searchParams.get('sort') as SortOption) || 'newest';
-  const currentLang = i18n.language as LanguageOption;
-  const { data: books = [], isLoading } = useQuery({
-    queryKey: ['books', 'paperback', currentLang, sort],
-
-    queryFn: () => getBooks(currentLang, null, 'paperback', sort),
-  });
+  const { t } = useTranslation();
+  const { data: books = [], isLoading } = useSortBooks('paperback');
 
   return (
     <Loader isLoading={isLoading}>

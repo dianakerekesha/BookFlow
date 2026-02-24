@@ -1,12 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
 import type { Order } from '@/types/Order';
-import { getUserOrders } from '@/services/paymentAPI';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils.ts';
-import { useQuery } from '@tanstack/react-query';
 import { Loader } from '@/components/ui/Loader';
 import { Button } from '@/components/ui/button';
+import { useUserOrders } from '@/hooks/useUserOrders';
 
 const StatusBadge = ({ status }: { status: Order['status'] }) => {
   const config = {
@@ -46,11 +45,7 @@ const StatusBadge = ({ status }: { status: Order['status'] }) => {
 
 const OrdersPage = () => {
   const navigate = useNavigate();
-
-  const { data: orders = [], isLoading } = useQuery({
-    queryKey: ['orders', 'user'],
-    queryFn: getUserOrders,
-  });
+  const { data: orders = [], isLoading } = useUserOrders();
 
   return (
     <Loader isLoading={isLoading}>
