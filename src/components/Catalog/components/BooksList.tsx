@@ -1,6 +1,6 @@
+import { ProductCard } from '@/components/ProductCard';
+import { ProductCardSkeleton } from '@/components/ProductCard/ProductCardSkeleton';
 import type { Book } from '@/types/Book';
-import { ProductCard } from '../ProductCard';
-import { ProductCardSkeleton } from '../ProductCard/ProductCardSkeleton';
 
 type Props = {
   books: Book[];

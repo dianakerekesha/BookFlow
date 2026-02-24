@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import type { Book } from '@/types/Book';
 import { GridContainer } from '../GridContainer/GridContainer';
-import { BooksList } from './BooksList';
-import { CatalogControls } from './CatalogControls';
-import { PaginationBlock } from './PaginationBlock';
+import { CatalogControls } from './components/CatalogControls';
 import { usePagination } from './hooks/usePagination';
 import { useCatalogFilters } from './hooks/useCatalogFilters';
+import { PaginationBlock } from './components/PaginationBlock';
+import { BooksList } from './components/BooksList';
 
 type Props = {
   products: Book[];
