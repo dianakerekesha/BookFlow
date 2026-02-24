@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Building2, User2, BookOpen, ArrowRight } from 'lucide-react';
 import type { Book } from '@/types/Book';
@@ -17,7 +18,7 @@ import { cn } from '@/lib/utils';
 import { showSuccess } from '@/lib/toast';
 import { TextHighlighter } from './TextHighlighter';
 import { useSearchBooks } from './useSearchBooks';
-import { COMMON_STYLES, TEXTS, UI } from './search.types';
+import { COMMON_STYLES } from './search.types';
 
 interface Props {
   onClose: () => void;
@@ -25,9 +26,25 @@ interface Props {
 }
 
 export const SearchDialogContent = ({ onClose, onSelect }: Props) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { searchTerm, setSearchTerm, results, groupedResults, loading } =
     useSearchBooks();
+
+  const TEXTS = {
+    placeholder: t('search.placeholder'),
+    searching: t('search.searching'),
+    noResults: t('search.noResults'),
+  };
+
+  const UI = {
+    all: t('search.all'),
+    sections: {
+      publishers: t('search.publishers'),
+      authors: t('search.authors'),
+      titles: t('search.titles'),
+    },
+  };
 
   const handleBookChange = (book: Book) => {
     navigate(`/item/${book.type}/${book.slug}`);
@@ -71,7 +88,7 @@ export const SearchDialogContent = ({ onClose, onSelect }: Props) => {
 
   return (
     <Command
-      className="bg-white"
+      className="bg-background"
       shouldFilter={false}
     >
       <div className="flex items-center border-b border-gray-100 px-4 py-3">
@@ -83,9 +100,9 @@ export const SearchDialogContent = ({ onClose, onSelect }: Props) => {
         />
       </div>
 
-      <CommandList className="max-h-[550px] overflow-y-auto p-4 custom-scrollbar bg-gray-50/30">
+      <CommandList className="max-h-[550px] overflow-y-auto p-4 custom-scrollbar bg-background">
         {loading && (
-          <div className="p-4 text-sm text-gray-500 animate-pulse flex items-center gap-2">
+          <div className="p-4 text-sm text-foreground animate-pulse flex items-center gap-2">
             {TEXTS.searching}
           </div>
         )}
@@ -122,10 +139,10 @@ export const SearchDialogContent = ({ onClose, onSelect }: Props) => {
                     <div className={COMMON_STYLES.itemIconBox}>
                       <Building2
                         size={18}
-                        className="text-gray-400"
+                        className="text-foreground"
                       />
                     </div>
-                    <span className="text-xs font-bold text-gray-900 uppercase truncate">
+                    <span className="text-xs font-bold text-foreground uppercase truncate">
                       {pub.publication}
                     </span>
                   </CommandItem>
@@ -165,10 +182,10 @@ export const SearchDialogContent = ({ onClose, onSelect }: Props) => {
                     <div className={COMMON_STYLES.itemIconBox}>
                       <User2
                         size={18}
-                        className="text-gray-400"
+                        className="text-foreground"
                       />
                     </div>
-                    <span className="text-xs font-bold text-gray-900 truncate">
+                    <span className="text-xs font-bold text-foreground truncate">
                       <TextHighlighter
                         text={book.author}
                         query={searchTerm}
@@ -217,16 +234,16 @@ export const SearchDialogContent = ({ onClose, onSelect }: Props) => {
                         />
                       : <BookOpen
                           size={20}
-                          className="text-gray-300"
+                          className="text-foreground"
                         />
                       }
                     </div>
                     <div className="flex flex-col justify-between py-0.5 flex-grow">
                       <div>
-                        <p className="text-[10px] text-gray-400 font-medium mb-0.5 uppercase tracking-tighter">
+                        <p className="text-[10px] text-foreground font-medium mb-0.5 uppercase tracking-tighter">
                           {book.author}
                         </p>
-                        <h4 className="text-sm text-gray-900 font-bold leading-tight line-clamp-2">
+                        <h4 className="text-sm text-foreground font-bold leading-tight line-clamp-2">
                           <TextHighlighter
                             text={book.name}
                             query={searchTerm}
@@ -234,12 +251,12 @@ export const SearchDialogContent = ({ onClose, onSelect }: Props) => {
                         </h4>
                       </div>
                       <div className="flex justify-between items-end">
-                        <span className="text-sm font-black text-gray-900">
+                        <span className="text-sm font-black text-foreground">
                           {book.priceRegular || book.priceDiscount} грн
                         </span>
                         <div
                           onClick={(event) => event.stopPropagation()}
-                          className="text-[10px] font-bold text-gray-400 relative z-10 group-hover:text-black flex items-center gap-1 transition-colors"
+                          className="text-[10px] font-bold text-foreground relative z-10 group-hover:text-popover flex items-center gap-1 transition-colors"
                         >
                           <AddButton
                             isSelected={isInCart(book.id)}
@@ -248,6 +265,7 @@ export const SearchDialogContent = ({ onClose, onSelect }: Props) => {
                               'flex items-center justify-center rounded-m',
                               'border border-black-800',
                               'hover:border-black',
+                              'text-background',
                             )}
                             onClick={() => {
                               handleAddToCart(book);
@@ -274,7 +292,7 @@ export const SearchDialogContent = ({ onClose, onSelect }: Props) => {
         </div>
 
         {!loading && results.length === 0 && searchTerm.trim().length > 0 && (
-          <CommandEmpty className="p-12 text-center text-gray-400 font-medium">
+          <CommandEmpty className="p-12 text-center text-foreground font-medium">
             {TEXTS.noResults}
           </CommandEmpty>
         )}

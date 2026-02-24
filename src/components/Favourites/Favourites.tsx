@@ -40,7 +40,7 @@ export const Favourites = ({
 
       <h1 className={cn(TYPOGRAPHY.h1, 'mb-2 text-foreground')}>{title}</h1>
       <p className="mb-8 text-gray-400">
-        {booksCount} {booksCount === 1 ? 'item' : 'items'}
+        {t('items.count', { count: booksCount })}
       </p>
 
       {isEmptyBooks ?

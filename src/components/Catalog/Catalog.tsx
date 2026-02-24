@@ -42,8 +42,9 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
           {title}
         </h1>
         <p className="text-[#89939A] text-[14px] font-manrope font-medium">
-          {`${products.length} ${t('books.books')}`}
-          {isLoading ? '...' : `${products.length} books`}
+          {isLoading ?
+            '...'
+          : t('items.count', { count: products.length })}
         </p>
       </div>
 

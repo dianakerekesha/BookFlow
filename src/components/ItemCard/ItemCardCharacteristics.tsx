@@ -2,35 +2,39 @@ import React from 'react';
 import type { Book } from '@/types/Book';
 import { formatListeningLength } from '@/components/ItemCard/helpers/formatListeningLength.ts';
 import { TYPOGRAPHY } from '@/constants/typography';
+import { useTranslation } from 'react-i18next';
 
 type Props = { book: Book };
 type Spec = { label: string; value: string | number | null | undefined };
 
 export const ItemCardCharacteristics: React.FC<Props> = ({ book }) => {
+  const { t } = useTranslation();
   const specs: Spec[] = [
-    { label: 'Author', value: book.author },
-    { label: 'Cover type', value: book.coverType },
-    { label: 'Number of pages', value: book.numberOfPages },
-    { label: 'Year of publication', value: book.publicationYear },
-    { label: 'Publication', value: book.publication },
-    { label: 'Format', value: book.format },
+    { label: t('bookDetails.author'), value: book.author },
+    { label: t('bookDetails.coverType'), value: book.coverType },
+    { label: t('bookDetails.numberOfPages'), value: book.numberOfPages },
+    { label: t('bookDetails.publicationYear'), value: book.publicationYear },
+    { label: t('bookDetails.publication'), value: book.publication },
+    { label: t('bookDetails.format'), value: book.format },
     {
-      label: 'Duration',
+      label: t('bookDetails.duration'),
       value:
         book.listeningLength ?
-          formatListeningLength(book.listeningLength)
+          formatListeningLength(book.listeningLength, t)
         : null,
     },
-    { label: 'Narrator', value: book.narrator },
-    { label: 'Language', value: book.lang === 'uk' ? 'Ukrainian' : 'English' },
+    { label: t('bookDetails.narrator'), value: book.narrator },
+    {
+      label: t('bookDetails.language'),
+      value: book.lang === 'uk' ? t('ui.ukrainian') : t('ui.english'),
+    },
   ];
-
   const filtered = specs.filter((spec) => spec.value != null);
 
   return (
     <section className="w-full max-w-160 mx-auto lg:mx-0">
       <h2 className={`${TYPOGRAPHY.h2} text-foreground dark:text-white mb-4`}>
-        Characteristics
+        {t('bookDetails.characteristics')}
       </h2>
 
       <div className="border-t border-border">

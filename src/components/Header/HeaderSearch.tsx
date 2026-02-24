@@ -51,6 +51,7 @@ export const HeaderSearch = ({
             value=""
             placeholder="Find a book or author"
             readOnly
+            bg-
           />
         </div>
 
@@ -58,11 +59,11 @@ export const HeaderSearch = ({
           value={currentCategory}
           onValueChange={handleCategoryChange}
         >
-          <SelectTrigger className="flex items-center justify-between px-4 h-[40px] w-full border border-border rounded-md bg-background text-sm font-bold text-foreground">
+          <SelectTrigger className="flex items-center justify-between px-4 h-[40px] w-full border border-border rounded-md bg-input text-sm font-bold text-foreground">
             <SelectValue placeholder="Categories" />
           </SelectTrigger>
 
-          <SelectContent className="bg-background border border-border rounded-md shadow-lg py-2 w-full">
+          <SelectContent className="bg-input border border-border rounded-md shadow-lg py-2 w-full">
             <SelectGroup>
               {CATEGORIES.map((category) => (
                 <SelectItem
@@ -95,11 +96,11 @@ export const HeaderSearch = ({
         value={currentCategory}
         onValueChange={handleCategoryChange}
       >
-        <SelectTrigger className="flex items-center justify-between gap-3 px-4 h-[40px] w-[176px] border border-border rounded-md bg-background text-sm font-bold text-foreground whitespace-nowrap hover:border-ring">
+        <SelectTrigger className="flex items-center justify-between gap-3 px-4 h-[40px] w-[176px] border border-border rounded-md bg-input text-sm font-bold text-foreground whitespace-nowrap hover:border-ring">
           <SelectValue placeholder="Categories" />
         </SelectTrigger>
 
-        <SelectContent className="min-w-[180px] bg-background border border-border rounded-md shadow-lg py-2">
+        <SelectContent className="min-w-[180px] border border-border bg-input rounded-md shadow-lg py-2">
           <SelectGroup>
             {CATEGORIES.map((category) => (
               <SelectItem

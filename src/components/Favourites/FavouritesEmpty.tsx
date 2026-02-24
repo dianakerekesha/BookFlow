@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Heart, ArrowRight } from 'lucide-react';
 import type { FavouritesEmptyProps } from './types/FavouritesEmpty';
 import { TYPOGRAPHY } from '@/constants/typography';
+import { Trans } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { CustomButton } from '../ui/CustomButton';
 import { Loader } from '@/components/ui/Loader';
@@ -42,12 +43,14 @@ export const FavouritesEmpty = ({
 
             <div className="inline-flex items-center gap-3 bg-gray-50 px-6 py-4 rounded-2xl border border-dashed border-gray-300">
               <p className="text-sm font-medium text-gray-700">
-                Just click the{' '}
-                <Heart
-                  className="inline size-4 text-red-500 mx-1"
-                  fill="currentColor"
-                />{' '}
-                icon on any product to save it here
+                <Trans i18nKey="favorites.emptyHint">
+                  Just click the{' '}
+                  <Heart
+                    className="inline size-4 text-red-500 mx-1"
+                    fill="currentColor"
+                  />{' '}
+                  icon on any product to save it here
+                </Trans>
               </p>
             </div>
           </div>

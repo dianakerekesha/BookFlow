@@ -41,7 +41,7 @@ export const Cart = () => {
   const { t } = useTranslation();
   const skeletonCount = cart.length;
 
-  const itemLabel = (count: number) => (count === 1 ? 'item' : 'items');
+  const itemLabel = (count: number) => t('items.count', { count });
 
   return (
     <div className="container mx-auto w-full max-w-[1280px] p-4 md:p-8">
@@ -65,11 +65,11 @@ export const Cart = () => {
         {t('ui.back')}
       </button>
 
-      <h1 className={cn(TYPOGRAPHY.h1, 'mb-2 text-foreground')}>Cart</h1>
+      <h1 className={cn(TYPOGRAPHY.h1, 'mb-2 text-foreground')}>
+        {t('cart.cart')}
+      </h1>
       <p className="mb-8 text-gray-400">
-        {isLoading ?
-          `${skeletonCount} ${itemLabel(skeletonCount)}`
-        : `${totalQuantity} ${itemLabel(totalQuantity)}`}
+        {isLoading ? itemLabel(skeletonCount) : itemLabel(totalQuantity)}
       </p>
 
       {!isLoading && cart.length === 0 && <EmptyCart />}

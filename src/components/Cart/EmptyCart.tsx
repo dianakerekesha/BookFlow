@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ShoppingCart, MousePointerClick, ArrowRight } from 'lucide-react';
 import { TYPOGRAPHY } from '@/constants/typography';
+import { Trans } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { CustomButton } from '../ui/CustomButton';
 import { Loader } from '@/components/ui/Loader';
@@ -47,7 +48,9 @@ export const EmptyCart = ({
             <div className="inline-flex items-center gap-3 bg-gray-50 px-6 py-4 rounded-2xl border border-dashed border-gray-300">
               <MousePointerClick className="size-5 text-blue-500" />
               <p className="text-sm font-medium text-gray-700">
-                Click <strong>Add to cart</strong> on any book to get started
+                <Trans i18nKey="cart.emptyHint">
+                  Click <strong>Add to cart</strong> on any book to get started
+                </Trans>
               </p>
             </div>
           </div>
