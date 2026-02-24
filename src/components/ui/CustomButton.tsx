@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import type { ButtonSize } from '@/types/ui/Buttons';
+import type { ButtonSize } from './types/Buttons';
 
 const buttonSizes: Record<ButtonSize, string> = {
   home: 'w-[126px] h-[40px] rounded-[8px] sm:w-[160px]',

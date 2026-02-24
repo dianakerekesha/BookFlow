@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { FirebaseLoginError } from '@/types/SignInErrors';
+import { FirebaseLoginError } from './types/SignInErrors';
 import { Button } from '@/components/ui/button';
 import {
   Card,

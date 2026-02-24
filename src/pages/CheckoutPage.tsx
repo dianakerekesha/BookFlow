@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import type { CheckoutFormValues } from '@/components/Checkout/helpers/checkoutSchema.ts';
+import type { CheckoutFormValues } from '@/components/Checkout';
 import type { PaymentMethod, Order } from '@/types/Order';
-import { CheckoutForm } from '@/components/Checkout/CheckoutForm';
-import { LiqPayButton } from '@/components/Checkout/LiqPayButton';
-import { OrderSummary } from '@/components/Checkout/OrderSummary';
-import { PaymentMethodSelector } from '@/components/Checkout/PaymentMethodSelector';
-import { StripeWrapper } from '@/components/Checkout/StripeWrapper';
+import {
+  CheckoutForm,
+  LiqPayButton,
+  OrderSummary,
+  PaymentMethodSelector,
+  StripeWrapper,
+} from '@/components/Checkout';
 import { useCartAndFavorites } from '@/hooks/useCartAndFavourites';
 import { auth } from '@/firebase/firebase';
 import { createOrder, createStripeIntent } from '@/services/paymentAPI';
