@@ -52,10 +52,6 @@ const OrdersPage = () => {
   const navigate = useNavigate();
   const { currency, rate } = useCurrency();
 
-  const { data: orders = [], isLoading } = useQuery({
-    queryKey: ['orders', 'user'],
-    queryFn: getUserOrders,
-  });
   const { data: orders = [], isLoading } = useUserOrders();
 
   const symbol = currency === 'USD' ? '$' : '₴';
