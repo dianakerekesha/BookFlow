@@ -31,12 +31,13 @@ export const ItemCard: React.FC<Props> = ({ type }) => {
   });
 
   useEffect(() => {
-    if (isError) navigate('*', { replace: true });
-  }, [isError, navigate]);
-
-  useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [bookSlug]);
+
+  if (isError) {
+    navigate('*', { replace: true });
+    return null;
+  }
 
   const book = data?.current ?? null;
   const bookVariants = data?.variants ?? [];

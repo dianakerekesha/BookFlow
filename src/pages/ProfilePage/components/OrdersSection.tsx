@@ -3,7 +3,7 @@ import { TYPOGRAPHY } from '@/constants/typography';
 import { ChevronDown, ChevronUp, Package } from 'lucide-react';
 import { Card } from './Card';
 import { OrderItem } from './OrderItem';
-import { useUserOrders } from '../hooks/useUserOrders';
+import { useUserOrdersPreview } from '../hooks/useUserOrdersPreview';
 
 export const OrdersSection = () => {
   const {
@@ -13,7 +13,7 @@ export const OrdersSection = () => {
     isShowingAll,
     hasMoreOrders,
     handleToggleShowAll,
-  } = useUserOrders();
+  } = useUserOrdersPreview();
 
   if (isLoading) {
     return (
