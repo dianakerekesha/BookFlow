@@ -8,6 +8,7 @@ import { formatListeningLength } from '@/components/ItemCard/helpers/formatListe
 import { TYPOGRAPHY } from '@/constants/typography';
 import { LanguageSelector } from './LanguageSelector';
 import { useTranslation } from 'react-i18next';
+import { useCurrency } from '@/context/CurrencyContext';
 
 type Props = {
   book: Book;
@@ -21,6 +22,7 @@ export const ItemCardDetails: React.FC<Props> = ({
   onBookChange,
 }) => {
   const { t } = useTranslation();
+  const { currency, rate } = useCurrency();
   const bookDetailsData: [string, string | number | null][] = [
     ['Author', book.author],
     ['Cover', book.coverType ?? null],
@@ -65,6 +67,14 @@ export const ItemCardDetails: React.FC<Props> = ({
     else if (quantity === 1) removeFromCart(book.id);
   };
 
+  const price = book.priceDiscount ?? book.priceRegular;
+  const convertedPrice = currency === 'USD' ? price : Math.round(price * rate);
+  const symbol = currency === 'USD' ? '$' : '₴';
+  const convertedPriceWithoutDiscount =
+    currency === 'USD' && book.priceRegular ?
+      book.priceRegular
+    : Math.round(book.priceRegular * rate);
+
   return (
     <div className="w-full max-w-100 mx-auto lg:mx-0 flex flex-col gap-6 text-foreground">
       <div>
@@ -100,13 +110,15 @@ export const ItemCardDetails: React.FC<Props> = ({
         <div className="border-t border-border pt-4">
           <div className="flex items-center gap-2 mb-4">
             <p className={`${TYPOGRAPHY.h2} text-foreground`}>
-              ${book.priceDiscount || book.priceRegular}
+              {symbol}
+              {convertedPrice}
             </p>
             {book.priceDiscount && (
               <p
                 className={`${TYPOGRAPHY.h3} text-muted-foreground line-through`}
               >
-                ${book.priceRegular}
+                {symbol}
+                {convertedPriceWithoutDiscount}
               </p>
             )}
           </div>
