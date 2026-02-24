@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useBooks } from '@/context/BooksContext';
 import { doSingOut } from '@/firebase/auth';
 import { BookmarkToggle } from './BookmarkToggle';
@@ -14,7 +14,6 @@ type Props = {
 export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
   const { userLoggedIn } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
   const { cartIconRef, favIconRef } = useBooks();
 
   return (
@@ -59,7 +58,6 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
             <>
               <HeaderIconLink
                 to="/profile"
-                state={{ background: location }}
                 className="w-[64px] h-full border-1"
               >
                 <Icon
