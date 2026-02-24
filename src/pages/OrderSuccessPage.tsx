@@ -1,11 +1,10 @@
 import { useParams, Link } from 'react-router-dom';
-import { getOrder } from '@/services/paymentAPI';
 import type { Order } from '@/types/Order';
 import { DownloadInvoiceButton } from '@/components/Invoices';
 import { TYPOGRAPHY } from '@/constants/typography';
-import { useQuery } from '@tanstack/react-query';
 import { Loader } from '@/components/ui/Loader';
 import { Button } from '@/components/ui/button';
+import { useOrder } from '@/hooks/useOrder';
 
 const TELEGRAM_BOT_USERNAME = 'NiceBoookBot';
 
@@ -86,12 +85,7 @@ const getPrice = (item: {
 
 const OrderSuccessPage = () => {
   const { orderId } = useParams<{ orderId: string }>();
-
-  const { data: order, isLoading } = useQuery({
-    queryKey: ['order', orderId],
-    queryFn: () => getOrder(orderId!),
-    enabled: !!orderId,
-  });
+  const { data: order, isLoading } = useOrder(orderId);
 
   if (!order)
     return (
