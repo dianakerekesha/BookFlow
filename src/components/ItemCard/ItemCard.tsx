@@ -1,53 +1,27 @@
-import React, { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-import type { Book } from '@/types/Book';
+import React from 'react';
 import { BooksSection } from '@/components/BooksSection';
-import { Loader } from '@/components/ui/Loader.tsx';
-import { getBookAndVariants } from '@/components/ItemCard/helpers/getBookAndVariants.ts';
+import { Loader } from '@/components/ui/Loader';
 import { useBooks } from '../../context/BooksContext';
 import { TYPOGRAPHY } from '@/constants/typography';
-import { Breadcrumbs } from './Breadcrumbs';
-import { ItemCardAbout } from './ItemCardAbout';
-import { ItemCardCharacteristics } from './ItemCardCharacteristics';
-import { ItemCardDetails } from './ItemCardDetails';
-import { ItemCardGallery } from './ItemCardGallery';
+import { DEFAULT_CATEGORY } from './constants/itemCard.constants';
+import { useBookData } from './hooks/useBookData';
+import { Breadcrumbs } from './components/Breadcrumbs';
+import { ItemCardAbout } from './components/ItemCardAbout';
+import { ItemCardCharacteristics } from './components/ItemCardCharacteristics';
+import { ItemCardDetails } from './components/ItemCardDetails';
+import { ItemCardGallery } from './components/ItemCardGallery';
+import type { BookType } from './types/itemCard.types';
 
-type BookType = 'paperback' | 'kindle' | 'audiobook';
-
-interface Props {
+interface ItemCardProps {
   type: BookType;
 }
 
-export const ItemCard: React.FC<Props> = ({ type }) => {
+export const ItemCard: React.FC<ItemCardProps> = ({ type }) => {
   const { suggestedBooks } = useBooks();
-  const { bookSlug } = useParams<{ bookSlug: string }>();
-  const navigate = useNavigate();
+  const { book, bookVariants, isLoading, handleBookChange } = useBookData(type);
 
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ['book', type, bookSlug],
-    queryFn: () => getBookAndVariants(type, bookSlug!),
-    enabled: !!bookSlug,
-  });
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [bookSlug]);
-
-  if (isError) {
-    navigate('*', { replace: true });
-    return null;
-  }
-
-  const book = data?.current ?? null;
-  const bookVariants = data?.variants ?? [];
-
-  const handleBookChange = (newBook: Book) => {
-    navigate(`/item/${newBook.type}/${newBook.slug}`);
-  };
-
-  const imageUrls = book?.images.map((img) => `${img}`) ?? [];
-  const categoryName = book?.category?.[0] || 'General';
+  const imageUrls = book?.images ?? [];
+  const categoryName = book?.category?.[0] ?? DEFAULT_CATEGORY;
 
   return (
     <Loader isLoading={isLoading || !book}>

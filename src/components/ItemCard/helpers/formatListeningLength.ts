@@ -3,9 +3,11 @@ import type { TFunction } from 'i18next';
 const pluralize = (count: number, singular: string, t: TFunction) =>
   t(`time.${singular}`, { count });
 
-export const formatListeningLength = (ms: number, t: TFunction): string => {
-  alert('called ' + ms);
-  const totalMinutes = Math.floor(ms / 1000 / 60);
+export const formatListeningLength = (
+  milliseconds: number,
+  t: TFunction,
+): string => {
+  const totalMinutes = Math.floor(milliseconds / 1000 / 60);
   const hours = Math.floor(totalMinutes / 60);
   const minutes = totalMinutes % 60;
 

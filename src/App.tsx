@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { ScrollToTop } from '@/components/ScrollToTop';
 import { HomePage } from '@/pages/HomePage';
 import { RegisterPromo } from './components/RegisterPromo/RegisterPromo';
 import ToasterWrapper from './components/ui/ToasterWrapper/ToasterWrapper.tsx';
@@ -65,6 +66,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <div className="flex min-h-screen flex-col relative">
         {!hideLayout && <Header />}
         <main className="flex-1 relative z-10 overflow-x-hidden">
