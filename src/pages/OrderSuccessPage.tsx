@@ -6,6 +6,7 @@ import { TYPOGRAPHY } from '@/constants/typography';
 import { useQuery } from '@tanstack/react-query';
 import { Loader } from '@/components/ui/Loader';
 import { Button } from '@/components/ui/button';
+import { useCurrency } from '@/context/CurrencyContext';
 
 const TELEGRAM_BOT_USERNAME = 'NiceBoookBot';
 
@@ -79,19 +80,36 @@ const TelegramConnectButton = ({ orderId }: { orderId: string }) => {
   );
 };
 
-const getPrice = (item: {
-  priceDiscount: number | null;
-  priceRegular: number;
-}) => item.priceDiscount ?? item.priceRegular;
+const getPrice = (
+  item: {
+    priceDiscount: number | null;
+    priceRegular: number;
+  },
+  currency: string,
+  rate: number,
+) => {
+  const price = item.priceDiscount ?? item.priceRegular;
+
+  return currency === 'USD' ? price : Math.round(price * rate);
+};
+
+const getTotalPrice = (total: number, currency: string, rate: number) => {
+  return currency === 'USD' ? total : Math.round(total * rate);
+};
 
 const OrderSuccessPage = () => {
   const { orderId } = useParams<{ orderId: string }>();
+  const { currency, rate } = useCurrency();
 
   const { data: order, isLoading } = useQuery({
     queryKey: ['order', orderId],
     queryFn: () => getOrder(orderId!),
     enabled: !!orderId,
   });
+
+  const total = order && getTotalPrice(order.total, currency, rate);
+  const subtotal = order && getTotalPrice(order.total, currency, rate);
+  const symbol = currency === 'USD' ? '$' : '₴';
 
   if (!order)
     return (
@@ -194,7 +212,10 @@ const OrderSuccessPage = () => {
                   <span
                     className={`${TYPOGRAPHY.buttons} font-bold text-foreground whitespace-nowrap`}
                   >
-                    ${(getPrice(item) * item.quantity).toFixed(2)}
+                    {symbol}
+                    {(getPrice(item, currency, rate) * item.quantity).toFixed(
+                      2,
+                    )}
                   </span>
                 </li>
               ))}
@@ -206,7 +227,8 @@ const OrderSuccessPage = () => {
                   Subtotal
                 </span>
                 <span className={`${TYPOGRAPHY.body} text-muted-foreground`}>
-                  ${order.subtotal.toFixed(2)}
+                  {symbol}
+                  {subtotal?.toFixed(2)}
                 </span>
               </div>
               <div className="flex justify-between">
@@ -228,7 +250,8 @@ const OrderSuccessPage = () => {
                 <span
                   className={`${TYPOGRAPHY.h2} text-foreground tracking-tight`}
                 >
-                  ${order.total.toFixed(2)}
+                  {symbol}
+                  {total?.toFixed(2)}
                 </span>
               </div>
             </div>

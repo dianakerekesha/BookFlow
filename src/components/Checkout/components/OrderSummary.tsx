@@ -2,16 +2,20 @@ import type { CartItem } from '@/types/Book';
 import { getItemPrice } from '@/helpers/getItemPrice';
 import { OrderSummaryItem } from './OrderSummaryItem';
 import { TYPOGRAPHY } from '@/constants/typography';
+import { useCurrency } from '@/context/CurrencyContext';
 
 interface OrderSummaryProps {
   items: CartItem[];
 }
 
 export const OrderSummary = ({ items }: OrderSummaryProps) => {
+  const { currency, rate } = useCurrency();
+
   const total = items.reduce(
-    (sum, item) => sum + getItemPrice(item) * item.quantity,
+    (sum, item) => sum + getItemPrice(item, currency, rate) * item.quantity,
     0,
   );
+  const symbol = currency === 'USD' ? '$' : '₴';
 
   const itemCountLabel = items.length === 1 ? 'item' : 'items';
 
@@ -36,7 +40,8 @@ export const OrderSummary = ({ items }: OrderSummaryProps) => {
       <div className="flex justify-between mb-2.5">
         <span className={`${TYPOGRAPHY.body} text-foreground`}>Subtotal</span>
         <span className={`${TYPOGRAPHY.body} text-foreground`}>
-          ${total.toFixed(2)}
+          {symbol}
+          {total.toFixed(2)}
         </span>
       </div>
       <div className="flex justify-between">
@@ -53,7 +58,8 @@ export const OrderSummary = ({ items }: OrderSummaryProps) => {
           Total
         </span>
         <span className={`${TYPOGRAPHY.h2} text-foreground tracking-tight`}>
-          ${total.toFixed(2)}
+          {symbol}
+          {total.toFixed(2)}
         </span>
       </div>
     </div>

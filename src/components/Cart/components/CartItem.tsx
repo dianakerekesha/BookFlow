@@ -9,14 +9,17 @@ import { showInfo, showSuccess } from '@/lib/toast';
 import { getItemPrice } from '@/helpers/getItemPrice';
 import { roundCurrency } from '../helpers/roundCurrency';
 import type { CartItemProps } from '../types';
+import { useCurrency } from '@/context/CurrencyContext';
 
 export const CartItem = ({ book }: CartItemProps) => {
   const { removeFromCart, increaseQuantity, decreaseQuantity } =
     useCartFavorites();
   const { t } = useTranslation();
+  const { currency, rate } = useCurrency();
 
-  const price = getItemPrice(book);
+  const price = getItemPrice(book, currency, rate);
   const total = roundCurrency(price * book.quantity);
+  const symbol = currency === 'USD' ? '$' : '₴';
 
   const handleRemoveItem = () => {
     removeFromCart(book.id);
@@ -104,7 +107,8 @@ export const CartItem = ({ book }: CartItemProps) => {
         </div>
 
         <p className={cn(TYPOGRAPHY.h3, 'text-foreground sm:w-20 sm:text-end')}>
-          ${total}
+          {symbol}
+          {total}
         </p>
       </div>
     </div>
