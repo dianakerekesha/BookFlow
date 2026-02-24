@@ -1,15 +1,20 @@
 import React from 'react';
 import type { Book } from '@/types/Book';
-import { formatListeningLength } from '@/components/ItemCard/helpers/formatListeningLength.ts';
+import type { BookSpecification } from '../types/itemCard.types';
+import { formatListeningLength } from '../helpers/formatListeningLength';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { useTranslation } from 'react-i18next';
 
-type Props = { book: Book };
-type Spec = { label: string; value: string | number | null | undefined };
+interface ItemCardCharacteristicsProps {
+  book: Book;
+}
 
-export const ItemCardCharacteristics: React.FC<Props> = ({ book }) => {
+export const ItemCardCharacteristics: React.FC<
+  ItemCardCharacteristicsProps
+> = ({ book }) => {
   const { t } = useTranslation();
-  const specs: Spec[] = [
+
+  const specifications: BookSpecification[] = [
     { label: t('bookDetails.author'), value: book.author },
     { label: t('bookDetails.coverType'), value: book.coverType },
     { label: t('bookDetails.numberOfPages'), value: book.numberOfPages },
@@ -29,7 +34,10 @@ export const ItemCardCharacteristics: React.FC<Props> = ({ book }) => {
       value: book.lang === 'uk' ? t('ui.ukrainian') : t('ui.english'),
     },
   ];
-  const filtered = specs.filter((spec) => spec.value != null);
+
+  const filteredSpecifications = specifications.filter(
+    (specification) => specification.value != null,
+  );
 
   return (
     <section className="w-full max-w-160 mx-auto lg:mx-0">
@@ -38,18 +46,22 @@ export const ItemCardCharacteristics: React.FC<Props> = ({ book }) => {
       </h2>
 
       <div className="border-t border-border">
-        {filtered.map((spec, index) => (
+        {filteredSpecifications.map((specification, index) => (
           <div
-            key={spec.label}
-            className={`flex justify-between py-3 ${index !== filtered.length - 1 ? 'border-b border-border' : ''}`}
+            key={specification.label}
+            className={`flex justify-between py-3 ${
+              index !== filteredSpecifications.length - 1 ?
+                'border-b border-border'
+              : ''
+            }`}
           >
             <span className={`${TYPOGRAPHY.body} text-muted-foreground`}>
-              {spec.label}
+              {specification.label}
             </span>
             <span
               className={`${TYPOGRAPHY.body} font-medium text-foreground text-right`}
             >
-              {spec.value}
+              {specification.value}
             </span>
           </div>
         ))}

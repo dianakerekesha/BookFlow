@@ -1,43 +1,46 @@
 import React, { useState } from 'react';
 import type { Book } from '@/types/Book';
+import { LANGUAGE_LABEL } from '../constants/itemCard.constants';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
 
-type Props = {
+interface LanguageSelectorProps {
   book: Book;
   bookVariants: Book[];
   onBookChange: (newBook: Book) => void;
-};
+}
 
-export const LanguageSelector: React.FC<Props> = ({
+export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   book,
   bookVariants,
   onBookChange,
 }) => {
-  const [selected, setSelected] = useState(book.lang);
+  const [selectedLanguage, setSelectedLanguage] = useState(book.lang);
 
-  const handleChange = (langCode: string) => {
-    if (langCode === selected) return;
+  const handleLanguageChange = (languageCode: string) => {
+    if (languageCode === selectedLanguage) return;
 
-    setSelected(langCode);
+    setSelectedLanguage(languageCode);
 
-    const match = bookVariants.find((book) => book.lang === langCode);
+    const matchingVariant = bookVariants.find(
+      (variant) => variant.lang === languageCode,
+    );
 
-    if (match) {
-      onBookChange(match);
+    if (matchingVariant) {
+      onBookChange(matchingVariant);
     }
   };
 
   return (
     <div className="flex gap-2">
-      {book.langAvailable.map((lang: string) => {
-        const label = lang.toUpperCase() === 'UK' ? 'УКР' : 'ENG';
-        const isSelected = selected === lang;
+      {book.langAvailable.map((language: string) => {
+        const label = LANGUAGE_LABEL[language] ?? language.toUpperCase();
+        const isSelected = selectedLanguage === language;
 
         return (
           <button
-            key={lang}
-            onClick={() => handleChange(lang)}
+            key={language}
+            onClick={() => handleLanguageChange(language)}
             className={cn(
               TYPOGRAPHY.buttons,
               'w-11.25 h-8.75 px-0 py-0 rounded-md border cursor-pointer transition-colors',

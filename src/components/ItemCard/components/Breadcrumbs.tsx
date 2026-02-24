@@ -2,14 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { Icon } from '@/components/ui/icons';
+import {
+  BOOK_TYPE_ROUTE,
+  BOOK_TYPE_DISPLAY_NAME,
+} from '../constants/itemCard.constants';
+import type { BookType } from '../types/itemCard.types';
 
-type Props = {
-  type: string;
+interface BreadcrumbsProps {
+  type: BookType;
   category?: string;
   bookName: string;
-};
+}
 
-export const Breadcrumbs: React.FC<Props> = ({ type, category, bookName }) => {
+export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
+  type,
+  category,
+  bookName,
+}) => {
+  const typeRoute = BOOK_TYPE_ROUTE[type];
+  const typeDisplayName = BOOK_TYPE_DISPLAY_NAME[type];
+
   return (
     <nav className="flex items-center gap-2 text-muted-foreground mb-6 flex-wrap">
       <Link
@@ -29,10 +41,10 @@ export const Breadcrumbs: React.FC<Props> = ({ type, category, bookName }) => {
       />
 
       <Link
-        to={`/${type === 'paperback' ? 'paper' : type}`}
+        to={`/${typeRoute}`}
         className={`${TYPOGRAPHY.body} capitalize hover:text-foreground transition-colors`}
       >
-        {type === 'paperback' ? 'Paper Books' : type}
+        {typeDisplayName}
       </Link>
 
       {category && (

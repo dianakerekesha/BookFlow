@@ -1,18 +1,21 @@
-import type { Book } from '@/types/Book.ts';
-import { client } from '@/services/fetchClient.ts';
+import type { Book } from '@/types/Book';
+import { client } from '@/services/fetchClient';
+import type { BookType } from '../types/itemCard.types';
 
 export const getBookAndVariants = async (
-  type: 'paperback' | 'kindle' | 'audiobook',
+  type: BookType,
   slug: string,
 ): Promise<{ current: Book; variants: Book[] }> => {
   const books = await client.get<Book[]>(type);
 
-  const current = books.find((b) => b.slug === slug);
+  const current = books.find((book) => book.slug === slug);
   if (!current) {
     throw new Error('Book not found');
   }
 
-  const variants = books.filter((b) => b.namespaceId === current.namespaceId);
+  const variants = books.filter(
+    (book) => book.namespaceId === current.namespaceId,
+  );
 
   return { current, variants };
 };

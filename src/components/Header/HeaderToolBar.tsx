@@ -39,7 +39,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
 
         <HeaderIconLink
           to="/favourites"
-          className="w-[64px] h-full border-1 relative"
+          className="w-[64px] h-full border-1 -ml-px relative"
         >
           <div
             ref={favIconRef}
@@ -55,7 +55,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
 
         <HeaderIconLink
           to="/cart"
-          className="w-[64px] h-full border-1"
+          className="w-[64px] h-full border-1 -ml-px"
         >
           <div
             ref={cartIconRef}
@@ -73,7 +73,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
             <>
               <HeaderIconLink
                 to="/profile"
-                className="w-[64px] h-full border-1"
+                className="w-[64px] h-full border-1 -ml-px"
               >
                 <Icon
                   name="profileIcon"
@@ -81,7 +81,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
                 />
               </HeaderIconLink>
               <HeaderIconLink
-                className="w-[64px] h-full border-1"
+                className="w-[64px] h-full border-1 -ml-px"
                 onClick={() => {
                   doSingOut().then(() => {
                     navigate('/login', { replace: true });
@@ -97,7 +97,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
           : <>
               <HeaderIconLink
                 to="/login"
-                className="w-[64px] h-full border-1"
+                className="w-[64px] h-full border-1 -ml-px"
               >
                 <Icon
                   name="signIn"
@@ -106,7 +106,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
               </HeaderIconLink>
               <HeaderIconLink
                 to="/signup"
-                className="w-[64px] h-full border-1"
+                className="w-[64px] h-full border-1 -ml-px"
               >
                 <Icon
                   name="signUp"

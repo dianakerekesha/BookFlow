@@ -7,11 +7,11 @@ import 'swiper/css';
 import 'swiper/css/thumbs';
 import 'swiper/css/free-mode';
 
-type Props = {
+interface ItemCardGalleryProps {
   images: string[];
-};
+}
 
-export const ItemCardGallery: React.FC<Props> = ({ images }) => {
+export const ItemCardGallery: React.FC<ItemCardGalleryProps> = ({ images }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
   return (
@@ -25,26 +25,17 @@ export const ItemCardGallery: React.FC<Props> = ({ images }) => {
           watchSlidesProgress
           spaceBetween={8}
           breakpoints={{
-            0: {
-              direction: 'horizontal',
-              slidesPerView: 3,
-            },
-            360: {
-              direction: 'horizontal',
-              slidesPerView: 4,
-            },
-            640: {
-              direction: 'vertical',
-              slidesPerView: 6,
-            },
+            0: { direction: 'horizontal', slidesPerView: 3 },
+            360: { direction: 'horizontal', slidesPerView: 4 },
+            640: { direction: 'vertical', slidesPerView: 6 },
           }}
         >
-          {images.map((src, index) => (
+          {images.map((source, index) => (
             <SwiperSlide key={index}>
               <div className="w-20 h-20 flex items-center justify-center rounded-lg border border-border hover:border-foreground dark:bg-white/20 dark:border-white/20 dark:hover:bg-white/40 transition-all">
                 <img
-                  src={src}
-                  alt={`thumb ${index}`}
+                  src={source}
+                  alt={`thumbnail ${index + 1}`}
                   className="w-16 h-16 object-contain rounded-md cursor-pointer"
                 />
               </div>
@@ -59,12 +50,12 @@ export const ItemCardGallery: React.FC<Props> = ({ images }) => {
         zoom={true}
         className="w-full aspect-4/5 sm:h-130 flex-1 min-w-0"
       >
-        {images.map((src, index) => (
+        {images.map((source, index) => (
           <SwiperSlide key={index}>
             <div className="swiper-zoom-container w-full h-full flex items-center justify-center rounded-md cursor-zoom-in">
               <img
-                src={src}
-                alt={`image ${index}`}
+                src={source}
+                alt={`image ${index + 1}`}
                 className="w-full h-full object-contain"
               />
             </div>

@@ -1,5 +1,2 @@
-export * from './ItemCard';
-export * from './ItemCardAbout';
-export * from './ItemCardCharacteristics';
-export * from './ItemCardGallery';
-export * from './ItemCardDetails';
+export { ItemCard } from './ItemCard';
+export type { BookType } from './types/itemCard.types';

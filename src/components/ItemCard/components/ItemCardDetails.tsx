@@ -1,34 +1,43 @@
 import React from 'react';
-import { Minus, Plus } from 'lucide-react';
 import type { Book } from '@/types/Book';
 import { AddButton } from '@/components/ui/Buttons/AddButton';
 import { HeartButton } from '@/components/ui/Buttons/HeartButton';
-import { useCartFavorites } from '@/context/CartFavoritesContext.tsx';
-import { formatListeningLength } from '@/components/ItemCard/helpers/formatListeningLength.ts';
+import { formatListeningLength } from '../helpers/formatListeningLength';
+import { useBookCartActions } from '../hooks/useBookCartActions';
+import { MAX_VISIBLE_CATEGORIES } from '../constants/itemCard.constants';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { LanguageSelector } from './LanguageSelector';
+import { QuantitySelector } from './QuantitySelector';
 import { useTranslation } from 'react-i18next';
-import { useCurrency } from '@/context/CurrencyContext';
 
-type Props = {
+interface ItemCardDetailsProps {
   book: Book;
   bookVariants: Book[];
   onBookChange: (newBook: Book) => void;
-};
+}
 
-export const ItemCardDetails: React.FC<Props> = ({
+export const ItemCardDetails: React.FC<ItemCardDetailsProps> = ({
   book,
   bookVariants,
   onBookChange,
 }) => {
   const { t } = useTranslation();
-  const { currency, rate } = useCurrency();
+  const {
+    quantity,
+    isInCart,
+    isBookFavorite,
+    handleToggleCart,
+    handleIncreaseQuantity,
+    handleDecreaseQuantity,
+    handleToggleFavorite,
+  } = useBookCartActions(book);
+
   const bookDetailsData: [string, string | number | null][] = [
     ['Author', book.author],
     ['Cover', book.coverType ?? null],
     [
       'Listening length',
-      book.listeningLength !== null && book.listeningLength !== undefined ?
+      book.listeningLength != null ?
         formatListeningLength(book.listeningLength, t)
       : null,
     ],
@@ -38,42 +47,7 @@ export const ItemCardDetails: React.FC<Props> = ({
   ];
 
   const filteredDetails = bookDetailsData.filter(([, value]) => value !== null);
-
-  const {
-    cart,
-    addToCart,
-    removeFromCart,
-    increaseQuantity,
-    decreaseQuantity,
-    toggleFavorite,
-    isFavorite,
-  } = useCartFavorites();
-
-  const isFavourite = isFavorite(book.id);
-  const cartItem = cart.find((item) => item.id === book.id);
-  const quantity = cartItem?.quantity || 0;
-  const isSelected = quantity > 0;
-
-  const toggleAddToCart = () =>
-    isSelected ? removeFromCart(book.id) : addToCart(book);
-
-  const handlePlus = () => {
-    if (quantity === 0) addToCart(book);
-    else increaseQuantity(book.id);
-  };
-
-  const handleMinus = () => {
-    if (quantity > 1) decreaseQuantity(book.id);
-    else if (quantity === 1) removeFromCart(book.id);
-  };
-
-  const price = book.priceDiscount ?? book.priceRegular;
-  const convertedPrice = currency === 'USD' ? price : Math.round(price * rate);
-  const symbol = currency === 'USD' ? '$' : '₴';
-  const convertedPriceWithoutDiscount =
-    currency === 'USD' && book.priceRegular ?
-      book.priceRegular
-    : Math.round(book.priceRegular * rate);
+  const hasCategories = book.category && book.category.length > 0;
 
   return (
     <div className="w-full max-w-100 mx-auto lg:mx-0 flex flex-col gap-6 text-foreground">
@@ -81,14 +55,14 @@ export const ItemCardDetails: React.FC<Props> = ({
         <p className={`${TYPOGRAPHY.h5} text-muted-foreground mb-2`}>
           Category
         </p>
-        {book.category && book.category.length > 0 && (
+        {hasCategories && (
           <div className="flex flex-wrap gap-2">
-            {book.category.slice(0, 6).map((cat, index) => (
+            {book.category!.slice(0, MAX_VISIBLE_CATEGORIES).map((category) => (
               <span
-                key={index}
+                key={category}
                 className={`${TYPOGRAPHY.body} px-3 py-1 border border-border rounded-md text-foreground`}
               >
-                {cat}
+                {category}
               </span>
             ))}
           </div>
@@ -110,50 +84,33 @@ export const ItemCardDetails: React.FC<Props> = ({
         <div className="border-t border-border pt-4">
           <div className="flex items-center gap-2 mb-4">
             <p className={`${TYPOGRAPHY.h2} text-foreground`}>
-              {symbol}
-              {convertedPrice}
+              ${book.priceDiscount || book.priceRegular}
             </p>
             {book.priceDiscount && (
               <p
                 className={`${TYPOGRAPHY.h3} text-muted-foreground line-through`}
               >
-                {symbol}
-                {convertedPriceWithoutDiscount}
+                ${book.priceRegular}
               </p>
             )}
           </div>
 
           <div className="flex items-center gap-2 w-full overflow-hidden">
             <AddButton
-              onClick={toggleAddToCart}
-              isSelected={isSelected}
+              onClick={handleToggleCart}
+              isSelected={isInCart}
               className="cursor-pointer"
             />
 
-            <div className="flex items-center border border-border rounded-md px-2">
-              <button
-                className="text-ring hover:text-foreground w-6 h-10 flex items-center justify-center transition-colors disabled:opacity-40"
-                onClick={handleMinus}
-                disabled={quantity === 0}
-              >
-                <Minus size={14} />
-              </button>
-
-              <span className={`${TYPOGRAPHY.buttons} px-2 text-foreground`}>
-                {quantity}
-              </span>
-
-              <button
-                className="text-ring hover:text-foreground w-6 h-10 flex items-center justify-center transition-colors"
-                onClick={handlePlus}
-              >
-                <Plus size={14} />
-              </button>
-            </div>
+            <QuantitySelector
+              quantity={quantity}
+              onIncrease={handleIncreaseQuantity}
+              onDecrease={handleDecreaseQuantity}
+            />
 
             <HeartButton
-              onClick={() => toggleFavorite(book)}
-              isSelected={isFavourite}
+              onClick={handleToggleFavorite}
+              isSelected={isBookFavorite}
             />
           </div>
         </div>

@@ -2,11 +2,11 @@ import React from 'react';
 import type { Book } from '@/types/Book';
 import { TYPOGRAPHY } from '@/constants/typography';
 
-type Props = {
+interface ItemCardAboutProps {
   book: Book;
-};
+}
 
-export const ItemCardAbout: React.FC<Props> = ({ book }) => {
+export const ItemCardAbout: React.FC<ItemCardAboutProps> = ({ book }) => {
   return (
     <section className="w-full max-w-160 mx-auto lg:mx-0">
       <h2 className={`${TYPOGRAPHY.h2} text-foreground dark:text-white mb-4`}>

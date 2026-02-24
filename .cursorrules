@@ -1,0 +1,74 @@
+.cursorrules# Code Quality Rules
+
+## Folder Structure
+- Group everything related to one page/feature inside one main folder
+- Inside that folder, create subfolders: `components/`, `hooks/`, `helpers/`, `constants/`, `types/`
+- Example: `features/UserProfile/components/`, `features/UserProfile/hooks/`
+- Break large files into smaller focused pieces and import them
+
+## Naming
+- No abbreviations in variable, function, or file names
+- Use full descriptive names: `userProfileData` not `usrPrfDt`, `isLoading` not `isLd`
+- Event handler functions must start with `handle`: `handleSubmit`, `handleUserDelete`, `handleInputChange`
+- Boolean variables must start with `is`, `has`, `can`, `should`: `isModalOpen`, `hasPermission`
+
+## No Magic Strings or Numbers
+- Never use raw strings or numbers directly in logic or JSX
+- Create enums or constants files for all repeated or meaningful values
+
+```ts
+// ❌ Bad
+if (status === 'active') ...
+if (role === 'admin') ...
+
+// ✅ Good
+enum UserStatus { Active = 'active', Inactive = 'inactive' }
+enum UserRole { Admin = 'admin', Viewer = 'viewer' }
+if (status === UserStatus.Active) ...
+```
+
+## DRY — Don't Repeat Yourself
+- If the same logic appears more than once, extract it into a helper function or custom hook
+- If the same JSX pattern repeats, extract it into a component
+- Shared helpers go in `helpers/`, shared hooks go in `hooks/`
+
+## KISS — Keep It Simple
+- Only apply abstractions when they genuinely make the code simpler and easier to read
+- Do not over-engineer. If a simple function is clear enough, don't wrap it
+- Write code for other engineers first — clarity beats cleverness
+
+## React Performance
+- Use `useMemo` for expensive computed values that depend on specific deps
+- Use `useCallback` for functions passed as props or used in dependency arrays
+- Only add these when there is a clear reason — do not wrap everything by default
+
+```ts
+// Use when the calculation is heavy or passed as a dependency
+const sortedUsers = useMemo(() => sortUsers(users), [users])
+const handleDelete = useCallback((id: string) => deleteUser(id), [deleteUser])
+```
+
+## Functions
+- Each function does one thing only
+- Keep functions short — if it needs scrolling, consider splitting it
+- Use `handle` prefix for all event-driven functions
+- Extract complex conditions into named boolean variables or helper functions
+
+```ts
+// ❌ Bad
+if (user.age > 18 && user.isVerified && !user.isBanned) ...
+
+// ✅ Good
+const canAccessContent = user.age > 18 && user.isVerified && !user.isBanned
+if (canAccessContent) ...
+```
+
+## Components
+- One component per file
+- Props interface defined above the component, named `[ComponentName]Props`
+- Keep JSX clean — move logic out of JSX into variables or handler functions before the return
+
+## General
+- Always ask: "Would a new engineer understand this in 30 seconds?"
+- Apply all rules where they make sense — not blindly, but with judgment
+- Readable and maintainable code is always the goal
