@@ -5,6 +5,7 @@ import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils.ts';
 import { Loader } from '@/components/ui/Loader';
 import { Button } from '@/components/ui/button';
+import { useCurrency } from '@/context/CurrencyContext';
 import { useUserOrders } from '@/hooks/useUserOrders';
 
 const StatusBadge = ({ status }: { status: Order['status'] }) => {
@@ -43,9 +44,21 @@ const StatusBadge = ({ status }: { status: Order['status'] }) => {
   );
 };
 
+const getTotalPrice = (total: number, currency: string, rate: number) => {
+  return currency === 'USD' ? total : Math.round(total * rate);
+};
+
 const OrdersPage = () => {
   const navigate = useNavigate();
+  const { currency, rate } = useCurrency();
+
+  const { data: orders = [], isLoading } = useQuery({
+    queryKey: ['orders', 'user'],
+    queryFn: getUserOrders,
+  });
   const { data: orders = [], isLoading } = useUserOrders();
+
+  const symbol = currency === 'USD' ? '$' : '₴';
 
   return (
     <Loader isLoading={isLoading}>
@@ -126,111 +139,117 @@ const OrdersPage = () => {
 
           {orders.length > 0 && (
             <ul className="flex flex-col gap-4">
-              {orders.map((order) => (
-                <li key={order.id}>
-                  <Link
-                    to={`/order-success/${order.id}`}
-                    className="block border border-border rounded-lg overflow-hidden hover:border-ring transition-colors group"
-                  >
-                    <div className="flex items-center justify-between px-5 py-4 bg-card border-b border-border">
-                      <div className="flex flex-col gap-0.5">
-                        <p
-                          className={`${TYPOGRAPHY.uppercase} text-muted-foreground`}
-                        >
-                          Order ID
-                        </p>
-                        <p
-                          className={`${TYPOGRAPHY.buttons} text-foreground font-mono`}
-                        >
-                          {order.id}
-                        </p>
-                      </div>
-                      <div className="flex flex-col items-end gap-1.5">
-                        <StatusBadge status={order.status} />
-                        <p
-                          className={`${TYPOGRAPHY.small} text-muted-foreground`}
-                        >
-                          {new Date(order.createdAt).toLocaleDateString(
-                            'en-GB',
-                            {
-                              day: 'numeric',
-                              month: 'short',
-                              year: 'numeric',
-                            },
-                          )}
-                        </p>
-                      </div>
-                    </div>
+              {orders.map((order) => {
+                const total =
+                  order && getTotalPrice(order.total, currency, rate);
 
-                    <div className="px-5 py-4 flex items-center gap-4">
-                      <div className="flex -space-x-3">
-                        {order.items.slice(0, 3).map((item, i) => (
-                          <img
-                            key={item.id}
-                            src={item.images[0]}
-                            alt={item.name}
-                            className="w-10 h-14 object-cover rounded-sm border-2 border-background"
-                            style={{ zIndex: 10 - i }}
-                          />
-                        ))}
-                        {order.items.length > 3 && (
-                          <div
-                            className="w-10 h-14 rounded-sm border-2 border-background bg-muted flex items-center justify-center"
-                            style={{ zIndex: 7 }}
+                return (
+                  <li key={order.id}>
+                    <Link
+                      to={`/order-success/${order.id}`}
+                      className="block border border-border rounded-lg overflow-hidden hover:border-ring transition-colors group"
+                    >
+                      <div className="flex items-center justify-between px-5 py-4 bg-card border-b border-border">
+                        <div className="flex flex-col gap-0.5">
+                          <p
+                            className={`${TYPOGRAPHY.uppercase} text-muted-foreground`}
                           >
-                            <span
-                              className={`${TYPOGRAPHY.small} text-muted-foreground`}
+                            Order ID
+                          </p>
+                          <p
+                            className={`${TYPOGRAPHY.buttons} text-foreground font-mono`}
+                          >
+                            {order.id}
+                          </p>
+                        </div>
+                        <div className="flex flex-col items-end gap-1.5">
+                          <StatusBadge status={order.status} />
+                          <p
+                            className={`${TYPOGRAPHY.small} text-muted-foreground`}
+                          >
+                            {new Date(order.createdAt).toLocaleDateString(
+                              'en-GB',
+                              {
+                                day: 'numeric',
+                                month: 'short',
+                                year: 'numeric',
+                              },
+                            )}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="px-5 py-4 flex items-center gap-4">
+                        <div className="flex -space-x-3">
+                          {order.items.slice(0, 3).map((item, i) => (
+                            <img
+                              key={item.id}
+                              src={item.images[0]}
+                              alt={item.name}
+                              className="w-10 h-14 object-cover rounded-sm border-2 border-background"
+                              style={{ zIndex: 10 - i }}
+                            />
+                          ))}
+                          {order.items.length > 3 && (
+                            <div
+                              className="w-10 h-14 rounded-sm border-2 border-background bg-muted flex items-center justify-center"
+                              style={{ zIndex: 7 }}
                             >
-                              +{order.items.length - 3}
-                            </span>
-                          </div>
-                        )}
-                      </div>
+                              <span
+                                className={`${TYPOGRAPHY.small} text-muted-foreground`}
+                              >
+                                +{order.items.length - 3}
+                              </span>
+                            </div>
+                          )}
+                        </div>
 
-                      <div className="flex-1 min-w-0">
-                        <p
-                          className={`${TYPOGRAPHY.body} font-medium text-foreground truncate`}
-                        >
-                          {order.items.map((item) => item.name).join(', ')}
-                        </p>
-                        <p
-                          className={`${TYPOGRAPHY.small} text-muted-foreground mt-0.5 capitalize`}
-                        >
-                          {order.paymentMethod} ·{' '}
-                          {order.items.reduce(
-                            (sum, item) => sum + item.quantity,
-                            0,
-                          )}{' '}
-                          items
-                        </p>
-                      </div>
+                        <div className="flex-1 min-w-0">
+                          <p
+                            className={`${TYPOGRAPHY.body} font-medium text-foreground truncate`}
+                          >
+                            {order.items.map((item) => item.name).join(', ')}
+                          </p>
+                          <p
+                            className={`${TYPOGRAPHY.small} text-muted-foreground mt-0.5 capitalize`}
+                          >
+                            {order.paymentMethod} ·{' '}
+                            {order.items.reduce(
+                              (sum, item) => sum + item.quantity,
+                              0,
+                            )}{' '}
+                            items
+                          </p>
+                        </div>
 
-                      <div className="flex items-center gap-3 shrink-0">
-                        <span
-                          className={`${TYPOGRAPHY.h5} font-extrabold text-foreground`}
-                        >
-                          ${order.total.toFixed(2)}
-                        </span>
-                        <svg
-                          width="7"
-                          height="11"
-                          viewBox="0 0 7 11"
-                          fill="none"
-                          className="rotate-180 text-muted-foreground group-hover:text-foreground transition-colors"
-                        >
-                          <path
-                            d="M6 1L1 5.5L6 10"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
+                        <div className="flex items-center gap-3 shrink-0">
+                          <span
+                            className={`${TYPOGRAPHY.h5} font-extrabold text-foreground`}
+                          >
+                            {symbol}
+                            {total.toFixed(2)}
+                          </span>
+                          <svg
+                            width="7"
+                            height="11"
+                            viewBox="0 0 7 11"
+                            fill="none"
+                            className="rotate-180 text-muted-foreground group-hover:text-foreground transition-colors"
+                          >
+                            <path
+                              d="M6 1L1 5.5L6 10"
+                              stroke="currentColor"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                </li>
-              ))}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           )}
         </div>

@@ -5,13 +5,19 @@ import { DownloadInvoiceButton } from '@/components/Invoices';
 import type { Order } from '@/types/Order';
 import { ORDER_STATUS_CONFIG } from '../constants/orderStatusConfig';
 import { formatDate } from '../helpers/formatDate';
+import { useCurrency } from '@/context/CurrencyContext';
 
 interface OrderItemProps {
   order: Order;
 }
 
+const getTotalPrice = (total: number, currency: string, rate: number) => {
+  return currency === 'USD' ? total : Math.round(total * rate);
+};
+
 export const OrderItem = ({ order }: OrderItemProps) => {
   const navigate = useNavigate();
+  const { currency, rate } = useCurrency();
 
   const statusConfig =
     ORDER_STATUS_CONFIG[order.status] ?? ORDER_STATUS_CONFIG.pending;
@@ -24,6 +30,9 @@ export const OrderItem = ({ order }: OrderItemProps) => {
   const handleStopPropagation = (event: React.MouseEvent) => {
     event.stopPropagation();
   };
+
+  const total = order && getTotalPrice(order.total, currency, rate);
+  const symbol = currency === 'USD' ? '$' : '₴';
 
   return (
     <div
@@ -55,7 +64,8 @@ export const OrderItem = ({ order }: OrderItemProps) => {
           {statusConfig.label}
         </span>
         <span className="text-sm font-semibold text-foreground min-w-[56px] text-right">
-          ${order.total.toFixed(2)}
+          {symbol}
+          {total.toFixed(2)}
         </span>
         {order.status === 'paid' && (
           <div
