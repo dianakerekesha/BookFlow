@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Sun, Moon, Settings, DollarSign, Euro } from 'lucide-react';
-import { HryvniaIcon } from '../ui/icons/hryvnia';
+import { Sun, Moon, Settings } from 'lucide-react';
 import { useCurrency } from '@/context/CurrencyContextType';
 
 export const BookmarkToggle = ({
@@ -11,11 +10,12 @@ export const BookmarkToggle = ({
 }) => {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const { currency, setCurrency } = useCurrency();
 
   const [isDark, setIsDark] = useState(() => {
     return localStorage.getItem('theme') === 'dark';
   });
+
+  const { currency, toggleCurrency } = useCurrency();
 
   const toggleTheme = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
@@ -40,14 +40,6 @@ export const BookmarkToggle = ({
   const languageToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
     i18n.changeLanguage(i18n.language === 'en' ? 'uk' : 'en');
     event.stopPropagation();
-  };
-
-  const cycleCurrency = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-
-    if (currency === 'UAH') setCurrency('USD');
-    else if (currency === 'USD') setCurrency('EUR');
-    else setCurrency('UAH');
   };
 
   return (
@@ -82,13 +74,57 @@ export const BookmarkToggle = ({
           </button>
 
           <button
-            onClick={cycleCurrency}
             className="hover:scale-110 transition cursor-pointer"
             title="currency"
+            onClick={(event) => {
+              event.stopPropagation();
+              toggleCurrency();
+            }}
           >
-            {currency === 'UAH' && <HryvniaIcon />}
-            {currency === 'USD' && <DollarSign />}
-            {currency === 'EUR' && <Euro />}
+            {currency === 'USD' ?
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line
+                  x1="12"
+                  y1="2"
+                  x2="12"
+                  y2="22"
+                />
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+            : <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M7 7c0-2.5 2.5-4 5-4s5 1.5 5 4-2.5 4-5 5-5 2.5-5 5 2.5 4 5 4 5-1.5 5-3" />
+                <line
+                  x1="5"
+                  y1="11"
+                  x2="19"
+                  y2="11"
+                />
+                <line
+                  x1="5"
+                  y1="14"
+                  x2="19"
+                  y2="14"
+                />
+              </svg>
+            }
           </button>
         </div>
         <button

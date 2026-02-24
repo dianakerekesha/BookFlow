@@ -4,12 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { CartFavoritesProvider } from '@/context/CartFavoritesContext';
 import { AuthProvider } from './context/AuthContext.tsx';
 import { BooksProvider } from './context/BooksContext';
-import { LanguageProvider } from './context/Language.Context.tsx';
-import { CurrencyProvider } from './context/CurrencyContextType.tsx';
 import App from './App.tsx';
 import './i18n.ts';
 import './index.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { CurrencyProvider } from './context/CurrencyContext.tsx';
 
 declare global {
   interface Window {
@@ -37,11 +36,9 @@ createRoot(document.getElementById('root')!).render(
       <AuthProvider>
         <CartFavoritesProvider>
           <BooksProvider>
-            <LanguageProvider>
-              <CurrencyProvider>
-                <App />
-              </CurrencyProvider>
-            </LanguageProvider>
+            <CurrencyProvider>
+              <App />
+            </CurrencyProvider>
           </BooksProvider>
         </CartFavoritesProvider>
       </AuthProvider>

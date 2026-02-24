@@ -85,11 +85,11 @@ export const BooksSection = ({ title, books = [] }: Props) => {
             <BooksCarouselButtons />
           </div>
 
-          <CarouselContent className="flex mt-[24px]">
+          <CarouselContent className="flex mt-[24px] -ml-6">
             {books.map((book, index) => (
               <CarouselItem
                 key={`${book.id}-${index}`}
-                className="pl-[16px] basis-auto lg:basis-[25%]"
+                className="pl-6 basis-auto lg:basis-[25%]"
               >
                 <div className="h-[400px] md:h-[506px] lg:h-[571px]">
                   <ProductCard book={book} />

@@ -1,14 +1,60 @@
+import type { TFunction } from 'i18next';
 import type { Book } from '@/types/Book';
+import type React from 'react';
 
 export interface GroupedResults {
   authors: Book[];
   publishers: Book[];
   titles: Book[];
 }
+export interface SearchActions {
+  handleBookChange: (book: Book) => void;
+  handleAddToCart: (book: Book, event?: React.MouseEvent) => void;
+  handleToggleFavorite: (book: Book, event?: React.MouseEvent) => void;
+  handleViewAll: () => void;
+  isFavorite: (id: string | number) => boolean;
+  isInCart: (id: string | number) => boolean;
+}
+export interface SearchSectionsProps {
+  groupedResults: GroupedResults;
+  searchTerm: string;
+  actions: SearchActions;
+}
+export interface SearchDialogContentProps {
+  onClose: () => void;
+  onSelect?: () => void;
+}
+export interface SearchTranslations {
+  texts: {
+    placeholder: string;
+    searching: string;
+    noResults: string;
+  };
+  ui: {
+    all: string;
+    sections: {
+      publishers: string;
+      authors: string;
+      titles: string;
+    };
+  };
+}
 
-//export const TEXTS = {placeholder: 'Find a book or author',searching: 'Searching...',noResults: 'No books found',};
-
-//export const UI = {all: 'Усі',addToCart: 'До кошика',sections: {publishers: 'Видавництва',authors: 'Автори',titles: 'Книжки',},};
+export const getSearchTranslations = (t: TFunction): SearchTranslations => ({
+  texts: {
+    placeholder: t('search.placeholder'),
+    searching: t('search.searching'),
+    noResults: t('search.noResults'),
+  },
+  ui: {
+    all: t('search.all'),
+    sections: {
+      publishers: t('search.publishers'),
+      authors: t('search.authors'),
+      titles: t('search.titles'),
+    },
+  },
+});
 
 export const COMMON_STYLES = {
   viewAllBtn:

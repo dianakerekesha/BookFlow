@@ -12,7 +12,7 @@ import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
 import { showInfo, showSuccess } from '@/lib/toast';
 import { useBooks } from '@/context/BooksContext';
-import { useCurrency } from '../../context/CurrencyContextType';
+import { useCurrency } from '@/context/CurrencyContext';
 
 type Props = {
   book: Book;
@@ -22,6 +22,7 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
   const { t } = useTranslation();
   const { addToCart, removeFromCart, toggleFavorite, isFavorite, isInCart } =
     useCartFavorites();
+  const { currency, rate } = useCurrency();
 
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -30,7 +31,14 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
   const price = book.priceDiscount ?? book.priceRegular;
   const { cartIconRef, favIconRef } = useBooks();
 
-  const { formatPrice } = useCurrency();
+  const convertedPrice = currency === 'USD' ? price : Math.round(price * rate);
+
+  const convertedPriceWithoutDiscount =
+    currency === 'USD' && book.priceRegular ?
+      book.priceRegular
+    : Math.round(book.priceRegular * rate);
+
+  const symbol = currency === 'USD' ? '$' : '₴';
 
   const handleAddToCart = (event?: React.MouseEvent<HTMLButtonElement>) => {
     if (isBookInCart) {
@@ -112,7 +120,8 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
 
         <div className="flex items-baseline gap-1 sm:gap-2">
           <span className={cn(TYPOGRAPHY.h3, 'text-foreground')}>
-            {formatPrice(price)}
+            {symbol}
+            {convertedPrice}
           </span>
           {book.priceDiscount && (
             <span
@@ -121,7 +130,8 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
                 'line-through text-muted-foreground',
               )}
             >
-              {formatPrice(book.priceRegular)}
+              {symbol}
+              {convertedPriceWithoutDiscount}
             </span>
           )}
         </div>
