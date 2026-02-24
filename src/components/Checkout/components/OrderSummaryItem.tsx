@@ -1,13 +1,17 @@
 import type { CartItem } from '@/types/Book';
 import { getItemPrice } from '@/helpers/getItemPrice';
 import { TYPOGRAPHY } from '@/constants/typography';
+import { useCurrency } from '@/context/CurrencyContext';
 
 interface OrderSummaryItemProps {
   item: CartItem;
 }
 
 export const OrderSummaryItem = ({ item }: OrderSummaryItemProps) => {
-  const itemTotal = getItemPrice(item) * item.quantity;
+  const { currency, rate } = useCurrency();
+
+  const itemTotal = getItemPrice(item, currency, rate) * item.quantity;
+  const symbol = currency === 'USD' ? '$' : '₴';
 
   return (
     <li className="flex items-center gap-3">
@@ -32,7 +36,8 @@ export const OrderSummaryItem = ({ item }: OrderSummaryItemProps) => {
       <span
         className={`${TYPOGRAPHY.buttons} font-bold text-foreground whitespace-nowrap`}
       >
-        ${itemTotal.toFixed(2)}
+        {symbol}
+        {itemTotal.toFixed(2)}
       </span>
     </li>
   );

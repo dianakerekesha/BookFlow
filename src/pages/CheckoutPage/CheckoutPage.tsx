@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import type { CheckoutFormValues } from '@/components/Checkout';
-import type { PaymentMethod, Order } from '@/types/Order';
 import {
   CheckoutForm,
   LiqPayButton,
@@ -10,26 +8,26 @@ import {
   StripeWrapper,
 } from '@/components/Checkout';
 import { useCartAndFavorites } from '@/hooks/useCartAndFavourites';
-import { auth } from '@/firebase/firebase';
-import { createOrder, createStripeIntent } from '@/services/paymentAPI';
 import { TYPOGRAPHY } from '@/constants/typography';
-import { showError, showSuccess } from '@/lib/toast';
-import { t } from 'i18next';
-
-type Step = 'delivery' | 'payment';
+import { useCheckout } from './hooks/useCheckout';
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
   const { cart: cartItems } = useCartAndFavorites();
-
-  const [step, setStep] = useState<Step>('delivery');
-  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('stripe');
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [currentOrder, setCurrentOrder] = useState<Order | null>(null);
-  const [stripeClientSecret, setStripeClientSecret] = useState<string | null>(
-    null,
+  const [paymentMethod, setPaymentMethod] = useState<'stripe' | 'liqpay'>(
+    'stripe',
   );
+
+  const {
+    step,
+    setStep,
+    currentOrder,
+    stripeClientSecret,
+    isLoading,
+    handleDeliverySubmit,
+    handlePaymentSuccess,
+    handlePaymentError,
+  } = useCheckout(cartItems || [], paymentMethod);
 
   if (!cartItems || cartItems.length === 0) {
     return (
@@ -44,55 +42,6 @@ const CheckoutPage = () => {
       </div>
     );
   }
-
-  const handleDeliverySubmit = async (data: CheckoutFormValues) => {
-    if (!auth.currentUser) {
-      showError(t('toast.loginRequired'));
-      return;
-    }
-
-    setIsLoading(true);
-    setError(null);
-    try {
-      const order = await createOrder({
-        customer: data,
-        items: cartItems,
-        paymentMethod,
-        userId: auth.currentUser.uid,
-      });
-      setCurrentOrder(order);
-
-      if (paymentMethod === 'stripe') {
-        const { clientSecret } = await createStripeIntent(
-          order.id,
-          order.total,
-        );
-        setStripeClientSecret(clientSecret);
-      }
-
-      setStep('payment');
-    } catch (error) {
-      console.error(error);
-      const message =
-        error instanceof Error && error.message ?
-          error.message
-        : 'Something went wrong. Please try again.';
-      setError(message);
-      showError(t('toast.orderError'));
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handlePaymentSuccess = () => {
-    navigate(`/order-success/${currentOrder?.id}`);
-    showSuccess(t('toast.orderSuccess'));
-  };
-
-  const handlePaymentError = (message: string) => {
-    setError(message);
-    showError(t('toast.orderError'));
-  };
 
   const stepLabels = ['1. Delivery', '2. Payment', '3. Confirmation'];
   const currentStepIndex = step === 'delivery' ? 0 : 1;
@@ -148,12 +97,6 @@ const CheckoutPage = () => {
 
         <div className="grid grid-cols-[1fr_380px] gap-12 items-start max-lg:grid-cols-1">
           <div className="flex flex-col gap-8">
-            {error && (
-              <div className="bg-destructive/10 border border-destructive/20 rounded px-4 py-3 text-sm text-destructive font-medium">
-                {error}
-              </div>
-            )}
-
             {step === 'delivery' && (
               <>
                 <PaymentMethodSelector
@@ -167,9 +110,9 @@ const CheckoutPage = () => {
               </>
             )}
 
-            {step === 'payment' && (
+            {step === 'payment' && currentOrder && (
               <div className="bg-card border border-border rounded-lg p-6 flex flex-col gap-6">
-                <p className={`${TYPOGRAPHY.uppercase} text-muted-foreground`}>
+                <p className="uppercase text-muted-foreground">
                   Payment details
                 </p>
 
@@ -181,7 +124,7 @@ const CheckoutPage = () => {
                   />
                 )}
 
-                {paymentMethod === 'liqpay' && currentOrder && (
+                {paymentMethod === 'liqpay' && (
                   <LiqPayButton
                     orderId={currentOrder.id}
                     amount={currentOrder.total}

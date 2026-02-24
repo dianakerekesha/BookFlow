@@ -8,6 +8,7 @@ import type { CartSummaryProps } from '../types';
 export const CartSummary = ({
   totalPrice,
   totalQuantity,
+  symbol,
 }: CartSummaryProps) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -23,7 +24,10 @@ export const CartSummary = ({
         'flex flex-col lg:flex-shrink-0 gap-4 items-center text-center',
       )}
     >
-      <p className={cn(TYPOGRAPHY.h2, 'text-foreground')}>${totalPrice}</p>
+      <p className={cn(TYPOGRAPHY.h2, 'text-foreground')}>
+        {symbol}
+        {totalPrice}
+      </p>
       <p className={cn(TYPOGRAPHY.body, 'text-muted-foreground')}>
         {t('cart.totalFor')} {t('items.count', { count: totalQuantity })}
       </p>
