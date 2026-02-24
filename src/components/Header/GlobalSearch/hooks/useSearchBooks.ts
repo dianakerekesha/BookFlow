@@ -1,21 +1,38 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import type { GroupedResults } from './search.types';
+import type { GroupedResults } from '../search.types';
 import { searchAllBooks } from '@/components/Header/GlobalSearch/helpers/searchAllBooks.ts';
 import { booksQueryKeys } from '@/services/booksAPI';
+import type { Book } from '@/types/Book';
 
 export const useSearchBooks = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [debouncedTerm, setDebouncedTerm] = useState('');
 
-  const { data: results = [], isLoading: loading } = useQuery({
-    queryKey: booksQueryKeys.search(searchTerm),
-    queryFn: () => searchAllBooks(searchTerm),
-    enabled: !!searchTerm.trim(),
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedTerm(searchTerm);
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
+
+  const {
+    data: results = [],
+    isLoading,
+    isFetching,
+  } = useQuery<Book[]>({
+    queryKey: booksQueryKeys.search(debouncedTerm),
+    queryFn: () => searchAllBooks(debouncedTerm),
+    enabled: !!debouncedTerm.trim(),
+    placeholderData: (previousData) => previousData,
   });
 
   const groupedResults = useMemo<GroupedResults>(() => {
-    if (!searchTerm.trim()) return { authors: [], publishers: [], titles: [] };
-    const query = searchTerm.toLowerCase();
+    const query = debouncedTerm.toLowerCase().trim();
+
+    if (!query || results.length === 0) {
+      return { authors: [], publishers: [], titles: [] };
+    }
 
     const allMatchedAuthors = results.filter((book) =>
       book.author.toLowerCase().includes(query),
@@ -27,7 +44,7 @@ export const useSearchBooks = () => {
     const allMatchedPublishers = results.filter(
       (book) =>
         book.publication?.toLowerCase().includes(query) &&
-        !authors.some((a) => a.id === book.id),
+        !authors.some((author) => author.id === book.id),
     );
     const publishers = Array.from(
       new Map(
@@ -43,13 +60,16 @@ export const useSearchBooks = () => {
     );
 
     return { authors, publishers, titles };
-  }, [results, searchTerm]);
+  }, [results, debouncedTerm]);
+
+  const isTyping = searchTerm !== debouncedTerm && searchTerm.length > 0;
+  const isSearching = isLoading || isFetching;
 
   return {
     searchTerm,
     setSearchTerm,
     results,
     groupedResults,
-    loading,
+    loading: isSearching || isTyping,
   };
 };
