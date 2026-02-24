@@ -9,6 +9,7 @@ import { TYPOGRAPHY } from '@/constants/typography';
 import { LanguageSelector } from './LanguageSelector';
 import { QuantitySelector } from './QuantitySelector';
 import { useTranslation } from 'react-i18next';
+import { useCurrency } from '@/context/CurrencyContext';
 
 interface ItemCardDetailsProps {
   book: Book;
@@ -31,6 +32,7 @@ export const ItemCardDetails: React.FC<ItemCardDetailsProps> = ({
     handleDecreaseQuantity,
     handleToggleFavorite,
   } = useBookCartActions(book);
+  const { currency, rate } = useCurrency();
 
   const bookDetailsData: [string, string | number | null][] = [
     ['Author', book.author],
@@ -48,6 +50,13 @@ export const ItemCardDetails: React.FC<ItemCardDetailsProps> = ({
 
   const filteredDetails = bookDetailsData.filter(([, value]) => value !== null);
   const hasCategories = book.category && book.category.length > 0;
+  const price = book.priceDiscount ?? book.priceRegular;
+  const convertedPrice = currency === 'USD' ? price : Math.round(price * rate);
+  const convertedPriceWithoutDiscount =
+    currency === 'USD' && book.priceRegular ?
+      book.priceRegular
+    : Math.round(book.priceRegular * rate);
+  const symbol = currency === 'USD' ? '$' : '₴';
 
   return (
     <div className="w-full max-w-100 mx-auto lg:mx-0 flex flex-col gap-6 text-foreground">
@@ -84,13 +93,15 @@ export const ItemCardDetails: React.FC<ItemCardDetailsProps> = ({
         <div className="border-t border-border pt-4">
           <div className="flex items-center gap-2 mb-4">
             <p className={`${TYPOGRAPHY.h2} text-foreground`}>
-              ${book.priceDiscount || book.priceRegular}
+              {symbol}
+              {convertedPrice}
             </p>
             {book.priceDiscount && (
               <p
                 className={`${TYPOGRAPHY.h3} text-muted-foreground line-through`}
               >
-                ${book.priceRegular}
+                {symbol}
+                {convertedPriceWithoutDiscount}
               </p>
             )}
           </div>
