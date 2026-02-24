@@ -100,11 +100,6 @@ const OrderSuccessPage = () => {
   const { orderId } = useParams<{ orderId: string }>();
   const { currency, rate } = useCurrency();
 
-  const { data: order, isLoading } = useQuery({
-    queryKey: ['order', orderId],
-    queryFn: () => getOrder(orderId!),
-    enabled: !!orderId,
-  });
   const { data: order, isLoading } = useOrder(orderId);
 
   const total = order && getTotalPrice(order.total, currency, rate);
