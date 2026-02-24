@@ -1,4 +1,4 @@
-import { loadStripe } from '@stripe/stripe-js';
+import { loadStripe, type Stripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import {
   STRIPE_PUBLIC_KEY,
@@ -6,7 +6,14 @@ import {
 } from '../constants/stripeConfig';
 import { StripePaymentForm } from './StripePaymentForm';
 
-const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
+let stripePromise: Promise<Stripe | null> | null = null;
+
+function getStripe() {
+  if (!stripePromise) {
+    stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
+  }
+  return stripePromise;
+}
 
 interface StripeWrapperProps {
   clientSecret: string;
@@ -23,7 +30,7 @@ export const StripeWrapper = ({
 
   return (
     <Elements
-      stripe={stripePromise}
+      stripe={getStripe()}
       options={{ clientSecret, appearance: STRIPE_APPEARANCE }}
     >
       <StripePaymentForm
