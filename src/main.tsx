@@ -5,6 +5,7 @@ import { CartFavoritesProvider } from '@/context/CartFavoritesContext';
 import { AuthProvider } from './context/AuthContext.tsx';
 import { BooksProvider } from './context/BooksContext';
 import { LanguageProvider } from './context/Language.Context.tsx';
+import { CurrencyProvider } from './context/CurrencyContextType.tsx';
 import App from './App.tsx';
 import './i18n.ts';
 import './index.css';
@@ -37,7 +38,9 @@ createRoot(document.getElementById('root')!).render(
         <CartFavoritesProvider>
           <BooksProvider>
             <LanguageProvider>
-              <App />
+              <CurrencyProvider>
+                <App />
+              </CurrencyProvider>
             </LanguageProvider>
           </BooksProvider>
         </CartFavoritesProvider>

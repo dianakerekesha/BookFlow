@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Sun, Moon, Settings } from 'lucide-react';
+import { Sun, Moon, Settings, DollarSign, Euro } from 'lucide-react';
+import { HryvniaIcon } from '../ui/icons/hryvnia';
+import { useCurrency } from '@/context/CurrencyContextType';
 
 export const BookmarkToggle = ({
   isMobile = false,
@@ -9,24 +11,26 @@ export const BookmarkToggle = ({
 }) => {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const { currency, setCurrency } = useCurrency();
 
   const [isDark, setIsDark] = useState(() => {
-    return document.documentElement.classList.contains('dark');
+    return localStorage.getItem('theme') === 'dark';
   });
 
   const toggleTheme = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
-    const newTheme = !isDark;
-    setIsDark(newTheme);
+    setIsDark((prev) => !prev);
+  };
 
-    if (newTheme) {
+  useEffect(() => {
+    if (isDark) {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
-  };
+  }, [isDark]);
 
   const langMap = {
     en: 'EN',
@@ -36,6 +40,14 @@ export const BookmarkToggle = ({
   const languageToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
     i18n.changeLanguage(i18n.language === 'en' ? 'uk' : 'en');
     event.stopPropagation();
+  };
+
+  const cycleCurrency = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+
+    if (currency === 'UAH') setCurrency('USD');
+    else if (currency === 'USD') setCurrency('EUR');
+    else setCurrency('UAH');
   };
 
   return (
@@ -70,25 +82,13 @@ export const BookmarkToggle = ({
           </button>
 
           <button
+            onClick={cycleCurrency}
             className="hover:scale-110 transition cursor-pointer"
-            title="theme"
+            title="currency"
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M4 8c0-3 4-4 5-4s5 1 5 4c0 3-3 4-5 5-2 1-5 2-5 5 0 3 4 4 5 4s5-1 5-2" />
-
-              <path d="M3 12h12" />
-
-              <path d="M3 16h12" />
-            </svg>
+            {currency === 'UAH' && <HryvniaIcon />}
+            {currency === 'USD' && <DollarSign />}
+            {currency === 'EUR' && <Euro />}
           </button>
         </div>
         <button

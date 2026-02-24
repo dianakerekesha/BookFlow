@@ -12,6 +12,7 @@ import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
 import { showInfo, showSuccess } from '@/lib/toast';
 import { useBooks } from '@/context/BooksContext';
+import { useCurrency } from '../../context/CurrencyContextType';
 
 type Props = {
   book: Book;
@@ -28,6 +29,8 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
   const isBookInFavorites = isFavorite(book.id);
   const price = book.priceDiscount ?? book.priceRegular;
   const { cartIconRef, favIconRef } = useBooks();
+
+  const { formatPrice } = useCurrency();
 
   const handleAddToCart = (event?: React.MouseEvent<HTMLButtonElement>) => {
     if (isBookInCart) {
@@ -108,7 +111,9 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
         </p>
 
         <div className="flex items-baseline gap-1 sm:gap-2">
-          <span className={cn(TYPOGRAPHY.h3, 'text-foreground')}>${price}</span>
+          <span className={cn(TYPOGRAPHY.h3, 'text-foreground')}>
+            {formatPrice(price)}
+          </span>
           {book.priceDiscount && (
             <span
               className={cn(
@@ -116,7 +121,7 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
                 'line-through text-muted-foreground',
               )}
             >
-              ${book.priceRegular}
+              {formatPrice(book.priceRegular)}
             </span>
           )}
         </div>
