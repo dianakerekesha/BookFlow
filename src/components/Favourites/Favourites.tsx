@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 export const Favourites = ({
   books = [],
-  title = 'Favourites',
+  title = 'favourites.title',
 }: FavouritesProps) => {
   const navigate = useNavigate();
   const booksCount: number = books.length;
@@ -38,7 +38,7 @@ export const Favourites = ({
         {t('ui.back')}
       </button>
 
-      <h1 className={cn(TYPOGRAPHY.h1, 'mb-2 text-foreground')}>{title}</h1>
+      <h1 className={cn(TYPOGRAPHY.h1, 'mb-2 text-foreground')}>{t(title)}</h1>
       <p className="mb-8 text-gray-400">
         {t('items.count', { count: booksCount })}
       </p>

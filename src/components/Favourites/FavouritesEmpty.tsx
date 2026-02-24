@@ -6,21 +6,16 @@ import { Trans } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { CustomButton } from '../ui/CustomButton';
 import { Loader } from '@/components/ui/Loader';
-
-const DEFAULT_CONTENT = {
-  TITLE: 'Your heart is still looking for a match',
-  DESCRIPTION:
-    "It looks like you haven't found any books to fall in love with yet.",
-  BUTTON: 'Explore Catalog',
-} as const;
+import { useTranslation } from 'react-i18next';
 
 export const FavouritesEmpty = ({
-  title = DEFAULT_CONTENT.TITLE,
-  description = DEFAULT_CONTENT.DESCRIPTION,
-  buttonText = DEFAULT_CONTENT.BUTTON,
+  title = 'favourites.titleEmpty',
+  description = 'favourites.description',
+  buttonText = 'favourites.buttonText',
   showSuggestions = true,
   isLoading = false,
 }: FavouritesEmptyProps) => {
+  const { t } = useTranslation();
   return (
     <Loader isLoading={isLoading}>
       <div className="container mx-auto px-4 py-16">
@@ -36,14 +31,14 @@ export const FavouritesEmpty = ({
             />
           </div>
 
-          <h2 className={cn(TYPOGRAPHY.h2, 'mb-6')}>{title}</h2>
+          <h2 className={cn(TYPOGRAPHY.h2, 'mb-6')}>{t(title)}</h2>
 
           <div className="flex flex-col items-center gap-6 mb-10">
-            <p className="text-gray-500 text-lg">{description}</p>
+            <p className="text-gray-500 text-lg">{t(description)}</p>
 
             <div className="inline-flex items-center gap-3 bg-gray-50 px-6 py-4 rounded-2xl border border-dashed border-gray-300">
               <p className="text-sm font-medium text-gray-700">
-                <Trans i18nKey="favorites.emptyHint">
+                <Trans i18nKey="favourites.emptyHint">
                   Just click the{' '}
                   <Heart
                     className="inline size-4 text-red-500 mx-1"
@@ -56,7 +51,7 @@ export const FavouritesEmpty = ({
           </div>
 
           <Link to="/home">
-            <CustomButton size="catalog">{buttonText}</CustomButton>
+            <CustomButton size="catalog">{t(buttonText)}</CustomButton>
           </Link>
         </div>
 
@@ -66,7 +61,7 @@ export const FavouritesEmpty = ({
           to="/home"
           className="group mt-8 flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors"
         >
-          View all{' '}
+          {t('favourites.viewAll')}{' '}
           <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
         </Link>
       </div>

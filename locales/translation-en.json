@@ -78,8 +78,13 @@
     "emptyHint": "Click <1>Add to cart</1> on any book to get started"
   },
 
-  "favorites": {
-    "emptyHint": "Just click the <1></1> icon on any product to save it here"
+  "favourites": {
+    "emptyHint": "Just click the <1></1> icon on any product to save it here",
+    "title": "Favourites",
+    "titleEmpty": "Your heart is still looking for a match",
+    "description": "It looks like you haven't found any books to fall in love with yet.",
+    "buttonText": "Explore Catalog",
+    "viewAll": "View All"
   },
 
   "bookDetails": {
@@ -107,6 +112,22 @@
     "fantasy": "Fantasy",
     "drama": "Drama",
     "detective": "Detective"
+  },
+
+  "rights": {
+    "title": "Rights & Intellectual Property",
+    "generalTitle": "General Provisions",
+    "generalParagraph": "All rights to this website and its content are owned by <0>Book Catalog</0>. This platform is designed for literary enthusiasts, and the use of any of its elements is governed by applicable copyright laws.",
+    "useDescriptionsTitle": "Use of Book Covers and Descriptions",
+    "useDescriptionsParagraph": "Book cover images, publisher names, and author annotations presented in our catalog are the property of their respective copyright holders.",
+    "useDescriptionsLiOne": "We use these materials solely for the purpose of book identification.",
+    "useDescriptionsLiTwo": "<0>Book Catalog</0> does not claim authorship of images provided by publishers or partners.",
+    "useDescriptionsLiThree": "If you are a copyright holder and wish to modify or remove information about your publication, please contact our support team.",
+    "generatedContexTitle": "User-Generated Content",
+    "generatedContexParagraph": "By leaving reviews or ratings on the site, you grant <0>Book Catalog</0> the right to publish and distribute them within our platform. However, the authorship of the review remains with you.",
+    "copyingTitle": "Prohibition of Copying",
+    "copyingParagraph": "Any automated data collection (scraping) or full copying of our catalogs database without the explicit consent of <0>Book Catalog</0> is strictly prohibited and subject to legal action.",
+    "update": "Last updated: February 17, 2026. We reserve the right to modify these terms without prior notice."
   },
 
   "team": {

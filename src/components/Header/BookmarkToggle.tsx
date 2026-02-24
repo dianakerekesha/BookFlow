@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Sun, Moon, Settings } from 'lucide-react';
-import { useCurrency } from '@/context/CurrencyContext';
+import { useCurrency } from '@/context/CurrencyContextType';
 
 export const BookmarkToggle = ({
   isMobile = false,
@@ -12,24 +12,25 @@ export const BookmarkToggle = ({
   const [isOpen, setIsOpen] = useState(false);
 
   const [isDark, setIsDark] = useState(() => {
-    return document.documentElement.classList.contains('dark');
+    return localStorage.getItem('theme') === 'dark';
   });
 
   const { currency, toggleCurrency } = useCurrency();
 
   const toggleTheme = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
-    const newTheme = !isDark;
-    setIsDark(newTheme);
+    setIsDark((prev) => !prev);
+  };
 
-    if (newTheme) {
+  useEffect(() => {
+    if (isDark) {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
-  };
+  }, [isDark]);
 
   const langMap = {
     en: 'EN',
@@ -73,12 +74,12 @@ export const BookmarkToggle = ({
           </button>
 
           <button
+            className="hover:scale-110 transition cursor-pointer"
+            title="currency"
             onClick={(event) => {
               event.stopPropagation();
               toggleCurrency();
             }}
-            className="hover:scale-110 transition cursor-pointer"
-            title="currency"
           >
             {currency === 'USD' ?
               <svg
@@ -110,7 +111,6 @@ export const BookmarkToggle = ({
                 strokeLinejoin="round"
               >
                 <path d="M7 7c0-2.5 2.5-4 5-4s5 1.5 5 4-2.5 4-5 5-5 2.5-5 5 2.5 4 5 4 5-1.5 5-3" />
-
                 <line
                   x1="5"
                   y1="11"
