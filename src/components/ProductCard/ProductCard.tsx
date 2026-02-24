@@ -32,10 +32,10 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
   const handleAddToCart = (event?: React.MouseEvent<HTMLButtonElement>) => {
     if (isBookInCart) {
       removeFromCart(book.id);
-      showInfo('Book removed from cart!');
+      showInfo(t('toast.removedFromCart', { name: book.name }));
     } else {
       addToCart(book);
-      showSuccess('Book added to cart!');
+      showSuccess(t('toast.addedToCart', { name: book.name }));
 
       animateToTarget(event?.currentTarget, cartIconRef, 'book');
     }
@@ -47,9 +47,9 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
     toggleFavorite(book);
 
     if (isBookInFavorites) {
-      showInfo('Book removed from favorites!');
+      showInfo(t('toast.removedFromFavorites', { name: book.name }));
     } else {
-      showSuccess('Book added to favorites!');
+      showSuccess(t('toast.addedToFavorites', { name: book.name }));
 
       animateToTarget(event?.currentTarget, favIconRef, 'heart');
     }

@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 import { useCartFavorites } from '@/context/CartFavoritesContext.tsx';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
+import { showInfo, showSuccess } from '@/lib/toast';
+import { t } from 'i18next';
 
 type Props = {
   book: CartItemType;
@@ -28,7 +30,10 @@ export const CartItem: React.FC<Props> = ({ book }) => {
       <div className="flex items-center gap-4 sm:gap-6">
         <button
           type="button"
-          onClick={() => removeFromCart(book.id)}
+          onClick={() => {
+            removeFromCart(book.id);
+            showInfo(t('toast.removedFromCart', { name: book.name }));
+          }}
           className="flex shrink-0 items-center justify-center text-ring hover:text-muted-foreground transition-colors"
           aria-label="Remove item"
         >
@@ -62,7 +67,10 @@ export const CartItem: React.FC<Props> = ({ book }) => {
             size="icon-sm"
             className="rounded-full"
             disabled={book.quantity === 1}
-            onClick={() => decreaseQuantity(book.id)}
+            onClick={() => {
+              decreaseQuantity(book.id);
+              showInfo(t('toast.removedFromCart', { name: book.name }));
+            }}
             aria-label="Decrease quantity"
           >
             <Minus className="size-4" />
@@ -81,7 +89,10 @@ export const CartItem: React.FC<Props> = ({ book }) => {
             variant="outline"
             size="icon-sm"
             className="rounded-full"
-            onClick={() => increaseQuantity(book.id)}
+            onClick={() => {
+              increaseQuantity(book.id);
+              showSuccess(t('toast.addedToCart', { name: book.name }));
+            }}
             aria-label="Increase quantity"
           >
             <Plus className="size-4" />

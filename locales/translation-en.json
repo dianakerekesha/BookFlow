@@ -114,5 +114,16 @@
     "itemNotFound": "Oops something went wrong...<br />Try another item",
     "whoops": "Whoops, not quite ready yet",
     "hustling": "Thanks for your patience — we’re hustling hard to make checkout happen. Almost there!"
+  },
+
+  "toast": {
+    "addedToCart": "'{{name}}' added to cart!",
+    "removedFromCart": "'{{name}}' removed from cart!",
+    "addedToFavorites": "'{{name}}' added to favorites!",
+    "removedFromFavorites": "'{{name}}' removed from favorites!",
+    "orderSuccess": "Order placed successfully!",
+    "orderError": "Something went wrong. Please try again.",
+    "validationError": "Please fill in all required fields correctly.",
+    "loginRequired": "Please log in to continue."
   }
 }

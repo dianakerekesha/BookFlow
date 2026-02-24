@@ -219,3 +219,72 @@ body #root {
     }
   }
 }
+
+.Toastify__toast-container {
+  z-index: 999999 !important;
+  position: fixed !important;
+}
+.Toastify__toast {
+  background: #3b2010;
+  color: #f5e8d4;
+  border: 1px solid #dfc08a;
+  border-radius: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dark .Toastify__toast {
+  background: #fee9ca;
+  color: #2c1a0e;
+  border: 1px solid #dfc08a;
+}
+
+/* Прогрес бар */
+.Toastify__progress-bar--success {
+  background: #4caf50;
+}
+.Toastify__progress-bar--error {
+  background: #f44336;
+}
+.Toastify__progress-bar--info {
+  background: #2196f3;
+}
+
+/* Іконки */
+.Toastify__toast--success .Toastify__toast-icon svg {
+  fill: #4caf50;
+}
+.Toastify__toast--error .Toastify__toast-icon svg {
+  fill: #f44336;
+}
+.Toastify__toast--info .Toastify__toast-icon svg {
+  fill: #2196f3;
+}
+
+/* Текст */
+.Toastify__toast--success .Toastify__toast-body {
+  color: #4caf50;
+}
+.Toastify__toast--error .Toastify__toast-body {
+  color: #f44336;
+}
+.Toastify__toast--info .Toastify__toast-body {
+  color: #2196f3;
+}
+
+/* Хрестик */
+.Toastify__close-button {
+  color: #f5e8d4;
+  opacity: 0.7;
+  align-self: flex-start;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1;
+}
+
+.dark .Toastify__close-button {
+  color: #2c1a0e;
+}
