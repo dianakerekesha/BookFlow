@@ -6,14 +6,33 @@ import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils.ts';
 import { useQuery } from '@tanstack/react-query';
 import { Loader } from '@/components/ui/Loader';
+import { Button } from '@/components/ui/button';
 
 const StatusBadge = ({ status }: { status: Order['status'] }) => {
   const config = {
-    paid: { label: 'Paid', className: 'bg-green-100 text-green-700' },
-    pending: { label: 'Pending', className: 'bg-yellow-100 text-yellow-700' },
-    processing: { label: 'Processing', className: 'bg-blue-100 text-blue-700' },
-    failed: { label: 'Failed', className: 'bg-red-100 text-red-700' },
-    cancelled: { label: 'Cancelled', className: 'bg-gray-100 text-gray-500' },
+    paid: {
+      label: 'Paid',
+      className:
+        'bg-green-600/10 text-green-700 dark:bg-green-500/20 dark:text-green-400',
+    },
+    pending: {
+      label: 'Pending',
+      className:
+        'bg-yellow-600/10 text-yellow-700 dark:bg-yellow-500/20 dark:text-yellow-400',
+    },
+    processing: {
+      label: 'Processing',
+      className:
+        'bg-blue-600/10 text-blue-700 dark:bg-blue-500/20 dark:text-blue-400',
+    },
+    failed: {
+      label: 'Failed',
+      className: 'bg-destructive/10 text-destructive',
+    },
+    cancelled: {
+      label: 'Cancelled',
+      className: 'bg-muted text-muted-foreground',
+    },
   };
   const { label, className } = config[status] ?? config.pending;
   return (
@@ -49,8 +68,10 @@ const OrdersPage = () => {
           </button>
 
           <div className="mb-10">
-            <h1 className={`${TYPOGRAPHY.h1} text-gray-900 mb-1`}>My Orders</h1>
-            <p className={`${TYPOGRAPHY.body} text-gray-400`}>
+            <h1 className={`${TYPOGRAPHY.h1} text-foreground mb-1`}>
+              My Orders
+            </h1>
+            <p className={`${TYPOGRAPHY.body} text-muted-foreground`}>
               {orders.length === 0 ?
                 'No orders yet'
               : `${orders.length} ${orders.length === 1 ? 'order' : 'orders'}`}
@@ -59,7 +80,7 @@ const OrdersPage = () => {
 
           {orders.length === 0 && (
             <div className="flex flex-col items-center gap-6 py-20 text-center">
-              <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center">
                 <svg
                   width="24"
                   height="24"
@@ -68,7 +89,7 @@ const OrdersPage = () => {
                 >
                   <path
                     d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"
-                    stroke="#9ca3af"
+                    stroke="currentColor"
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -78,13 +99,13 @@ const OrdersPage = () => {
                     y1="6"
                     x2="21"
                     y2="6"
-                    stroke="#9ca3af"
+                    stroke="currentColor"
                     strokeWidth="1.5"
                     strokeLinecap="round"
                   />
                   <path
                     d="M16 10a4 4 0 01-8 0"
-                    stroke="#9ca3af"
+                    stroke="currentColor"
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -92,19 +113,19 @@ const OrdersPage = () => {
                 </svg>
               </div>
               <div>
-                <p className={`${TYPOGRAPHY.h5} text-gray-900 mb-1`}>
+                <p className={`${TYPOGRAPHY.h5} text-foreground mb-1`}>
                   No orders yet
                 </p>
-                <p className={`${TYPOGRAPHY.body} text-gray-400`}>
+                <p className={`${TYPOGRAPHY.body} text-muted-foreground`}>
                   Your orders will appear here after checkout
                 </p>
               </div>
-              <Link
-                to="/"
-                className={`h-12 px-8 bg-gray-900 hover:bg-gray-700 text-white ${TYPOGRAPHY.uppercase} rounded flex items-center justify-center transition-colors`}
+              <Button
+                asChild
+                className={`h-12 px-8 ${TYPOGRAPHY.uppercase}`}
               >
-                Start shopping
-              </Link>
+                <Link to="/">Start shopping</Link>
+              </Button>
             </div>
           )}
 
@@ -114,22 +135,26 @@ const OrdersPage = () => {
                 <li key={order.id}>
                   <Link
                     to={`/order-success/${order.id}`}
-                    className="block border border-gray-200 rounded-lg overflow-hidden hover:border-gray-400 transition-colors group"
+                    className="block border border-border rounded-lg overflow-hidden hover:border-ring transition-colors group"
                   >
-                    <div className="flex items-center justify-between px-5 py-4 bg-gray-50 border-b border-gray-200">
+                    <div className="flex items-center justify-between px-5 py-4 bg-card border-b border-border">
                       <div className="flex flex-col gap-0.5">
-                        <p className={`${TYPOGRAPHY.uppercase} text-gray-400`}>
+                        <p
+                          className={`${TYPOGRAPHY.uppercase} text-muted-foreground`}
+                        >
                           Order ID
                         </p>
                         <p
-                          className={`${TYPOGRAPHY.buttons} text-gray-900 font-mono`}
+                          className={`${TYPOGRAPHY.buttons} text-foreground font-mono`}
                         >
                           {order.id}
                         </p>
                       </div>
                       <div className="flex flex-col items-end gap-1.5">
                         <StatusBadge status={order.status} />
-                        <p className={`${TYPOGRAPHY.small} text-gray-400`}>
+                        <p
+                          className={`${TYPOGRAPHY.small} text-muted-foreground`}
+                        >
                           {new Date(order.createdAt).toLocaleDateString(
                             'en-GB',
                             {
@@ -149,17 +174,17 @@ const OrdersPage = () => {
                             key={item.id}
                             src={item.images[0]}
                             alt={item.name}
-                            className="w-10 h-14 object-cover rounded-sm border-2 border-white"
+                            className="w-10 h-14 object-cover rounded-sm border-2 border-background"
                             style={{ zIndex: 10 - i }}
                           />
                         ))}
                         {order.items.length > 3 && (
                           <div
-                            className="w-10 h-14 rounded-sm border-2 border-white bg-gray-100 flex items-center justify-center"
+                            className="w-10 h-14 rounded-sm border-2 border-background bg-muted flex items-center justify-center"
                             style={{ zIndex: 7 }}
                           >
                             <span
-                              className={`${TYPOGRAPHY.small} text-gray-500`}
+                              className={`${TYPOGRAPHY.small} text-muted-foreground`}
                             >
                               +{order.items.length - 3}
                             </span>
@@ -169,12 +194,12 @@ const OrdersPage = () => {
 
                       <div className="flex-1 min-w-0">
                         <p
-                          className={`${TYPOGRAPHY.body} font-medium text-gray-900 truncate`}
+                          className={`${TYPOGRAPHY.body} font-medium text-foreground truncate`}
                         >
                           {order.items.map((item) => item.name).join(', ')}
                         </p>
                         <p
-                          className={`${TYPOGRAPHY.small} text-gray-400 mt-0.5 capitalize`}
+                          className={`${TYPOGRAPHY.small} text-muted-foreground mt-0.5 capitalize`}
                         >
                           {order.paymentMethod} ·{' '}
                           {order.items.reduce(
@@ -187,7 +212,7 @@ const OrdersPage = () => {
 
                       <div className="flex items-center gap-3 shrink-0">
                         <span
-                          className={`${TYPOGRAPHY.h5} font-extrabold text-gray-900`}
+                          className={`${TYPOGRAPHY.h5} font-extrabold text-foreground`}
                         >
                           ${order.total.toFixed(2)}
                         </span>
@@ -196,7 +221,7 @@ const OrdersPage = () => {
                           height="11"
                           viewBox="0 0 7 11"
                           fill="none"
-                          className="rotate-180 text-gray-400 group-hover:text-gray-900 transition-colors"
+                          className="rotate-180 text-muted-foreground group-hover:text-foreground transition-colors"
                         >
                           <path
                             d="M6 1L1 5.5L6 10"

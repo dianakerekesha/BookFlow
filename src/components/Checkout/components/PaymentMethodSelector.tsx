@@ -13,7 +13,9 @@ export const PaymentMethodSelector = ({
 }: PaymentMethodSelectorProps) => {
   return (
     <div className="flex flex-col gap-3">
-      <p className={`${TYPOGRAPHY.uppercase} text-gray-400`}>Payment method</p>
+      <p className={`${TYPOGRAPHY.uppercase} text-muted-foreground`}>
+        Payment method
+      </p>
 
       <div className="grid grid-cols-2 gap-3 max-sm:grid-cols-1">
         {PAYMENT_METHODS.map((method) => {
@@ -26,28 +28,30 @@ export const PaymentMethodSelector = ({
               className={[
                 'flex items-center gap-4 p-4 rounded border-2 text-left transition-all duration-150 cursor-pointer',
                 isSelected ?
-                  'border-gray-900 bg-gray-50'
-                : 'border-gray-200 bg-white hover:border-gray-400',
+                  'border-primary bg-muted'
+                : 'border-border bg-background hover:border-ring',
               ].join(' ')}
             >
               <span
                 className={[
                   'w-4 h-4 rounded-full border-2 shrink-0 flex items-center justify-center transition-colors',
-                  isSelected ? 'border-gray-900' : 'border-gray-300',
+                  isSelected ? 'border-primary' : 'border-border',
                 ].join(' ')}
               >
                 {isSelected && (
-                  <span className="w-2 h-2 rounded-full bg-gray-900" />
+                  <span className="w-2 h-2 rounded-full bg-primary" />
                 )}
               </span>
 
               {method.icon}
 
               <div className="flex flex-col min-w-0">
-                <span className={`${TYPOGRAPHY.buttons} text-gray-900`}>
+                <span className={`${TYPOGRAPHY.buttons} text-foreground`}>
                   {method.label}
                 </span>
-                <span className={`${TYPOGRAPHY.small} text-gray-400 truncate`}>
+                <span
+                  className={`${TYPOGRAPHY.small} text-muted-foreground truncate`}
+                >
                   {method.description}
                 </span>
               </div>

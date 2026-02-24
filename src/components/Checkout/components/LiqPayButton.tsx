@@ -30,7 +30,7 @@ export const LiqPayButton = ({
       )}
 
       <div className="flex flex-col gap-4">
-        <div className="flex items-center gap-3 p-4 bg-blue-50 border border-blue-100 rounded">
+        <div className="flex items-center gap-3 p-4 bg-[#00AAFF]/10 border border-[#00AAFF]/20 rounded-md">
           <svg
             width="48"
             height="20"
@@ -54,7 +54,7 @@ export const LiqPayButton = ({
               LiqPay
             </text>
           </svg>
-          <p className={`${TYPOGRAPHY.small} text-blue-700`}>
+          <p className={`${TYPOGRAPHY.small} text-foreground`}>
             Visa, Mastercard, Приват24, monobank — захищена оплата через LiqPay
           </p>
         </div>
@@ -63,14 +63,14 @@ export const LiqPayButton = ({
           type="button"
           onClick={handleInitiatePayment}
           disabled={isLoading}
-          className={`h-14 bg-[#00AAFF] hover:bg-[#0095e0] disabled:opacity-60 disabled:cursor-not-allowed text-white ${TYPOGRAPHY.uppercase} rounded transition-colors flex items-center justify-center`}
+          className={`h-14 bg-[#00AAFF] hover:bg-[#0095e0] disabled:opacity-60 disabled:cursor-not-allowed text-white ${TYPOGRAPHY.uppercase} rounded-md transition-colors flex items-center justify-center`}
         >
           {isLoading ?
             <Loader2 className="w-5 h-5 animate-spin" />
           : 'Pay with LiqPay'}
         </button>
 
-        <p className={`${TYPOGRAPHY.small} text-gray-400 text-center`}>
+        <p className={`${TYPOGRAPHY.small} text-muted-foreground text-center`}>
           You will be redirected to LiqPay&#39;s secure payment page
         </p>
       </div>
