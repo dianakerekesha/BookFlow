@@ -11,6 +11,8 @@ import { useCartAndFavorites } from '@/hooks/useCartAndFavourites';
 import { auth } from '@/firebase/firebase';
 import { createOrder, createStripeIntent } from '@/services/paymentAPI';
 import { TYPOGRAPHY } from '@/constants/typography';
+import { showError, showSuccess } from '@/lib/toast';
+import { t } from 'i18next';
 
 type Step = 'delivery' | 'payment';
 
@@ -43,7 +45,7 @@ const CheckoutPage = () => {
 
   const handleDeliverySubmit = async (data: CheckoutFormValues) => {
     if (!auth.currentUser) {
-      setError('Please log in to continue');
+      showError(t('toast.loginRequired'));
       return;
     }
 
@@ -74,6 +76,7 @@ const CheckoutPage = () => {
           error.message
         : 'Something went wrong. Please try again.';
       setError(message);
+      showError(t('toast.orderError'));
     } finally {
       setIsLoading(false);
     }
@@ -81,10 +84,12 @@ const CheckoutPage = () => {
 
   const handlePaymentSuccess = () => {
     navigate(`/order-success/${currentOrder?.id}`);
+    showSuccess(t('toast.orderSuccess'));
   };
 
   const handlePaymentError = (message: string) => {
     setError(message);
+    showError(t('toast.orderError'));
   };
 
   const stepLabels = ['1. Delivery', '2. Payment', '3. Confirmation'];

@@ -20,6 +20,7 @@ import { ProfilePage } from './pages/ProfilePage/ProfilePage.tsx';
 import { RightsPage } from '@/pages/RightsPage';
 import { SignUpPage } from './pages/SignUpPage';
 import { RegisterPromo } from './components/RegisterPromo/RegisterPromo';
+import ToasterWrapper from './components/ui/ToasterWrapper/ToasterWrapper.tsx';
 
 function App() {
   const location = useLocation();
@@ -124,6 +125,7 @@ function App() {
           />
         </Routes>
       )}
+      <ToasterWrapper />
     </>
   );
 }

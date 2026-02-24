@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/select.tsx';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { showError } from '@/lib/toast';
+import { t } from 'i18next';
 
 interface CheckoutFormProps {
   onSubmit: (data: CheckoutFormValues) => void;
@@ -34,9 +35,6 @@ const COUNTRIES = [
 ];
 
 const FieldError = ({ message }: { message?: string }) => {
-  if (message) {
-    showError(message);
-  }
   return message ?
       <p className={`${TYPOGRAPHY.small} text-destructive mt-1`}>{message}</p>
     : null;
@@ -52,7 +50,9 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit, () =>
+        showError(t('toast.validationError')),
+      )}
       noValidate
       className="flex flex-col gap-10"
     >
