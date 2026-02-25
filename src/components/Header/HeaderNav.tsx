@@ -30,7 +30,7 @@ export const HeaderNav = ({ isMobile, onLinkClick }: Props) => {
               onClick={onLinkClick}
               className={cn(
                 'relative text-lg font-bold uppercase tracking-wider transition-colors duration-200',
-                isActive ? 'text-[#ffffff]' : 'text-accent hover:text-popover',
+                isActive ? 'text-[#ffffff]' : 'text-input hover:text-popover',
               )}
             >
               {t(item.label)}
@@ -56,7 +56,7 @@ export const HeaderNav = ({ isMobile, onLinkClick }: Props) => {
             className={cn(
               'relative h-full flex items-center px-1 transition-colors duration-200',
               'font-sans font-bold text-[12px] tracking-wider uppercase group',
-              isActive ? '!text-[#ffffff]' : 'text-accent hover:text-popover',
+              isActive ? '!text-[#ffffff]' : 'text-input hover:text-popover',
             )}
           >
             {t(item.label)}

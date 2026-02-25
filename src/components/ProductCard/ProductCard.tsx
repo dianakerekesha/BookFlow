@@ -74,7 +74,7 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
     rounded-xl border border-border bg-card hover:shadow-lg transition-shadow"
     >
       {book.type === 'audiobook' && (
-        <div className="absolute top-8 right-6 w-10 h-10 flex items-center justify-center bg-primary rounded-full z-10">
+        <div className="absolute top-8 right-6 w-10 h-10 flex items-center justify-center bg-muted-foreground rounded-full z-10">
           <Icon
             name="headphones"
             className="text-white"
