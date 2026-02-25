@@ -1,6 +1,7 @@
 import type { PaymentMethod } from '@/types/Order';
 import { PAYMENT_METHODS } from '../constants/paymentMethods';
 import { TYPOGRAPHY } from '@/constants/typography';
+import { useTranslation } from 'react-i18next';
 
 interface PaymentMethodSelectorProps {
   value: PaymentMethod;
@@ -11,10 +12,11 @@ export const PaymentMethodSelector = ({
   value,
   onChange,
 }: PaymentMethodSelectorProps) => {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col gap-3">
       <p className={`${TYPOGRAPHY.uppercase} text-muted-foreground`}>
-        Payment method
+        {t('login.paymentMethod')}
       </p>
 
       <div className="grid grid-cols-2 gap-3 max-sm:grid-cols-1">

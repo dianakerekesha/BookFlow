@@ -21,7 +21,13 @@
     "languageSelector": "UA",
     "ukrainian": "ukrainian",
     "english": "english",
-    "noResults": "Unfortunately, no matches..."
+    "noResults": "Unfortunately, no matches...",
+    "user": "User",
+    "preservation": "Preservation...",
+    "saveChanges": "Save сhanges",
+    "cancel": "Cancel",
+    "deleting": "Deleting...",
+    "delete": "Delete"
   },
 
   "search": {
@@ -96,7 +102,11 @@
     "emptyTitle": "Your cart is still sleeping",
     "emptyDescription": "Add some books to wake it up",
     "emptyButton": "Back to Shop",
-    "viewAll": "View all"
+    "viewAll": "View all",
+    "orderHistory": "Order history",
+    "noOrder": "No orders yet",
+    "collapse": "Collapse",
+    "showAll": "Show all"
   },
 
   "favourites": {
@@ -160,6 +170,7 @@
     "noAccount?": "Don&apos;t have an account?",
     "createAccount": "Create an account",
     "enterInfo": "Enter your information below to create your account",
+    "enterFullName": "Enter full name",
     "fullName": "Full name",
     "firstName": "First name",
     "lastName": "Last name",
@@ -177,7 +188,25 @@
     "StreetAddressPlaceholder": "123 Main Street, Apt 4B",
     "proceedPayment": "Proceed to Payment",
     "passwordError": "Must be at least 8 characters long.",
-    "haveAccount?": "Already have an account?"
+    "changePassword": "Change password",
+    "haveAccount?": "Already have an account?",
+    "orderSummary": "Order summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "calculatedNext": "Calculated at next step",
+    "total": "Total",
+    "paymentMethod": "Payment method",
+    "payNow": "Pay now",
+    "personalData": "Personal data",
+    "logOutAccount": "Log out of account",
+    "deleteAccount": "Delete account",
+    "deleteAccountNotification": "This action is irreversible. All your data will be deleted. Are you sure?",
+    "enterPasswordForConfirmation": "Enter password to confirm",
+    "securityAccount": "Security and account",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "passwordLength": "Must be at least 6 characters long",
+    "passwordConfirm": "Confirm new password"
   },
 
   "errors": {

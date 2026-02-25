@@ -9,8 +9,6 @@
     "name": "Назвою",
     "price": "Ціною",
     "order": "Порядок",
-    "searchPlaceholder": "Шукайте книгу або автора",
-    "itemsOnPage": "Товари на сторінці",
     "all": "Усі",
     "inStock": "В наявності",
     "selectLanguage": "Обрати мову",
@@ -21,7 +19,13 @@
     "languageSelector": "УКР",
     "ukrainian": "українська",
     "english": "англійська",
-    "noResults": "На жаль, збігів не знайдено..."
+    "noResults": "На жаль, збігів не знайдено...",
+    "user": "Користувач",
+    "preservation": "Збереження..",
+    "saveChanges": "Зберегти зміни",
+    "cancel": "Скасувати",
+    "deleting": "Видалення...",
+    "delete": "Видалити"
   },
 
   "search": {
@@ -101,7 +105,11 @@
     "emptyTitle": "Ваш кошик все ще спить",
     "emptyDescription": "Додайте кілька книг, щоб розбудити його",
     "emptyButton": "Назад до магазину",
-    "viewAll": "Переглянути все"
+    "viewAll": "Переглянути все",
+    "orderHistory": "Історія замовлень",
+    "noOrder": "Замовлень ще немає",
+    "collapse": "Згорнути",
+    "showAll": "Показати всі"
   },
 
   "favourites": {
@@ -165,6 +173,7 @@
     "noAccount?": "Не маєте облікового запису?",
     "createAccount": "Створити обліковий запис",
     "enterInfo": "Введіть свою інформацію нижче, щоб створити обліковий запис",
+    "enterFullName": "Введіть ім'я",
     "fullName": "Повне ім'я",
     "firstName": "Ім'я",
     "lastName": "Прізвище",
@@ -182,8 +191,27 @@
     "StreetAddressPlaceholder": "Пухнастих котиків 26, буд. 45",
     "proceedPayment": "Перейти до оплати",
     "passwordError": "Має бути щонайменше 8 символів.",
-    "haveAccount?": "Вже маєте обліковий запис?"
+    "changePassword": "Змінити пароль",
+    "haveAccount?": "Вже маєте обліковий запис?",
+    "orderSummary": "Оформити замовлення",
+    "subtotal": "Проміжний підсумок",
+    "shipping": "Доставка",
+    "calculatedNext": "Розраховано на наступному кроці",
+    "total": "Всього",
+    "paymentMethod": "Спосіб оплати",
+    "payNow": "Оплатити зараз",
+    "personalData": "Особисті дані",
+    "logOutAccount": "Вийти з акаунту",
+    "deleteAccount": "Видалити акаунт",
+    "deleteAccountNotification": "Ця дія незворотня. Всі ваші дані будуть видалені. Ви впевнені?",
+    "enterPasswordForConfirmation": "Введіть пароль для підтвердження",
+    "securityAccount": "Безпека та акаунт",
+    "currentPassword": "Поточний пароль",
+    "newPassword": "Новий пароль",
+    "passwordLength": "Має бути принаймні 6 символів",
+    "passwordConfirm": "Підтвердити новий пароль"
   },
+
   "errors": {
     "pageNotFound": "Ой, щось пішло не так...<br />Спробуйте перейти на іншу сторінку",
     "itemNotFound": "Ой, щось пішло не так...<br />Спробуйте обрати інший товар",

@@ -33,7 +33,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
         >
           <Icon
             name="search"
-            className="w-4 h-4 text-accent hover:text-popover"
+            className="w-4 h-4 text-input hover:text-popover"
           />
         </button>
 
@@ -47,7 +47,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
           >
             <Icon
               name="heart"
-              className="w-4 h-4 text-accent hover:text-popover"
+              className="w-4 h-4 text-input hover:text-popover"
             />
             <CountIndicator count={favCount} />
           </div>
@@ -63,7 +63,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
           >
             <Icon
               name="shoppingBag"
-              className="w-4 h-4 text-accent hover:text-popover"
+              className="w-4 h-4 text-input hover:text-popover"
             />
             <CountIndicator count={cartCount} />
           </div>
@@ -77,7 +77,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
               >
                 <Icon
                   name="profileIcon"
-                  className="w-4 h-4 text-accent hover:text-popover"
+                  className="w-4 h-4 text-input hover:text-popover"
                 />
               </HeaderIconLink>
               <HeaderIconLink
@@ -90,7 +90,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
               >
                 <Icon
                   name="signOut"
-                  className="w-4 h-4 text-accent hover:text-popover"
+                  className="w-4 h-4 text-input hover:text-popover"
                 />
               </HeaderIconLink>
             </>
@@ -101,7 +101,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
               >
                 <Icon
                   name="signIn"
-                  className="w-4 h-4 text-accent hover:text-popover"
+                  className="w-4 h-4 text-input hover:text-popover"
                 />
               </HeaderIconLink>
               <HeaderIconLink
@@ -126,7 +126,7 @@ export const HeaderToolBar = ({ onMenuClick, onSearchIconClick }: Props) => {
       >
         <Icon
           name="menu"
-          className="w-4 h-4 text-accent hover:text-popover"
+          className="w-4 h-4 text-input hover:text-popover"
         />
       </button>
       <div className="sm:hidden flex items-center h-full">
