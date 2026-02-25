@@ -35,17 +35,17 @@ export const ItemCardDetails: React.FC<ItemCardDetailsProps> = ({
   const { currency, rate } = useCurrency();
 
   const bookDetailsData: [string, string | number | null][] = [
-    ['Author', book.author],
-    ['Cover', book.coverType ?? null],
+    ['bookDetails.author', book.author],
+    ['bookDetails.coverType', book.coverType ?? null],
     [
-      'Listening length',
+      'bookDetails.duration',
       book.listeningLength != null ?
         formatListeningLength(book.listeningLength, t)
       : null,
     ],
-    ['Narrator', book.narrator ?? null],
-    ['Pages', book.numberOfPages ?? null],
-    ['Year', book.publicationYear],
+    ['bookDetails.narrator', book.narrator ?? null],
+    ['bookDetails.pages', book.numberOfPages ?? null],
+    ['bookDetails.year', book.publicationYear],
   ];
 
   const filteredDetails = bookDetailsData.filter(([, value]) => value !== null);
@@ -62,7 +62,7 @@ export const ItemCardDetails: React.FC<ItemCardDetailsProps> = ({
     <div className="w-full max-w-100 mx-auto lg:mx-0 flex flex-col gap-6 text-foreground">
       <div>
         <p className={`${TYPOGRAPHY.h5} text-muted-foreground mb-2`}>
-          Category
+          {t('categories.category')}
         </p>
         {hasCategories && (
           <div className="flex flex-wrap gap-2">
@@ -71,7 +71,7 @@ export const ItemCardDetails: React.FC<ItemCardDetailsProps> = ({
                 key={category}
                 className={`${TYPOGRAPHY.body} px-3 py-1 border border-border rounded-md text-foreground`}
               >
-                {category}
+                {t(`categories.${category.toLowerCase()}`)}
               </span>
             ))}
           </div>
@@ -80,7 +80,7 @@ export const ItemCardDetails: React.FC<ItemCardDetailsProps> = ({
 
       <div className="border-t border-border pt-4">
         <p className={`${TYPOGRAPHY.h5} text-muted-foreground mb-2`}>
-          Language
+          {t('bookDetails.language')}
         </p>
         <div className="mb-4">
           <LanguageSelector
@@ -136,7 +136,7 @@ export const ItemCardDetails: React.FC<ItemCardDetailsProps> = ({
             }`}
           >
             <span className={`${TYPOGRAPHY.body} text-muted-foreground`}>
-              {label}
+              {t(label)}
             </span>
             <span
               className={`${TYPOGRAPHY.body} font-semibold text-foreground`}
