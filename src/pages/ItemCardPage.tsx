@@ -1,8 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { ItemCard } from '@/components/ItemCard';
-
-type BookType = 'paperback' | 'kindle' | 'audiobook';
+import type { BookType } from '@/components/ItemCard';
 
 export const ItemCardPage: React.FC = () => {
   const { type } = useParams<{ type: string; bookSlug: string }>();

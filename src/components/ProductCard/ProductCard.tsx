@@ -5,13 +5,15 @@ import { Truck } from 'lucide-react';
 import type { Book } from '@/types/Book';
 import { AddButton } from '@/components/ui/Buttons/AddButton';
 import { HeartButton } from '@/components/ui/Buttons/HeartButton';
+import { ImageWithSkeleton } from '@/components/ui/ImageWithSkeleton';
 import { Icon } from '@/components/ui/icons';
 import { useCartFavorites } from '@/context/CartFavoritesContext';
-import { animateToTarget } from '@/components/ProductCard/animateToTarget';
+import { animateToTarget } from '@/components/ProductCard/utils/animateToTarget';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
 import { showInfo, showSuccess } from '@/lib/toast';
 import { useBooks } from '@/context/BooksContext';
+import { useCurrency } from '@/context/CurrencyContext';
 
 type Props = {
   book: Book;
@@ -21,6 +23,7 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
   const { t } = useTranslation();
   const { addToCart, removeFromCart, toggleFavorite, isFavorite, isInCart } =
     useCartFavorites();
+  const { currency, rate } = useCurrency();
 
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -28,6 +31,15 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
   const isBookInFavorites = isFavorite(book.id);
   const price = book.priceDiscount ?? book.priceRegular;
   const { cartIconRef, favIconRef } = useBooks();
+
+  const convertedPrice = currency === 'USD' ? price : Math.round(price * rate);
+
+  const convertedPriceWithoutDiscount =
+    currency === 'USD' && book.priceRegular ?
+      book.priceRegular
+    : Math.round(book.priceRegular * rate);
+
+  const symbol = currency === 'USD' ? '$' : '₴';
 
   const handleAddToCart = (event?: React.MouseEvent<HTMLButtonElement>) => {
     if (isBookInCart) {
@@ -77,18 +89,18 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
       >
         {book.type === 'kindle' ?
           <>
-            <img
+            <ImageWithSkeleton
               className="w-full h-full object-contain"
               src={`https://ik.imagekit.io/ox4rssyih/img/audiobook/2.webp?updatedAt=1771496288464`}
               alt="iPad"
             />
-            <img
+            <ImageWithSkeleton
               className="pointer-events-none absolute top-[8.7%] left-[10.5%] w-[79.5%] h-[82%] object-cover"
               src={`${book.images[0]}`}
               alt={book.name}
             />
           </>
-        : <img
+        : <ImageWithSkeleton
             src={`${book.images[0]}`}
             alt={book.name}
             className="w-full h-full object-contain rounded-md"
@@ -108,7 +120,10 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
         </p>
 
         <div className="flex items-baseline gap-1 sm:gap-2">
-          <span className={cn(TYPOGRAPHY.h3, 'text-foreground')}>${price}</span>
+          <span className={cn(TYPOGRAPHY.h3, 'text-foreground')}>
+            {symbol}
+            {convertedPrice}
+          </span>
           {book.priceDiscount && (
             <span
               className={cn(
@@ -116,7 +131,8 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
                 'line-through text-muted-foreground',
               )}
             >
-              ${book.priceRegular}
+              {symbol}
+              {convertedPriceWithoutDiscount}
             </span>
           )}
         </div>

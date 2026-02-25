@@ -85,7 +85,7 @@ export const BooksSection = ({ title, books = [] }: Props) => {
             <BooksCarouselButtons />
           </div>
 
-          <CarouselContent className="flex mt-[24px]">
+          <CarouselContent className="flex mt-[24px] -ml-[16px]">
             {books.map((book, index) => (
               <CarouselItem
                 key={`${book.id}-${index}`}

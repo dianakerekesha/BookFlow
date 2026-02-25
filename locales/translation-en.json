@@ -58,6 +58,8 @@
 
   "categories": {
     "category": "Category",
+    "categories": "Categories",
+    "findBookPlaceholder": "Find a book or author",
     "shopByCategory": "Shop by category",
     "chooseCategory": "Choose category",
     "paper": "Paper",
@@ -67,7 +69,22 @@
     "kindleBooks": "Kindle books",
     "audioBooks": "Audiobooks",
     "newBooks": "New Books",
-    "youMayLike": "You might like"
+    "youMayLike": "You might like",
+    "programming": "Programming",
+    "psychology": "Psychology",
+    "fantasy": "Fantasy",
+    "drama": "Drama",
+    "detective": "Detective",
+    "leadership": "Leadership",
+    "business planning": "Business planning",
+    "managerial management. decision management": "Management. Decision management",
+    "motivation. self-improvement": "Motivation. Self-improvement",
+    "computer games": "Computer games",
+    "epic fantasy": "Epic fantasy",
+    "romantic fantasy": "Romantic fantasy",
+    "readers’ choice may": "Readers’ choice may",
+    "our product manager's favorite": "Our product manager's favorite",
+    "our tech team leader's family favorite": "Our tech team leader's family favorite"
   },
 
   "cart": {
@@ -75,11 +92,20 @@
     "backToShop": "Go back to shopping...",
     "totalFor": "Total for",
     "checkout": "Checkout",
-    "emptyHint": "Click <1>Add to cart</1> on any book to get started"
+    "emptyHint": "Click <1>Add to cart</1> on any book to get started",
+    "emptyTitle": "Your cart is still sleeping",
+    "emptyDescription": "Add some books to wake it up",
+    "emptyButton": "Back to Shop",
+    "viewAll": "View all"
   },
 
-  "favorites": {
-    "emptyHint": "Just click the <1></1> icon on any product to save it here"
+  "favourites": {
+    "emptyHint": "Just click the <1></1> icon on any product to save it here",
+    "title": "Favourites",
+    "titleEmpty": "Your heart is still looking for a match",
+    "description": "It looks like you haven't found any books to fall in love with yet.",
+    "buttonText": "Explore Catalog",
+    "viewAll": "View All"
   },
 
   "bookDetails": {
@@ -98,19 +124,45 @@
     "illustrationsFalse": "No illustrations",
     "characteristics": "Characteristics",
     "about": "About",
-    "language": "Language"
+    "language": "Language",
+    "pages": "Pages"
   },
 
-  "жанри": {
-    "programming": "Programming",
-    "psychology": "Psychology",
-    "fantasy": "Fantasy",
-    "drama": "Drama",
-    "detective": "Detective"
+  "rights": {
+    "title": "Rights & Intellectual Property",
+    "generalTitle": "General Provisions",
+    "generalParagraph": "All rights to this website and its content are owned by <0>Book Catalog</0>. This platform is designed for literary enthusiasts, and the use of any of its elements is governed by applicable copyright laws.",
+    "useDescriptionsTitle": "Use of Book Covers and Descriptions",
+    "useDescriptionsParagraph": "Book cover images, publisher names, and author annotations presented in our catalog are the property of their respective copyright holders.",
+    "useDescriptionsLiOne": "We use these materials solely for the purpose of book identification.",
+    "useDescriptionsLiTwo": "<0>Book Catalog</0> does not claim authorship of images provided by publishers or partners.",
+    "useDescriptionsLiThree": "If you are a copyright holder and wish to modify or remove information about your publication, please contact our support team.",
+    "generatedContexTitle": "User-Generated Content",
+    "generatedContexParagraph": "By leaving reviews or ratings on the site, you grant <0>Book Catalog</0> the right to publish and distribute them within our platform. However, the authorship of the review remains with you.",
+    "copyingTitle": "Prohibition of Copying",
+    "copyingParagraph": "Any automated data collection (scraping) or full copying of our catalogs database without the explicit consent of <0>Book Catalog</0> is strictly prohibited and subject to legal action.",
+    "update": "Last updated: February 17, 2026. We reserve the right to modify these terms without prior notice."
   },
 
   "team": {
     "ourTeam": "Our Team"
+  },
+
+  "login": {
+    "loginToAccount": "Login to your account",
+    "enterAccount": "Enter your email below to login to your account",
+    "signWithGoogle": "Sign in with Google",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "signUp": "Sign up",
+    "signIn": "Sign in",
+    "noAccount?": "Don&apos;t have an account?",
+    "createAccount": "Create an account",
+    "enterInfo": "Enter your information below to create your account",
+    "fullName": "Full name",
+    "namePlaceholder": "John Doe",
+    "passwordError": "Must be at least 8 characters long.",
+    "haveAccount?": "Already have an account?"
   },
 
   "errors": {
@@ -128,6 +180,9 @@
     "orderSuccess": "Order placed successfully!",
     "orderError": "Something went wrong. Please try again.",
     "validationError": "Please fill in all required fields correctly.",
-    "loginRequired": "Please log in to continue."
+    "loginRequired": "Please log in to continue.",
+    "profileLoadError": "Failed to load profile",
+    "dataSaved": "Data saved successfully",
+    "dataSaveError": "Error while saving"
   }
 }

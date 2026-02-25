@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { ScrollToTop } from '@/components/ScrollToTop';
 import { HomePage } from '@/pages/HomePage';
 import { RegisterPromo } from './components/RegisterPromo/RegisterPromo';
 import ToasterWrapper from './components/ui/ToasterWrapper/ToasterWrapper.tsx';
@@ -24,7 +25,9 @@ const CategoryPage = named(
   () => import('./pages/CategoryPage'),
   'CategoryPage',
 );
-const CheckoutPage = lazy(() => import('@/pages/CheckoutPage'));
+const CheckoutPage = lazy(
+  () => import('@/pages/CheckoutPage/CheckoutPage.tsx'),
+);
 const ContactsPage = named(
   () => import('@/pages/ContactsPage'),
   'ContactsPage',
@@ -44,7 +47,7 @@ const NotFoundPage = named(
   'NotFoundPage',
 );
 const OrdersPage = lazy(() => import('@/pages/OrderPage'));
-const OrderSuccessPage = lazy(() => import('@/pages/OrderSuccessPage'));
+const OrderSuccessPage = lazy(() => import('@/pages/OrderSuccessPage.tsx'));
 const PaperPage = named(() => import('@/pages/PaperPage'), 'PaperPage');
 const ProfilePage = named(
   () => import('./pages/ProfilePage/ProfilePage'),
@@ -63,6 +66,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <div className="flex min-h-screen flex-col relative">
         {!hideLayout && <Header />}
         <main className="flex-1 relative z-10 overflow-x-hidden">

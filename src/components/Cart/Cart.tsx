@@ -14,15 +14,21 @@ import { useSimulatedLoading } from './hooks/useSimulatedLoading';
 import { calculateCartTotalPrice } from './helpers/calculateCartTotalPrice';
 import { calculateCartTotalQuantity } from './helpers/calculateCartTotalQuantity';
 import { isSameOriginReferrer } from './helpers/isSameOriginReferrer';
+import { useCurrency } from '@/context/CurrencyContext';
 
 export const Cart = () => {
   const { cart } = useCartFavorites();
   const navigate = useNavigate();
   const { t } = useTranslation();
   const isLoading = useSimulatedLoading();
+  const { currency, rate } = useCurrency();
 
-  const totalPrice = useMemo(() => calculateCartTotalPrice(cart), [cart]);
+  const totalPrice = useMemo(
+    () => calculateCartTotalPrice(cart, currency, rate),
+    [cart, currency, rate],
+  );
   const totalQuantity = useMemo(() => calculateCartTotalQuantity(cart), [cart]);
+  const symbol = currency === 'USD' ? '$' : '₴';
 
   const skeletonCount = cart.length;
   const itemLabel = (count: number) => t('items.count', { count });
@@ -55,7 +61,7 @@ export const Cart = () => {
         {isLoading ? itemLabel(skeletonCount) : itemLabel(totalQuantity)}
       </p>
 
-      {!isLoading && cart.length === 0 && <EmptyCart />}
+      {cart.length === 0 && <EmptyCart isLoading={isLoading} />}
 
       {(isLoading ? skeletonCount > 0 : cart.length > 0) && (
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-4 lg:justify-center">
@@ -78,6 +84,7 @@ export const Cart = () => {
           : <CartSummary
               totalPrice={totalPrice}
               totalQuantity={totalQuantity}
+              symbol={symbol}
             />
           }
         </div>
