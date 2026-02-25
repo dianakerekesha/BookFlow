@@ -8,7 +8,7 @@ import { HeartButton } from '@/components/ui/Buttons/HeartButton';
 import { ImageWithSkeleton } from '@/components/ui/ImageWithSkeleton';
 import { Icon } from '@/components/ui/icons';
 import { useCartFavorites } from '@/context/CartFavoritesContext';
-import { animateToTarget } from '@/components/ProductCard/animateToTarget';
+import { animateToTarget } from '@/components/ProductCard/utils/animateToTarget';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
 import { showInfo, showSuccess } from '@/lib/toast';

@@ -104,10 +104,7 @@ export const HeaderSearch = ({
         className="
           w-full
           h-[40px]
-          px-4
-          border
-          border-border
-          rounded-md
+          px-4         
           bg-input
           text-sm
           font-bold
