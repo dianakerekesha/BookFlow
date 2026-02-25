@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 
 type UsePaginationProps = {
@@ -8,6 +8,7 @@ type UsePaginationProps = {
 };
 
 const MAX_VISIBLE = 5;
+const PAGE_TRANSITION_MS = 400;
 
 export const usePagination = ({
   totalItems,
@@ -24,6 +25,13 @@ export const usePagination = ({
 
   const safePage = Math.min(Math.max(pageFromUrl, 1), totalPages || 1);
 
+  const [isPageTransitioning, setIsPageTransitioning] = useState(false);
+  const transitionTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  useEffect(() => {
+    return () => clearTimeout(transitionTimeoutRef.current);
+  }, []);
+
   let startPage = Math.max(safePage - Math.floor(MAX_VISIBLE / 2), 1);
   let endPage = startPage + MAX_VISIBLE - 1;
 
@@ -37,7 +45,7 @@ export const usePagination = ({
     visiblePages.push(i);
   }
 
-  const handleChangeNumber = useCallback(
+  const navigateToPage = useCallback(
     (targetPage: number) => {
       const newSearchParams = new URLSearchParams(searchParams.toString());
       newSearchParams.set('page', targetPage.toString());
@@ -46,10 +54,23 @@ export const usePagination = ({
         pathname: location.pathname,
         search: `?${newSearchParams.toString()}`,
       });
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     },
     [searchParams, navigate, location.pathname],
+  );
+
+  const handleChangeNumber = useCallback(
+    (targetPage: number) => {
+      setIsPageTransitioning(true);
+      clearTimeout(transitionTimeoutRef.current);
+      transitionTimeoutRef.current = setTimeout(
+        () => setIsPageTransitioning(false),
+        PAGE_TRANSITION_MS,
+      );
+
+      navigateToPage(targetPage);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+    [navigateToPage],
   );
 
   const handleChangeArrow = useCallback(
@@ -64,11 +85,11 @@ export const usePagination = ({
     if (totalPages === 0) return;
 
     if (pageFromUrl < 1) {
-      handleChangeNumber(1);
+      navigateToPage(1);
     } else if (pageFromUrl > totalPages) {
-      handleChangeNumber(totalPages);
+      navigateToPage(totalPages);
     }
-  }, [pageFromUrl, totalPages, handleChangeNumber]);
+  }, [pageFromUrl, totalPages, navigateToPage]);
 
   return {
     safePage,
@@ -76,5 +97,6 @@ export const usePagination = ({
     visiblePages,
     handleChangeNumber,
     handleChangeArrow,
+    isPageTransitioning,
   };
 };

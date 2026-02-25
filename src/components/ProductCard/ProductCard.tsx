@@ -5,9 +5,10 @@ import { Truck } from 'lucide-react';
 import type { Book } from '@/types/Book';
 import { AddButton } from '@/components/ui/Buttons/AddButton';
 import { HeartButton } from '@/components/ui/Buttons/HeartButton';
+import { ImageWithSkeleton } from '@/components/ui/ImageWithSkeleton';
 import { Icon } from '@/components/ui/icons';
 import { useCartFavorites } from '@/context/CartFavoritesContext';
-import { animateToTarget } from '@/components/ProductCard/animateToTarget';
+import { animateToTarget } from '@/components/ProductCard/utils/animateToTarget';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
 import { showInfo, showSuccess } from '@/lib/toast';
@@ -88,18 +89,18 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
       >
         {book.type === 'kindle' ?
           <>
-            <img
+            <ImageWithSkeleton
               className="w-full h-full object-contain"
               src={`https://ik.imagekit.io/ox4rssyih/img/audiobook/2.webp?updatedAt=1771496288464`}
               alt="iPad"
             />
-            <img
+            <ImageWithSkeleton
               className="pointer-events-none absolute top-[8.7%] left-[10.5%] w-[79.5%] h-[82%] object-cover"
               src={`${book.images[0]}`}
               alt={book.name}
             />
           </>
-        : <img
+        : <ImageWithSkeleton
             src={`${book.images[0]}`}
             alt={book.name}
             className="w-full h-full object-contain rounded-md"
