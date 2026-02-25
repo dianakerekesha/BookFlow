@@ -195,6 +195,9 @@
     "orderSuccess": "Order placed successfully!",
     "orderError": "Something went wrong. Please try again.",
     "validationError": "Please fill in all required fields correctly.",
-    "loginRequired": "Please log in to continue."
+    "loginRequired": "Please log in to continue.",
+    "profileLoadError": "Failed to load profile",
+    "dataSaved": "Data saved successfully",
+    "dataSaveError": "Error while saving"
   }
 }

@@ -6,6 +6,7 @@ import { updateProfile } from 'firebase/auth';
 import { useQuery } from '@tanstack/react-query';
 import { showSuccess, showError } from '@/lib/toast';
 import type { UserProfile } from '../types/userProfile';
+import { t } from 'i18next';
 
 export const useUserProfile = () => {
   const { currentUser } = useAuth();
@@ -32,10 +33,9 @@ export const useUserProfile = () => {
   });
 
   if (isError) {
-    showError('Не вдалося завантажити профіль');
+    showError(t('toast.profileLoadError'));
   }
 
-  // Синхронізуємо локальний profile з server state
   useEffect(() => {
     if (profileData) setProfile(profileData);
   }, [profileData]);
@@ -45,17 +45,27 @@ export const useUserProfile = () => {
 
     setIsSaving(true);
     try {
-      await setDoc(
-        doc(firestore, 'users', currentUser.uid),
-        { name: profile.name, phone: profile.phone },
-        { merge: true },
+      const timeout = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('timeout')), 5000),
       );
-      if (auth.currentUser) {
-        await updateProfile(auth.currentUser, { displayName: profile.name });
-      }
-      showSuccess('Дані збережено');
+
+      await Promise.race([
+        Promise.all([
+          setDoc(
+            doc(firestore, 'users', currentUser.uid),
+            { name: profile.name, phone: profile.phone },
+            { merge: true },
+          ),
+          auth.currentUser ?
+            updateProfile(auth.currentUser, { displayName: profile.name })
+          : Promise.resolve(),
+        ]),
+        timeout,
+      ]);
+
+      showSuccess(t('toast.dataSaved'));
     } catch {
-      showError('Помилка при збереженні');
+      showError(t('toast.dataSaveError'));
     } finally {
       setIsSaving(false);
     }

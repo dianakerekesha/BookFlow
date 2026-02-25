@@ -1,4 +1,3 @@
-// hooks/useCheckout.ts
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { createOrder, createStripeIntent } from '@/services/paymentAPI';
