@@ -24,6 +24,7 @@ export const BooksList = ({
               className="
                 col-span-4
                 md:col-span-6
+                tablet:col-span-4
                 lg:col-span-6
                 w-full
                 max-w-[288px]
@@ -47,12 +48,15 @@ export const BooksList = ({
           className="
             col-span-4
             md:col-span-6
+            tablet:col-span-4
             lg:col-span-6
             w-full
             lg:max-w-[288px]
             mb-[24px]
             justify-self-center
-            flex justify-center
+            flex 
+            justify-center
+            [&>*]:w-full
           "
         >
           <ProductCard book={book} />
