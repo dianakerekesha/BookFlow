@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { FirebaseLoginError } from './types/SignInErrors';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 import {
   Card,
   CardContent,
@@ -78,6 +79,8 @@ export function LoginForm() {
     }
   };
 
+  const { t } = useTranslation();
+
   return (
     <>
       {userLoggedIn && (
@@ -89,10 +92,8 @@ export function LoginForm() {
       <div className={cn('flex flex-col gap-6')}>
         <Card>
           <CardHeader>
-            <CardTitle>Login to your account</CardTitle>
-            <CardDescription>
-              Enter your email below to login to your account
-            </CardDescription>
+            <CardTitle> {t('login.loginToAccount')}</CardTitle>
+            <CardDescription>{t('login.enterAccount')}</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit}>
@@ -110,7 +111,9 @@ export function LoginForm() {
                 </Field>
                 <Field>
                   <div className="flex items-center">
-                    <FieldLabel htmlFor="password">Password</FieldLabel>
+                    <FieldLabel htmlFor="password">
+                      {t('login.password')}
+                    </FieldLabel>
                   </div>
                   <Input
                     id="password"
@@ -131,7 +134,7 @@ export function LoginForm() {
                     type="submit"
                     disabled={isSigningIn}
                   >
-                    Sign in
+                    {t('login.signIn')}
                   </Button>
                   <Button
                     className="cursor-pointer flex items-center justify-center gap-2 w-full"
@@ -162,11 +165,11 @@ export function LoginForm() {
                         fill="#EA4335"
                       />
                     </svg>
-                    Sign in with Google
+                    {t('login.signWithGoogle')}
                   </Button>
                   <FieldDescription className="text-center">
-                    Don&apos;t have an account?{' '}
-                    <Link to={'/signup'}>Sign up</Link>
+                    {t('login.noAccount?')}{' '}
+                    <Link to={'/signup'}>{t('login.signUp')}</Link>
                   </FieldDescription>
                 </Field>
               </FieldGroup>

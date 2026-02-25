@@ -58,6 +58,8 @@
 
   "categories": {
     "category": "Category",
+    "categories": "Categories",
+    "findBookPlaceholder": "Find a book or author",
     "shopByCategory": "Shop by category",
     "chooseCategory": "Choose category",
     "paper": "Paper",
@@ -67,7 +69,22 @@
     "kindleBooks": "Kindle books",
     "audioBooks": "Audiobooks",
     "newBooks": "New Books",
-    "youMayLike": "You might like"
+    "youMayLike": "You might like",
+    "programming": "Programming",
+    "psychology": "Psychology",
+    "fantasy": "Fantasy",
+    "drama": "Drama",
+    "detective": "Detective",
+    "leadership": "Leadership",
+    "business planning": "Business planning",
+    "managerial management. decision management": "Management. Decision management",
+    "motivation. self-improvement": "Motivation. Self-improvement",
+    "computer games": "Computer games",
+    "epic fantasy": "Epic fantasy",
+    "romantic fantasy": "Romantic fantasy",
+    "readers’ choice may": "Readers’ choice may",
+    "our product manager's favorite": "Our product manager's favorite",
+    "our tech team leader's family favorite": "Our tech team leader's family favorite"
   },
 
   "cart": {
@@ -75,7 +92,11 @@
     "backToShop": "Go back to shopping...",
     "totalFor": "Total for",
     "checkout": "Checkout",
-    "emptyHint": "Click <1>Add to cart</1> on any book to get started"
+    "emptyHint": "Click <1>Add to cart</1> on any book to get started",
+    "emptyTitle": "Your cart is still sleeping",
+    "emptyDescription": "Add some books to wake it up",
+    "emptyButton": "Back to Shop",
+    "viewAll": "View all"
   },
 
   "favourites": {
@@ -103,15 +124,8 @@
     "illustrationsFalse": "No illustrations",
     "characteristics": "Characteristics",
     "about": "About",
-    "language": "Language"
-  },
-
-  "жанри": {
-    "programming": "Programming",
-    "psychology": "Psychology",
-    "fantasy": "Fantasy",
-    "drama": "Drama",
-    "detective": "Detective"
+    "language": "Language",
+    "pages": "Pages"
   },
 
   "rights": {
@@ -132,6 +146,23 @@
 
   "team": {
     "ourTeam": "Our Team"
+  },
+
+  "login": {
+    "loginToAccount": "Login to your account",
+    "enterAccount": "Enter your email below to login to your account",
+    "signWithGoogle": "Sign in with Google",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "signUp": "Sign up",
+    "signIn": "Sign in",
+    "noAccount?": "Don&apos;t have an account?",
+    "createAccount": "Create an account",
+    "enterInfo": "Enter your information below to create your account",
+    "fullName": "Full name",
+    "namePlaceholder": "John Doe",
+    "passwordError": "Must be at least 8 characters long.",
+    "haveAccount?": "Already have an account?"
   },
 
   "errors": {
