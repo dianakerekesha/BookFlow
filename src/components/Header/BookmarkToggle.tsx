@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Sun, Moon, Settings } from 'lucide-react';
 import { useCurrency } from '@/context/CurrencyContext';
+import { useTheme } from '@/context/ThemeContext';
 
 export const BookmarkToggle = ({
   isMobile = false,
@@ -10,27 +11,9 @@ export const BookmarkToggle = ({
 }) => {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-
-  const [isDark, setIsDark] = useState(() => {
-    return localStorage.getItem('theme') === 'dark';
-  });
-
   const { currency, toggleCurrency } = useCurrency();
 
-  const toggleTheme = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.stopPropagation();
-    setIsDark((prev) => !prev);
-  };
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isDark]);
+  const { theme, toggleTheme } = useTheme();
 
   const langMap = {
     en: 'EN',
@@ -57,11 +40,14 @@ export const BookmarkToggle = ({
       >
         <div className="flex flex-col items-center gap-1 lg:gap-6 mt-4 z-10">
           <button
-            onClick={toggleTheme}
+            onClick={(event) => {
+              event.stopPropagation();
+              toggleTheme();
+            }}
             className="hover:scale-110 transition cursor-pointer"
             title="theme"
           >
-            {isDark ?
+            {theme === 'dark' ?
               <Moon />
             : <Sun />}
           </button>
