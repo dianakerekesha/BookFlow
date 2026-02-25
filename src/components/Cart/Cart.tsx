@@ -61,7 +61,7 @@ export const Cart = () => {
         {isLoading ? itemLabel(skeletonCount) : itemLabel(totalQuantity)}
       </p>
 
-      {!isLoading && cart.length === 0 && <EmptyCart />}
+      {cart.length === 0 && <EmptyCart isLoading={isLoading} />}
 
       {(isLoading ? skeletonCount > 0 : cart.length > 0) && (
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-4 lg:justify-center">
