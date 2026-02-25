@@ -5,9 +5,11 @@ import {
   useRef,
   type ReactNode,
 } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useQueries } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
 import type { Book } from './../types/Book';
-import { getPaperBooks, booksQueryKeys } from '@/services/booksAPI';
+import { getBooks } from '@/services/bookService';
+import type { LanguageOption } from '@/services/bookService';
 
 interface BooksContextType {
   books: Book[];
@@ -23,11 +25,28 @@ const BooksContext = createContext<BooksContextType | undefined>(undefined);
 export const BooksProvider = ({ children }: { children: ReactNode }) => {
   const cartIconRef = useRef<HTMLDivElement>(null);
   const favIconRef = useRef<HTMLDivElement>(null);
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language as LanguageOption;
 
-  const { data: books = [], isLoading } = useQuery({
-    queryKey: booksQueryKeys.paper,
-    queryFn: getPaperBooks,
+  const results = useQueries({
+    queries: [
+      {
+        queryKey: ['books', 'paperback', currentLang],
+        queryFn: () => getBooks(currentLang, null, 'paperback', 'newest'),
+      },
+      {
+        queryKey: ['books', 'kindle', currentLang],
+        queryFn: () => getBooks(currentLang, null, 'kindle', 'newest'),
+      },
+      {
+        queryKey: ['books', 'audiobook', currentLang],
+        queryFn: () => getBooks(currentLang, null, 'audiobook', 'newest'),
+      },
+    ],
   });
+
+  const books = results.flatMap((r) => r.data ?? []);
+  const isLoading = results.some((r) => r.isLoading);
 
   const newBooks = useMemo(() => {
     return [...books].sort((a, b) => b.publicationYear - a.publicationYear);
