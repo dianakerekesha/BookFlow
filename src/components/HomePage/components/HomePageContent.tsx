@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import { useBooks } from '../context/BooksContext';
+import { useBooks } from '@/context/BooksContext';
 import { BooksSection } from '@/components/BooksSection';
 import { MainSlider } from '@/components/MainSlider';
-import { CategoriesSection } from '@/components/CategoriesSection/CategoriesSection.tsx';
-import { useHomepageIntroAnimation } from '@/hooks/useHomepageIntroAnimation';
+import { CategoriesSection } from '@/components/CategoriesSection/CategoriesSection';
+import { useHomePageIntroAnimation } from '../hooks/useHomePageIntroAnimation';
+import { HOME_PAGE_TRANSLATION_KEYS } from '../constants/translationKeys';
 
 export const HomePageContent = () => {
   const { newBooks, suggestedBooks } = useBooks();
@@ -14,7 +15,7 @@ export const HomePageContent = () => {
     newBooksRef,
     categoriesRef,
     suggestedBooksRef,
-  } = useHomepageIntroAnimation();
+  } = useHomePageIntroAnimation();
 
   return (
     <main
@@ -26,7 +27,7 @@ export const HomePageContent = () => {
       </div>
       <div ref={newBooksRef}>
         <BooksSection
-          title={t('categories.newBooks')}
+          title={t(HOME_PAGE_TRANSLATION_KEYS.NEW_BOOKS)}
           books={newBooks}
         />
       </div>
@@ -35,7 +36,7 @@ export const HomePageContent = () => {
       </div>
       <div ref={suggestedBooksRef}>
         <BooksSection
-          title={t('categories.youMayLike')}
+          title={t(HOME_PAGE_TRANSLATION_KEYS.YOU_MAY_LIKE)}
           books={suggestedBooks}
         />
       </div>

@@ -57,7 +57,7 @@ export const Cart = () => {
       <h1 className={cn(TYPOGRAPHY.h1, 'mb-2 text-foreground')}>
         {t('cart.cart')}
       </h1>
-      <p className="mb-8 text-gray-400">
+      <p className="mb-8 text-muted-foreground">
         {isLoading ? itemLabel(skeletonCount) : itemLabel(totalQuantity)}
       </p>
 

@@ -24,6 +24,7 @@ body #root {
   --color-elements: #e2e6e9;
   --color-primary-gray: #313237;
   --breakpoint-md: 640px;
+  --breakpoint-tablet: 820px;
   --breakpoint-lg: 1200px;
   --breakpoint-desktop: 1201px;
   --color-background: var(--background);

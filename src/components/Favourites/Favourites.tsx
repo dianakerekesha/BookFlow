@@ -39,7 +39,7 @@ export const Favourites = ({
       </button>
 
       <h1 className={cn(TYPOGRAPHY.h1, 'mb-2 text-foreground')}>{t(title)}</h1>
-      <p className="mb-8 text-gray-400">
+      <p className="mb-8 text-muted-foreground">
         {t('items.count', { count: booksCount })}
       </p>
 

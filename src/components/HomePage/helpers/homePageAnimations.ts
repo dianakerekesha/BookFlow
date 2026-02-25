@@ -1,11 +1,7 @@
-import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { HERO_REVEAL, SCROLL_ENTRANCE } from '@/constants/animationConfig';
+import { HERO_REVEAL, SCROLL_ENTRANCE } from '../constants/animationConfig';
 
-gsap.registerPlugin(ScrollTrigger);
-
-const animateHeroReveal = (element: HTMLDivElement | null) => {
+export const animateHeroReveal = (element: HTMLDivElement | null) => {
   if (!element) return;
 
   gsap.fromTo(
@@ -23,7 +19,7 @@ const animateHeroReveal = (element: HTMLDivElement | null) => {
   );
 };
 
-const animateBooksSection = (section: HTMLDivElement | null) => {
+export const animateBooksSection = (section: HTMLDivElement | null) => {
   if (!section) return;
 
   const heading = section.querySelector('h2');
@@ -65,7 +61,7 @@ const animateBooksSection = (section: HTMLDivElement | null) => {
   }
 };
 
-const animateSectionEntrance = (element: HTMLDivElement | null) => {
+export const animateSectionEntrance = (element: HTMLDivElement | null) => {
   if (!element) return;
 
   gsap.from(element, {
@@ -79,31 +75,4 @@ const animateSectionEntrance = (element: HTMLDivElement | null) => {
       toggleActions: SCROLL_ENTRANCE.TOGGLE_ACTIONS,
     },
   });
-};
-
-export const useHomepageIntroAnimation = () => {
-  const containerRef = useRef<HTMLElement>(null);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const newBooksRef = useRef<HTMLDivElement>(null);
-  const categoriesRef = useRef<HTMLDivElement>(null);
-  const suggestedBooksRef = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      animateHeroReveal(sliderRef.current);
-      animateBooksSection(newBooksRef.current);
-      animateBooksSection(suggestedBooksRef.current);
-      animateSectionEntrance(categoriesRef.current);
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  return {
-    containerRef,
-    sliderRef,
-    newBooksRef,
-    categoriesRef,
-    suggestedBooksRef,
-  };
 };
