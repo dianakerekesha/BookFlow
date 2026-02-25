@@ -9,6 +9,7 @@ import './i18n.ts';
 import './index.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { CurrencyProvider } from './context/CurrencyContext.tsx';
+import { ThemeProvider } from './context/ThemeContext.tsx';
 
 declare global {
   interface Window {
@@ -37,7 +38,9 @@ createRoot(document.getElementById('root')!).render(
         <CartFavoritesProvider>
           <BooksProvider>
             <CurrencyProvider>
-              <App />
+              <ThemeProvider>
+                <App />
+              </ThemeProvider>
             </CurrencyProvider>
           </BooksProvider>
         </CartFavoritesProvider>

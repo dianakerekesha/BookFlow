@@ -40,7 +40,7 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
 
   return (
     <GridContainer className="overflow-hidden">
-      <div className="col-span-full flex flex-col items-start mt-8 mb-8 md:mt-16-mb-10">
+      <div className="col-span-full flex flex-col items-start mt-8 mb-8 md:mt-16 md:mb-10">
         <h1 className="text-foreground text-[32px] md:text-[48px] font-manrope font-bold leading-tight tracking-[-0.01em] md:tracking-[-0.02em] mb-2">
           {title}
         </h1>
@@ -56,7 +56,7 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
         onChangeSort={changeSort}
       />
 
-      <div className="col-span-full h-0" />
+      <div className="col-span-4 md:col-span-12 lg:col-span-24 h-0" />
 
       <BooksList
         books={currentProducts}

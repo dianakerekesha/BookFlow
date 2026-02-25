@@ -24,6 +24,7 @@ body #root {
   --color-elements: #e2e6e9;
   --color-primary-gray: #313237;
   --breakpoint-md: 640px;
+  --breakpoint-tablet: 820px;
   --breakpoint-lg: 1200px;
   --breakpoint-desktop: 1201px;
   --color-background: var(--background);
@@ -115,8 +116,7 @@ body #root {
   --sidebar-foreground: #f5e8d4;
   --sidebar-primary: #d4a96a;
   --sidebar-primary-foreground: #1e0f06;
-  --sidebar-accent: #2e1a0d;
-  --sidebar-accent-foreground: #f5e8d4;
+  --sidebar-accent: #f2e4ce --sidebar-accent-foreground: #f5e8d4;
   --sidebar-border: rgba(255 255 255 / 0.09);
   --sidebar-ring: #d4a96a;
 }
@@ -159,7 +159,7 @@ body #root {
   --sidebar-foreground: #f2e4ce;
   --sidebar-primary: #d4a96a;
   --sidebar-primary-foreground: #1e0f06;
-  --sidebar-accent: #1e0f06;
+  --sidebar-accent: #5e3824;
   --sidebar-accent-foreground: #f2e4ce;
   --sidebar-border: rgba(255 255 255 / 0.08);
   --sidebar-ring: #d4a96a;
@@ -196,6 +196,10 @@ body #root {
       max-width: calc(1200px + 48px);
       margin: 0 auto;
     }
+  }
+
+  .disable-transitions * {
+    transition: none !important;
   }
 
   .footer-nav-gap {

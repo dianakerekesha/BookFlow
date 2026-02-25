@@ -9,9 +9,9 @@ import {
 } from 'firebase/firestore';
 import { firestore } from '../firebase/firebase';
 import type { Book } from '@/types/Book';
+import type { LanguageOption } from '@/types/LanguageOption';
 
 export type SortOption = 'alphabetically' | 'cheapest' | 'newest';
-export type LanguageOption = 'uk' | 'en' | null;
 export type BookTypeOption = 'kindle' | 'paperback' | 'audiobook' | null;
 
 const booksCollection = collection(
