@@ -44,7 +44,7 @@ export const TeamMemberCard = ({
         src={member.photo}
         alt={member.name}
         className={cn(
-          'absolute inset-0 w-full h-full object-cover transition-transform duration-500',
+          'absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500',
           isActive ? 'scale-110 blur-sm opacity-60' : 'scale-100 opacity-100',
         )}
       />
