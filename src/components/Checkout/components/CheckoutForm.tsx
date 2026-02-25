@@ -8,6 +8,7 @@ import { FieldError } from './FieldError';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { useTranslation } from 'react-i18next';
 import {
   Select,
   SelectContent,
@@ -17,7 +18,6 @@ import {
 } from '@/components/ui/select';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { showError } from '@/lib/toast';
-import { t } from 'i18next';
 
 interface CheckoutFormProps {
   onSubmit: (data: CheckoutFormValues) => void;
@@ -40,6 +40,8 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
     setValue('country', value, { shouldValidate: true });
   };
 
+  const { t } = useTranslation();
+
   return (
     <form
       onSubmit={handleFormSubmit}
@@ -48,25 +50,25 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
     >
       <div className="flex flex-col gap-5">
         <p className={`${TYPOGRAPHY.uppercase} text-foreground`}>
-          Contact information
+          {t('login.contactInfo')}
         </p>
 
         <div className="grid grid-cols-2 gap-4 max-sm:grid-cols-1">
           <div className="flex flex-col gap-1.5">
-            <Label htmlFor="firstName">First name</Label>
+            <Label htmlFor="firstName">{t('login.firstName')}</Label>
             <Input
               id="firstName"
-              placeholder="John"
+              placeholder={t('login.firstNamePlaceholder')}
               className={errors.firstName ? 'border-destructive' : ''}
               {...register('firstName')}
             />
             <FieldError message={errors.firstName?.message} />
           </div>
           <div className="flex flex-col gap-1.5">
-            <Label htmlFor="lastName">Last name</Label>
+            <Label htmlFor="lastName">{t('login.lastName')}</Label>
             <Input
               id="lastName"
-              placeholder="Doe"
+              placeholder={t('login.lastNamePlaceholder')}
               className={errors.lastName ? 'border-destructive' : ''}
               {...register('lastName')}
             />
@@ -87,7 +89,7 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
         </div>
 
         <div className="flex flex-col gap-1.5">
-          <Label htmlFor="phone">Phone</Label>
+          <Label htmlFor="phone">{t('login.phone')}</Label>
           <Input
             id="phone"
             type="tel"
@@ -101,14 +103,14 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
 
       <div className="flex flex-col gap-5">
         <p className={`${TYPOGRAPHY.uppercase} text-foreground`}>
-          Delivery address
+          {t('login.deliveryAddress')}
         </p>
 
         <div className="flex flex-col gap-1.5">
-          <Label htmlFor="address">Street address</Label>
+          <Label htmlFor="address">{t('login.StreetAddress')}</Label>
           <Input
             id="address"
-            placeholder="123 Main Street, Apt 4B"
+            placeholder={t('login.StreetAddressPlaceholder')}
             className={errors.address ? 'border-destructive' : ''}
             {...register('address')}
           />
@@ -117,17 +119,17 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
 
         <div className="grid grid-cols-2 gap-4 max-sm:grid-cols-1">
           <div className="flex flex-col gap-1.5">
-            <Label htmlFor="city">City</Label>
+            <Label htmlFor="city">{t('login.city')}</Label>
             <Input
               id="city"
-              placeholder="Kyiv"
+              placeholder={t('login.Kyiv')}
               className={errors.city ? 'border-destructive' : ''}
               {...register('city')}
             />
             <FieldError message={errors.city?.message} />
           </div>
           <div className="flex flex-col gap-1.5">
-            <Label htmlFor="zip">ZIP / Postal code</Label>
+            <Label htmlFor="zip">{t('login.ZIP')}</Label>
             <Input
               id="zip"
               placeholder="01001"
@@ -139,12 +141,12 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
         </div>
 
         <div className="flex flex-col gap-1.5">
-          <Label>Country</Label>
+          <Label>{t('login.country')}</Label>
           <Select onValueChange={handleCountryChange}>
             <SelectTrigger
               className={errors.country ? 'border-destructive' : ''}
             >
-              <SelectValue placeholder="Select country" />
+              <SelectValue placeholder={t('login.countryPlaceholder')} />
             </SelectTrigger>
             <SelectContent>
               {COUNTRIES.map((country) => (
@@ -168,7 +170,7 @@ export const CheckoutForm = ({ onSubmit, isLoading }: CheckoutFormProps) => {
       >
         {isLoading ?
           <Loader2 className="w-5 h-5 animate-spin" />
-        : 'Proceed to Payment'}
+        : t('login.proceedPayment')}
       </Button>
     </form>
   );
