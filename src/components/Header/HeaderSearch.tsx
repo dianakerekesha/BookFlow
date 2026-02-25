@@ -54,9 +54,6 @@ export const HeaderSearch = ({
           w-full
           h-[40px]
           px-4
-          border
-          border-border
-          rounded-md
           bg-input
           text-sm
           font-bold
