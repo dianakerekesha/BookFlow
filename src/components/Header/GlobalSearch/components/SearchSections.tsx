@@ -1,8 +1,6 @@
 import { Building2, User2, BookOpen, ArrowRight } from 'lucide-react';
 import { CommandGroup, CommandItem } from '@/components/ui/Command';
-import { AddButton, HeartButton } from '@/components/ui/Buttons';
-import { Icon } from '@/components/ui/icons';
-import { cn } from '@/lib/utils';
+import { HeartButton } from '@/components/ui/Buttons';
 import { TextHighlighter } from './TextHighlighter';
 import { useTranslation } from 'react-i18next';
 
@@ -12,6 +10,7 @@ import {
   type SearchSectionsProps,
 } from '../search.types';
 import type { Book } from '@/types/Book';
+import { AddSearchButton } from '@/components/ui/Buttons/AddSearchButton';
 
 export const SearchSections = ({
   groupedResults,
@@ -174,21 +173,10 @@ export const SearchSections = ({
                       onClick={(e) => e.stopPropagation()}
                       className="flex items-center gap-1 relative z-10"
                     >
-                      <AddButton
+                      <AddSearchButton
                         isSelected={actions.isInCart(book.id)}
-                        className={cn(
-                          '!w-8 !h-8 !p-0 !bg-transparent !shadow-none border border-black-800 hover:border-black text-background',
-                        )}
                         onClick={() => actions.handleAddToCart(book)}
-                      >
-                        <Icon
-                          name={
-                            actions.isInCart(book.id) ? 'check' : 'shoppingBag'
-                          }
-                          size="sm"
-                          className="w-5 h-5"
-                        />
-                      </AddButton>
+                      ></AddSearchButton>
                       <HeartButton
                         isSelected={actions.isFavorite(book.id)}
                         onClick={() => actions.handleToggleFavorite(book)}
