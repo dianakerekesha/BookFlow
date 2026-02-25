@@ -31,7 +31,7 @@ export const HeaderIconLink = ({
       <span
         className={cn(
           'absolute bottom-0 left-0 w-full h-[3px] transition-all duration-200',
-          isActive ? 'bg-[#313237]' : 'bg-transparent group-hover:bg-[#313237]',
+          isActive ? 'bg-foreground' : 'bg-transparent group-hover:bg-popover',
         )}
       />
     </>

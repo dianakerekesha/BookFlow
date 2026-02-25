@@ -154,6 +154,7 @@
   },
 
   "login": {
+    "contactInfo": "Контактна інформація",
     "loginToAccount": "Увійдіть до свого облікового запису",
     "enterAccount": "Введіть свою електронну адресу нижче, щоб увійти до свого облікового запису",
     "signWithGoogle": "Увійдіть за допомогою Google",
@@ -165,7 +166,21 @@
     "createAccount": "Створити обліковий запис",
     "enterInfo": "Введіть свою інформацію нижче, щоб створити обліковий запис",
     "fullName": "Повне ім'я",
+    "firstName": "Ім'я",
+    "lastName": "Прізвище",
     "namePlaceholder": "Петро Петренко",
+    "firstNamePlaceholder": "Петро",
+    "lastNamePlaceholder": "Петренко",
+    "phone": "Телефон",
+    "deliveryAddress": "Адреса доставки",
+    "StreetAddress": "Адреса",
+    "city": "Місто",
+    "Kyiv": "Київ",
+    "ZIP": "Поштовий індекс",
+    "country": "Країна",
+    "countryPlaceholder": "Оберіть країну",
+    "StreetAddressPlaceholder": "Пухнастих котиків 26, буд. 45",
+    "proceedPayment": "Перейти до оплати",
     "passwordError": "Має бути щонайменше 8 символів.",
     "haveAccount?": "Вже маєте обліковий запис?"
   },
@@ -184,6 +199,9 @@
     "orderSuccess": "Замовлення успішно оформлено!",
     "orderError": "Щось пішло не так. Спробуйте ще раз.",
     "validationError": "Будь ласка, заповніть всі обов'язкові поля.",
-    "loginRequired": "Будь ласка, увійдіть щоб продовжити."
+    "loginRequired": "Будь ласка, увійдіть щоб продовжити.",
+    "profileLoadError": "Не вдалося завантажити профіль",
+    "dataSaved": "Дані збережено",
+    "dataSaveError": "Помилка при збереженні"
   }
 }

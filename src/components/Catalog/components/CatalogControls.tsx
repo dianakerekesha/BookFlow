@@ -26,28 +26,43 @@ export const CatalogControls = ({
   return (
     <>
       <div className="col-span-2 md:col-span-4 lg:col-span-4 text-left mb-[24px]">
-        <label className="text-[#89939A] text-[12px] font-manrope font-medium mb-[3px]">
+        <label className="text-muted-foreground text-[12px] font-manrope font-medium mb-[3px]">
           {t('ui.sortBy')}
         </label>
         <Select
           value={sort}
           onValueChange={onChangeSort}
         >
-          <SelectTrigger className="w-full h-[40px] rounded-[8px] border-[#E2E6E9] bg-white font-manrope text-[#313237] text-[14px] font-bold">
+          <SelectTrigger className="w-full h-[40px] rounded-[8px] border-border bg-card font-manrope text-foreground text-[14px] font-bold">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="bg-card text-card-foreground border-border">
             <SelectGroup>
-              <SelectItem value="newest">{t('ui.date')}</SelectItem>
-              <SelectItem value="alphabetically">{t('ui.name')}</SelectItem>
-              <SelectItem value="cheapest">{t('ui.price')}</SelectItem>
+              <SelectItem
+                className="focus:bg-muted focus:text-foreground"
+                value="newest"
+              >
+                {t('ui.date')}
+              </SelectItem>
+              <SelectItem
+                className="focus:bg-muted focus:text-foreground"
+                value="alphabetically"
+              >
+                {t('ui.name')}
+              </SelectItem>
+              <SelectItem
+                className="focus:bg-muted focus:text-foreground"
+                value="cheapest"
+              >
+                {t('ui.price')}
+              </SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
       </div>
 
       <div className="col-span-2 md:col-span-3 lg:col-span-3 text-left mb-[24px]">
-        <label className="text-[#89939A] text-[12px] font-manrope font-medium mb-[3px]">
+        <label className="text-muted-foreground text-[12px] font-manrope font-medium mb-[3px]">
           {t('ui.itemsOnPage')}
         </label>
         <Select
@@ -56,15 +71,35 @@ export const CatalogControls = ({
             onChangeItemsPerPage(value === 'all' ? 'all' : Number(value));
           }}
         >
-          <SelectTrigger className="w-full h-[40px] rounded-[8px] border-[#E2E6E9] bg-white font-manrope text-[#313237] text-[14px] font-bold">
+          <SelectTrigger className="w-full h-[40px] rounded-[8px] border-border bg-card font-manrope text-foreground text-[14px] font-bold">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="bg-card text-card-foreground border-border">
             <SelectGroup>
-              <SelectItem value="all">{t('ui.all')}</SelectItem>
-              <SelectItem value="4">4</SelectItem>
-              <SelectItem value="8">8</SelectItem>
-              <SelectItem value="16">16</SelectItem>
+              <SelectItem
+                className="focus:bg-muted focus:text-foreground"
+                value="all"
+              >
+                {t('ui.all')}
+              </SelectItem>
+              <SelectItem
+                className="focus:bg-muted focus:text-foreground"
+                value="4"
+              >
+                4
+              </SelectItem>
+              <SelectItem
+                className="focus:bg-muted focus:text-foreground"
+                value="8"
+              >
+                8
+              </SelectItem>
+              <SelectItem
+                className="focus:bg-muted focus:text-foreground"
+                value="16"
+              >
+                16
+              </SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>

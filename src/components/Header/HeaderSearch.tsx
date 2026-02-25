@@ -54,9 +54,6 @@ export const HeaderSearch = ({
           w-full
           h-[40px]
           px-4
-          border
-          border-border
-          rounded-md
           bg-input
           text-sm
           font-bold
@@ -65,6 +62,7 @@ export const HeaderSearch = ({
           placeholder:text-muted-foreground
           placeholder:opacity-100
           placeholder:font-bold
+          focus-visible:outline-none
           "
             value=""
             placeholder={t('categories.findBookPlaceholder')}
@@ -107,10 +105,7 @@ export const HeaderSearch = ({
         className="
           w-full
           h-[40px]
-          px-4
-          border
-          border-border
-          rounded-md
+          px-4         
           bg-input
           text-sm
           font-bold
@@ -119,6 +114,7 @@ export const HeaderSearch = ({
           placeholder:text-muted-foreground
           placeholder:opacity-100
           placeholder:font-bold
+          focus-visible:outline-none
           "
         value=""
         placeholder={t('categories.findBookPlaceholder')}

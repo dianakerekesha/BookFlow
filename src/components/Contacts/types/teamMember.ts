@@ -2,7 +2,7 @@ export type TeamMember = {
   name: string;
   position: string;
   descriptionKey: string;
-  initials: string;
+  photo: string;
   gradient: string;
   telegram?: string;
   email?: string;

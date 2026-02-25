@@ -25,6 +25,7 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
     visiblePages,
     handleChangeNumber,
     handleChangeArrow,
+    isPageTransitioning,
   } = usePagination({ totalItems: products.length, itemsPerPage });
 
   const currentProducts: Book[] =
@@ -35,13 +36,17 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
       )
     );
 
+  const showSkeleton = isLoading || isPageTransitioning;
+
   return (
     <GridContainer className="overflow-hidden">
       <div className="col-span-full flex flex-col items-start mt-8 mb-8 md:mt-16 md:mb-10">
         <h1 className="text-[#313237] text-[32px] md:text-[48px] font-manrope font-bold leading-tight tracking-[-0.01em] md:tracking-[-0.02em] mb-2">
+      <div className="col-span-full flex flex-col items-start mt-8 mb-8 md:mt-16-mb-10">
+        <h1 className="text-foreground text-[32px] md:text-[48px] font-manrope font-bold leading-tight tracking-[-0.01em] md:tracking-[-0.02em] mb-2">
           {title}
         </h1>
-        <p className="text-[#89939A] text-[14px] font-manrope font-medium">
+        <p className="text-muted-foreground text-[14px] font-manrope font-medium">
           {isLoading ? '...' : t('items.count', { count: products.length })}
         </p>
       </div>
@@ -57,7 +62,7 @@ export const Catalog = ({ products, title, isLoading = false }: Props) => {
 
       <BooksList
         books={currentProducts}
-        isLoading={isLoading}
+        isLoading={showSkeleton}
         itemsPerPage={itemsPerPage === 'all' ? 16 : itemsPerPage}
       />
 
