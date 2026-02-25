@@ -91,7 +91,7 @@ export const TeamMemberCard = ({
           <img
             src={member.photo}
             alt={member.name}
-            className="w-10 h-10 rounded-full object-cover shrink-0"
+            className="w-10 h-10 rounded-full object-cover object-top shrink-0"
           />
           <button
             onClick={handleToggleWithStopPropagation}
