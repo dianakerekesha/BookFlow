@@ -49,7 +49,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: 'Alina Khvorostian',
     position: 'Frontend Developer',
     descriptionKey: 'team.alina_khvorostian',
-    photo: '', // TODO: add photo URL
+    photo:
+      'https://ik.imagekit.io/ox4rssyih/img/contacts/alina-khvorostian.jpg',
     gradient: 'from-rose-400 to-pink-600',
     telegram: 'https://t.me/AlinaKhvorostian',
     email: 'mailto:a.khvarastyan@gmail.com',

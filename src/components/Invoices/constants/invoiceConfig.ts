@@ -21,4 +21,4 @@ export enum InvoiceButtonLabel {
   Generating = 'Generating...',
 }
 
-export const DOWNLOAD_BUTTON_CLASS = `h-14 border border-border hover:border-ring text-foreground ${TYPOGRAPHY.buttons} rounded-md flex items-center justify-center gap-2 transition-colors w-full disabled:opacity-50`;
+export const DOWNLOAD_BUTTON_CLASS = `h-14 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 text-foreground ${TYPOGRAPHY.buttons} rounded-md flex items-center justify-center gap-2 transition-all w-full disabled:opacity-50`;
