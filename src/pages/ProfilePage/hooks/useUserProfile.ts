@@ -45,14 +45,24 @@ export const useUserProfile = () => {
 
     setIsSaving(true);
     try {
-      await setDoc(
-        doc(firestore, 'users', currentUser.uid),
-        { name: profile.name, phone: profile.phone },
-        { merge: true },
+      const timeout = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('timeout')), 5000),
       );
-      if (auth.currentUser) {
-        await updateProfile(auth.currentUser, { displayName: profile.name });
-      }
+
+      await Promise.race([
+        Promise.all([
+          setDoc(
+            doc(firestore, 'users', currentUser.uid),
+            { name: profile.name, phone: profile.phone },
+            { merge: true },
+          ),
+          auth.currentUser ?
+            updateProfile(auth.currentUser, { displayName: profile.name })
+          : Promise.resolve(),
+        ]),
+        timeout,
+      ]);
+
       showSuccess(t('toast.dataSaved'));
     } catch {
       showError(t('toast.dataSaveError'));
