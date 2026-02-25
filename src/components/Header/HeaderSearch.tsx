@@ -62,6 +62,7 @@ export const HeaderSearch = ({
           placeholder:text-muted-foreground
           placeholder:opacity-100
           placeholder:font-bold
+          focus-visible:outline-none
           "
             value=""
             placeholder={t('categories.findBookPlaceholder')}
@@ -113,6 +114,7 @@ export const HeaderSearch = ({
           placeholder:text-muted-foreground
           placeholder:opacity-100
           placeholder:font-bold
+          focus-visible:outline-none
           "
         value=""
         placeholder={t('categories.findBookPlaceholder')}
