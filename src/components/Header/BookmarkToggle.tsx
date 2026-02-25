@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Sun, Moon, Settings } from 'lucide-react';
-import { useCurrency } from '@/context/CurrencyContextType';
+import { useCurrency } from '@/context/CurrencyContext';
 
 export const BookmarkToggle = ({
   isMobile = false,
