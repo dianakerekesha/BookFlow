@@ -8,14 +8,12 @@ import { SocialLinks } from './SocialLinks';
 interface TeamMemberCardProps {
   member: TeamMember;
   isActive: boolean;
-  isLastOddItem: boolean;
   onToggle: () => void;
 }
 
 export const TeamMemberCard = ({
   member,
   isActive,
-  isLastOddItem,
   onToggle,
 }: TeamMemberCardProps) => {
   const { t } = useTranslation();
@@ -35,42 +33,30 @@ export const TeamMemberCard = ({
   return (
     <div
       className={cn(
-        'relative h-[340px] cursor-pointer overflow-hidden rounded-2xl shadow-lg',
+        'relative aspect-[3/4] cursor-pointer overflow-hidden rounded-2xl shadow-lg',
         'border border-white/10 transition-all duration-500',
         'hover:shadow-xl hover:-translate-y-1',
         isActive && 'ring-2 ring-white/20',
-        isLastOddItem &&
-          'sm:col-span-2 sm:max-w-[calc(50%-12px)] sm:mx-auto sm:w-full',
       )}
       onClick={onToggle}
     >
-      <div
+      <img
+        src={member.photo}
+        alt={member.name}
         className={cn(
-          'absolute inset-0 bg-gradient-to-br transition-transform duration-500',
-          member.gradient,
+          'absolute inset-0 w-full h-full object-cover transition-transform duration-500',
           isActive ? 'scale-110 blur-sm opacity-60' : 'scale-100 opacity-100',
         )}
       />
-
-      <div
-        className={cn(
-          'absolute inset-0 flex items-center justify-center transition-all duration-500',
-          isActive ? 'opacity-0 scale-90' : 'opacity-100 scale-100',
-        )}
-      >
-        <span className="text-white/25 font-bold text-8xl select-none">
-          {member.initials}
-        </span>
-      </div>
 
       <button
         onClick={handleToggleWithStopPropagation}
         aria-label={`View ${member.name}'s profile`}
         className={cn(
           'absolute top-4 right-4 z-30 p-2',
-          'text-white bg-white/20 hover:bg-white/40',
+          'text-foreground bg-background/30 hover:bg-background/50',
           'backdrop-blur-md rounded-full',
-          'transition-all duration-300 border border-white/30',
+          'transition-all duration-300 border border-border/30',
           isActive ? 'opacity-0 pointer-events-none' : 'opacity-100',
         )}
       >
@@ -80,13 +66,15 @@ export const TeamMemberCard = ({
       <div
         className={cn(
           'absolute bottom-0 left-0 right-0 p-5 z-10',
-          'bg-gradient-to-t from-black/75 to-transparent',
+          'bg-gradient-to-t from-background/80 to-transparent',
           'transition-opacity duration-300',
           isActive ? 'opacity-0 pointer-events-none' : 'opacity-100',
         )}
       >
-        <h3 className={`${TYPOGRAPHY.h2} text-white`}>{member.name}</h3>
-        <p className={`${TYPOGRAPHY.body} text-white/70`}>{member.position}</p>
+        <h3 className={`${TYPOGRAPHY.h2} text-foreground`}>{member.name}</h3>
+        <p className={`${TYPOGRAPHY.body} text-muted-foreground`}>
+          {member.position}
+        </p>
       </div>
 
       <div
@@ -100,15 +88,11 @@ export const TeamMemberCard = ({
         )}
       >
         <div className="flex justify-between items-start">
-          <div
-            className={cn(
-              'w-10 h-10 rounded-full flex items-center justify-center',
-              'text-white font-bold text-sm shrink-0',
-              `bg-gradient-to-br ${member.gradient}`,
-            )}
-          >
-            {member.initials}
-          </div>
+          <img
+            src={member.photo}
+            alt={member.name}
+            className="w-10 h-10 rounded-full object-cover shrink-0"
+          />
           <button
             onClick={handleToggleWithStopPropagation}
             aria-label="Close"
