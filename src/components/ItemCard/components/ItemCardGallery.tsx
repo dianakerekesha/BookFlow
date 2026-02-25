@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Thumbs, FreeMode, Zoom } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
+import { ImageWithSkeleton } from '@/components/ui/ImageWithSkeleton';
 
 import 'swiper/css';
 import 'swiper/css/thumbs';
@@ -32,8 +33,8 @@ export const ItemCardGallery: React.FC<ItemCardGalleryProps> = ({ images }) => {
         >
           {images.map((source, index) => (
             <SwiperSlide key={index}>
-              <div className="w-20 h-20 flex items-center justify-center rounded-lg border border-border hover:border-foreground dark:bg-white/20 dark:border-white/20 dark:hover:bg-white/40 transition-all">
-                <img
+              <div className="relative w-20 h-20 flex items-center justify-center rounded-lg border border-border hover:border-foreground dark:bg-white/20 dark:border-white/20 dark:hover:bg-white/40 transition-all">
+                <ImageWithSkeleton
                   src={source}
                   alt={`thumbnail ${index + 1}`}
                   className="w-16 h-16 object-contain rounded-md cursor-pointer"
@@ -52,8 +53,8 @@ export const ItemCardGallery: React.FC<ItemCardGalleryProps> = ({ images }) => {
       >
         {images.map((source, index) => (
           <SwiperSlide key={index}>
-            <div className="swiper-zoom-container w-full h-full flex items-center justify-center rounded-md cursor-zoom-in">
-              <img
+            <div className="swiper-zoom-container relative w-full h-full flex items-center justify-center rounded-md cursor-zoom-in">
+              <ImageWithSkeleton
                 src={source}
                 alt={`image ${index + 1}`}
                 className="w-full h-full object-contain"
