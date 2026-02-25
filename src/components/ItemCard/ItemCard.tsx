@@ -11,6 +11,7 @@ import { ItemCardCharacteristics } from './components/ItemCardCharacteristics';
 import { ItemCardDetails } from './components/ItemCardDetails';
 import { ItemCardGallery } from './components/ItemCardGallery';
 import type { BookType } from './types/itemCard.types';
+import { useTranslation } from 'react-i18next';
 
 interface ItemCardProps {
   type: BookType;
@@ -19,6 +20,7 @@ interface ItemCardProps {
 export const ItemCard: React.FC<ItemCardProps> = ({ type }) => {
   const { suggestedBooks } = useBooks();
   const { book, bookVariants, isLoading, handleBookChange } = useBookData(type);
+  const { t } = useTranslation();
 
   const imageUrls = book?.images ?? [];
   const categoryName = book?.category?.[0] ?? DEFAULT_CATEGORY;
@@ -61,7 +63,7 @@ export const ItemCard: React.FC<ItemCardProps> = ({ type }) => {
           </article>
 
           <BooksSection
-            title="You may like"
+            title={t('categories.youMayLike')}
             books={suggestedBooks}
           />
         </div>

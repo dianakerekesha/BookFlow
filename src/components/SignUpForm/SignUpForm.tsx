@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { FirebaseAuthError } from './types/SignUpErrors';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 import {
   Card,
   CardContent,
@@ -37,6 +38,7 @@ export const SignUpForm = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const { t } = useTranslation();
 
   const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -79,22 +81,20 @@ export const SignUpForm = () => {
       )}
       <Card>
         <CardHeader>
-          <CardTitle>Create an account</CardTitle>
-          <CardDescription>
-            Enter your information below to create your account
-          </CardDescription>
+          <CardTitle>{t('login.createAccount')}</CardTitle>
+          <CardDescription>{t('login.enterInfo')}</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit}>
             <FieldGroup>
               <Field>
-                <FieldLabel htmlFor="name">Full name</FieldLabel>
+                <FieldLabel htmlFor="name">{t('login.fullName')}</FieldLabel>
                 <Input
                   id="name"
                   type="text"
                   value={name}
                   onChange={(event) => setName(event.target.value)}
-                  placeholder="John Doe"
+                  placeholder={t('login.namePlaceholder')}
                   required
                 />
               </Field>
@@ -110,7 +110,9 @@ export const SignUpForm = () => {
                 />
               </Field>
               <Field>
-                <FieldLabel htmlFor="password">Password</FieldLabel>
+                <FieldLabel htmlFor="password">
+                  {t('login.password')}
+                </FieldLabel>
                 <Input
                   id="password"
                   type="password"
@@ -118,13 +120,11 @@ export const SignUpForm = () => {
                   onChange={(event) => setPassword(event.target.value)}
                   required
                 />
-                <FieldDescription>
-                  Must be at least 8 characters long.
-                </FieldDescription>
+                <FieldDescription>{t('login.passwordError')}</FieldDescription>
               </Field>
               <Field>
                 <FieldLabel htmlFor="confirm-password">
-                  Confirm Password
+                  {t('login.confirmPassword')}
                 </FieldLabel>
                 <Input
                   id="confirm-password"
@@ -145,10 +145,11 @@ export const SignUpForm = () => {
                     className={cn(COLORS.green, 'cursor-pointer')}
                     type="submit"
                   >
-                    Create Account
+                    {t('login.createAccount')}
                   </Button>
                   <FieldDescription className="px-6 text-center">
-                    Already have an account? <Link to={'/login'}>Sign in</Link>
+                    {t('login.haveAccount?')}{' '}
+                    <Link to={'/login'}>{t('login.signIn')}</Link>
                   </FieldDescription>
                 </Field>
               </FieldGroup>

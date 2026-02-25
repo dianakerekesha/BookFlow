@@ -62,7 +62,9 @@
   },
 
   "categories": {
-    "category": "Категорії",
+    "category": "Категорія",
+    "categories": "Категорії",
+    "findBookPlaceholder": "Знайти книгу чи автора",
     "shopByCategory": "Покупки за категоріями",
     "chooseCategory": "Оберіть категорію",
     "paper": "Книги",
@@ -72,7 +74,22 @@
     "kindleBooks": "Електронні книги",
     "audioBooks": "Аудіокниги",
     "newBooks": "Нові надходження",
-    "youMayLike": "Вам може сподобатися"
+    "youMayLike": "Вам може сподобатися",
+    "programming": "Програмування",
+    "psychology": "Психологія",
+    "fantasy": "Фентезі",
+    "drama": "Драма",
+    "detective": "Детектив",
+    "leadership": "Лідерство",
+    "business planning": "Бізнес-планування",
+    "managerial management. decision management": "Менеджмент. Управління рішеннями",
+    "motivation. self-improvement": "Мотивація. Самовдосконалення",
+    "computer games": "Комп’ютерні ігри",
+    "epic fantasy": "Епічне фентезі",
+    "romantic fantasy": "Романтичне фентезі",
+    "readers’ choice may": "Вибір читачів",
+    "our product manager's favorite": "Вибір нашого менеджера",
+    "our tech team leader's family favorite": "Вибір нашого тех-ліда"
   },
 
   "cart": {
@@ -80,7 +97,11 @@
     "backToShop": "Повернутись до покупок",
     "totalFor": "Загалом за",
     "checkout": "Оплатити",
-    "emptyHint": "Натисніть <1>Додати до кошика</1> на будь-якій книзі щоб почати"
+    "emptyHint": "Натисніть <1>Додати до кошика</1> на будь-якій книзі щоб почати",
+    "emptyTitle": "Ваш кошик все ще спить",
+    "emptyDescription": "Додайте кілька книг, щоб розбудити його",
+    "emptyButton": "Назад до магазину",
+    "viewAll": "Переглянути все"
   },
 
   "favourites": {
@@ -108,15 +129,8 @@
     "illustrationsFalse": "Немає ілюстрацій",
     "characteristics": "Характеристики",
     "about": "Опис книги",
-    "language": "Мова"
-  },
-
-  "жанри": {
-    "programming": "Програмування",
-    "psychology": "Психологія",
-    "fantasy": "Фентезі",
-    "drama": "Драма",
-    "detective": "Детектив"
+    "language": "Мова",
+    "pages": "Сторінки"
   },
 
   "rights": {
@@ -139,6 +153,22 @@
     "ourTeam": "Наша команда"
   },
 
+  "login": {
+    "loginToAccount": "Увійдіть до свого облікового запису",
+    "enterAccount": "Введіть свою електронну адресу нижче, щоб увійти до свого облікового запису",
+    "signWithGoogle": "Увійдіть за допомогою Google",
+    "password": "Пароль",
+    "confirmPassword": "Підтвердіть пароль",
+    "signUp": "Зареєструватися",
+    "signIn": "Увійти",
+    "noAccount?": "Не маєте облікового запису?",
+    "createAccount": "Створити обліковий запис",
+    "enterInfo": "Введіть свою інформацію нижче, щоб створити обліковий запис",
+    "fullName": "Повне ім'я",
+    "namePlaceholder": "Петро Петренко",
+    "passwordError": "Має бути щонайменше 8 символів.",
+    "haveAccount?": "Вже маєте обліковий запис?"
+  },
   "errors": {
     "pageNotFound": "Ой, щось пішло не так...<br />Спробуйте перейти на іншу сторінку",
     "itemNotFound": "Ой, щось пішло не так...<br />Спробуйте обрати інший товар",
