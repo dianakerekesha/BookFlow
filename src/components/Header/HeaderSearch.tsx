@@ -74,7 +74,7 @@ export const HeaderSearch = ({
           value={currentCategory}
           onValueChange={handleCategoryChange}
         >
-          <SelectTrigger className="flex items-center justify-between px-4 h-[40px] w-full border border-border rounded-md bg-input text-sm font-bold text-foreground">
+          <SelectTrigger className="flex items-center justify-between px-4 h-[40px] w-full border border-border rounded-md bg-input text-sm font-bold text-secondary">
             <SelectValue placeholder={t('categories.categories')} />
           </SelectTrigger>
 
@@ -125,7 +125,7 @@ export const HeaderSearch = ({
         value={currentCategory}
         onValueChange={handleCategoryChange}
       >
-        <SelectTrigger className="flex items-center justify-between gap-3 px-4 h-[40px] w-[176px] border border-border rounded-md bg-input text-sm font-bold text-foreground whitespace-nowrap hover:border-ring">
+        <SelectTrigger className="flex items-center justify-between gap-3 px-4 h-[40px] w-[176px] border border-border rounded-md bg-input text-sm font-bold text-secondary whitespace-nowrap hover:border-ring">
           <SelectValue placeholder={t('categories.categories')} />
         </SelectTrigger>
 
