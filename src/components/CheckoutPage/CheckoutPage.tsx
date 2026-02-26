@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import {
   CheckoutForm,
   LiqPayButton,
@@ -7,13 +7,13 @@ import {
   PaymentMethodSelector,
   StripeWrapper,
 } from '@/components/Checkout';
-import { useCartAndFavorites } from '@/hooks/useCartAndFavourites';
+import { useCartFavorites } from '@/context/CartFavoritesContext';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { useCheckout } from './hooks/useCheckout';
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
-  const { cart: cartItems, clearCart } = useCartAndFavorites();
+  const { cart: cartItems, clearCart } = useCartFavorites();
   const [paymentMethod, setPaymentMethod] = useState<'stripe' | 'liqpay'>(
     'stripe',
   );
@@ -29,17 +29,12 @@ const CheckoutPage = () => {
     handlePaymentError,
   } = useCheckout(cartItems || [], paymentMethod, clearCart);
 
-  if (!cartItems || cartItems.length === 0) {
+  if (step === 'delivery' && (!cartItems || cartItems.length === 0)) {
     return (
-      <div className="flex flex-col items-center gap-4 py-20 text-muted-foreground">
-        <p className={TYPOGRAPHY.body}>Your cart is empty.</p>
-        <Link
-          to="/cart"
-          className={`${TYPOGRAPHY.buttons} text-foreground hover:underline`}
-        >
-          ← Back to cart
-        </Link>
-      </div>
+      <Navigate
+        to="/cart"
+        replace
+      />
     );
   }
 

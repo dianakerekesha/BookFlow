@@ -55,7 +55,12 @@ export const useCheckout = (
         setStripeClientSecret(clientSecret);
       }
 
-      return discount ? { ...order, discount } : order;
+      if (discount) {
+        const discountAmount =
+          Math.round(order.subtotal * (discount / 100) * 100) / 100;
+        return { ...order, discount, total: order.subtotal - discountAmount };
+      }
+      return order;
     },
     onSuccess: (order) => {
       setCurrentOrder(order);
@@ -72,8 +77,8 @@ export const useCheckout = (
     if (discount) {
       await consumeDiscount();
     }
-    onClearCart();
     navigate(`/order-success/${currentOrder?.id}`);
+    onClearCart();
     showSuccess(t('toast.orderSuccess'));
   };
 
