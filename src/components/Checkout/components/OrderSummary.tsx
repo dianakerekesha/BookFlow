@@ -4,6 +4,8 @@ import { OrderSummaryItem } from './OrderSummaryItem';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { useCurrency } from '@/context/CurrencyContext';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '@/context/AuthContext';
+import { DISCOUNT_PERCENTAGE } from '@/components/RegisterPromo/types/promo-constants';
 
 interface OrderSummaryProps {
   items: CartItem[];
@@ -12,12 +14,20 @@ interface OrderSummaryProps {
 export const OrderSummary = ({ items }: OrderSummaryProps) => {
   const { currency, rate } = useCurrency();
   const { t } = useTranslation();
+  const { userData } = useAuth();
 
-  const total = items.reduce(
+  const subtotal = items.reduce(
     (sum, item) => sum + getItemPrice(item, currency, rate) * item.quantity,
     0,
   );
   const symbol = currency === 'USD' ? '$' : '₴';
+
+  const discountPercent = userData?.discount ? DISCOUNT_PERCENTAGE : 0;
+  const discountAmount =
+    discountPercent > 0 ?
+      Math.round(subtotal * (discountPercent / 100) * 100) / 100
+    : 0;
+  const total = subtotal - discountAmount;
 
   return (
     <div className="bg-card rounded p-8 sticky top-24">
@@ -45,9 +55,22 @@ export const OrderSummary = ({ items }: OrderSummaryProps) => {
         </span>
         <span className={`${TYPOGRAPHY.body} text-foreground`}>
           {symbol}
-          {total.toFixed(2)}
+          {subtotal.toFixed(2)}
         </span>
       </div>
+
+      {discountPercent > 0 && (
+        <div className="flex justify-between mb-2.5">
+          <span className={`${TYPOGRAPHY.body} text-green-600`}>
+            {t('login.discount', { percent: discountPercent })}
+          </span>
+          <span className={`${TYPOGRAPHY.body} text-green-600 font-medium`}>
+            -{symbol}
+            {discountAmount.toFixed(2)}
+          </span>
+        </div>
+      )}
+
       <div className="flex justify-between">
         <span className={`${TYPOGRAPHY.body} text-foreground`}>
           {t('login.shipping')}

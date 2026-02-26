@@ -4,7 +4,11 @@ import { TYPOGRAPHY } from '@/constants/typography';
 import { StatusBadge } from './StatusBadge';
 import { OrderItemThumbnails } from './OrderItemThumbnails';
 import { formatOrderDate } from '../helpers/formatOrderDate';
-import { convertPrice, getCurrencySymbol } from '../helpers/priceUtils';
+import {
+  convertPrice,
+  getCurrencySymbol,
+  applyDiscount,
+} from '../helpers/priceUtils';
 import { useCurrency } from '@/context/CurrencyContext';
 
 interface OrderCardProps {
@@ -13,7 +17,8 @@ interface OrderCardProps {
 
 export const OrderCard = ({ order }: OrderCardProps) => {
   const { currency, rate } = useCurrency();
-  const total = convertPrice(order.total, currency, rate);
+  const subtotal = convertPrice(order.subtotal, currency, rate);
+  const { total } = applyDiscount(subtotal, order.discount);
   const symbol = getCurrencySymbol(currency);
   const totalItemQuantity = order.items.reduce(
     (sum, item) => sum + item.quantity,
@@ -37,7 +42,14 @@ export const OrderCard = ({ order }: OrderCardProps) => {
             </p>
           </div>
           <div className="flex flex-col items-end gap-1.5">
-            <StatusBadge status={order.status} />
+            <div className="flex items-center gap-2">
+              {order.discount != null && order.discount > 0 && (
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                  -{order.discount}%
+                </span>
+              )}
+              <StatusBadge status={order.status} />
+            </div>
             <p className={`${TYPOGRAPHY.small} text-muted-foreground`}>
               {formatOrderDate(order.createdAt)}
             </p>

@@ -1,4 +1,3 @@
-// hooks/useBooks.ts
 import { useQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
