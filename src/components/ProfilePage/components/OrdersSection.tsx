@@ -61,11 +61,9 @@ export const OrdersSection = () => {
               {isShowingAll ?
                 <>
                   <ChevronUp className="w-4 h-4" />
-                  {t('cart.сollapse')}
                 </>
               : <>
-                  <ChevronDown className="w-4 h-4" />
-                  {t('cart.showAll')} ({orders.length})
+                  <ChevronDown className="w-4 h-4" />({orders.length})
                 </>
               }
             </button>
