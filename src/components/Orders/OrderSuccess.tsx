@@ -76,6 +76,7 @@ export const OrderSuccess = () => {
 
             <OrderTotals
               subtotal={subtotal.toFixed(2)}
+              discount={order.discount}
               total={total.toFixed(2)}
               symbol={symbol}
               paymentMethod={order.paymentMethod}

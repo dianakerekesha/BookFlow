@@ -8,25 +8,20 @@ import bookImg from './book white.png';
 import kindleImg from './kindel (1).png';
 import tabletImg from './tablet3.png';
 
-//const BASE = import.meta.env.BASE_URL;
-
 const CATEGORIES = [
   {
     label: 'categories.paperBooks',
     path: '/paper',
-    //image: `${BASE}img/categories/Paper-books.png`,
     image: bookImg,
   },
   {
     label: 'categories.audioBooks',
     path: '/audiobook',
-    //image: `${BASE}img/categories/Audiobooks.png`,
     image: tabletImg,
   },
   {
     label: 'categories.kindleBooks',
     path: '/kindle',
-    //image: `${BASE}img/categories/Kindle-books.png`,
     image: kindleImg,
   },
 ];

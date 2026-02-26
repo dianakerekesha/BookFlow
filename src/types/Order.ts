@@ -27,6 +27,7 @@ export interface Order {
   customer: CustomerData;
   items: CartItem[];
   subtotal: number;
+  discount?: number;
   total: number;
   invoiceUrl?: string;
   userId?: string;
@@ -36,5 +37,6 @@ export interface CreateOrderPayload {
   customer: CustomerData;
   items: CartItem[];
   paymentMethod: PaymentMethod;
+  discount?: number;
   userId?: string;
 }

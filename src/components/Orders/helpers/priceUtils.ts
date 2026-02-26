@@ -20,3 +20,12 @@ export const getItemPrice = (
   rate: number,
 ): number =>
   convertPrice(item.priceDiscount ?? item.priceRegular, currency, rate);
+
+export const applyDiscount = (
+  subtotal: number,
+  discount?: number,
+): { discountAmount: number; total: number } => {
+  if (!discount || discount <= 0) return { discountAmount: 0, total: subtotal };
+  const discountAmount = Math.round(subtotal * (discount / 100) * 100) / 100;
+  return { discountAmount, total: subtotal - discountAmount };
+};
