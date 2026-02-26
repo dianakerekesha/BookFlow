@@ -9,7 +9,7 @@ import { useQueries } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import type { Book } from './../types/Book';
 import { getBooks } from '@/services/bookService';
-import type { LanguageOption } from '@/services/bookService';
+import type { LanguageOption } from '@/types/LanguageOption';
 
 interface BooksContextType {
   books: Book[];
