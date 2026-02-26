@@ -1,14 +1,14 @@
 import { gsap } from 'gsap';
-import type { RefObject } from 'react';
-import { ANIM_SETTINGS, getAnimationSVG } from './animate-constants';
-
-type TargetRef = RefObject<HTMLElement | null> | null | undefined;
-
-export const animateToTarget = (
-  sourceEl: HTMLElement | null | undefined,
-  targetRef: TargetRef,
-  type: 'book' | 'heart' = 'book',
-) => {
+import {
+  ANIM_SETTINGS,
+  getAnimationSVG,
+  type AnimateToTargetParams,
+} from './animate-constants';
+export const animateToTarget = ({
+  sourceEl,
+  targetRef,
+  type = 'book',
+}: AnimateToTargetParams) => {
   if (!sourceEl) return;
 
   const targetEl = targetRef?.current;
@@ -16,13 +16,15 @@ export const animateToTarget = (
   const targetRect = targetEl?.getBoundingClientRect();
 
   const isTargetVisible = !!(targetRect && targetRect.width > 0);
+
   const targetX =
-    isTargetVisible ?
-      targetRect!.left + targetRect!.width / 2
+    targetRect && isTargetVisible ?
+      targetRect.left + targetRect.width / 2
     : window.innerWidth - ANIM_SETTINGS.mobileTarget.xOffset;
+
   const targetY =
-    isTargetVisible ?
-      targetRect!.top + targetRect!.height / 2
+    targetRect && isTargetVisible ?
+      targetRect.top + targetRect.height / 2
     : ANIM_SETTINGS.mobileTarget.yOffset;
 
   const iconSize = ANIM_SETTINGS.sizes[type];

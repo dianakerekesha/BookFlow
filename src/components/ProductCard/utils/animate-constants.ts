@@ -1,3 +1,13 @@
+import type { RefObject } from 'react';
+
+export type AnimationType = 'book' | 'heart';
+
+export interface AnimateToTargetParams {
+  sourceEl: HTMLElement | null | undefined;
+  targetRef?: RefObject<HTMLElement | null>;
+  type?: AnimationType;
+}
+
 export const ANIM_SETTINGS = {
   duration: 1.2,
   appearanceDuration: 0.1,
