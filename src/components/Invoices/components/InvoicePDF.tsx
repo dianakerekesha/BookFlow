@@ -9,7 +9,7 @@ import { InvoiceItemsTable } from './InvoiceItemsTable';
 import { InvoiceTotals } from './InvoiceTotals';
 import { InvoiceFooter } from './InvoiceFooter';
 
-export const InvoicePDF = ({ order }: InvoicePDFProps) => (
+export const InvoicePDF = ({ order, currencyInfo }: InvoicePDFProps) => (
   <Document>
     <Page
       size="A4"
@@ -18,10 +18,15 @@ export const InvoicePDF = ({ order }: InvoicePDFProps) => (
       <InvoiceHeader orderId={order.id} />
       <InvoiceMetaSection order={order} />
       <InvoiceAddresses customer={order.customer} />
-      <InvoiceItemsTable items={order.items} />
+      <InvoiceItemsTable
+        items={order.items}
+        currencyInfo={currencyInfo}
+      />
       <InvoiceTotals
         subtotal={order.subtotal}
+        discount={order.discount}
         total={order.total}
+        currencyInfo={currencyInfo}
       />
       <InvoiceFooter />
     </Page>

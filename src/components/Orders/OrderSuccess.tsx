@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { Loader } from '@/components/ui/Loader';
 import { useCurrency } from '@/context/CurrencyContext';
-import { useOrder } from '@/hooks/useOrder';
+import { useOrder } from '@/components/Orders/hooks/useOrder';
 import { convertPrice, getCurrencySymbol } from './helpers/priceUtils';
 import { formatOrderDate } from './helpers/formatOrderDate';
 import { StatusBadge } from './components/StatusBadge';
@@ -76,6 +76,7 @@ export const OrderSuccess = () => {
 
             <OrderTotals
               subtotal={subtotal.toFixed(2)}
+              discount={order.discount}
               total={total.toFixed(2)}
               symbol={symbol}
               paymentMethod={order.paymentMethod}

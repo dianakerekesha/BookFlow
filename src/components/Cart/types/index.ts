@@ -8,6 +8,7 @@ export interface CartSummaryProps {
   totalPrice: number;
   totalQuantity: number;
   symbol: string;
+  discountPercent?: number;
 }
 
 export interface CartCheckoutProps {

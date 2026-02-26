@@ -1,3 +1,5 @@
+export const DISCOUNT_PERCENTAGE = 15;
+
 export const PROMO_CONFIG = {
   maxWidth: 'sm:max-w-[550px]',
   timerDelay: 7000,
