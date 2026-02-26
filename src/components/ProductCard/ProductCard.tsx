@@ -49,7 +49,11 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
       addToCart(book);
       showSuccess(t('toast.addedToCart', { name: book.name }));
 
-      animateToTarget(event?.currentTarget, cartIconRef, 'book');
+      animateToTarget({
+        sourceEl: event?.currentTarget,
+        targetRef: cartIconRef,
+        type: 'book',
+      });
     }
   };
 
@@ -63,7 +67,11 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
     } else {
       showSuccess(t('toast.addedToFavorites', { name: book.name }));
 
-      animateToTarget(event?.currentTarget, favIconRef, 'heart');
+      animateToTarget({
+        sourceEl: event?.currentTarget,
+        targetRef: favIconRef,
+        type: 'heart',
+      });
     }
   };
 
