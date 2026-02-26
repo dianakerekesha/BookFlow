@@ -1,6 +1,6 @@
 # Books Catalog
 
-A full-featured, responsive online bookstore built by a team of five developers. Browse, search, and purchase books in three formats — paperback, Kindle, and audiobook — with real payment processing, multilingual support, dark mode, and cinematic animations throughout.
+A full-featured, responsive online bookstore built by a team of five developers. Browse, search, and purchase books in three formats — Paperback, Kindle, and Audiobook — with real payment processing, multilingual support, dark mode, and cinematic animations throughout.
 
 **[Live Demo](https://online-store-2026.github.io/books-catalog-frontend/)**
 
