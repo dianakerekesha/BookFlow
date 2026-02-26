@@ -15,6 +15,8 @@ import { calculateCartTotalPrice } from './helpers/calculateCartTotalPrice';
 import { calculateCartTotalQuantity } from './helpers/calculateCartTotalQuantity';
 import { isSameOriginReferrer } from './helpers/isSameOriginReferrer';
 import { useCurrency } from '@/context/CurrencyContext';
+import { useAuth } from '@/context/AuthContext';
+import { DISCOUNT_PERCENTAGE } from '@/components/RegisterPromo/types/promo-constants';
 
 export const Cart = () => {
   const { cart } = useCartFavorites();
@@ -22,6 +24,9 @@ export const Cart = () => {
   const { t } = useTranslation();
   const isLoading = useSimulatedLoading();
   const { currency, rate } = useCurrency();
+  const { userData } = useAuth();
+
+  const discountPercent = userData?.discount ? DISCOUNT_PERCENTAGE : undefined;
 
   const totalPrice = useMemo(
     () => calculateCartTotalPrice(cart, currency, rate),
@@ -57,7 +62,7 @@ export const Cart = () => {
       <h1 className={cn(TYPOGRAPHY.h1, 'mb-2 text-foreground')}>
         {t('cart.cart')}
       </h1>
-      <p className="mb-8 text-gray-400">
+      <p className="mb-8 text-muted-foreground">
         {isLoading ? itemLabel(skeletonCount) : itemLabel(totalQuantity)}
       </p>
 
@@ -85,6 +90,7 @@ export const Cart = () => {
               totalPrice={totalPrice}
               totalQuantity={totalQuantity}
               symbol={symbol}
+              discountPercent={discountPercent}
             />
           }
         </div>

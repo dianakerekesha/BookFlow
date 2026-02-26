@@ -27,7 +27,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: 'Diana Kerekesha',
     position: 'Full-stack Developer',
     descriptionKey: 'team.diana_kerekesha',
-    photo: '', // TODO: add photo URL
+    photo: 'https://ik.imagekit.io/ox4rssyih/img/contacts/diana-kerekesha.JPG',
     gradient: 'from-emerald-400 to-teal-600',
     telegram: 'https://t.me/dianakerekesha',
     email: 'mailto:diana.kerekesha.fs@gmail.com',

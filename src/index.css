@@ -24,6 +24,7 @@ body #root {
   --color-elements: #e2e6e9;
   --color-primary-gray: #313237;
   --breakpoint-md: 640px;
+  --breakpoint-tablet: 820px;
   --breakpoint-lg: 1200px;
   --breakpoint-desktop: 1201px;
   --color-background: var(--background);
@@ -77,24 +78,21 @@ body #root {
 :root {
   --radius: 0.625rem;
 
-  /* ══ VANILLA LIGHT ══ */
   --background: #fff2df;
   --foreground: #3d2400;
 
-  /* Cards — білі, чітко виступають на vanilla фоні */
   --card: #fee9ca;
   --card-foreground: #2c1a0e;
   --popover: #e59312;
   --popover-foreground: oklch(0.4265 0.074 70.8537);
 
-  /* Dark chocolate CTA */
   --primary: #3b2010;
   --primary-foreground: #ffffff;
 
   --secondary: #3d2400;
   --secondary-foreground: #3b2010;
   --muted: #f7edd8;
-  --muted-foreground: #7a5c40;
+  --muted-foreground: #b08860;
   --accent: #f2e4ce;
   --accent-foreground: #3b2010;
 
@@ -109,8 +107,6 @@ body #root {
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: #2e1a00;
 
-  /* ── Header: гіркий шоколад — темніший за будь-який фон ── */
-  /* nav-тексту задано колір через sidebar-foreground */
   --sidebar: #1e0f06;
   --sidebar-foreground: #f5e8d4;
   --sidebar-primary: #d4a96a;
@@ -121,17 +117,14 @@ body #root {
 }
 
 .dark {
-  /* ══ DARK CHOCOLATE ══ */
   --background: #5e3824;
   --foreground: #f2e4ce;
 
-  /* Cards: молочний шоколад — +0.12L від фону, чітко виступають */
   --card: #533020;
   --card-foreground: #f2e4ce;
   --popover: #e59312;
   --popover-foreground: oklch(0.4265 0.074 70.8537);
 
-  /* Карамель як primary */
   --primary: #fff2df;
   --primary-foreground: #1e0f06;
 
@@ -153,7 +146,6 @@ body #root {
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: #e5e7eb;
 
-  /* ── Header: еспресо — значно темніший за chocolate фон ── */
   --sidebar: #120800;
   --sidebar-foreground: #f2e4ce;
   --sidebar-primary: #d4a96a;
@@ -244,7 +236,6 @@ body #root {
   border: 1px solid #dfc08a;
 }
 
-/* Прогрес бар */
 .Toastify__progress-bar--success {
   background: #4caf50;
 }
@@ -255,7 +246,6 @@ body #root {
   background: #2196f3;
 }
 
-/* Іконки */
 .Toastify__toast--success .Toastify__toast-icon svg {
   fill: #4caf50;
 }
@@ -266,7 +256,6 @@ body #root {
   fill: #2196f3;
 }
 
-/* Текст */
 .Toastify__toast--success .Toastify__toast-body {
   color: #4caf50;
 }
@@ -277,7 +266,6 @@ body #root {
   color: #2196f3;
 }
 
-/* Хрестик */
 .Toastify__close-button {
   color: #f5e8d4;
   opacity: 0.7;

@@ -14,6 +14,7 @@ import { X } from 'lucide-react';
 import { FormField } from './FormField';
 import { getFirebaseAuthErrorMessage } from '../helpers/getFirebaseAuthErrorMessage';
 import { isGoogleAuthProvider } from '../helpers/isGoogleAuthProvider';
+import { useTranslation } from 'react-i18next';
 
 interface DeleteAccountModalProps {
   onClose: () => void;
@@ -24,6 +25,7 @@ export const DeleteAccountModal = ({ onClose }: DeleteAccountModalProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { currentUser } = useAuth();
+  const { t } = useTranslation();
 
   const isGoogleUser = isGoogleAuthProvider(currentUser);
 
@@ -56,7 +58,7 @@ export const DeleteAccountModal = ({ onClose }: DeleteAccountModalProps) => {
       <div className="bg-card rounded-2xl border border-border p-6 w-full max-w-md mx-4 shadow-2xl">
         <div className="flex items-center justify-between mb-4">
           <h3 className={cn(TYPOGRAPHY.h4, 'text-[#eb5757]')}>
-            Видалити акаунт
+            {t('login.deleteAccount')}
           </h3>
           <button
             onClick={onClose}
@@ -67,13 +69,13 @@ export const DeleteAccountModal = ({ onClose }: DeleteAccountModalProps) => {
         </div>
 
         <p className="text-sm text-muted-foreground mb-6">
-          Ця дія незворотня. Всі ваші дані будуть видалені. Ви впевнені?
+          {t('login.deleteAccountNotification')}
         </p>
 
         {!isGoogleUser && (
           <div className="mb-6">
             <FormField
-              label="Введіть пароль для підтвердження"
+              label={t('login.enterPasswordForConfirmation')}
               placeholder="••••••••"
               type="password"
               value={password}
@@ -87,14 +89,14 @@ export const DeleteAccountModal = ({ onClose }: DeleteAccountModalProps) => {
             onClick={onClose}
             className="flex-1 px-4 py-3 rounded-xl border border-border text-sm font-medium text-foreground hover:bg-muted transition-colors"
           >
-            Скасувати
+            {t('ui.cancel')}
           </button>
           <button
             onClick={handleDeleteAccount}
             disabled={isDeleteDisabled}
             className="flex-1 px-4 py-3 rounded-xl bg-[#eb5757] text-white text-sm font-medium hover:opacity-80 transition-opacity disabled:opacity-50"
           >
-            {isLoading ? 'Видалення...' : 'Видалити'}
+            {isLoading ? t('ui.deleting') : t('ui.delete')}
           </button>
         </div>
       </div>

@@ -12,6 +12,7 @@ import { X } from 'lucide-react';
 import { FormField } from './FormField';
 import { PasswordToggleButton } from './PasswordToggleButton';
 import { getFirebaseAuthErrorMessage } from '../helpers/getFirebaseAuthErrorMessage';
+import { useTranslation } from 'react-i18next';
 
 interface ChangePasswordModalProps {
   onClose: () => void;
@@ -25,6 +26,7 @@ export const ChangePasswordModal = ({ onClose }: ChangePasswordModalProps) => {
     useState(false);
   const [isNewPasswordVisible, setIsNewPasswordVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { t } = useTranslation();
 
   const handleToggleCurrentPasswordVisibility = () => {
     setIsCurrentPasswordVisible((previous) => !previous);
@@ -68,7 +70,7 @@ export const ChangePasswordModal = ({ onClose }: ChangePasswordModalProps) => {
       <div className="bg-card rounded-2xl border border-border p-6 w-full max-w-md mx-4 shadow-2xl">
         <div className="flex items-center justify-between mb-6">
           <h3 className={cn(TYPOGRAPHY.h4, 'text-foreground')}>
-            Змінити пароль
+            {t('login.changePassword')}
           </h3>
           <button
             onClick={onClose}
@@ -80,7 +82,7 @@ export const ChangePasswordModal = ({ onClose }: ChangePasswordModalProps) => {
 
         <div className="flex flex-col gap-4">
           <FormField
-            label="Поточний пароль"
+            label={t('login.currentPassword')}
             placeholder="••••••••"
             type={isCurrentPasswordVisible ? 'text' : 'password'}
             value={currentPassword}
@@ -93,8 +95,8 @@ export const ChangePasswordModal = ({ onClose }: ChangePasswordModalProps) => {
             }
           />
           <FormField
-            label="Новий пароль"
-            placeholder="мін. 6 символів"
+            label={t('login.newPassword')}
+            placeholder={t('login.passwordLength')}
             type={isNewPasswordVisible ? 'text' : 'password'}
             value={newPassword}
             onChange={setNewPassword}
@@ -106,7 +108,7 @@ export const ChangePasswordModal = ({ onClose }: ChangePasswordModalProps) => {
             }
           />
           <FormField
-            label="Підтвердити новий пароль"
+            label={t('login.passwordConfirm')}
             placeholder="••••••••"
             type="password"
             value={confirmPassword}
@@ -119,14 +121,14 @@ export const ChangePasswordModal = ({ onClose }: ChangePasswordModalProps) => {
             onClick={onClose}
             className="flex-1 px-4 py-3 rounded-xl border border-border text-sm font-medium text-foreground hover:bg-muted transition-colors"
           >
-            Скасувати
+            {t('ui.cancel')}
           </button>
           <button
             onClick={handleSubmit}
             disabled={isLoading}
             className="flex-1 px-4 py-3 rounded-xl bg-foreground text-background text-sm font-medium hover:opacity-80 transition-opacity disabled:opacity-50"
           >
-            {isLoading ? 'Збереження...' : 'Змінити пароль'}
+            {isLoading ? t('ui.preservation"') : t('login.changePassword')}
           </button>
         </div>
       </div>

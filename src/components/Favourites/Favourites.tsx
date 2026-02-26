@@ -1,18 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
-import type { FavouritesProps } from './types/Favourites';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { cn } from '@/lib/utils';
 import { ProductCard } from '../ProductCard';
 import { FavouritesEmpty } from './FavouritesEmpty';
 import { useTranslation } from 'react-i18next';
+import { useCartFavorites } from '@/context/CartFavoritesContext';
 
-export const Favourites = ({
-  books = [],
-  title = 'favourites.title',
-}: FavouritesProps) => {
+export const Favourites = () => {
   const navigate = useNavigate();
-  const booksCount: number = books.length;
+  const { favorites } = useCartFavorites();
+  const booksCount: number = favorites.length;
   const isEmptyBooks: boolean = booksCount === 0;
   const { t } = useTranslation();
 
@@ -38,15 +36,17 @@ export const Favourites = ({
         {t('ui.back')}
       </button>
 
-      <h1 className={cn(TYPOGRAPHY.h1, 'mb-2 text-foreground')}>{t(title)}</h1>
-      <p className="mb-8 text-gray-400">
+      <h1 className={cn(TYPOGRAPHY.h1, 'mb-2 text-foreground')}>
+        {t('favourites.title')}
+      </h1>
+      <p className="mb-8 text-muted-foreground">
         {t('items.count', { count: booksCount })}
       </p>
 
       {isEmptyBooks ?
         <FavouritesEmpty />
       : <div className="grid grid-cols-1 sm:grid-cols-2 [@media(min-width:1200px)]:grid-cols-4 gap-4 justify-items-center">
-          {books.map((item) => (
+          {favorites.map((item) => (
             <ProductCard
               key={item.id}
               book={item}

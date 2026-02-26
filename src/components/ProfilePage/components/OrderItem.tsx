@@ -6,14 +6,14 @@ import type { Order } from '@/types/Order';
 import { ORDER_STATUS_CONFIG } from '../constants/orderStatusConfig';
 import { formatDate } from '../helpers/formatDate';
 import { useCurrency } from '@/context/CurrencyContext';
+import {
+  applyDiscount,
+  convertPrice,
+} from '@/components/Orders/helpers/priceUtils';
 
 interface OrderItemProps {
   order: Order;
 }
-
-const getTotalPrice = (total: number, currency: string, rate: number) => {
-  return currency === 'USD' ? total : Math.round(total * rate);
-};
 
 export const OrderItem = ({ order }: OrderItemProps) => {
   const navigate = useNavigate();
@@ -31,7 +31,8 @@ export const OrderItem = ({ order }: OrderItemProps) => {
     event.stopPropagation();
   };
 
-  const total = order && getTotalPrice(order.total, currency, rate);
+  const subtotal = convertPrice(order.subtotal, currency, rate);
+  const { total } = applyDiscount(subtotal, order.discount);
   const symbol = currency === 'USD' ? '$' : '₴';
 
   return (
@@ -44,9 +45,16 @@ export const OrderItem = ({ order }: OrderItemProps) => {
           <ShoppingBag className="w-4 h-4 text-muted-foreground" />
         </div>
         <div>
-          <p className="text-sm font-medium text-foreground">
-            #{order.id.slice(0, 12)}
-          </p>
+          <div className="flex items-center gap-2">
+            <p className="text-sm font-medium text-foreground">
+              #{order.id.slice(0, 12)}
+            </p>
+            {order.discount != null && order.discount > 0 && (
+              <span className="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                -{order.discount}%
+              </span>
+            )}
+          </div>
           <p className="text-xs text-muted-foreground mt-0.5">
             {formatDate(order.createdAt)} · {order.items.length} книг(и)
           </p>

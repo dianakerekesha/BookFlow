@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { createOrder, createStripeIntent } from '@/services/paymentAPI';
+import {
+  createOrder,
+  createStripeIntent,
+  saveOrderDiscount,
+} from '@/services/paymentAPI';
 import { auth } from '@/firebase/firebase';
 import { showError, showSuccess } from '@/lib/toast';
 import type { CheckoutFormValues } from '@/components/Checkout';
@@ -8,18 +12,24 @@ import type { Order, PaymentMethod } from '@/types/Order';
 import { t } from 'i18next';
 import type { CartItem } from '@/types/Book';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/context/AuthContext';
+import { DISCOUNT_PERCENTAGE } from '@/components/RegisterPromo/types/promo-constants';
 
 export const useCheckout = (
   cartItems: CartItem[],
   paymentMethod: PaymentMethod,
+  onClearCart: () => void,
 ) => {
   const navigate = useNavigate();
+  const { userData, consumeDiscount } = useAuth();
 
   const [currentOrder, setCurrentOrder] = useState<Order | null>(null);
   const [stripeClientSecret, setStripeClientSecret] = useState<string | null>(
     null,
   );
   const [step, setStep] = useState<'delivery' | 'payment'>('delivery');
+
+  const discount = userData?.discount ? DISCOUNT_PERCENTAGE : undefined;
 
   const mutation = useMutation<Order, Error, CheckoutFormValues>({
     mutationFn: async (customer) => {
@@ -29,8 +39,13 @@ export const useCheckout = (
         customer,
         items: cartItems,
         paymentMethod,
+        discount,
         userId: auth.currentUser.uid,
       });
+
+      if (discount) {
+        await saveOrderDiscount(order.id, discount);
+      }
 
       if (paymentMethod === 'stripe') {
         const { clientSecret } = await createStripeIntent(
@@ -40,7 +55,7 @@ export const useCheckout = (
         setStripeClientSecret(clientSecret);
       }
 
-      return order;
+      return discount ? { ...order, discount } : order;
     },
     onSuccess: (order) => {
       setCurrentOrder(order);
@@ -53,7 +68,11 @@ export const useCheckout = (
     mutation.mutate(data);
   };
 
-  const handlePaymentSuccess = () => {
+  const handlePaymentSuccess = async () => {
+    if (discount) {
+      await consumeDiscount();
+    }
+    onClearCart();
     navigate(`/order-success/${currentOrder?.id}`);
     showSuccess(t('toast.orderSuccess'));
   };

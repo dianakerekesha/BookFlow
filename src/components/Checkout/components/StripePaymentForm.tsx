@@ -3,6 +3,7 @@ import { Loader2 } from 'lucide-react';
 import { useStripePayment } from '../hooks/useStripePayment';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 interface StripePaymentFormProps {
   onSuccess: () => void;
@@ -18,6 +19,8 @@ export const StripePaymentForm = ({
     onError,
   });
 
+  const { t } = useTranslation();
+
   return (
     <form
       onSubmit={handleSubmitPayment}
@@ -31,7 +34,7 @@ export const StripePaymentForm = ({
       >
         {isLoading ?
           <Loader2 className="w-5 h-5 animate-spin" />
-        : 'Pay now'}
+        : t('login.payNow')}
       </Button>
     </form>
   );

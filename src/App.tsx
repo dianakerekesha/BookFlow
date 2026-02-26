@@ -25,9 +25,7 @@ const CategoryPage = named(
   () => import('./pages/CategoryPage'),
   'CategoryPage',
 );
-const CheckoutPage = lazy(
-  () => import('@/pages/CheckoutPage/CheckoutPage.tsx'),
-);
+const CheckoutPage = lazy(() => import('@/pages/CheckoutPage'));
 const ContactsPage = named(
   () => import('@/pages/ContactsPage'),
   'ContactsPage',
@@ -49,10 +47,7 @@ const NotFoundPage = named(
 const OrdersPage = lazy(() => import('@/pages/OrderPage'));
 const OrderSuccessPage = lazy(() => import('@/pages/OrderSuccessPage.tsx'));
 const PaperPage = named(() => import('@/pages/PaperPage'), 'PaperPage');
-const ProfilePage = named(
-  () => import('./pages/ProfilePage/ProfilePage'),
-  'ProfilePage',
-);
+const ProfilePage = named(() => import('@/pages/ProfilePage'), 'ProfilePage');
 const RightsPage = named(() => import('@/pages/RightsPage'), 'RightsPage');
 const SignUpPage = named(() => import('./pages/SignUpPage'), 'SignUpPage');
 

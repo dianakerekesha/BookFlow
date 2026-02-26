@@ -49,7 +49,7 @@ export const BooksSection = ({ title, books = [] }: Props) => {
         flex flex-col
         mt-[56px] pl-[16px] gap-[24px]
         md:mt-[56px] md:pl-[24px]
-        lg:mt-[80px] lg:w-[1126px] lg:mx-auto lg:pl-0
+        lg:mt-[80px] lg:w-[1136px] lg:mx-auto lg:pl-0
       "
       >
         <Carousel

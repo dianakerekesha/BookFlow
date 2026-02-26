@@ -27,7 +27,8 @@ export const ScrollButton = ({
       const step =
         amount ||
         (firstCard ?
-          firstCard.offsetWidth + 16
+          firstCard.getBoundingClientRect().width +
+          parseInt(getComputedStyle(firstCard).marginRight)
         : scrollRef.current.clientWidth);
       const scrollAmount = direction === 'left' ? -step : step;
 

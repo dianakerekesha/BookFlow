@@ -7,6 +7,7 @@ import {
   query,
   where,
   orderBy,
+  updateDoc,
 } from 'firebase/firestore';
 import type { Order, CreateOrderPayload } from '../types/Order';
 import { auth, firestore, functions } from '@/firebase/firebase';
@@ -50,6 +51,7 @@ const docToOrder = (id: string, data: Record<string, unknown>): Order => ({
   customer: data.customer as Order['customer'],
   items: data.items as Order['items'],
   subtotal: data.subtotal as number,
+  discount: data.discount as number | undefined,
   total: data.total as number,
   userId: data.userId as string | undefined,
   invoiceUrl: data.invoiceUrl as string | undefined,
@@ -86,6 +88,14 @@ export const getUserOrders = async (): Promise<Order[]> => {
 
   const snap = await getDocs(q);
   return snap.docs.map((d) => docToOrder(d.id, d.data()));
+};
+
+export const saveOrderDiscount = async (
+  orderId: string,
+  discount: number,
+): Promise<void> => {
+  const ref = doc(firestore, 'orders', orderId);
+  await updateDoc(ref, { discount });
 };
 
 export const createStripeIntent = async (

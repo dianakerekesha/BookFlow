@@ -1,5 +1,6 @@
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useState,
@@ -7,7 +8,7 @@ import {
 } from 'react';
 import { auth, firestore } from '@/firebase/firebase';
 import { onAuthStateChanged, type User } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
 
 type UserData = {
   name?: string;
@@ -20,6 +21,7 @@ type AuthContextType = {
   userData: UserData | null;
   userLoggedIn: boolean;
   loading: boolean;
+  consumeDiscount: () => Promise<void>;
 };
 
 type AuthProviderProps = {
@@ -59,6 +61,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setLoading(false);
   }
 
+  const consumeDiscount = useCallback(async () => {
+    if (!currentUser) return;
+
+    const userRef = doc(firestore, 'users', currentUser.uid);
+    await updateDoc(userRef, { discount: false });
+    setUserData((prev) => (prev ? { ...prev, discount: false } : prev));
+  }, [currentUser]);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, initializeUser);
     return unsubscribe;
@@ -69,6 +79,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     userData,
     userLoggedIn,
     loading,
+    consumeDiscount,
   };
 
   return (

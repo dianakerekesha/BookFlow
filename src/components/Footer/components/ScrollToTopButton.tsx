@@ -27,12 +27,12 @@ export const ScrollToTopButton = ({ className }: ScrollToTopButtonProps) => {
       <span
         className={cn(
           TYPOGRAPHY.small,
-          'leading-none whitespace-nowrap text-accent group-hover:text-popover transition-colors',
+          'leading-none whitespace-nowrap text-input group-hover:text-popover transition-colors',
         )}
       >
         {t(FooterTranslationKey.BackToTop)}
       </span>
-      <ChevronUp className="h-4 w-4 text-accent group-hover:text-popover transition-colors" />
+      <ChevronUp className="h-4 w-4 text-input group-hover:text-popover transition-colors" />
     </button>
   );
 };
