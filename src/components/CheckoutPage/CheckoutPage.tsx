@@ -13,7 +13,7 @@ import { useCheckout } from './hooks/useCheckout';
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
-  const { cart: cartItems } = useCartAndFavorites();
+  const { cart: cartItems, clearCart } = useCartAndFavorites();
   const [paymentMethod, setPaymentMethod] = useState<'stripe' | 'liqpay'>(
     'stripe',
   );
@@ -27,7 +27,7 @@ const CheckoutPage = () => {
     handleDeliverySubmit,
     handlePaymentSuccess,
     handlePaymentError,
-  } = useCheckout(cartItems || [], paymentMethod);
+  } = useCheckout(cartItems || [], paymentMethod, clearCart);
 
   if (!cartItems || cartItems.length === 0) {
     return (

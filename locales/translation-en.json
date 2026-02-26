@@ -21,7 +21,13 @@
     "languageSelector": "UA",
     "ukrainian": "ukrainian",
     "english": "english",
-    "noResults": "Unfortunately, no matches..."
+    "noResults": "Unfortunately, no matches...",
+    "user": "User",
+    "preservation": "Preservation...",
+    "saveChanges": "Save сhanges",
+    "cancel": "Cancel",
+    "deleting": "Deleting...",
+    "delete": "Delete"
   },
 
   "search": {
@@ -96,7 +102,11 @@
     "emptyTitle": "Your cart is still sleeping",
     "emptyDescription": "Add some books to wake it up",
     "emptyButton": "Back to Shop",
-    "viewAll": "View all"
+    "viewAll": "View all",
+    "orderHistory": "Order history",
+    "noOrder": "No orders yet",
+    "collapse": "Collapse",
+    "showAll": "Show all"
   },
 
   "favourites": {
@@ -145,7 +155,12 @@
   },
 
   "team": {
-    "ourTeam": "Our Team"
+    "ourTeam": "Our Team",
+    "artem_stadnik": "Led the frontend team and architected core infrastructure. Built custom lazy-loading with React.lazy + Suspense for code-splitting across 15+ routes. Engineered the full checkout pipeline: multi-step delivery → payment flow via Firebase Cloud Functions, Stripe Elements, and LiqPay. Developed the cart system with Context API, localStorage persistence, and currency conversion. Built GSAP-powered homepage animations — hero clip-path reveals, ScrollTrigger entrances, and staggered 3D card transitions. Designed the PDF invoice system with @react-pdf/renderer. Implemented order history with Telegram bot deep-link tracking. Mentored all team members throughout the project.",
+    "artem_yurin": "Built the catalog engine with Firestore composite queries — multi-field filtering (language, book type, category via array-contains) and dynamic sorting. Implemented URL-synced pagination with useSearchParams, page windowing, smooth scroll, and skeleton transitions. Engineered Firebase Auth: email/password registration, Google sign-in popup, Firestore user documents with discount flags, and AuthContext with onAuthStateChanged. Created the universal GridContainer — a responsive 4/12/24-column CSS Grid layout system powering the entire platform. Built catalog filter controls with sort and items-per-page selectors synced to URL search params.",
+    "diana_kerekesha": "Developed global search: debounced React Query-powered search across all book types, results grouped by authors/publishers/titles with deduplication, rendered in a Radix UI Dialog. Engineered fly-to-target GSAP animations for cart and favorites — icon cloning, curved path animation with rotation, blur, and bounce on arrival. Created the first-visit promo modal with localStorage gating and timed auto-display. Built the sticky header with responsive navigation, Radix Select category dropdown, and burger menu integration. Developed the Favourites page with responsive grid and empty state. Built Paper, Kindle, and Audiobooks pages.",
+    "taras_demianuk": "Built the UI component library from scratch: Button, Card, Carousel (Embla-based), Command, Dialog, Input, Select, Pagination — following shadcn/ui patterns with Tailwind variants. Designed the responsive BurgerMenu with full-screen overlay, auth-aware actions, and integrated search. Set up TanStack React Query with structured query keys, caching, and stale-while-revalidate patterns across the app. Built the toast notification system with react-toastify. Configured ImageKit CDN for all book covers, team photos, and static assets. Created reusable form primitives — Field, Label, and SearchInput components with consistent styling and validation support.",
+    "alina_khvorostian": "Built the homepage composition: MainSlider hero, BooksSection carousels on Embla Carousel with snap scrolling, drag-free navigation, and custom scroll buttons. Developed the CategoriesSection with interactive drag-to-rotate book images — mouse-tracked rotation with ±65° clamping and spring-back easing. Created the ProductCard with Kindle iPad overlay composite, currency conversion, and discount pricing. Implemented i18n with i18next + LanguageDetector for English/Ukrainian. Built the ThemeProvider with dark/light toggle and flash-free transitions."
   },
 
   "login": {
@@ -160,6 +175,7 @@
     "noAccount?": "Don&apos;t have an account?",
     "createAccount": "Create an account",
     "enterInfo": "Enter your information below to create your account",
+    "enterFullName": "Enter full name",
     "fullName": "Full name",
     "firstName": "First name",
     "lastName": "Last name",
@@ -177,7 +193,25 @@
     "StreetAddressPlaceholder": "123 Main Street, Apt 4B",
     "proceedPayment": "Proceed to Payment",
     "passwordError": "Must be at least 8 characters long.",
-    "haveAccount?": "Already have an account?"
+    "changePassword": "Change password",
+    "haveAccount?": "Already have an account?",
+    "orderSummary": "Order summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "calculatedNext": "Calculated at next step",
+    "total": "Total",
+    "paymentMethod": "Payment method",
+    "payNow": "Pay now",
+    "personalData": "Personal data",
+    "logOutAccount": "Log out of account",
+    "deleteAccount": "Delete account",
+    "deleteAccountNotification": "This action is irreversible. All your data will be deleted. Are you sure?",
+    "enterPasswordForConfirmation": "Enter password to confirm",
+    "securityAccount": "Security and account",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "passwordLength": "Must be at least 6 characters long",
+    "passwordConfirm": "Confirm new password"
   },
 
   "errors": {

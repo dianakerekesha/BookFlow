@@ -42,6 +42,8 @@ export const useCartAndFavorites = () => {
     );
   };
 
+  const clearCart = () => setCart([]);
+
   const toggleFavorite = (book: Book) => {
     setFavorites((prev) => {
       const isFav = prev.some((item) => item.id === book.id);
@@ -55,6 +57,7 @@ export const useCartAndFavorites = () => {
     favorites,
     addToCart,
     removeFromCart,
+    clearCart,
     increaseQuantity,
     decreaseQuantity,
     toggleFavorite,

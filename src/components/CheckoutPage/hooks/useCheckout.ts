@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 export const useCheckout = (
   cartItems: CartItem[],
   paymentMethod: PaymentMethod,
+  onClearCart: () => void,
 ) => {
   const navigate = useNavigate();
 
@@ -54,6 +55,7 @@ export const useCheckout = (
   };
 
   const handlePaymentSuccess = () => {
+    onClearCart();
     navigate(`/order-success/${currentOrder?.id}`);
     showSuccess(t('toast.orderSuccess'));
   };

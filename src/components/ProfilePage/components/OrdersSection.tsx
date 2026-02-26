@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp, Package } from 'lucide-react';
 import { Card } from './Card';
 import { OrderItem } from './OrderItem';
 import { useUserOrdersPreview } from '../hooks/useUserOrdersPreview';
+import { useTranslation } from 'react-i18next';
 
 export const OrdersSection = () => {
   const {
@@ -14,6 +15,8 @@ export const OrdersSection = () => {
     hasMoreOrders,
     handleToggleShowAll,
   } = useUserOrdersPreview();
+
+  const { t } = useTranslation();
 
   if (isLoading) {
     return (
@@ -34,13 +37,13 @@ export const OrdersSection = () => {
   return (
     <Card>
       <h2 className={cn(TYPOGRAPHY.h4, 'text-foreground mb-6')}>
-        Історія замовлень
+        {t('cart.orderHistory')}
       </h2>
 
       {orders.length === 0 ?
         <div className="flex flex-col items-center justify-center py-16 gap-3 text-muted-foreground">
           <Package className="w-12 h-12 opacity-30" />
-          <p className="text-sm">Замовлень ще немає</p>
+          <p className="text-sm">{t('cart.noOrder')}</p>
         </div>
       : <div className="flex flex-col gap-3">
           {visibleOrders.map((order) => (
@@ -58,11 +61,11 @@ export const OrdersSection = () => {
               {isShowingAll ?
                 <>
                   <ChevronUp className="w-4 h-4" />
-                  Згорнути
+                  {t('cart.сollapse')}
                 </>
               : <>
                   <ChevronDown className="w-4 h-4" />
-                  Показати всі ({orders.length})
+                  {t('cart.showAll')} ({orders.length})
                 </>
               }
             </button>

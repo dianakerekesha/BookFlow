@@ -36,5 +36,5 @@ export const NAVIGATION_LINKS: NavigationLink[] = [
 
 export const LINK_CLASS_NAME = cn(
   TYPOGRAPHY.uppercase,
-  'no-underline text-accent hover:text-popover transition-colors',
+  'no-underline text-input hover:text-popover transition-colors',
 );

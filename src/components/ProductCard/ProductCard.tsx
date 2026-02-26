@@ -74,7 +74,7 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
     rounded-xl border border-border bg-card hover:shadow-lg transition-shadow"
     >
       {book.type === 'audiobook' && (
-        <div className="absolute top-8 right-6 w-10 h-10 flex items-center justify-center bg-primary rounded-full z-10">
+        <div className="absolute top-8 right-6 w-10 h-10 flex items-center justify-center bg-muted-foreground rounded-full z-10">
           <Icon
             name="headphones"
             className="text-white"
@@ -88,18 +88,21 @@ export const ProductCard: React.FC<Props> = ({ book }) => {
         className="relative flex-shrink-0 flex items-center justify-center w-full h-[185px] lg:w-[208px] sm:h-[263px]"
       >
         {book.type === 'kindle' ?
-          <>
-            <ImageWithSkeleton
-              className="w-full h-full object-contain"
-              src={`https://ik.imagekit.io/ox4rssyih/img/audiobook/2.webp?updatedAt=1771496288464`}
-              alt="iPad"
-            />
-            <ImageWithSkeleton
-              className="pointer-events-none absolute top-[8.7%] left-[10.5%] w-[79.5%] h-[82%] object-cover"
-              src={`${book.images[0]}`}
-              alt={book.name}
-            />
-          </>
+          <div className="relative w-full h-full overflow-hidden flex items-center justify-center">
+            <div className="relative h-full aspect-[3/4]">
+              <ImageWithSkeleton
+                src="https://ik.imagekit.io/ox4rssyih/img/audiobook/2.webp?updatedAt=1771496288464"
+                alt="iPad"
+                className="w-full h-full object-contain"
+              />
+
+              <ImageWithSkeleton
+                src={book.images[0]}
+                alt={book.name}
+                className="absolute top-[8.7%] left-[10.5%] w-[79.5%] h-[82%] object-cover"
+              />
+            </div>
+          </div>
         : <ImageWithSkeleton
             src={`${book.images[0]}`}
             alt={book.name}
