@@ -79,7 +79,7 @@ export const TeamMemberCard = ({
 
       <div
         className={cn(
-          'absolute inset-0 flex flex-col justify-between p-5 z-20',
+          'absolute inset-0 flex flex-col p-5 z-20 overflow-y-auto',
           'bg-card text-card-foreground',
           'transition-all duration-500 ease-in-out',
           isActive ?
@@ -87,7 +87,7 @@ export const TeamMemberCard = ({
           : 'translate-x-full opacity-0 pointer-events-none',
         )}
       >
-        <div className="flex justify-between items-start">
+        <div className="flex justify-between items-start shrink-0">
           <img
             src={member.photo}
             alt={member.name}
@@ -102,7 +102,7 @@ export const TeamMemberCard = ({
           </button>
         </div>
 
-        <div className="flex-1 mt-3">
+        <div className="mt-3">
           <h3 className={`${TYPOGRAPHY.h2} text-card-foreground leading-tight`}>
             {member.name}
           </h3>
@@ -116,7 +116,9 @@ export const TeamMemberCard = ({
           </p>
         </div>
 
-        <SocialLinks member={member} />
+        <div className="mt-auto shrink-0">
+          <SocialLinks member={member} />
+        </div>
       </div>
     </div>
   );
