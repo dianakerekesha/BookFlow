@@ -66,11 +66,11 @@ Developed global search: debounced React Query-powered search across all book ty
 
 [GitHub](https://github.com/dianakerekesha) · [LinkedIn](https://linkedin.com/in/diana-kerekesha) · [Telegram](https://t.me/dianakerekesha)
 
-### Taras Demianuk — Full-stack Developer
+### Taras Demianiuk — Full-stack Developer
 
 Built the UI component library from scratch: Button, Card, Carousel (Embla-based), Command, Dialog, Input, Select, Pagination — following shadcn/ui patterns with Tailwind variants. Designed the responsive BurgerMenu with full-screen overlay, auth-aware actions, and integrated search. Set up TanStack React Query with structured query keys, caching, and stale-while-revalidate patterns across the app. Built the toast notification system with react-toastify. Configured ImageKit CDN for all book covers, team photos, and static assets. Created reusable form primitives — Field, Label, and SearchInput components with consistent styling and validation support.
 
-[GitHub](https://github.com/Demtar23) · [LinkedIn](https://linkedin.com/in/taras-demianuk/) · [Telegram](https://t.me/Demtar23)
+[GitHub](https://github.com/Demtar23) · [LinkedIn](https://linkedin.com/in/taras-demianiuk/) · [Telegram](https://t.me/Demtar23)
 
 ### Alina Khvorostian — Frontend Developer
 
