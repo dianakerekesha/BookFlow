@@ -35,15 +35,15 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: 'https://linkedin.com/in/diana-kerekesha',
   },
   {
-    name: 'Taras Demianuk',
+    name: 'Taras Demianiuk',
     position: 'Full-stack Developer',
-    descriptionKey: 'team.taras_demianuk',
+    descriptionKey: 'team.taras_demianiuk',
     photo: 'https://ik.imagekit.io/ox4rssyih/img/contacts/taras-demianiuk.JPG',
     gradient: 'from-amber-400 to-orange-500',
     telegram: 'https://t.me/Demtar23',
     email: 'mailto:demtaras1@gmail.com',
     github: 'https://github.com/Demtar23',
-    linkedin: 'https://linkedin.com/in/taras-demianuk/',
+    linkedin: 'https://linkedin.com/in/taras-demianiuk/',
   },
   {
     name: 'Alina Khvorostian',
