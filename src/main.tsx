@@ -25,7 +25,7 @@ if (redirectPath) {
   window.history.replaceState(
     null,
     '',
-    '/books-catalog-frontend' + redirectPath,
+    '/BookFlow' + redirectPath,
   );
 }
 
@@ -33,7 +33,7 @@ const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')!).render(
   <QueryClientProvider client={queryClient}>
-    <BrowserRouter basename="/books-catalog-frontend/">
+    <BrowserRouter basename="/BookFlow/">
       <AuthProvider>
         <CartFavoritesProvider>
           <BooksProvider>
