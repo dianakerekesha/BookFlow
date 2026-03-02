@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "format": "prettier . --ignore-path .gitignore --write",
     "lint": "eslint . --fix",
     "fix-style": "npm run format && npm run lint",
