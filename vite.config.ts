@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/books-catalog-frontend/',
+  base: '/BookFlow/',
   define: {
     global: 'globalThis',
   },
